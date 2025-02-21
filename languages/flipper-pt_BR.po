@@ -1,0 +1,181 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: pt_BR\n"
+
+# =====================
+# CPT
+# =====================
+# =====================
+# 📚 Custom Post Type: Digital Books
+# =====================
+msgid "Digital Books"
+msgstr "Livros Digitais"
+
+msgid "Digital Book"
+msgstr "Livro Digital"
+
+msgid "Add New"
+msgstr "Adicionar Novo"
+
+msgid "Add New Digital Book"
+msgstr "Adicionar Novo Livro Digital"
+
+msgid "New Digital Book"
+msgstr "Novo Livro Digital"
+
+msgid "Edit Digital Book"
+msgstr "Editar Livro Digital"
+
+msgid "View Digital Book"
+msgstr "Ver Livro Digital"
+
+msgid "All Digital Books"
+msgstr "Todos os Livros Digitais"
+
+msgid "Search Digital Book"
+msgstr "Buscar Livro Digital"
+
+msgid "No Digital Books found"
+msgstr "Nenhum Livro Digital encontrado"
+
+msgid "No Digital Books found in trash"
+msgstr "Nenhum Livro Digital encontrado na lixeira"
+
+# =====================
+# 🏷️ Taxonomy: Categories
+# =====================
+msgid "Categories"
+msgstr "Categorias"
+
+msgid "Category"
+msgstr "Categoria"
+
+msgid "Search Categories"
+msgstr "Buscar Categorias"
+
+msgid "All Categories"
+msgstr "Todas as Categorias"
+
+msgid "Edit Category"
+msgstr "Editar Categoria"
+
+msgid "Update Category"
+msgstr "Atualizar Categoria"
+
+msgid "Add New Category"
+msgstr "Adicionar Nova Categoria"
+
+msgid "New Category Name"
+msgstr "Novo Nome da Categoria"
+
+# =====================
+#  Elementor Widget
+# =====================
+
+# =====================
+# 🏷️ Nomes das seções
+# =====================
+#: widgets/flipper-widget.php:15
+msgid "Page Flipper"
+msgstr "Virador de Página"
+
+#: widgets/flipper-widget.php:21
+msgid "Query"
+msgstr "Consulta"
+
+#: widgets/flipper-widget.php:30
+msgid "Settings"
+msgstr "Configurações"
+
+#: widgets/flipper-widget.php:40
+msgid "Style"
+msgstr "Estilo"
+
+# ============================
+# 🔍 Configurações da Query
+# ============================
+#: widgets/flipper-widget.php:50
+msgid "Include"
+msgstr "Incluir"
+
+#: widgets/flipper-widget.php:51
+msgid "Exclude"
+msgstr "Excluir"
+
+#: widgets/flipper-widget.php:60
+msgid "Include Terms"
+msgstr "Incluir Termos"
+
+#: widgets/flipper-widget.php:70
+msgid "Exclude Terms"
+msgstr "Excluir Termos"
+
+#: widgets/flipper-widget.php:80
+msgid "Order"
+msgstr "Ordem"
+
+#: widgets/flipper-widget.php:85
+msgid "Ascending"
+msgstr "Crescente"
+
+#: widgets/flipper-widget.php:86
+msgid "Descending"
+msgstr "Decrescente"
+
+#: widgets/flipper-widget.php:90
+msgid "Order By"
+msgstr "Ordenar Por"
+
+#: widgets/flipper-widget.php:95
+msgid "Date"
+msgstr "Data"
+
+#: widgets/flipper-widget.php:96
+msgid "Title"
+msgstr "Título"
+
+#: widgets/flipper-widget.php:97
+msgid "Random"
+msgstr "Aleatório"
+
+# ============================
+# 🔧 Configurações Gerais
+# ============================
+#: widgets/flipper-widget.php:110
+msgid "Enable Summary"
+msgstr "Habilitar Sumário"
+
+#: widgets/flipper-widget.php:120
+msgid "Enable Action Bar"
+msgstr "Habilitar Barra de Ações"
+
+#: widgets/flipper-widget.php:130
+msgid "Enable Navigation Controls"
+msgstr "Habilitar Controles de Navegação"
+
+# ============================
+# 🎨 Aba de Estilo (Style)
+# ============================
+#: widgets/flipper-widget.php:145
+msgid "Action Bar Background Color"
+msgstr "Cor de Fundo da Barra de Ações"
+
+#: widgets/flipper-widget.php:155
+msgid "Summary Background Color"
+msgstr "Cor de Fundo do Sumário"
+
+#: widgets/flipper-widget.php:165
+msgid "Controls Icon Color"
+msgstr "Cor dos Ícones dos Controles"
+
+#: widgets/flipper-widget.php:175
+msgid "Typography"
+msgstr "Tipografia"
+
+# ============================
+# 🛠️ Mensagens do Widget
+# ============================
+#: widgets/flipper-widget.php:190
+msgid "No pages found."
+msgstr "Nenhuma página encontrada."

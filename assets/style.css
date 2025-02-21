@@ -1,0 +1,25 @@
+#flipper_images_preview {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.flipper-image-item {
+    position: relative;
+    display: inline-block;
+}
+.flipper_remove_image {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 16px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+}
