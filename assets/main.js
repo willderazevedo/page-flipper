@@ -1,6 +1,4 @@
 document.addEventListener('alpine:init', () => {
-    
-
     Alpine.data('flipperBuilder', () => ({
         sortable: null,
         pages: [],
@@ -91,8 +89,20 @@ document.addEventListener('alpine:init', () => {
             });
         },
         selectPage(page) {
-            this.selectedPage.selected = false;
+            if (this.selectedPage) this.selectedPage.selected = false;
+
             page.selected = true;
+        },
+        removePage(page) {
+            const pageIndex = this.pages.findIndex(item => item.attachment.id === page.attachment.id);
+
+            this.pages.splice(pageIndex, 1);
+            this.pages.forEach(item => {
+                if (item.order > page.order) item.order -= 1;
+            });
+
+            if (page.selected && this.pages.length) this.selectPage(this.pages[0]);
+            if (!this.pages.length) this.sortable = null;
         }
     }));
 });
