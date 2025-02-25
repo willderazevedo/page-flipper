@@ -186,8 +186,8 @@ msgstr "Nenhuma página encontrada."
 msgid "Select Images"
 msgstr "Selecionar Imagens"
 
-msgid "Select PDF"
-msgstr "Selecionar PDF"
+msgid "Remove Pages"
+msgstr "Remover Páginas"
 
 msgid "Page List"
 msgstr "Lista de Páginas"

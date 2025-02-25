@@ -57,6 +57,10 @@ document.addEventListener('alpine:init', () => {
             });
 
             document.querySelector('.flipper-builder-wrapper .upload-images').addEventListener('click', () => imagesFrame.open());
+            document.querySelector('.flipper-builder-wrapper .remove-pages').addEventListener('click', () => {
+                this.pages = [];
+                this.sortable = null;
+            });
         },
         initPageListSort() {
             const builderPageList = document.querySelector('.flipper-builder-wrapper .page-list');

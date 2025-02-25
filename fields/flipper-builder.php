@@ -34,7 +34,7 @@ function render_flipper_builder_meta_box( $post ) {
             <div class="flipper-sidebar">
                 <div class="sidebar-actions">
                     <button class="upload-images" type="button"><?php _e('Select Images', 'page-flipper'); ?></button>
-                    <button class="upload-pdf" type="button"><?php _e('Select PDF', 'page-flipper'); ?></button>
+                    <button class="remove-pages" x-bind:class="{'disabled': !pages.length}" x-bind:disabled="!pages.length" type="button"><?php _e('Remove Pages', 'page-flipper'); ?></button>
                 </div>
 
                 <template x-if="pages.length">
