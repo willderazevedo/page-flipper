@@ -5,7 +5,7 @@ class Flipper_Widget extends \Elementor\Widget_Base {
     }
 
     public function get_title() {
-        return __( 'Page Flipper', 'text-domain' );
+        return __( 'Page Flipper', 'page-flipper' );
     }
 
     public function get_icon() {
@@ -29,7 +29,7 @@ class Flipper_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_query',
             [
-                'label' => __( 'Query', 'text-domain' ),
+                'label' => __( 'Query', 'page-flipper' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -41,14 +41,14 @@ class Flipper_Widget extends \Elementor\Widget_Base {
         $this->start_controls_tab(
             'include_tab',
             [
-                'label' => __( 'Include', 'text-domain' ),
+                'label' => __( 'Include', 'page-flipper' ),
             ]
         );
 
         $this->add_control(
             'include_terms',
             [
-                'label'    => __( 'Include Terms', 'text-domain' ),
+                'label'    => __( 'Include Terms', 'page-flipper' ),
                 'type'     => \Elementor\Controls_Manager::SELECT2,
                 'options'  => \Elementor\Plugin::$instance->controls_manager->get_control_options_from_taxonomy( 'page_flipper_category' ),
                 'multiple' => true,
@@ -61,14 +61,14 @@ class Flipper_Widget extends \Elementor\Widget_Base {
         $this->start_controls_tab(
             'exclude_tab',
             [
-                'label' => __( 'Exclude', 'text-domain' ),
+                'label' => __( 'Exclude', 'page-flipper' ),
             ]
         );
 
         $this->add_control(
             'exclude_terms',
             [
-                'label'    => __( 'Exclude Terms', 'text-domain' ),
+                'label'    => __( 'Exclude Terms', 'page-flipper' ),
                 'type'     => \Elementor\Controls_Manager::SELECT2,
                 'options'  => \Elementor\Plugin::$instance->controls_manager->get_control_options_from_taxonomy( 'page_flipper_category' ),
                 'multiple' => true,
@@ -82,12 +82,12 @@ class Flipper_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'order',
             [
-                'label'   => __( 'Order', 'text-domain' ),
+                'label'   => __( 'Order', 'page-flipper' ),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'DESC',
                 'options' => [
-                    'ASC'  => __( 'Ascending', 'text-domain' ),
-                    'DESC' => __( 'Descending', 'text-domain' ),
+                    'ASC'  => __( 'Ascending', 'page-flipper' ),
+                    'DESC' => __( 'Descending', 'page-flipper' ),
                 ],
             ]
         );
@@ -96,13 +96,13 @@ class Flipper_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'orderby',
             [
-                'label'   => __( 'Order By', 'text-domain' ),
+                'label'   => __( 'Order By', 'page-flipper' ),
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'default' => 'date',
                 'options' => [
-                    'date'       => __( 'Date', 'text-domain' ),
-                    'title'      => __( 'Title', 'text-domain' ),
-                    'rand'       => __( 'Random', 'text-domain' )
+                    'date'       => __( 'Date', 'page-flipper' ),
+                    'title'      => __( 'Title', 'page-flipper' ),
+                    'rand'       => __( 'Random', 'page-flipper' )
                 ],
             ]
         );
@@ -114,7 +114,7 @@ class Flipper_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_settings',
             [
-                'label' => __( 'Settings', 'text-domain' ),
+                'label' => __( 'Settings', 'page-flipper' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -123,10 +123,10 @@ class Flipper_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'enable_summary',
             [
-                'label'        => __( 'Enable Summary', 'text-domain' ),
+                'label'        => __( 'Enable Summary', 'page-flipper' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => __( 'Yes', 'text-domain' ),
-                'label_off'    => __( 'No', 'text-domain' ),
+                'label_on'     => __( 'Yes', 'page-flipper' ),
+                'label_off'    => __( 'No', 'page-flipper' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             ]
@@ -136,10 +136,10 @@ class Flipper_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'enable_action_bar',
             [
-                'label'        => __( 'Enable Action Bar', 'text-domain' ),
+                'label'        => __( 'Enable Action Bar', 'page-flipper' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => __( 'Yes', 'text-domain' ),
-                'label_off'    => __( 'No', 'text-domain' ),
+                'label_on'     => __( 'Yes', 'page-flipper' ),
+                'label_off'    => __( 'No', 'page-flipper' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             ]
@@ -149,10 +149,10 @@ class Flipper_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'enable_controls',
             [
-                'label'        => __( 'Enable Navigation Controls', 'text-domain' ),
+                'label'        => __( 'Enable Navigation Controls', 'page-flipper' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
-                'label_on'     => __( 'Yes', 'text-domain' ),
-                'label_off'    => __( 'No', 'text-domain' ),
+                'label_on'     => __( 'Yes', 'page-flipper' ),
+                'label_off'    => __( 'No', 'page-flipper' ),
                 'return_value' => 'yes',
                 'default'      => 'yes',
             ]
@@ -167,7 +167,7 @@ class Flipper_Widget extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'section_style',
             [
-                'label' => __( 'Style', 'text-domain' ),
+                'label' => __( 'Style', 'page-flipper' ),
                 'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
@@ -176,7 +176,7 @@ class Flipper_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'action_bar_bg_color',
             [
-                'label'     => __( 'Action Bar Background Color', 'text-domain' ),
+                'label'     => __( 'Action Bar Background Color', 'page-flipper' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .flipper-action-bar' => 'background-color: {{VALUE}};',
@@ -188,7 +188,7 @@ class Flipper_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'summary_bg_color',
             [
-                'label'     => __( 'Summary Background Color', 'text-domain' ),
+                'label'     => __( 'Summary Background Color', 'page-flipper' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .flipper-summary' => 'background-color: {{VALUE}};',
@@ -200,7 +200,7 @@ class Flipper_Widget extends \Elementor\Widget_Base {
         $this->add_control(
             'controls_icon_color',
             [
-                'label'     => __( 'Controls Icon Color', 'text-domain' ),
+                'label'     => __( 'Controls Icon Color', 'page-flipper' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .flipper-controls button i' => 'color: {{VALUE}};',
@@ -213,7 +213,7 @@ class Flipper_Widget extends \Elementor\Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             [
                 'name'     => 'content_typography',
-                'label'    => __( 'Typography', 'text-domain' ),
+                'label'    => __( 'Typography', 'page-flipper' ),
                 'selector' => '{{WRAPPER}} .flipper-widget',
             ]
         );
@@ -222,9 +222,63 @@ class Flipper_Widget extends \Elementor\Widget_Base {
     }
 
     protected function render() {
-        $settings  = $this->get_settings_for_display();
-        $languages = implode(',', $settings['languages']);
+        $settings = $this->get_settings_for_display();
+        $args = [
+            'post_type'      => 'page_flipper',
+            'posts_per_page' => 1,
+            'order'          => $settings['order'],
+            'orderby'        => $settings['orderby'],
+        ];
 
-        echo '<div id="google-translate-widget" data-languages="' . esc_attr( $languages ) . '"></div>';
+        if ( ! empty( $settings['include_terms'] ) ) {
+            $args['tax_query'][] = [
+                'taxonomy' => 'page_flipper_category',
+                'field'    => 'term_id',
+                'terms'    => $settings['include_terms'],
+                'operator' => 'IN',
+            ];
+        }
+
+        if ( ! empty( $settings['exclude_terms'] ) ) {
+            $args['tax_query'][] = [
+                'taxonomy' => 'page_flipper_category',
+                'field'    => 'term_id',
+                'terms'    => $settings['exclude_terms'],
+                'operator' => 'NOT IN',
+            ];
+        }
+
+        $query = new WP_Query($args);
+
+        if ( $query->have_posts() ) {
+            echo '<div class="flipper-widget">';
+            
+            if ( 'yes' === $settings['enable_summary'] ) {
+                echo '<div class="flipper-summary"><p>Summary of the page</p></div>';
+            }
+
+            while ( $query->have_posts() ) {
+                $query->the_post();
+                echo '<div class="flipper-item">';
+                echo '<h3><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
+                echo '</div>';
+            }
+
+            if ( 'yes' === $settings['enable_action_bar'] ) {
+                echo '<div class="flipper-action-bar"><button>Bookmark</button></div>';
+            }
+
+            if ( 'yes' === $settings['enable_controls'] ) {
+                echo '<div class="flipper-controls">';
+                echo '<button class="prev">← Previous</button>';
+                echo '<button class="next">Next →</button>';
+                echo '</div>';
+            }
+
+            echo '</div>';
+            wp_reset_postdata();
+        } else {
+            echo '<p>' . __( 'No pages found.', 'page-flipper' ) . '</p>';
+        }
     }
 }

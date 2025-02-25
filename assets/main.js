@@ -1,48 +1,91 @@
-jQuery(document).ready(function($) {
-    var frame;
-
-    // Abrir a biblioteca de mídia para selecionar várias imagens
-    $('.flipper_upload_images').on('click', function(e) {
-        e.preventDefault();
-        
-        if (frame) {
-            frame.open();
-            return;
+document.addEventListener('alpine:init', () => {
+    const imagesFrame = wp.media({
+        multiple: 'add',
+        library: {
+            type: [ 'image' ]
         }
-        
-        frame = wp.media({
-            title: 'Select Images',
-            button: { text: 'Use Images' },
-            multiple: true
-        });
+    });
 
-        frame.on('select', function() {
-            var selection = frame.state().get('selection');
-            var imageIDs = $('#flipper_images').val().split(',').filter(Boolean);
-
-            selection.each(function(attachment) {
-                imageIDs.push(attachment.id);
-                $('#flipper_images_preview').append(
-                    '<div class="flipper-image-item" data-id="'+attachment.id+'">' +
-                        '<img src="'+attachment.url+'" style="max-width: 100px; height: auto;">' +
-                        '<button type="button" class="button flipper_remove_image" data-id="'+attachment.id+'">✖</button>' +
-                    '</div>'
+    Alpine.data('flipperBuilder', () => ({
+        sortable: null,
+        pages: [],
+        get selectedPage() {
+            return this.pages.find(page => page.selected);
+        },
+        init() {
+            imagesFrame.on('select', () => {
+                const selection = imagesFrame.state().get('selection');
+                
+                this.pages = this.pages.filter(page => 
+                    selection.findIndex(attachment => attachment.id == page.attachment.id) !== -1
                 );
+                
+                selection.forEach((attachment, index) => {
+                    const page = this.pages.find(page => page.attachment.id === attachment.id);
+
+                    if (page) {
+                        if (!this.selectedPage) page.selected = true;
+
+                        return true;
+                    } 
+
+                    this.pages.push({
+                        selected: this.selectedPage ? false : index === 0,
+                        attachment: attachment,
+                        order: index
+                    });
+                });
+
+                setTimeout(() => this.pageListSortable(), 300);
             });
 
-            $('#flipper_images').val(imageIDs.join(','));
-        });
+            imagesFrame.on('open', () => {
+                const selection = imagesFrame.state().get('selection');
 
-        frame.open();
-    });
+                if (!this.pages.length) return;
 
-    // Remover imagem individual
-    $(document).on('click', '.flipper_remove_image', function() {
-        var imageID = $(this).data('id');
-        var imageIDs = $('#flipper_images').val().split(',').filter(Boolean);
-        imageIDs = imageIDs.filter(id => id !== imageID.toString());
+                this.pages.forEach(page => {
+                    const attachment = wp.media.attachment(page.attachment.id);
 
-        $('#flipper_images').val(imageIDs.join(','));
-        $(this).parent().remove();
-    });
+                    selection.add(attachment ? [attachment] : []);
+                })
+            });
+
+            document.querySelector('.flipper-builder-wrapper .upload-images').addEventListener('click', () => imagesFrame.open());
+        },
+        selectPage(page) {
+            this.selectedPage.selected = false;
+            page.selected = true;
+        },
+        pageListSortable() {
+            const builderPageList = document.querySelector('.flipper-builder-wrapper .page-list');
+            
+            if (!builderPageList || this.sortable) return;
+        
+            this.sortable = new Sortable(builderPageList, {
+                handle: '.drag-page',
+                ghostClass: '.ghost-page',
+                animation: 150,
+                onEnd: (event) => {
+                    const { oldIndex, newIndex } = event;
+        
+                    if (oldIndex === newIndex) return; 
+
+                    const movedPage = this.pages.find(page => page.order === oldIndex);
+
+                    if (!movedPage) return;
+
+                    this.pages.forEach(page => {
+                        if (page.order === oldIndex) {
+                            page.order = newIndex;
+                        } else if (oldIndex < newIndex && page.order > oldIndex && page.order <= newIndex) {
+                            page.order -= 1;
+                        } else if (oldIndex > newIndex && page.order < oldIndex && page.order >= newIndex) {
+                            page.order += 1;
+                        }
+                    });
+                }
+            });
+        }
+    }));
 });

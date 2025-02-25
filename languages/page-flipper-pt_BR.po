@@ -177,5 +177,41 @@ msgstr "Tipografia"
 # 🛠️ Mensagens do Widget
 # ============================
 #: widgets/flipper-widget.php:190
+msgid "Flipper Builder"
+msgstr "Construtor de Livros"
+
 msgid "No pages found."
 msgstr "Nenhuma página encontrada."
+
+msgid "Select Images"
+msgstr "Selecionar Imagens"
+
+msgid "Select PDF"
+msgstr "Selecionar PDF"
+
+msgid "Page List"
+msgstr "Lista de Páginas"
+
+msgid "Selected Page"
+msgstr "Página Selecionada"
+
+msgid "Unselected Page"
+msgstr "Página Não Selecionada"
+
+msgid "Narration"
+msgstr "Narração"
+
+msgid "Audio"
+msgstr "Áudio"
+
+msgid "Video"
+msgstr "Vídeo"
+
+msgid "Image"
+msgstr "Imagem"
+
+msgid "Text"
+msgstr "Texto"
+
+msgid "Hyperlink"
+msgstr "Link"
