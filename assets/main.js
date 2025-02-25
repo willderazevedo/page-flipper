@@ -1,10 +1,5 @@
 document.addEventListener('alpine:init', () => {
-    const imagesFrame = wp.media({
-        multiple: 'add',
-        library: {
-            type: [ 'image' ]
-        }
-    });
+    
 
     Alpine.data('flipperBuilder', () => ({
         sortable: null,
@@ -13,6 +8,16 @@ document.addEventListener('alpine:init', () => {
             return this.pages.find(page => page.selected);
         },
         init() {
+            this.initImageFrame();
+        },
+        initImageFrame() {
+            const imagesFrame = wp.media({
+                multiple: 'add',
+                library: {
+                    type: [ 'image' ]
+                }
+            });
+            
             imagesFrame.on('select', () => {
                 const selection = imagesFrame.state().get('selection');
                 
@@ -26,17 +31,19 @@ document.addEventListener('alpine:init', () => {
                     if (page) {
                         if (!this.selectedPage) page.selected = true;
 
+                        page.attachment = attachment;
+
                         return true;
                     } 
 
                     this.pages.push({
                         selected: this.selectedPage ? false : index === 0,
                         attachment: attachment,
-                        order: index
+                        order: this.pages.length
                     });
                 });
 
-                setTimeout(() => this.pageListSortable(), 300);
+                setTimeout(() => this.initPageListSort(), 300);
             });
 
             imagesFrame.on('open', () => {
@@ -53,11 +60,7 @@ document.addEventListener('alpine:init', () => {
 
             document.querySelector('.flipper-builder-wrapper .upload-images').addEventListener('click', () => imagesFrame.open());
         },
-        selectPage(page) {
-            this.selectedPage.selected = false;
-            page.selected = true;
-        },
-        pageListSortable() {
+        initPageListSort() {
             const builderPageList = document.querySelector('.flipper-builder-wrapper .page-list');
             
             if (!builderPageList || this.sortable) return;
@@ -86,6 +89,10 @@ document.addEventListener('alpine:init', () => {
                     });
                 }
             });
+        },
+        selectPage(page) {
+            this.selectedPage.selected = false;
+            page.selected = true;
         }
     }));
 });
