@@ -24,12 +24,12 @@ add_action( 'add_meta_boxes', 'add_flipper_builder_meta_box' );
 function render_flipper_builder_meta_box( $post ) {
     wp_nonce_field( 'flipper_builder_nonce_action', 'flipper_builder_nonce' );
 
-    $image_ids = get_post_meta( $post->ID, '_flipper_images', true );
-    $image_ids = is_array( $image_ids ) ? $image_ids : [];
+    $builder_data = get_post_meta( $post->ID, '_flipper_builder_data', true );
+    $builder_data = !empty($builder_data) ? esc_attr($builder_data) : '[]';
 
     ?>
-        <div x-data="flipperBuilder" class="flipper-builder-wrapper">
-            <input type="hidden" name="pages">
+        <div x-data="flipperBuilder(<?php echo $builder_data; ?>)" class="flipper-builder-wrapper">
+            <input type="hidden" name="builder_data" x-bind:value="JSON.stringify(pages)">
 
             <div class="flipper-sidebar">
                 <div class="sidebar-actions">
@@ -49,7 +49,7 @@ function render_flipper_builder_meta_box( $post ) {
                                     <button type="button" class="drag-page">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
                                     </button>
-                                    <span x-text="page.attachment.attributes.title"></span>
+                                    <span x-text="page.attachment.title"></span>
                                     <button x-on:click.stop="removePage(page)" type="button" class="remove-page">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 448 512"><path d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
                                     </button>
@@ -62,7 +62,7 @@ function render_flipper_builder_meta_box( $post ) {
             
             <template x-if="selectedPage">
                 <div class="flipper-page">
-                    <img x-bind:src="selectedPage.attachment.attributes.url" x-bind:alt="selectedPage.attachment.attributes.alt">
+                    <img x-bind:src="selectedPage.attachment.url" x-bind:alt="selectedPage.attachment.alt">
                 
                     <div class="page-actions">
                         <button type="button" description="<?php _e('Narration', 'page-flipper'); ?>" class="add-audio-description-hotspot">
@@ -94,25 +94,25 @@ function render_flipper_builder_meta_box( $post ) {
  * Salva os IDs das imagens no post_meta
  */
 function save_flipper_builder_meta_box( $post_id ) {
-    if ( ! isset( $_POST['flipper_builder_nonce'] ) || ! wp_verify_nonce( $_POST['flipper_builder_nonce'], 'flipper_builder_nonce_action' ) ) {
-        return;
-    }
-
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
         return;
     }
 
-    if ( isset( $_POST['post_type'] ) && 'page_flipper' === $_POST['post_type'] ) {
-        if ( ! current_user_can( 'edit_post', $post_id ) ) {
-            return;
-        }
+    if ( ! isset( $_POST['flipper_builder_nonce'] ) || ! wp_verify_nonce( $_POST['flipper_builder_nonce'], 'flipper_builder_nonce_action' ) ) {
+        return;
     }
 
-    if ( isset( $_POST['flipper_images'] ) ) {
-        $image_ids = array_filter( explode( ',', sanitize_text_field( $_POST['flipper_images'] ) ) );
-        update_post_meta( $post_id, '_flipper_images', $image_ids );
-    } else {
-        delete_post_meta( $post_id, '_flipper_images' );
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+
+    if ( isset( $_POST['builder_data'] ) ) {
+        $builder_data = wp_unslash( $_POST['builder_data'] );
+        $builder_data = json_decode( $builder_data, true );
+
+        if ( json_last_error() === JSON_ERROR_NONE ) {
+            update_post_meta( $post_id, '_flipper_builder_data', wp_json_encode( $builder_data ) );
+        }
     }
 }
 add_action( 'save_post', 'save_flipper_builder_meta_box' );

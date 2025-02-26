@@ -1,21 +1,34 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.data('flipperBuilder', () => ({
+    const imagesFrame = wp.media({
+        multiple: 'add',
+        library: {
+            type: [ 'image' ],
+            uploadedTo: wp.media.view.settings.post.id
+        }
+    });
+
+    Alpine.data('flipperBuilder', (pages = []) => ({
         sortable: null,
         pages: [],
         get selectedPage() {
             return this.pages.find(page => page.selected);
         },
         init() {
-            this.initImageFrame();
+            if (pages.length) {
+                pages.sort((a, b) => a.order - b.order).forEach((page, index) => {
+                    this.pages.push({
+                        selected: index === 0,
+                        order: page.order,
+                        attachment: page.attachment
+                    });
+                });
+
+                setTimeout(() => this.initPageListSort(), 300);
+            }
+
+            this.setupImageFrameListeners();
         },
-        initImageFrame() {
-            const imagesFrame = wp.media({
-                multiple: 'add',
-                library: {
-                    type: [ 'image' ]
-                }
-            });
-            
+        setupImageFrameListeners() {
             imagesFrame.on('select', () => {
                 const selection = imagesFrame.state().get('selection');
                 
@@ -36,8 +49,13 @@ document.addEventListener('alpine:init', () => {
 
                     this.pages.push({
                         selected: this.selectedPage ? false : index === 0,
-                        attachment: attachment,
-                        order: this.pages.length
+                        order: this.pages.length,
+                        attachment: {
+                            id: attachment.id,
+                            title: attachment.attributes.title,
+                            url: attachment.attributes.url,
+                            alt: attachment.attributes.alt,
+                        },
                     });
                 });
 
