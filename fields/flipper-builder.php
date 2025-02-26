@@ -62,7 +62,7 @@ function render_flipper_builder_meta_box( $post ) {
             
             <template x-if="selectedPage">
                 <div class="flipper-page">
-                    <img x-bind:src="selectedPage.attachment.url" x-bind:alt="selectedPage.attachment.alt">
+                    <img x-bind:src="selectedPage.attachment.url" x-bind:alt="selectedPage.attachment.alt" draggable="false">
                 
                     <div class="hotspots-wrapper"></div>
                     <div class="page-actions">

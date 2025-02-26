@@ -1,11 +1,41 @@
 document.addEventListener('alpine:init', () => {
+    if (!wp.media) return;
+
     const imagesFrame = wp.media({
         multiple: 'add',
         library: {
             type: [ 'image' ],
-            // uploadedTo: wp.media.view.settings.post.id
+            uploadedTo: wp.media.view.settings.post.id
         }
     });
+
+    function resizableListener(event) {
+        const target = event.target;
+        let x = (parseFloat(target.getAttribute('data-x')) || 0);
+        let y = (parseFloat(target.getAttribute('data-y')) || 0);
+
+        target.style.width = event.rect.width + 'px';
+        target.style.height = event.rect.height + 'px';
+
+        x += event.deltaRect.left;
+        y += event.deltaRect.top;
+
+        target.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+
+        target.setAttribute('data-x', x);
+        target.setAttribute('data-y', y);
+    }
+
+    function draggableListener(event) {
+        const target = event.target;
+        const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+        const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+        target.style.transform = `translate(${x}px, ${y}px)`;
+
+        target.setAttribute('data-x', x);
+        target.setAttribute('data-y', y);
+    }
 
     Alpine.data('flipperBuilder', (pages = []) => ({
         sortable: null,
@@ -18,11 +48,9 @@ document.addEventListener('alpine:init', () => {
 
             if (pages.length) {
                 pages.sort((a, b) => a.order - b.order).forEach((page, index) => {
-                    this.pages.push({
-                        selected: index === 0,
-                        order: page.order,
-                        attachment: page.attachment
-                    });
+                    page.selected = index === 0;
+
+                    this.pages.push(page);
                 });
 
                 setTimeout(() => this.setupPageListSort(), 300);
@@ -57,6 +85,7 @@ document.addEventListener('alpine:init', () => {
                     this.pages.push({
                         selected: this.selectedPage ? false : index === 0,
                         order: this.pages.length,
+                        hotspots: [],
                         attachment: {
                             id: attachment.id,
                             title: attachment.attributes.title,
@@ -121,6 +150,8 @@ document.addEventListener('alpine:init', () => {
             const image = document.querySelector('.flipper-builder-wrapper .flipper-page img');
             const hotspotWrapper = document.querySelector('.flipper-builder-wrapper .hotspots-wrapper');
 
+            hotspotWrapper.innerHTML = "";
+
             image.onload = () => {
                 const container = getComputedStyle(image.parentElement);
                 const containerWidth = parseFloat(container.width.replace('px', ''));
@@ -139,6 +170,52 @@ document.addEventListener('alpine:init', () => {
 
                 hotspotWrapper.style.width = `${renderedWidth}px`;
                 hotspotWrapper.style.height = `${renderedHeight}px`;
+
+                // const divTeste = document.createElement('div');
+
+                // // Criando um hotspot de Teste para interagir com interact
+                // divTeste.classList.add("div-teste");
+                // divTeste.innerHTML = "DIV de Teste =D";
+                
+                // Object.assign(divTeste.style, {
+                //     width: "120px",
+                //     borderRadius: "8px",
+                //     padding: "20px",
+                //     margin: "1rem",
+                //     backgroundColor: "#29e",
+                //     color: "white",
+                //     fontSize: "20px",
+                //     fontFamily: "sans-serif",
+                //     touchAction: "none",
+                //     boxSizing: "border-box"
+                // });
+
+                // hotspotWrapper.append(divTeste);
+
+                // interact('.div-teste')
+                // .resizable({
+                //     edges: { left: true, right: true, bottom: true, top: true },
+                //     listeners: { move: resizableListener },
+                //     inertia: true,
+                //     modifiers: [
+                //         interact.modifiers.restrictEdges({
+                //             outer: 'parent'
+                //         }),
+                //         interact.modifiers.restrictSize({
+                //             min: { width: 100, height: 50 }
+                //         })
+                //     ],
+                // })
+                // .draggable({
+                //     listeners: { move: draggableListener },
+                //     inertia: true,
+                //     modifiers: [
+                //         interact.modifiers.restrictRect({
+                //             restriction: 'parent',
+                //             endOnly: true
+                //         })
+                //     ]
+                // })
             }
         },
         selectPage(page) {
