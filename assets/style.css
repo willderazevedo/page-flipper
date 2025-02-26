@@ -126,6 +126,10 @@
     object-position: center;
 }
 
+.flipper-builder-wrapper .hotspots-wrapper {
+    position: absolute;
+}
+
 .flipper-builder-wrapper .page-actions {
     display: flex;
     flex-direction: column;

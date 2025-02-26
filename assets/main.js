@@ -3,7 +3,7 @@ document.addEventListener('alpine:init', () => {
         multiple: 'add',
         library: {
             type: [ 'image' ],
-            uploadedTo: wp.media.view.settings.post.id
+            // uploadedTo: wp.media.view.settings.post.id
         }
     });
 
@@ -14,6 +14,8 @@ document.addEventListener('alpine:init', () => {
             return this.pages.find(page => page.selected);
         },
         init() {
+            this.$watch('selectedPage', () => this.setupHotspotsInteractions());
+
             if (pages.length) {
                 pages.sort((a, b) => a.order - b.order).forEach((page, index) => {
                     this.pages.push({
@@ -23,7 +25,7 @@ document.addEventListener('alpine:init', () => {
                     });
                 });
 
-                setTimeout(() => this.initPageListSort(), 300);
+                setTimeout(() => this.setupPageListSort(), 300);
             }
 
             this.setupImageFrameListeners();
@@ -42,7 +44,12 @@ document.addEventListener('alpine:init', () => {
                     if (page) {
                         if (!this.selectedPage) page.selected = true;
 
-                        page.attachment = attachment;
+                        page.attachment = {
+                            id: attachment.id,
+                            title: attachment.attributes.title,
+                            url: attachment.attributes.url,
+                            alt: attachment.attributes.alt,
+                        };
 
                         return true;
                     } 
@@ -59,7 +66,7 @@ document.addEventListener('alpine:init', () => {
                     });
                 });
 
-                setTimeout(() => this.initPageListSort(), 300);
+                setTimeout(() => this.setupPageListSort(), 300);
             });
 
             imagesFrame.on('open', () => {
@@ -80,7 +87,7 @@ document.addEventListener('alpine:init', () => {
                 this.sortable = null;
             });
         },
-        initPageListSort() {
+        setupPageListSort() {
             const builderPageList = document.querySelector('.flipper-builder-wrapper .page-list');
             
             if (!builderPageList || this.sortable) return;
@@ -109,6 +116,30 @@ document.addEventListener('alpine:init', () => {
                     });
                 }
             });
+        },
+        setupHotspotsInteractions() {
+            const image = document.querySelector('.flipper-builder-wrapper .flipper-page img');
+            const hotspotWrapper = document.querySelector('.flipper-builder-wrapper .hotspots-wrapper');
+
+            image.onload = () => {
+                const container = getComputedStyle(image.parentElement);
+                const containerWidth = parseFloat(container.width.replace('px', ''));
+                const containerHeight = parseFloat(container.height.replace('px', ''));
+                const imgRatio = image.naturalWidth / image.naturalHeight;
+                const containerRatio = containerWidth / containerHeight;
+                let renderedWidth, renderedHeight;
+
+                if (imgRatio > containerRatio) {
+                    renderedWidth = containerWidth;
+                    renderedHeight = containerWidth / imgRatio;
+                } else {
+                    renderedHeight = containerHeight;
+                    renderedWidth = containerHeight * imgRatio;
+                }
+
+                hotspotWrapper.style.width = `${renderedWidth}px`;
+                hotspotWrapper.style.height = `${renderedHeight}px`;
+            }
         },
         selectPage(page) {
             if (this.selectedPage) this.selectedPage.selected = false;
