@@ -1,0 +1,209 @@
+#site-header, #site-footer {
+    display: none !important;
+}
+
+.flipper-widget-wrapper i {
+    color: var(--icon-color);
+}
+
+.flipper-widget-wrapper .flipper-action-bar .flipper-pagination input, .flipper-widget-wrapper {
+    color: var(--font-color);
+}
+
+.flipper-widget-wrapper {
+    background-color: var(--page-bg);
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.flipper-widget-wrapper .flipper-action-bar {
+    background-color: var(--action-bar-bg);
+    position: absolute;
+    height: 60px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.flipper-widget-wrapper .flipper-action-bar .flipper-pagination {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 25px;
+}
+
+.flipper-widget-wrapper .flipper-action-bar .flipper-pagination input {
+    width: 35px;
+    height: 35px;
+    border: none;
+    outline: none;
+    text-align: center;
+    background: rgba(255,255,255, .2);
+    font-size: 15px;
+    padding: 3px;
+}
+
+.flipper-widget-wrapper .flipper-summary-wrapper, .flipper-widget-wrapper .summary-toggler {
+    background-color: var(--summary-bg);
+}
+
+.flipper-widget-wrapper .flipper-summary-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 250px;
+    margin-left: -250px;
+    transition: margin-left .5s ease-in-out;
+    z-index: 2;
+}
+
+.flipper-widget-wrapper .flipper-summary-wrapper.active {
+    margin-left: 0;
+}
+
+.flipper-widget-wrapper .summary-pages {
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    padding: 0 50px;
+}
+
+.flipper-widget-wrapper .summary-pages::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: none;
+    background-color: rgba(255,255,255, .2);
+}
+
+.flipper-widget-wrapper .summary-pages::-webkit-scrollbar
+{
+    width: 5px;
+}
+
+.flipper-widget-wrapper .summary-pages::-webkit-scrollbar-thumb
+{
+    background-color: rgba(255,255,255, .4);
+    border: none
+}
+
+.flipper-widget-wrapper .summary-pages .page {
+    cursor: pointer;
+    margin: 30px 0;
+    background: transparent;
+    position: relative;
+}
+
+.flipper-widget-wrapper .summary-toggler {
+    position: absolute;
+    right: -35px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 60px;
+    display: flex;
+    border: none;
+    padding: 0;
+    border-radius: 0 30px 30px 0;
+}
+
+.flipper-widget-wrapper .summary-toggler:hover {
+    background-color: var(--summary-bg);
+}
+
+.flipper-widget-wrapper .summary-toggler:hover::after {
+    position: absolute;
+    content: attr(description);
+    z-index: 1;
+    left: 40px;
+    bottom: 12px;
+    background-color: rgba(0, 0, 0, .5);
+    padding: 5px 10px;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.flipper-widget-wrapper .summary-toggler i {
+    margin: auto 8px;
+}
+
+.flipper-widget-wrapper .flipper-actions.actions-right {
+    margin-right: 10px;
+}
+
+.flipper-widget-wrapper .flipper-actions.actions-left {
+    margin-left: 10px;
+}
+
+.flipper-widget-wrapper .flipper-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.flipper-widget-wrapper .flipper-action-bar .flipper-actions button, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a {
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    transition: background 300ms ease-in-out;
+    position: relative;
+    text-decoration: none;
+}
+
+.flipper-widget-wrapper .flipper-action-bar .flipper-actions button:hover, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a:hover {
+    background: rgba(255,255,255, .2);
+}
+
+.flipper-widget-wrapper .flipper-action-bar .flipper-actions button:hover::after, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a:hover::after {
+    position: absolute;
+    content: attr(description);
+    z-index: 1;
+    bottom: -30px;
+    background-color: rgba(0, 0, 0, .5);
+    padding: 5px 10px;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.flipper-widget-wrapper .flipper-action-bar .flipper-actions.actions-right button:hover::after, .flipper-widget-wrapper .flipper-action-bar .flipper-actions.actions-right a:hover::after {
+    right: 0;
+}
+
+.flipper-widget-wrapper .flipper-action-bar .flipper-actions.actions-left button:hover::after, .flipper-widget-wrapper .flipper-action-bar .flipper-actions.actions-left a:hover::after {
+    left: 0;
+}
+
+.flipper-widget-wrapper .flipper-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.flipper-widget-wrapper .flipper-controls button {
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    transition: background 300ms ease-in-out;
+    background: rgba(255,255,255, .1);
+}
+
+.flipper-widget-wrapper .flipper-controls button:hover {
+    background: rgba(255,255,255, .2);
+}

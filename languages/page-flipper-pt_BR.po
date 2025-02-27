@@ -76,107 +76,69 @@ msgstr "Novo Nome da Categoria"
 # =====================
 # 🏷️ Nomes das seções
 # =====================
-#: widgets/flipper-widget.php:15
 msgid "Page Flipper"
 msgstr "Virador de Página"
 
-#: widgets/flipper-widget.php:21
 msgid "Query"
 msgstr "Consulta"
 
-#: widgets/flipper-widget.php:30
 msgid "Settings"
 msgstr "Configurações"
 
-#: widgets/flipper-widget.php:40
 msgid "Style"
 msgstr "Estilo"
 
 # ============================
 # 🔍 Configurações da Query
 # ============================
-#: widgets/flipper-widget.php:50
-msgid "Include"
-msgstr "Incluir"
+msgid "Select a Page Flipper"
+msgstr "Selecione um Registro"
 
-#: widgets/flipper-widget.php:51
-msgid "Exclude"
-msgstr "Excluir"
-
-#: widgets/flipper-widget.php:60
-msgid "Include Terms"
-msgstr "Incluir Termos"
-
-#: widgets/flipper-widget.php:70
-msgid "Exclude Terms"
-msgstr "Excluir Termos"
-
-#: widgets/flipper-widget.php:80
-msgid "Order"
-msgstr "Ordem"
-
-#: widgets/flipper-widget.php:85
-msgid "Ascending"
-msgstr "Crescente"
-
-#: widgets/flipper-widget.php:86
-msgid "Descending"
-msgstr "Decrescente"
-
-#: widgets/flipper-widget.php:90
-msgid "Order By"
-msgstr "Ordenar Por"
-
-#: widgets/flipper-widget.php:95
-msgid "Date"
-msgstr "Data"
-
-#: widgets/flipper-widget.php:96
-msgid "Title"
-msgstr "Título"
-
-#: widgets/flipper-widget.php:97
-msgid "Random"
-msgstr "Aleatório"
+msgid "Leave empty to use Current Query"
+msgstr "Deixe vazio para usar a Consulta Atual"
 
 # ============================
 # 🔧 Configurações Gerais
 # ============================
-#: widgets/flipper-widget.php:110
+msgid "Yes"
+msgstr "Sim"
+
+msgid "No"
+msgstr "Não"
+
 msgid "Enable Summary"
 msgstr "Habilitar Sumário"
 
-#: widgets/flipper-widget.php:120
 msgid "Enable Action Bar"
 msgstr "Habilitar Barra de Ações"
 
-#: widgets/flipper-widget.php:130
 msgid "Enable Navigation Controls"
 msgstr "Habilitar Controles de Navegação"
 
 # ============================
 # 🎨 Aba de Estilo (Style)
 # ============================
-#: widgets/flipper-widget.php:145
+msgid "Page Background Color"
+msgstr "Cor de Fundo da Página"
+
 msgid "Action Bar Background Color"
 msgstr "Cor de Fundo da Barra de Ações"
 
-#: widgets/flipper-widget.php:155
 msgid "Summary Background Color"
 msgstr "Cor de Fundo do Sumário"
 
-#: widgets/flipper-widget.php:165
 msgid "Controls Icon Color"
 msgstr "Cor dos Ícones dos Controles"
 
-#: widgets/flipper-widget.php:175
+msgid "Font Color"
+msgstr "Cor da Fonte"
+
 msgid "Typography"
 msgstr "Tipografia"
 
 # ============================
-# 🛠️ Mensagens do Widget
+# 🛠️ Mensagens do Builder
 # ============================
-#: widgets/flipper-widget.php:190
 msgid "Flipper Builder"
 msgstr "Construtor de Livros"
 
@@ -215,3 +177,21 @@ msgstr "Texto"
 
 msgid "Hyperlink"
 msgstr "Link"
+
+# ============================
+# 🛠️ Mensagens do Widget
+# ============================
+msgid "Go back"
+msgstr "Voltar"
+
+msgid "Play Audio Description"
+msgstr "Iniciar Áudio Descrição"
+
+msgid "Zoom"
+msgstr "Zoom"
+
+msgid "Download PDF File"
+msgstr "Baixar Arquivo PDF"
+
+msgid "Summary"
+msgstr "Sumário"

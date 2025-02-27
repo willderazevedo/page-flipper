@@ -4,6 +4,9 @@
  * Description: Melhor page flipper da terra, com varias funções, integração com elementor e GRATUITO
  * Version:     1.0.0
  * Author:      Willder Azevedo
+ * 
+ * Requires Plugins: elementor
+ * Elementor tested up to: 3.25.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -76,22 +79,54 @@ function register_page_flipper_post_type() {
 
 add_action( 'init', 'register_page_flipper_post_type' );
 
-function load_page_flipper_assets() {
+function load_admin_flipper_assets() {
     wp_enqueue_script('flipper-alpine-lib', plugin_dir_url(__FILE__) . 'libs/alpine.js', ['flipper-script'], '3.14.8', true);
     wp_enqueue_script('flipper-sortable-lib', plugin_dir_url(__FILE__) . 'libs/sortable.js', [], '1.15.6', true);
     wp_enqueue_script('flipper-interact-lib', plugin_dir_url(__FILE__) . 'libs/interact.js', [], '1.10.27', true);
-    wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'assets/style.css', [], '1.0.0');
-    wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'assets/main.js', ['flipper-sortable-lib', 'flipper-interact-lib'], '1.0.0', true);
+    wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'admin/style.css', [], '1.0.0');
+    wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'admin/main.js', ['flipper-sortable-lib', 'flipper-interact-lib'], '1.0.0', true);
 }
 
-add_action('admin_enqueue_scripts', 'load_page_flipper_assets');
+add_action('admin_enqueue_scripts', 'load_admin_flipper_assets');
 
-if (has_action('elementor/widgets/register')) {
-    function register_flipper_widget( $widgets_manager ) {
-        require_once( __DIR__ . '/widgets/flipper-widget.php' );
-
-        $widgets_manager->register( new \Flipper_Widget() );
-    }
-
-    add_action('elementor/widgets/register', 'register_flipper_widget');
+function load_frontend_flipper_assets() {
+    wp_enqueue_script('flipper-alpine-lib', plugin_dir_url(__FILE__) . 'libs/alpine.js', ['flipper-script'], '3.14.8', true);
+    wp_enqueue_script('flipper-turnjs-lib', plugin_dir_url(__FILE__) . 'libs/turnjs.js', ['jquery'], '4.1.0', true);
+    wp_enqueue_script('flipper-zoom-lib', plugin_dir_url(__FILE__) . 'libs/zoom.js', [], '4.1.0', true);
+    wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'frontend/style.css', [], '1.0.0');
+    wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'frontend/main.js', ['flipper-turnjs-lib', 'flipper-zoom-lib'], '1.0.0', true);
 }
+
+add_action('wp_enqueue_scripts', 'load_frontend_flipper_assets');
+
+function render_flipper_shortcode($atts) {
+    ob_start();
+
+    $atts = shortcode_atts([
+        'id'               => get_the_ID(),
+        'elementor'        => 'no',
+        'summary'          => 'yes',
+        'action_bar'       => 'yes',
+        'controls'         => 'yes',
+        'page_bg'          => '#333333',
+        'action_bar_bg'    => '#555555',
+        'summary_bg'       => '#555555',
+        'controls_icon'    => '#ffffff',
+        'font_color'       => '#ffffff',
+        'typography'       => '',
+    ], $atts, 'page_flipper');
+
+    include plugin_dir_path(__FILE__) . 'templates/flipper-widget.php';
+
+    return ob_get_clean();
+}
+
+add_shortcode('page_flipper', 'render_flipper_shortcode');
+
+function register_flipper_widget( $widgets_manager ) {
+    require_once( __DIR__ . '/widgets/flipper-widget-elementor.php' );
+
+    $widgets_manager->register( new \Flipper_Widget_Elementor() );
+}
+
+add_action('elementor/widgets/register', 'register_flipper_widget');
