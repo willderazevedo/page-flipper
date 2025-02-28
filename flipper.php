@@ -4,9 +4,6 @@
  * Description: Melhor page flipper da terra, com varias funções, integração com elementor e GRATUITO
  * Version:     1.0.0
  * Author:      Willder Azevedo
- * 
- * Requires Plugins: elementor
- * Elementor tested up to: 3.25.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -123,10 +120,12 @@ function render_flipper_shortcode($atts) {
 
 add_shortcode('page_flipper', 'render_flipper_shortcode');
 
-function register_flipper_widget( $widgets_manager ) {
-    require_once( __DIR__ . '/widgets/flipper-widget-elementor.php' );
-
-    $widgets_manager->register( new \Flipper_Widget_Elementor() );
+if (has_action('elementor/widgets/register')) {
+    function register_flipper_widget( $widgets_manager ) {
+        require_once( __DIR__ . '/widgets/flipper-widget-elementor.php' );
+    
+        $widgets_manager->register( new \Flipper_Widget_Elementor() );
+    }
+    
+    add_action('elementor/widgets/register', 'register_flipper_widget');
 }
-
-add_action('elementor/widgets/register', 'register_flipper_widget');

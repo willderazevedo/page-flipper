@@ -1,7 +1,3 @@
-#site-header, #site-footer {
-    display: none !important;
-}
-
 .flipper-widget-wrapper i {
     color: var(--icon-color);
 }
@@ -14,6 +10,9 @@
     background-color: var(--page-bg);
     height: 100vh;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
 }
 
@@ -93,9 +92,13 @@
 
 .flipper-widget-wrapper .summary-pages .page {
     cursor: pointer;
-    margin: 30px 0;
+    margin: 0 0 30px;
     background: transparent;
     position: relative;
+}
+
+.flipper-widget-wrapper .summary-pages .page img {
+    width: 100%;
 }
 
 .flipper-widget-wrapper .summary-toggler {
@@ -111,7 +114,7 @@
     border-radius: 0 30px 30px 0;
 }
 
-.flipper-widget-wrapper .summary-toggler:hover {
+.flipper-widget-wrapper .summary-toggler:hover, .flipper-widget-wrapper .summary-toggler:focus {
     background-color: var(--summary-bg);
 }
 
@@ -160,7 +163,7 @@
     text-decoration: none;
 }
 
-.flipper-widget-wrapper .flipper-action-bar .flipper-actions button:hover, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a:hover {
+.flipper-widget-wrapper .flipper-action-bar .flipper-actions button:hover, .flipper-widget-wrapper .flipper-action-bar .flipper-actions button:focus, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a:hover {
     background: rgba(255,255,255, .2);
 }
 
@@ -204,6 +207,64 @@
     background: rgba(255,255,255, .1);
 }
 
-.flipper-widget-wrapper .flipper-controls button:hover {
+.flipper-widget-wrapper .flipper-controls button:hover, .flipper-widget-wrapper .flipper-controls button:focus {
     background: rgba(255,255,255, .2);
+}
+
+.flipper-widget-wrapper .flipper-pages-wrapper {
+    width: inherit;
+    height: inherit;
+}
+
+.flipper-widget-wrapper .flipper-pages-wrapper .odd.gradient {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, right top, color-stop(0.95, rgba(0,0,0,0)), color-stop(1, rgba(0,0,0,0.2)));
+    background-image: linear-gradient(left, rgba(0,0,0,0) 95%, rgba(0,0,0,0.2) 100%);
+}
+    
+.flipper-widget-wrapper .flipper-pages-wrapper .even.gradient {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear, right top, left top, color-stop(0.95, rgba(0,0,0,0)), color-stop(1, rgba(0,0,0,0.15)));
+    background-image: linear-gradient(right, rgba(0,0,0,0) 95%, rgba(0,0,0,0.15) 100%);
+}
+
+.flipper-widget-wrapper .flipper-pages-wrapper .page {
+    user-select: none;
+    position: absolute;
+    background-color: #fff;
+}
+
+.flipper-widget-wrapper .flipper-pages-wrapper .fa-spin {
+    position: absolute;
+    color: #bbb;
+    top: 50%;
+    left: 50%;
+}
+
+.flipper-widget-wrapper.flipper-pages-wrapper.zooming {
+    cursor: grab;
+}
+
+.flipper-widget-wrapper.flipper-pages-wrapper.zooming:active {
+    cursor: grabbing;
+}
+
+.flipper-widget-wrapper .flipper-pages {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
