@@ -171,3 +171,18 @@
     width: 100px;
     text-align: center;
 }
+
+.flipper-shortcode-wrapper .flipper-shortcode-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 13px;
+}
+
+.flipper-shortcode-wrapper .flipper-shortcode-actions button {
+    margin-left: auto;
+}
+
+.flipper-shortcode-wrapper .flipper-shortcode-actions span {
+    color: #00a32a;
+}

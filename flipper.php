@@ -7,13 +7,14 @@
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+require_once plugin_dir_path( __FILE__ ) . 'fields/flipper-builder.php';
+require_once plugin_dir_path( __FILE__ ) . 'fields/flipper-shortcode.php';
+
 function flipper_load_textdomain() {
     load_plugin_textdomain('page-flipper', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
 }
 
 add_action('plugins_loaded', 'flipper_load_textdomain');
-
-require_once plugin_dir_path( __FILE__ ) . 'fields/flipper-builder.php';
 
 function register_page_flipper_post_type() {
     // Registrar Custom Post Type: Digital Books

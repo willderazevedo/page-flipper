@@ -179,6 +179,24 @@ msgid "Hyperlink"
 msgstr "Link"
 
 # ============================
+# 🛠️ Mensagens do Shortcode Metabox
+# ============================
+msgid "Use the shortcode below to display this Digital Book:"
+msgstr "Use o shortcode abaixo para exibir esse Livro Digital:"
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid "Save the post to generate the shortcode."
+msgstr "Salve o post para gerar o shortcode."
+
+msgid "Shortcode copied!"
+msgstr "Shortcode copiado!"
+
+msgid "Shortcode"
+msgstr "Shortcode"
+
+# ============================
 # 🛠️ Mensagens do Widget
 # ============================
 msgid "Go back"
