@@ -15,6 +15,22 @@ document.addEventListener('alpine:init', () => {
                 uploadedTo: wp.media.view.settings.post.id
             }
         });
+
+        const imageHotspotMediaFrame = wp.media({
+            multiple: false,
+            library: {
+                type: [ 'image' ],
+                uploadedTo: wp.media.view.settings.post.id
+            }
+        });
+
+        const videoHotspotMediaFrame = wp.media({
+            multiple: false,
+            library: {
+                type: [ 'video' ],
+                uploadedTo: wp.media.view.settings.post.id
+            }
+        });
     
         Alpine.data('flipperBuilder', (pages = []) => ({
             sortable: null,
@@ -38,6 +54,8 @@ document.addEventListener('alpine:init', () => {
     
                 this.setupPagesMediaFrameListeners();
                 this.setupHotspotMediaFrameListeners(audioHotspotMediaFrame);
+                this.setupHotspotMediaFrameListeners(imageHotspotMediaFrame);
+                this.setupHotspotMediaFrameListeners(videoHotspotMediaFrame);
 
             },
             setupPagesMediaFrameListeners() {
@@ -97,16 +115,18 @@ document.addEventListener('alpine:init', () => {
                     const selection = media.state().get('selection');
                     
                     selection.forEach((attachment, index) => {
-                        const hotspot = this.selectedPage.hotspots.find(hotspot => hotspot.type === this.hotspotType);
-    
-                        if (hotspot) {
-                            hotspot.attachment = {
-                                id: attachment.id,
-                                title: attachment.attributes.title,
-                                url: attachment.attributes.url
-                            };
-    
-                            return true;
+                        if (this.hotspotType === 'narration') {
+                            const hotspot = this.selectedPage.hotspots.find(hotspot => hotspot.type === this.hotspotType);
+        
+                            if (hotspot) {
+                                hotspot.attachment = {
+                                    id: attachment.id,
+                                    title: attachment.attributes.title,
+                                    url: attachment.attributes.url
+                                };
+        
+                                return;
+                            }
                         }
     
                         this.selectedPage.hotspots.push({
@@ -124,7 +144,12 @@ document.addEventListener('alpine:init', () => {
     
                 media.on('open', () => {
                     const selection = media.state().get('selection');
-                    const hotspot   = this.selectedPage.hotspots.find(hotspot => hotspot.type === this.hotspotType);
+
+                    selection.reset();
+
+                    if (this.hotspotType !== 'narration') return;
+
+                    const hotspot = this.selectedPage.hotspots.find(hotspot => hotspot.type === this.hotspotType);
     
                     if (!hotspot) return;
     
@@ -190,10 +215,10 @@ document.addEventListener('alpine:init', () => {
             setupHotspotsInteractions() {
                 if (!this.selectedPage.hotspots.length) return;
 
-                this.selectedPage.hotspots.forEach((hotspot, index) => {
+                this.selectedPage.hotspots.forEach(hotspot => {
                     if (hotspot.type === 'narration') return true;
 
-                    const interactInstance = interact(`.hotspot-${index + 1}`);
+                    const interactInstance = interact(`.${hotspot.type}-hotspot`);
 
                     if (["video", "image", "text", "link"].findIndex(type => type === hotspot.type) !== -1) {
                         interactInstance.resizable({
@@ -275,6 +300,14 @@ document.addEventListener('alpine:init', () => {
                     case "narration":
                     case "audio":
                         audioHotspotMediaFrame.open();
+                    break;
+
+                    case "image":
+                        imageHotspotMediaFrame.open();
+                    break;
+
+                    case "video":
+                        videoHotspotMediaFrame.open();
                     break;
                 }
             }

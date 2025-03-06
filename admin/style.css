@@ -114,7 +114,7 @@
     background: #fff;
     max-width: 70%;
     max-height: 100%;
-    overflow: auto;
+    overflow: hidden;
     flex-grow: 1;
     padding: 20px;
     user-select: none;
@@ -188,7 +188,7 @@
     color: #00a32a;
 }
 
-.flipper-builder-wrapper .narration-hotspot {
+.flipper-builder-wrapper .narration-hotspot .narration-button {
     position: absolute;
     left: -40px;
     top: 0;
@@ -201,11 +201,11 @@
     cursor: pointer;
 }
 
-.flipper-builder-wrapper .narration-hotspot svg {
+.flipper-builder-wrapper .narration-hotspot .narration-button svg {
     fill: #fff;
 }
 
-.flipper-builder-wrapper .narration-hotspot:hover:after {
+.flipper-builder-wrapper .narration-hotspot .narration-button:hover:after {
     position: absolute;
     content: attr(description);
     z-index: 1;
@@ -217,4 +217,24 @@
     min-width: 100px;
     white-space: nowrap;
     text-align: center;
+}
+
+.flipper-builder-wrapper .audio-hotspot {
+    position: absolute;
+}
+
+.flipper-builder-wrapper .video-hotspot {
+    position: absolute;
+}
+
+.flipper-builder-wrapper .image-hotspot {
+    position: absolute;
+}
+
+.flipper-builder-wrapper .text-hotspot {
+    position: absolute;
+}
+
+.flipper-builder-wrapper .link-hotspot {
+    position: absolute;
 }
