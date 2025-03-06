@@ -14,8 +14,8 @@ $data          = !empty($data) ? esc_attr($data) : '[]';
         <div class="flipper-action-bar">
             <div class="flipper-actions actions-left">
                 <?php if ($goBackUrl) : ?>
-                    <a href="<?php echo esc_url($referer); ?>" description="<?php _e('Go back', 'page-flipper'); ?>">
-                        <i class="fa-solid fa-house"></i>
+                    <a href="<?php echo esc_url($goBackUrl); ?>" description="<?php _e('Go back', 'page-flipper'); ?>">
+                        <i class="fa-solid fa-angle-left"></i>
                     </a>
                 <?php endif; ?>
             </div>

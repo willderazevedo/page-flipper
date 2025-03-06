@@ -149,6 +149,12 @@
     gap: 10px;
 }
 
+.flipper-widget-wrapper .flipper-actions a, .flipper-widget-wrapper .flipper-actions button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .flipper-widget-wrapper .flipper-action-bar .flipper-actions button, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a {
     border: none;
     outline: none;
