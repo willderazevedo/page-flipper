@@ -168,7 +168,8 @@
     background-color: rgba(0, 0, 0, .7);
     padding: 5px 10px;
     color: #fff;
-    width: 100px;
+    min-width: 100px;
+    white-space: nowrap;
     text-align: center;
 }
 
@@ -185,4 +186,35 @@
 
 .flipper-shortcode-wrapper .flipper-shortcode-actions span {
     color: #00a32a;
+}
+
+.flipper-builder-wrapper .narration-hotspot {
+    position: absolute;
+    left: -40px;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, .7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.flipper-builder-wrapper .narration-hotspot svg {
+    fill: #fff;
+}
+
+.flipper-builder-wrapper .narration-hotspot:hover:after {
+    position: absolute;
+    content: attr(description);
+    z-index: 1;
+    right: 50px;
+    bottom: 8px;
+    background-color: rgba(0, 0, 0, .7);
+    padding: 5px 10px;
+    color: #fff;
+    min-width: 100px;
+    white-space: nowrap;
+    text-align: center;
 }

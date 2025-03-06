@@ -1,40 +1,20 @@
 document.addEventListener('alpine:init', () => {
     if (window.pagenow === 'page_flipper') {
-        const imagesFrame = wp.media({
+        const pagesMediaFrame = wp.media({
             multiple: 'add',
             library: {
                 type: [ 'image' ],
                 uploadedTo: wp.media.view.settings.post.id
             }
         });
-    
-        // function resizableListener(event) {
-        //     const target = event.target;
-        //     let x = (parseFloat(target.getAttribute('data-x')) || 0);
-        //     let y = (parseFloat(target.getAttribute('data-y')) || 0);
-    
-        //     target.style.width = event.rect.width + 'px';
-        //     target.style.height = event.rect.height + 'px';
-    
-        //     x += event.deltaRect.left;
-        //     y += event.deltaRect.top;
-    
-        //     target.style.transform = 'translate(' + x + 'px,' + y + 'px)';
-    
-        //     target.setAttribute('data-x', x);
-        //     target.setAttribute('data-y', y);
-        // }
-    
-        // function draggableListener(event) {
-        //     const target = event.target;
-        //     const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-        //     const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-    
-        //     target.style.transform = `translate(${x}px, ${y}px)`;
-    
-        //     target.setAttribute('data-x', x);
-        //     target.setAttribute('data-y', y);
-        // }
+
+        const narrationHotspotMediaFrame = wp.media({
+            multiple: false,
+            library: {
+                type: [ 'audio' ],
+                uploadedTo: wp.media.view.settings.post.id
+            }
+        });
     
         Alpine.data('flipperBuilder', (pages = []) => ({
             sortable: null,
@@ -43,7 +23,7 @@ document.addEventListener('alpine:init', () => {
                 return this.pages.find(page => page.selected);
             },
             init() {
-                this.$watch('selectedPage', () => this.setupHotspotsInteractions());
+                this.$watch('selectedPage', () => this.setupHotspotsWrapperSizes());
     
                 if (pages.length) {
                     pages.sort((a, b) => a.order - b.order).forEach((page, index) => {
@@ -55,11 +35,13 @@ document.addEventListener('alpine:init', () => {
                     setTimeout(() => this.setupPageListSort(), 300);
                 }
     
-                this.setupImageFrameListeners();
+                this.setupPagesMediaFrameListeners();
+                this.setupNarrationHotspotMediaFrameListeners();
+
             },
-            setupImageFrameListeners() {
-                imagesFrame.on('select', () => {
-                    const selection = imagesFrame.state().get('selection');
+            setupPagesMediaFrameListeners() {
+                pagesMediaFrame.on('select', () => {
+                    const selection = pagesMediaFrame.state().get('selection');
                     
                     this.pages = this.pages.filter(page => 
                         selection.findIndex(attachment => attachment.id == page.attachment.id) !== -1
@@ -97,8 +79,8 @@ document.addEventListener('alpine:init', () => {
                     setTimeout(() => this.setupPageListSort(), 300);
                 });
     
-                imagesFrame.on('open', () => {
-                    const selection = imagesFrame.state().get('selection');
+                pagesMediaFrame.on('open', () => {
+                    const selection = pagesMediaFrame.state().get('selection');
     
                     if (!this.pages.length) return;
     
@@ -108,11 +90,46 @@ document.addEventListener('alpine:init', () => {
                         selection.add(attachment ? [attachment] : []);
                     })
                 });
+            },
+            setupNarrationHotspotMediaFrameListeners() {
+                narrationHotspotMediaFrame.on('select', () => {
+                    const selection = narrationHotspotMediaFrame.state().get('selection');
+                    
+                    selection.forEach((attachment, index) => {
+                        const hotspot = this.selectedPage.hotspots.find(hotspot => hotspot.type === 'narration');
     
-                document.querySelector('.flipper-builder-wrapper .upload-images').addEventListener('click', () => imagesFrame.open());
-                document.querySelector('.flipper-builder-wrapper .remove-pages').addEventListener('click', () => {
-                    this.pages = [];
-                    this.sortable = null;
+                        if (hotspot) {
+                            hotspot.attachment = {
+                                id: attachment.id,
+                                title: attachment.attributes.title,
+                                url: attachment.attributes.url
+                            };
+    
+                            return true;
+                        }
+    
+                        this.selectedPage.hotspots.push({
+                            type: 'narration',
+                            attachment: {
+                                id: attachment.id,
+                                title: attachment.attributes.title,
+                                url: attachment.attributes.url
+                            }
+                        });
+                    });
+    
+                    setTimeout(() => this.setupHotspotsInteractions(), 300);
+                });
+    
+                narrationHotspotMediaFrame.on('open', () => {
+                    const selection = narrationHotspotMediaFrame.state().get('selection');
+                    const hotspot   = this.selectedPage.hotspots.find(hotspot => hotspot.type === 'narration');
+    
+                    if (!hotspot) return;
+    
+                    const attachment = wp.media.attachment(hotspot.attachment.id);
+    
+                    selection.add(attachment ? [attachment] : []);
                 });
             },
             setupPageListSort() {
@@ -145,11 +162,9 @@ document.addEventListener('alpine:init', () => {
                     }
                 });
             },
-            setupHotspotsInteractions() {
+            setupHotspotsWrapperSizes() {
                 const image = document.querySelector('.flipper-builder-wrapper .flipper-page img');
                 const hotspotWrapper = document.querySelector('.flipper-builder-wrapper .hotspots-wrapper');
-    
-                hotspotWrapper.innerHTML = "";
     
                 image.onload = () => {
                     const container = getComputedStyle(image.parentElement);
@@ -169,53 +184,62 @@ document.addEventListener('alpine:init', () => {
     
                     hotspotWrapper.style.width = `${renderedWidth}px`;
                     hotspotWrapper.style.height = `${renderedHeight}px`;
-    
-                    // const divTeste = document.createElement('div');
-    
-                    // // Criando um hotspot de Teste para interagir com interact
-                    // divTeste.classList.add("div-teste");
-                    // divTeste.innerHTML = "DIV de Teste =D";
-                    
-                    // Object.assign(divTeste.style, {
-                    //     width: "120px",
-                    //     borderRadius: "8px",
-                    //     padding: "20px",
-                    //     margin: "1rem",
-                    //     backgroundColor: "#29e",
-                    //     color: "white",
-                    //     fontSize: "20px",
-                    //     fontFamily: "sans-serif",
-                    //     touchAction: "none",
-                    //     boxSizing: "border-box"
-                    // });
-    
-                    // hotspotWrapper.append(divTeste);
-    
-                    // interact('.div-teste')
-                    // .resizable({
-                    //     edges: { left: true, right: true, bottom: true, top: true },
-                    //     listeners: { move: resizableListener },
-                    //     inertia: true,
-                    //     modifiers: [
-                    //         interact.modifiers.restrictEdges({
-                    //             outer: 'parent'
-                    //         }),
-                    //         interact.modifiers.restrictSize({
-                    //             min: { width: 100, height: 50 }
-                    //         })
-                    //     ],
-                    // })
-                    // .draggable({
-                    //     listeners: { move: draggableListener },
-                    //     inertia: true,
-                    //     modifiers: [
-                    //         interact.modifiers.restrictRect({
-                    //             restriction: 'parent',
-                    //             endOnly: true
-                    //         })
-                    //     ]
-                    // })
                 }
+            },
+            setupHotspotsInteractions() {
+                if (!this.selectedPage.hotspots.length) return;
+
+                this.selectedPage.hotspots.forEach((hotspot, index) => {
+                    if (hotspot.type === 'narration') return true;
+
+                    const interactInstance = interact(`.hotspot-${index + 1}`);
+
+                    if (["video", "image", "text", "link"].findIndex(type => type === hotspot.type) !== -1) {
+                        interactInstance.resizable({
+                            edges: { left: true, right: true, bottom: true, top: true },
+                            listeners: {
+                                move: (event) => {
+                                    const target = event.target;
+                                    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.deltaRect.left;
+                                    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.deltaRect.top;
+                            
+                                    target.style.width = event.rect.width + 'px';
+                                    target.style.height = event.rect.height + 'px';
+                                    target.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+                            
+                                    target.setAttribute('data-x', x);
+                                    target.setAttribute('data-y', y);
+                                }
+                            },
+                            inertia: true,
+                            modifiers: [
+                                interact.modifiers.restrictEdges({ outer: 'parent' }),
+                                interact.modifiers.restrictSize({ min: { width: 100, height: 50 } })
+                            ],
+                        });
+                    }
+                    
+                    if (["audio", "video", "image", "text", "link"].findIndex(type => type === hotspot.type) !== -1) {
+                        interactInstance.draggable({
+                            listeners: {
+                                move: (event) => {
+                                    const target = event.target;
+                                    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                                    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+                            
+                                    target.style.transform = `translate(${x}px, ${y}px)`;
+                            
+                                    target.setAttribute('data-x', x);
+                                    target.setAttribute('data-y', y);
+                                }
+                            },
+                            inertia: true,
+                            modifiers: [
+                                interact.modifiers.restrictRect({ restriction: 'parent', endOnly: true })
+                            ]
+                        });
+                    }
+                });
             },
             selectPage(page) {
                 if (this.selectedPage) this.selectedPage.selected = false;
@@ -232,6 +256,34 @@ document.addEventListener('alpine:init', () => {
     
                 if (page.selected && this.pages.length) this.selectPage(this.pages[0]);
                 if (!this.pages.length) this.sortable = null;
+            },
+            addPages() {
+                pagesMediaFrame.open();
+            },
+            removePages() {
+                this.pages = [];
+                this.sortable = null;
+            },
+            removeHotspot(hotspotIndex) {
+                this.selectedPage.hotspots.splice(hotspotIndex, 1);
+            },
+            addNarrationHotspot() {
+                narrationHotspotMediaFrame.open();
+            },
+            addAudioHotspot() {
+
+            },
+            addVideoHotspot() {
+
+            },
+            addImageHotspot() {
+
+            },
+            addTextHotspot() {
+
+            },
+            addLinkHotspot() {
+
             }
         }));
     }

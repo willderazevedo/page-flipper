@@ -178,6 +178,9 @@ msgstr "Texto"
 msgid "Hyperlink"
 msgstr "Link"
 
+msgid "Remove Narration"
+msgstr "Remover Narração"
+
 # ============================
 # 🛠️ Mensagens do Shortcode Metabox
 # ============================
