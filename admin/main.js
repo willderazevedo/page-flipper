@@ -8,7 +8,7 @@ document.addEventListener('alpine:init', () => {
             }
         });
 
-        const narrationHotspotMediaFrame = wp.media({
+        const audioHotspotMediaFrame = wp.media({
             multiple: false,
             library: {
                 type: [ 'audio' ],
@@ -19,6 +19,7 @@ document.addEventListener('alpine:init', () => {
         Alpine.data('flipperBuilder', (pages = []) => ({
             sortable: null,
             pages: [],
+            hotspotType: "",
             get selectedPage() {
                 return this.pages.find(page => page.selected);
             },
@@ -36,7 +37,7 @@ document.addEventListener('alpine:init', () => {
                 }
     
                 this.setupPagesMediaFrameListeners();
-                this.setupNarrationHotspotMediaFrameListeners();
+                this.setupHotspotMediaFrameListeners(audioHotspotMediaFrame);
 
             },
             setupPagesMediaFrameListeners() {
@@ -91,12 +92,12 @@ document.addEventListener('alpine:init', () => {
                     })
                 });
             },
-            setupNarrationHotspotMediaFrameListeners() {
-                narrationHotspotMediaFrame.on('select', () => {
-                    const selection = narrationHotspotMediaFrame.state().get('selection');
+            setupHotspotMediaFrameListeners(media) {
+                media.on('select', () => {
+                    const selection = media.state().get('selection');
                     
                     selection.forEach((attachment, index) => {
-                        const hotspot = this.selectedPage.hotspots.find(hotspot => hotspot.type === 'narration');
+                        const hotspot = this.selectedPage.hotspots.find(hotspot => hotspot.type === this.hotspotType);
     
                         if (hotspot) {
                             hotspot.attachment = {
@@ -109,7 +110,7 @@ document.addEventListener('alpine:init', () => {
                         }
     
                         this.selectedPage.hotspots.push({
-                            type: 'narration',
+                            type: this.hotspotType,
                             attachment: {
                                 id: attachment.id,
                                 title: attachment.attributes.title,
@@ -121,9 +122,9 @@ document.addEventListener('alpine:init', () => {
                     setTimeout(() => this.setupHotspotsInteractions(), 300);
                 });
     
-                narrationHotspotMediaFrame.on('open', () => {
-                    const selection = narrationHotspotMediaFrame.state().get('selection');
-                    const hotspot   = this.selectedPage.hotspots.find(hotspot => hotspot.type === 'narration');
+                media.on('open', () => {
+                    const selection = media.state().get('selection');
+                    const hotspot   = this.selectedPage.hotspots.find(hotspot => hotspot.type === this.hotspotType);
     
                     if (!hotspot) return;
     
@@ -267,23 +268,15 @@ document.addEventListener('alpine:init', () => {
             removeHotspot(hotspotIndex) {
                 this.selectedPage.hotspots.splice(hotspotIndex, 1);
             },
-            addNarrationHotspot() {
-                narrationHotspotMediaFrame.open();
-            },
-            addAudioHotspot() {
+            addHotspot(type) {
+                this.hotspotType = type;
 
-            },
-            addVideoHotspot() {
-
-            },
-            addImageHotspot() {
-
-            },
-            addTextHotspot() {
-
-            },
-            addLinkHotspot() {
-
+                switch (type) {
+                    case "narration":
+                    case "audio":
+                        audioHotspotMediaFrame.open();
+                    break;
+                }
             }
         }));
     }

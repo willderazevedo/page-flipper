@@ -75,7 +75,9 @@ function render_flipper_builder_meta_box( $post ) {
                             </template>
 
                             <template x-if="hotspot.type === 'audio'">
-                                <!-- Audio Hotspot -->
+                                <div x-bind:class="`hotspot-${index + 1}`" class="audio-hotspot">
+                                    asdasdasdasd
+                                </div>
                             </template>
 
                             <template x-if="hotspot.type === 'video'">
@@ -97,10 +99,10 @@ function render_flipper_builder_meta_box( $post ) {
                     </div>
 
                     <div class="page-actions">
-                        <button type="button" description="<?php _e('Narration', 'page-flipper'); ?>" x-on:click="addNarrationHotspot()">
+                        <button type="button" description="<?php _e('Narration', 'page-flipper'); ?>" x-on:click="addHotspot('narration')">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 576 512"><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l448 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM213.5 173.3l72 144c5.9 11.9 1.1 26.3-10.7 32.2s-26.3 1.1-32.2-10.7l-9.4-18.9-82.2 0-9.4 18.9c-5.9 11.9-20.3 16.7-32.2 10.7s-16.7-20.3-10.7-32.2l72-144c4.1-8.1 12.4-13.3 21.5-13.3s17.4 5.1 21.5 13.3zm-.4 106.6L192 237.7l-21.1 42.2 42.2 0zM304 184c0-13.3 10.7-24 24-24l56 0c53 0 96 43 96 96s-43 96-96 96l-56 0c-13.3 0-24-10.7-24-24l0-144zm48 24l0 96 32 0c26.5 0 48-21.5 48-48s-21.5-48-48-48l-32 0z"/></svg>
                         </button>
-                        <button type="button" description="<?php _e('Audio', 'page-flipper'); ?>" x-on:click="">
+                        <button type="button" description="<?php _e('Audio', 'page-flipper'); ?>" x-on:click="addHotspot('audio')">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 640 512"><path d="M533.6 32.5C598.5 85.2 640 165.8 640 256s-41.5 170.7-106.4 223.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C557.5 398.2 592 331.2 592 256s-34.5-142.2-88.7-186.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM473.1 107c43.2 35.2 70.9 88.9 70.9 149s-27.7 113.8-70.9 149c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C475.3 341.3 496 301.1 496 256s-20.7-85.3-53.2-111.8c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zm-60.5 74.5C434.1 199.1 448 225.9 448 256s-13.9 56.9-35.4 74.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C393.1 284.4 400 271 400 256s-6.9-28.4-17.7-37.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM301.1 34.8C312.6 40 320 51.4 320 64l0 384c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352 64 352c-35.3 0-64-28.7-64-64l0-64c0-35.3 28.7-64 64-64l67.8 0L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3z"/></svg>
                         </button>
                         <button type="button" description="<?php _e('Video', 'page-flipper'); ?>" x-on:click="">
