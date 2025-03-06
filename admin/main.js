@@ -36,6 +36,8 @@ document.addEventListener('alpine:init', () => {
             sortable: null,
             pages: [],
             hotspotType: "",
+            hotspotWrapperWidth: 0,
+            hotspotWrapperHeight: 0,
             get selectedPage() {
                 return this.pages.find(page => page.selected);
             },
@@ -131,6 +133,8 @@ document.addEventListener('alpine:init', () => {
     
                         this.selectedPage.hotspots.push({
                             type: this.hotspotType,
+                            position: { x: 50, y: 50 },
+                            size: { width: 25, height: 25 },
                             attachment: {
                                 id: attachment.id,
                                 title: attachment.attributes.title,
@@ -190,7 +194,6 @@ document.addEventListener('alpine:init', () => {
             },
             setupHotspotsWrapperSizes() {
                 const image = document.querySelector('.flipper-builder-wrapper .flipper-page img');
-                const hotspotWrapper = document.querySelector('.flipper-builder-wrapper .hotspots-wrapper');
     
                 image.onload = () => {
                     const container = getComputedStyle(image.parentElement);
@@ -208,8 +211,10 @@ document.addEventListener('alpine:init', () => {
                         renderedWidth = containerHeight * imgRatio;
                     }
     
-                    hotspotWrapper.style.width = `${renderedWidth}px`;
-                    hotspotWrapper.style.height = `${renderedHeight}px`;
+                    this.hotspotWrapperWidth  = renderedWidth;
+                    this.hotspotWrapperHeight = renderedHeight;
+
+                    setTimeout(() => this.setupHotspotsInteractions(), 300);
                 }
             },
             setupHotspotsInteractions() {
@@ -235,6 +240,12 @@ document.addEventListener('alpine:init', () => {
                             
                                     target.setAttribute('data-x', x);
                                     target.setAttribute('data-y', y);
+                                },
+                                end: (event) => {
+                                    hotspot.size.width  = (event.rect.width * 100) / this.hotspotWrapperWidth;
+                                    hotspot.size.height = (event.rect.height * 100) / this.hotspotWrapperHeight;
+                                    hotspot.position.x  = (parseFloat(event.target.getAttribute('data-x')) * 100) / this.hotspotWrapperWidth;
+                                    hotspot.position.y  = (parseFloat(event.target.getAttribute('data-y')) * 100) / this.hotspotWrapperHeight;
                                 }
                             },
                             inertia: true,
@@ -257,6 +268,10 @@ document.addEventListener('alpine:init', () => {
                             
                                     target.setAttribute('data-x', x);
                                     target.setAttribute('data-y', y);
+                                },
+                                end: (event) => {
+                                    hotspot.position.x = (parseFloat(event.target.getAttribute('data-x')) * 100) / this.hotspotWrapperWidth;
+                                    hotspot.position.y = (parseFloat(event.target.getAttribute('data-y')) * 100) / this.hotspotWrapperHeight;
                                 }
                             },
                             inertia: true,
@@ -310,6 +325,34 @@ document.addEventListener('alpine:init', () => {
                         videoHotspotMediaFrame.open();
                     break;
                 }
+            },
+            buildHotspotInitialAttributes(hotspot) {
+                if (hotspot.type === 'narration') return {};
+
+                const hotspotClone = JSON.parse(JSON.stringify(hotspot));
+                const positionX = (hotspotClone.position.x / 100) * this.hotspotWrapperWidth;
+                const positionY = (hotspotClone.position.y / 100) * this.hotspotWrapperHeight;
+            
+                let style = `transform: translate(${positionX}px, ${positionY}px);`;
+            
+                if (hotspotClone.type !== 'audio') {
+                    const sizeX = (hotspotClone.size.width / 100) * this.hotspotWrapperWidth;
+                    const sizeY = (hotspotClone.size.height / 100) * this.hotspotWrapperHeight;
+            
+                    style += `width: ${sizeX}px; height: ${sizeY}px;`;
+            
+                    return {
+                        "data-x": positionX,
+                        "data-y": positionY,
+                        "style": style
+                    };
+                }
+            
+                return {
+                    "data-x": positionX,
+                    "data-y": positionY,
+                    "style": style
+                };
             }
         }));
     }
