@@ -119,7 +119,7 @@
     user-select: none;
 }
 
-.flipper-builder-wrapper .flipper-page img {
+.flipper-builder-wrapper .flipper-page .page-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -322,4 +322,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.flipper-builder-wrapper .hotspot-container .image-hotspot .inline-mode-hotspot img {
+    width: 100%;
+    height: 100%;
 }

@@ -62,7 +62,7 @@ function render_flipper_builder_meta_box( $post ) {
             
             <template x-if="selectedPage">
                 <div class="flipper-page">
-                    <img x-bind:src="selectedPage.attachment.url" x-bind:alt="selectedPage.attachment.alt" draggable="false">
+                    <img class="page-image" x-bind:src="selectedPage.attachment.url" x-bind:alt="selectedPage.attachment.alt" draggable="false">
                 
                     <template x-if="hotspotWrapperWidth && hotspotWrapperHeight">
                         <div class="hotspots-wrapper" x-bind:style="`width: ${hotspotWrapperWidth}px; height: ${hotspotWrapperHeight}px;`">
@@ -161,6 +161,10 @@ function render_flipper_builder_meta_box( $post ) {
                                                             <audio controls>
                                                                 <source x-bind:src="hotspot.attachment.url" x-bind:type="hotspot.attachment.mime">
                                                             </audio>
+                                                        </template>
+
+                                                        <template x-if="hotspot.type === 'image'">
+                                                            <img x-bind:src="hotspot.attachment.url" x-bind:type="hotspot.attachment.alt">
                                                         </template>
                                                     </div>
                                                 </template>
