@@ -31,11 +31,20 @@ document.addEventListener('alpine:init', () => {
                 uploadedTo: wp.media.view.settings.post.id
             }
         });
+
+        const hotspotObject = {
+            type: '',
+            position: { x: 5, y: 5 },
+            size: { width: 25, height: 25 },
+            extras: {},
+            attachment: {}
+        };
     
         Alpine.data('flipperBuilder', (pages = []) => ({
             sortable: null,
             pages: [],
             hotspotType: "",
+            hotspotToEdit: null,
             hotspotWrapperWidth: 0,
             hotspotWrapperHeight: 0,
             get selectedPage() {
@@ -116,31 +125,23 @@ document.addEventListener('alpine:init', () => {
                 media.on('select', () => {
                     const selection = media.state().get('selection');
                     
-                    selection.forEach((attachment, index) => {
-                        if (this.hotspotType === 'narration') {
-                            const hotspot = this.selectedPage.hotspots.find(hotspot => hotspot.type === this.hotspotType);
-        
-                            if (hotspot) {
-                                hotspot.attachment = {
-                                    id: attachment.id,
-                                    title: attachment.attributes.title,
-                                    url: attachment.attributes.url
-                                };
-        
-                                return;
-                            }
-                        }
+                    selection.forEach(attachment => {
+                        if (this.hotspotToEdit) {
+                            this.hotspotToEdit.attachment.id    = attachment.id
+                            this.hotspotToEdit.attachment.title = attachment.attributes.title
+                            this.hotspotToEdit.attachment.alt   = attachment.attributes.url
+                            this.hotspotToEdit                  = null;
     
-                        this.selectedPage.hotspots.push({
-                            type: this.hotspotType,
-                            position: { x: 50, y: 50 },
-                            size: { width: 25, height: 25 },
-                            attachment: {
-                                id: attachment.id,
-                                title: attachment.attributes.title,
-                                url: attachment.attributes.url
-                            }
-                        });
+                            return;
+                        }
+
+                        const newHotspot            = this.cloneObject(hotspotObject);
+                        newHotspot.type             = this.hotspotType;
+                        newHotspot.attachment.id    = attachment.id
+                        newHotspot.attachment.title = attachment.attributes.title
+                        newHotspot.attachment.alt   = attachment.attributes.url
+
+                        this.selectedPage.hotspots.push(newHotspot);
                     });
     
                     setTimeout(() => this.setupHotspotsInteractions(), 300);
@@ -151,15 +152,11 @@ document.addEventListener('alpine:init', () => {
 
                     selection.reset();
 
-                    if (this.hotspotType !== 'narration') return;
-
-                    const hotspot = this.selectedPage.hotspots.find(hotspot => hotspot.type === this.hotspotType);
-    
-                    if (!hotspot) return;
-    
-                    const attachment = wp.media.attachment(hotspot.attachment.id);
-    
-                    selection.add(attachment ? [attachment] : []);
+                    if (this.hotspotToEdit) {
+                        const attachment = wp.media.attachment(this.hotspotToEdit.attachment.id);
+        
+                        selection.add(attachment ? [attachment] : []);
+                    }
                 });
             },
             setupPageListSort() {
@@ -310,8 +307,42 @@ document.addEventListener('alpine:init', () => {
             },
             addHotspot(type) {
                 this.hotspotType = type;
+                this.hotspotToEdit = null;
 
                 switch (type) {
+                    case "narration":
+                        const hotspot = this.selectedPage.hotspots.find(hotspot => hotspot.type === type);
+
+                        if (hotspot) this.editMediaHotspot(hotspot);
+                        else audioHotspotMediaFrame.open();
+                    break;
+
+                    case "audio":
+                        audioHotspotMediaFrame.open();
+                    break;
+
+                    case "image":
+                        imageHotspotMediaFrame.open();
+                    break;
+
+                    case "video":
+                        videoHotspotMediaFrame.open();
+                    break;
+
+                    default:
+                        const newHotspot = this.cloneObject(hotspotObject);
+                        newHotspot.type  = type;
+
+                        this.selectedPage.hotspots.push(newHotspot);
+
+                        setTimeout(() => this.setupHotspotsInteractions(), 300);
+                }
+            },
+            editMediaHotspot(hotspot) {
+                this.hotspotType   = hotspot.type;
+                this.hotspotToEdit = hotspot;
+
+                switch (hotspot.type) {
                     case "narration":
                     case "audio":
                         audioHotspotMediaFrame.open();
@@ -329,7 +360,7 @@ document.addEventListener('alpine:init', () => {
             buildHotspotInitialAttributes(hotspot) {
                 if (hotspot.type === 'narration') return {};
 
-                const hotspotClone = JSON.parse(JSON.stringify(hotspot));
+                const hotspotClone = this.cloneObject(hotspot);
                 const positionX = (hotspotClone.position.x / 100) * this.hotspotWrapperWidth;
                 const positionY = (hotspotClone.position.y / 100) * this.hotspotWrapperHeight;
             
@@ -353,6 +384,9 @@ document.addEventListener('alpine:init', () => {
                     "data-y": positionY,
                     "style": style
                 };
+            },
+            cloneObject(object) {
+                return JSON.parse(JSON.stringify(object));
             }
         }));
     }
