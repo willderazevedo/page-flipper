@@ -36,8 +36,21 @@ document.addEventListener('alpine:init', () => {
             type: '',
             position: { x: 30, y: 5 },
             size: {width: null, height: null},
-            extras: { mode: 'icon', icon_border: '50%', icon_color: '#ffffff', icon_background: '#2271b1', icon_name: 'fa-solid fa-circle-info', icon_size: 15 },
-            attachment: {}
+            attachment: {},
+            extras: { 
+                mode: 'icon',
+                icon_border: '50%',
+                icon_color: '#ffffff',
+                icon_background: '#2271b1',
+                icon_name: 'fa-solid fa-circle-info',
+                icon_size: 15,
+                font_size: 15,
+                font_family: '',
+                font_color: '#000000',
+                text_align: 'left',
+                font_weight: 'normal',
+                text_decoration: 'none'
+            }
         };
     
         Alpine.data('flipperBuilder', (pages = []) => ({

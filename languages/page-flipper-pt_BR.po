@@ -232,6 +232,54 @@ msgstr "Exemplo"
 msgid "Custom Radius"
 msgstr "Raio Personalizado"
 
+msgid "Font Size"
+msgstr "Tamanho da Fonte"
+
+msgid "Font Family"
+msgstr "Família da Fonte"
+
+msgid "Font Color"
+msgstr "Cor da Fonte"
+
+msgid "Content"
+msgstr "Conteúdo"
+
+msgid "Text Align"
+msgstr "Alinhamento do Texto"
+
+msgid "Left"
+msgstr "Esquerda"
+
+msgid "Right"
+msgstr "Direita"
+
+msgid "Center"
+msgstr "Centro"
+
+msgid "Justify"
+msgstr "Justificado"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Lighter"
+msgstr "Lighter"
+
+msgid "Bold"
+msgstr "Bold"
+
+msgid "Bolder"
+msgstr "Bolder"
+
+msgid "None"
+msgstr "Nenhum"
+
+msgid "Underline"
+msgstr "Sublinhado"
+
+msgid "Line Through"
+msgstr "Linha Através"
+
 # ============================
 # 🛠️ Mensagens do Shortcode Metabox
 # ============================

@@ -103,6 +103,55 @@ function render_flipper_builder_meta_box( $post ) {
                                                         </select>
                                                     </li>
 
+                                                    <li x-show="hotspot.type === 'text'">
+                                                        <label><?php _e('Font Size', 'page-flipper'); ?> <small>(px)</small></label>
+                                                        <input type="number" x-model="hotspot.extras.font_size">
+                                                    </li>
+
+                                                    <li x-show="hotspot.type === 'text'">
+                                                        <label><?php _e('Font Family', 'page-flipper'); ?> (<?php _e('Example', 'page-flipper'); ?>: Lora, Arial)</label>
+                                                        <input type="text" x-model="hotspot.extras.font_family">
+                                                    </li>
+
+                                                    <li x-show="hotspot.type === 'text'">
+                                                        <label><?php _e('Font Color', 'page-flipper'); ?></label>
+                                                        <input type="color" x-model="hotspot.extras.font_color">
+                                                    </li>
+
+                                                    <li>
+                                                        <label><?php _e('Font Weight', 'page-flipper'); ?></label>
+                                                        <select x-model="hotspot.extras.font_weight">
+                                                            <option value="normal"><?php _e('Normal', 'page-flipper'); ?></option>
+                                                            <option value="lighter"><?php _e('Lighter', 'page-flipper'); ?></option>
+                                                            <option value="bold"><?php _e('Bold', 'page-flipper'); ?></option>
+                                                            <option value="bolder"><?php _e('Bolder', 'page-flipper'); ?></option>
+                                                        </select>
+                                                    </li>
+
+                                                    <li>
+                                                        <label><?php _e('Text Decoration', 'page-flipper'); ?></label>
+                                                        <select x-model="hotspot.extras.text_decoration">
+                                                            <option value="none"><?php _e('None', 'page-flipper'); ?></option>
+                                                            <option value="underline"><?php _e('Underline', 'page-flipper'); ?></option>
+                                                            <option value="line-through"><?php _e('Line Through', 'page-flipper'); ?></option>
+                                                        </select>
+                                                    </li>
+
+                                                    <li>
+                                                        <label><?php _e('Text Align', 'page-flipper'); ?></label>
+                                                        <select x-model="hotspot.extras.text_align">
+                                                            <option value="left"><?php _e('Left', 'page-flipper'); ?></option>
+                                                            <option value="right"><?php _e('Right', 'page-flipper'); ?></option>
+                                                            <option value="center"><?php _e('Center', 'page-flipper'); ?></option>
+                                                            <option value="justify"><?php _e('Justify', 'page-flipper'); ?></option>
+                                                        </select>
+                                                    </li>
+
+                                                    <li x-show="hotspot.type === 'text'">
+                                                        <label><?php _e('Content', 'page-flipper'); ?></label>
+                                                        <textarea x-model="hotspot.extras.content" rows="5"></textarea>
+                                                    </li>
+
                                                     <li x-show="hotspot.extras.mode === 'icon'">
                                                         <label><?php _e('Icon Border Radius', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.icon_border">
@@ -171,6 +220,20 @@ function render_flipper_builder_meta_box( $post ) {
                                                             <video controls>
                                                                 <source x-bind:src="hotspot.attachment.url" x-bind:type="hotspot.attachment.mime">
                                                             </video>
+                                                        </template>
+
+                                                        <template x-if="hotspot.type === 'text'">
+                                                            <article 
+                                                                x-text="hotspot.extras.content"
+                                                                x-bind:style="{
+                                                                    'color': hotspot.extras.font_color,
+                                                                    'font-size': `${hotspot.extras.font_size}px`,
+                                                                    'font-family': hotspot.extras.font_family,
+                                                                    'font-weight': hotspot.extras.font_weight,
+                                                                    'text-decoration': hotspot.extras.text_decoration,
+                                                                    'text-align': hotspot.extras.text_align
+                                                                }"
+                                                            ></article>
                                                         </template>
                                                     </div>
                                                 </template>
