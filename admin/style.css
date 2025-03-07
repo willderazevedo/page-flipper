@@ -324,7 +324,7 @@
     align-items: center;
 }
 
-.flipper-builder-wrapper .hotspot-container .image-hotspot .inline-mode-hotspot img {
+.flipper-builder-wrapper .hotspot-container .image-hotspot .inline-mode-hotspot img, .flipper-builder-wrapper .hotspot-container .video-hotspot .inline-mode-hotspot video {
     width: 100%;
     height: 100%;
 }

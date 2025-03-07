@@ -166,6 +166,12 @@ function render_flipper_builder_meta_box( $post ) {
                                                         <template x-if="hotspot.type === 'image'">
                                                             <img x-bind:src="hotspot.attachment.url" x-bind:type="hotspot.attachment.alt">
                                                         </template>
+
+                                                        <template x-if="hotspot.type === 'video'">
+                                                            <video controls>
+                                                                <source x-bind:src="hotspot.attachment.url" x-bind:type="hotspot.attachment.mime">
+                                                            </video>
+                                                        </template>
                                                     </div>
                                                 </template>
                                             </div>
