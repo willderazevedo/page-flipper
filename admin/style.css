@@ -329,8 +329,21 @@
     height: 100%;
 }
 
-.flipper-builder-wrapper .hotspot-container .text-hotspot .inline-mode-hotspot article {
+.flipper-builder-wrapper .hotspot-container .text-hotspot .inline-mode-hotspot article, .flipper-builder-wrapper .hotspot-container .link-hotspot .inline-mode-hotspot {
     width: 100%;
     height: 100%;
     overflow: auto;
+}
+
+.flipper-builder-wrapper .hotspot-container .link-hotspot .inline-mode-hotspot {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flipper-builder-wrapper .hotspot-container .link-hotspot .inline-mode-hotspot a {
+    pointer-events: none;
 }

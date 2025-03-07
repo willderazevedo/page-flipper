@@ -100,25 +100,44 @@ function render_flipper_builder_meta_box( $post ) {
                                                         <select x-model="hotspot.extras.mode">
                                                             <option value="icon"><?php _e('Icon', 'page-flipper'); ?></option>
                                                             <option value="inline"><?php _e('Inline', 'page-flipper'); ?></option>
+                                                            <option x-show="hotspot.type === 'link'" value="area"><?php _e('Stipulated Area', 'page-flipper'); ?></option>
                                                         </select>
                                                     </li>
 
-                                                    <li x-show="hotspot.type === 'text'">
+                                                    <li x-show="hotspot.type === 'link'">
+                                                        <label><?php _e('Link Url', 'page-flipper'); ?></label>
+                                                        <input type="url" x-model="hotspot.extras.link_url">
+                                                    </li>
+
+                                                    <li x-show="hotspot.type === 'link' && hotspot.extras.mode === 'inline'">
+                                                        <label><?php _e('Link Text', 'page-flipper'); ?></label>
+                                                        <input type="text" x-model="hotspot.extras.link_text">
+                                                    </li>
+
+                                                    <li x-show="hotspot.type === 'link'">
+                                                        <label><?php _e('Link Target', 'page-flipper'); ?></label>
+                                                        <select x-model="hotspot.extras.link_target">
+                                                            <option value="_blank"><?php _e('Blank Page', 'page-flipper'); ?></option>
+                                                            <option value="_self"><?php _e('Same Page', 'page-flipper'); ?></option>
+                                                        </select>
+                                                    </li>
+
+                                                    <li x-show="hotspot.type === 'text' || (hotspot.type === 'link' && hotspot.extras.mode === 'inline')">
                                                         <label><?php _e('Font Size', 'page-flipper'); ?> <small>(px)</small></label>
                                                         <input type="number" x-model="hotspot.extras.font_size">
                                                     </li>
 
-                                                    <li x-show="hotspot.type === 'text'">
-                                                        <label><?php _e('Font Family', 'page-flipper'); ?> (<?php _e('Example', 'page-flipper'); ?>: Lora, Arial)</label>
+                                                    <li x-show="hotspot.type === 'text' || (hotspot.type === 'link' && hotspot.extras.mode === 'inline')">
+                                                        <label><?php _e('Font Family', 'page-flipper'); ?> <small>(<?php _e('Example', 'page-flipper'); ?>: Lora, Arial)</small></label>
                                                         <input type="text" x-model="hotspot.extras.font_family">
                                                     </li>
 
-                                                    <li x-show="hotspot.type === 'text'">
+                                                    <li x-show="hotspot.type === 'text' || (hotspot.type === 'link' && hotspot.extras.mode === 'inline')">
                                                         <label><?php _e('Font Color', 'page-flipper'); ?></label>
                                                         <input type="color" x-model="hotspot.extras.font_color">
                                                     </li>
 
-                                                    <li>
+                                                    <li x-show="hotspot.type === 'text' || (hotspot.type === 'link' && hotspot.extras.mode === 'inline')">
                                                         <label><?php _e('Font Weight', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.font_weight">
                                                             <option value="normal"><?php _e('Normal', 'page-flipper'); ?></option>
@@ -128,7 +147,7 @@ function render_flipper_builder_meta_box( $post ) {
                                                         </select>
                                                     </li>
 
-                                                    <li>
+                                                    <li x-show="hotspot.type === 'text' || (hotspot.type === 'link' && hotspot.extras.mode === 'inline')">
                                                         <label><?php _e('Text Decoration', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.text_decoration">
                                                             <option value="none"><?php _e('None', 'page-flipper'); ?></option>
@@ -137,7 +156,7 @@ function render_flipper_builder_meta_box( $post ) {
                                                         </select>
                                                     </li>
 
-                                                    <li>
+                                                    <li x-show="hotspot.type === 'text'">
                                                         <label><?php _e('Text Align', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.text_align">
                                                             <option value="left"><?php _e('Left', 'page-flipper'); ?></option>
@@ -235,7 +254,26 @@ function render_flipper_builder_meta_box( $post ) {
                                                                 }"
                                                             ></article>
                                                         </template>
+
+                                                        <template x-if="hotspot.type === 'link'">
+                                                            <a
+                                                                x-text="hotspot.extras.link_text ? hotspot.extras.link_text : hotspot.extras.link_url"
+                                                                x-bind:href="hotspot.extras.link_url"
+                                                                x-bind:target="hotspot.extras.link_target"
+                                                                x-bind:style="{
+                                                                    'color': hotspot.extras.font_color,
+                                                                    'font-size': `${hotspot.extras.font_size}px`,
+                                                                    'font-family': hotspot.extras.font_family,
+                                                                    'font-weight': hotspot.extras.font_weight,
+                                                                    'text-decoration': hotspot.extras.text_decoration,
+                                                                }"
+                                                            ></a>
+                                                        </template>
                                                     </div>
+                                                </template>
+
+                                                <template x-if="hotspot.extras.mode === 'area' && hotspot.type === 'link'">
+                                                    <div class="area-mode-hotspot"></div>
                                                 </template>
                                             </div>
                                         </div>

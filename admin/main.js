@@ -49,7 +49,10 @@ document.addEventListener('alpine:init', () => {
                 font_color: '#000000',
                 text_align: 'left',
                 font_weight: 'normal',
-                text_decoration: 'none'
+                text_decoration: 'none',
+                link_url: '',
+                link_target: '_blank',
+                link_text: ''
             }
         };
     
@@ -152,6 +155,7 @@ document.addEventListener('alpine:init', () => {
 
                         const newHotspot            = this.cloneObject(hotspotObject);
                         newHotspot.type             = this.hotspotType;
+                        newHotspot.extras.icon_name = this.getDefaultHotspotIcon(this.hotspotType);
                         newHotspot.attachment.id    = attachment.id
                         newHotspot.attachment.title = attachment.attributes.title
                         newHotspot.attachment.url   = attachment.attributes.url
@@ -347,6 +351,7 @@ document.addEventListener('alpine:init', () => {
                     default:
                         const newHotspot = this.cloneObject(hotspotObject);
                         newHotspot.type  = type;
+                        newHotspot.extras.icon_name = this.getDefaultHotspotIcon(type);
 
                         this.selectedPage.hotspots.push(newHotspot);
 
@@ -385,6 +390,24 @@ document.addEventListener('alpine:init', () => {
                     "data-y": positionY,
                     "style": `transform: translate(${positionX}px, ${positionY}px); width: ${sizeX}px; height: ${sizeY}px;`
                 };
+            },
+            getDefaultHotspotIcon(type) {
+                switch (type) {
+                    case "audio":
+                        return "fa-solid fa-volume-high";
+
+                    case "image":
+                        return "fa-solid fa-image";
+
+                    case "video":
+                        return "fa-solid fa-video";
+
+                    case "text":
+                        return "fa-solid fa-font";
+
+                    default:
+                        return "fa-solid fa-link";
+                }
             },
             cloneObject(object) {
                 return JSON.parse(JSON.stringify(object));

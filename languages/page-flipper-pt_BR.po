@@ -280,6 +280,24 @@ msgstr "Sublinhado"
 msgid "Line Through"
 msgstr "Linha Através"
 
+msgid "Stipulated Area"
+msgstr "Área Estipulada"
+
+msgid "Link Url"
+msgstr "Url do Hyperlink"
+
+msgid "Link Text"
+msgstr "Texto do Hyperlink"
+
+msgid "Link Target"
+msgstr "Alvo do Hyperlink"
+
+msgid "Blank Page"
+msgstr "Página em Branco"
+
+msgid "Same Page"
+msgstr "Mesma Página"
+
 # ============================
 # 🛠️ Mensagens do Shortcode Metabox
 # ============================
