@@ -5,10 +5,6 @@
     display: flex;
     gap: 40px;
 }
-  
-.flipper-builder-wrapper .icon {
-    width: 1rem;
-}
 
 .flipper-builder-wrapper button.drag-page {
     cursor: grab;
@@ -50,7 +46,6 @@
     width: 100%;
     padding: 20px;
     background: #2271b1;
-    fill: #fff;
     color: #fff;
     justify-content: center;
     align-items: center;
@@ -85,8 +80,12 @@
 
 .flipper-builder-wrapper .page-list li.selected {
     color: #fff;
-    fill: #fff;
     background: #2271b1; 
+}
+
+.flipper-builder-wrapper .page-list li.selected button {
+    font-size: 15px;
+    color: #fff;
 }
 
 .flipper-builder-wrapper .page-list li span {
@@ -150,9 +149,9 @@
     border: none;
     outline: none;
     background: #2271b1;
-    fill: #fff;
     color: #fff;
     position: relative;
+    font-size: 15px;
 }
 
 .flipper-builder-wrapper .page-actions button:hover {
@@ -188,7 +187,7 @@
     color: #00a32a;
 }
 
-.flipper-builder-wrapper .narration-hotspot .narration-button {
+.flipper-builder-wrapper .hotspot-container .narration-hotspot {
     position: absolute;
     left: -40px;
     top: 0;
@@ -199,13 +198,10 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    color: #fff;
 }
 
-.flipper-builder-wrapper .narration-hotspot .narration-button svg {
-    fill: #fff;
-}
-
-.flipper-builder-wrapper .narration-hotspot .narration-button:hover:after {
+.flipper-builder-wrapper .hotspot-container .narration-hotspot:hover:after {
     position: absolute;
     content: attr(description);
     z-index: 1;
@@ -219,22 +215,111 @@
     text-align: center;
 }
 
-.flipper-builder-wrapper .audio-hotspot {
+.flipper-builder-wrapper .hotspot-container {
     position: absolute;
+    border: none;
+    transition: border 300ms ease-in-out;
 }
 
-.flipper-builder-wrapper .video-hotspot {
-    position: absolute;
+.flipper-builder-wrapper .hotspot-container:hover {
+    border: 1px solid #ddd;
 }
 
-.flipper-builder-wrapper .image-hotspot {
-    position: absolute;
+.flipper-builder-wrapper .hotspot-container [class*="-hotspot"] {
+    position: relative;
+    width: inherit;
+    height: inherit;
 }
 
-.flipper-builder-wrapper .text-hotspot {
+.flipper-builder-wrapper .hotspot-container .hotspot-extras {
     position: absolute;
+    min-width: 240px;
+    left: -250px;
+    background: #ffffff;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
-.flipper-builder-wrapper .link-hotspot {
+.flipper-builder-wrapper .hotspot-container:hover .hotspot-extras {
+    opacity: 1;
+    visibility: visible;
+}
+
+.flipper-builder-wrapper .hotspot-container .hotspot-extras .extras-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    background: #fff;
+}
+
+.flipper-builder-wrapper .hotspot-container .hotspot-extras .extras-actions  {
+    display: flex;
+    gap: 5px;
+}
+
+.flipper-builder-wrapper .hotspot-container .hotspot-extras .extras-actions button {
+    position: relative;
+    border: none;
+    outline: none;
+    background: transparent;
+    display: flex;
+}
+
+.flipper-builder-wrapper .hotspot-container .hotspot-extras .extras-actions button:hover:after {
     position: absolute;
+    content: attr(description);
+    z-index: 1;
+    right: 0;
+    top: 20px;
+    background-color: rgba(0, 0, 0, .7);
+    padding: 5px 10px;
+    color: #fff;
+    min-width: 100px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.flipper-builder-wrapper .hotspot-container .hotspot-extras ul {
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flipper-builder-wrapper .hotspot-container .hotspot-extras ul li {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.flipper-builder-wrapper .hotspot-container .hotspot-extras input[type="color"] {
+    width: 100%;
+}
+
+.flipper-builder-wrapper .hotspot-container .hotspot-content, .flipper-builder-wrapper .hotspot-container .hotspot-content .icon-mode-hotspot {
+    width: inherit;
+    height: inherit;
+}
+
+.flipper-builder-wrapper .hotspot-container .hotspot-content .icon-mode-hotspot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.flipper-builder-wrapper .hotspot-container .audio-hotspot .inline-mode-hotspot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

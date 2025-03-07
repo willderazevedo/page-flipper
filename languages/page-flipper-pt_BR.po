@@ -181,6 +181,57 @@ msgstr "Link"
 msgid "Remove Narration"
 msgstr "Remover Narração"
 
+msgid "Display Mode"
+msgstr "Modo de Exibição"
+
+msgid "Inline"
+msgstr "Em linha"
+
+msgid "Icon"
+msgstr "Ícone"
+
+msgid "Icon Color"
+msgstr "Cor do Ícone"
+
+msgid "Icon Background Color"
+msgstr "Cor de fundo do Ícone"
+
+msgid "Settings"
+msgstr "Configurações"
+
+msgid "Change File"
+msgstr "Mudar Arquivo"
+
+msgid "Remove Hotspot"
+msgstr "Remover"
+
+msgid "Icon Name"
+msgstr "Nome do Ícone"
+
+msgid "Rounded"
+msgstr "Arredondado"
+
+msgid "Smooth"
+msgstr "Levemente arredondado"
+
+msgid "Sharp"
+msgstr "Nenhum"
+
+msgid "Icon Border Radius"
+msgstr "Formato do Ícone"
+
+msgid "Icon Size"
+msgstr "Tamanho do Ícone"
+
+msgid "Custom"
+msgstr "Personalizado"
+
+msgid "Example"
+msgstr "Exemplo"
+
+msgid "Custom Radius"
+msgstr "Raio Personalizado"
+
 # ============================
 # 🛠️ Mensagens do Shortcode Metabox
 # ============================

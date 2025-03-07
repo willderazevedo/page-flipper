@@ -82,6 +82,7 @@ function load_admin_flipper_assets() {
     wp_enqueue_script('flipper-sortable-lib', plugin_dir_url(__FILE__) . 'libs/sortable.js', [], '1.15.6', true);
     wp_enqueue_script('flipper-interact-lib', plugin_dir_url(__FILE__) . 'libs/interact.js', [], '1.10.27', true);
     wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'admin/style.css', [], '1.0.0');
+    wp_enqueue_style('flipper-icons-lib', 'https://use.fontawesome.com/releases/v6.5.1/css/all.css?ver=8.5.14');
     wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'admin/main.js', ['flipper-sortable-lib', 'flipper-interact-lib'], '1.0.0', true);
 }
 

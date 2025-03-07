@@ -34,9 +34,9 @@ document.addEventListener('alpine:init', () => {
 
         const hotspotObject = {
             type: '',
-            position: { x: 5, y: 5 },
-            size: { width: 25, height: 25 },
-            extras: {},
+            position: { x: 30, y: 5 },
+            size: {width: null, height: null},
+            extras: { mode: 'icon', icon_border: '50%', icon_color: '#ffffff', icon_background: '#2271b1', icon_name: 'fa-solid fa-circle-info', icon_size: 15 },
             attachment: {}
         };
     
@@ -129,7 +129,9 @@ document.addEventListener('alpine:init', () => {
                         if (this.hotspotToEdit) {
                             this.hotspotToEdit.attachment.id    = attachment.id
                             this.hotspotToEdit.attachment.title = attachment.attributes.title
-                            this.hotspotToEdit.attachment.alt   = attachment.attributes.url
+                            this.hotspotToEdit.attachment.url   = attachment.attributes.url
+                            this.hotspotToEdit.attachment.alt   = attachment.attributes.alt
+                            this.hotspotToEdit.attachment.mime  = attachment.attributes.mime
                             this.hotspotToEdit                  = null;
     
                             return;
@@ -139,7 +141,9 @@ document.addEventListener('alpine:init', () => {
                         newHotspot.type             = this.hotspotType;
                         newHotspot.attachment.id    = attachment.id
                         newHotspot.attachment.title = attachment.attributes.title
-                        newHotspot.attachment.alt   = attachment.attributes.url
+                        newHotspot.attachment.url   = attachment.attributes.url
+                        newHotspot.attachment.alt   = attachment.attributes.alt
+                        newHotspot.attachment.mime  = attachment.attributes.mime
 
                         this.selectedPage.hotspots.push(newHotspot);
                     });
@@ -220,63 +224,61 @@ document.addEventListener('alpine:init', () => {
                 this.selectedPage.hotspots.forEach(hotspot => {
                     if (hotspot.type === 'narration') return true;
 
-                    const interactInstance = interact(`.${hotspot.type}-hotspot`);
+                    const interactInstance = interact(`.hotspot-container`);
 
-                    if (["video", "image", "text", "link"].findIndex(type => type === hotspot.type) !== -1) {
-                        interactInstance.resizable({
-                            edges: { left: true, right: true, bottom: true, top: true },
-                            listeners: {
-                                move: (event) => {
-                                    const target = event.target;
-                                    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.deltaRect.left;
-                                    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.deltaRect.top;
-                            
-                                    target.style.width = event.rect.width + 'px';
-                                    target.style.height = event.rect.height + 'px';
-                                    target.style.transform = 'translate(' + x + 'px,' + y + 'px)';
-                            
-                                    target.setAttribute('data-x', x);
-                                    target.setAttribute('data-y', y);
-                                },
-                                end: (event) => {
-                                    hotspot.size.width  = (event.rect.width * 100) / this.hotspotWrapperWidth;
-                                    hotspot.size.height = (event.rect.height * 100) / this.hotspotWrapperHeight;
-                                    hotspot.position.x  = (parseFloat(event.target.getAttribute('data-x')) * 100) / this.hotspotWrapperWidth;
-                                    hotspot.position.y  = (parseFloat(event.target.getAttribute('data-y')) * 100) / this.hotspotWrapperHeight;
-                                }
+                    interactInstance.resizable({
+                        edges: { left: true, right: true, bottom: true, top: true },
+                        ignoreFrom: '.hotspot-extras',
+                        listeners: {
+                            move: (event) => {
+                                const target = event.target;
+                                const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.deltaRect.left;
+                                const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.deltaRect.top;
+                        
+                                target.style.width = event.rect.width + 'px';
+                                target.style.height = event.rect.height + 'px';
+                                target.style.transform = `translate(${x}px, ${y}px)`;
+                        
+                                target.setAttribute('data-x', x);
+                                target.setAttribute('data-y', y);
                             },
-                            inertia: true,
-                            modifiers: [
-                                interact.modifiers.restrictEdges({ outer: 'parent' }),
-                                interact.modifiers.restrictSize({ min: { width: 100, height: 50 } })
-                            ],
-                        });
-                    }
+                            end: (event) => {
+                                hotspot.size.width  = (event.rect.width * 100) / this.hotspotWrapperWidth;
+                                hotspot.size.height = (event.rect.height * 100) / this.hotspotWrapperHeight;
+                                hotspot.position.x  = (parseFloat(event.target.getAttribute('data-x')) * 100) / this.hotspotWrapperWidth;
+                                hotspot.position.y  = (parseFloat(event.target.getAttribute('data-y')) * 100) / this.hotspotWrapperHeight;
+                            }
+                        },
+                        inertia: true,
+                        modifiers: [
+                            interact.modifiers.restrictEdges({ outer: 'parent' }),
+                            interact.modifiers.restrictSize({ min: { width: 50, height: 50 } })
+                        ],
+                    });
                     
-                    if (["audio", "video", "image", "text", "link"].findIndex(type => type === hotspot.type) !== -1) {
-                        interactInstance.draggable({
-                            listeners: {
-                                move: (event) => {
-                                    const target = event.target;
-                                    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-                                    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-                            
-                                    target.style.transform = `translate(${x}px, ${y}px)`;
-                            
-                                    target.setAttribute('data-x', x);
-                                    target.setAttribute('data-y', y);
-                                },
-                                end: (event) => {
-                                    hotspot.position.x = (parseFloat(event.target.getAttribute('data-x')) * 100) / this.hotspotWrapperWidth;
-                                    hotspot.position.y = (parseFloat(event.target.getAttribute('data-y')) * 100) / this.hotspotWrapperHeight;
-                                }
+                    interactInstance.draggable({
+                        ignoreFrom: '.hotspot-extras',
+                        listeners: {
+                            move: (event) => {
+                                const target = event.target;
+                                const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                                const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+                                target.style.transform = `translate(${x}px, ${y}px)`;
+                        
+                                target.setAttribute('data-x', x);
+                                target.setAttribute('data-y', y);
                             },
-                            inertia: true,
-                            modifiers: [
-                                interact.modifiers.restrictRect({ restriction: 'parent', endOnly: true })
-                            ]
-                        });
-                    }
+                            end: (event) => {
+                                hotspot.position.x = (parseFloat(event.target.getAttribute('data-x')) * 100) / this.hotspotWrapperWidth;
+                                hotspot.position.y = (parseFloat(event.target.getAttribute('data-y')) * 100) / this.hotspotWrapperHeight;
+                            }
+                        },
+                        inertia: true,
+                        modifiers: [
+                            interact.modifiers.restrictRect({ restriction: 'parent', endOnly: true })
+                        ]
+                    });
                 });
             },
             selectPage(page) {
@@ -313,7 +315,7 @@ document.addEventListener('alpine:init', () => {
                     case "narration":
                         const hotspot = this.selectedPage.hotspots.find(hotspot => hotspot.type === type);
 
-                        if (hotspot) this.editMediaHotspot(hotspot);
+                        if (hotspot) this.editHotspotMedia(hotspot);
                         else audioHotspotMediaFrame.open();
                     break;
 
@@ -338,7 +340,7 @@ document.addEventListener('alpine:init', () => {
                         setTimeout(() => this.setupHotspotsInteractions(), 300);
                 }
             },
-            editMediaHotspot(hotspot) {
+            editHotspotMedia(hotspot) {
                 this.hotspotType   = hotspot.type;
                 this.hotspotToEdit = hotspot;
 
@@ -360,29 +362,15 @@ document.addEventListener('alpine:init', () => {
             buildHotspotInitialAttributes(hotspot) {
                 if (hotspot.type === 'narration') return {};
 
-                const hotspotClone = this.cloneObject(hotspot);
-                const positionX = (hotspotClone.position.x / 100) * this.hotspotWrapperWidth;
-                const positionY = (hotspotClone.position.y / 100) * this.hotspotWrapperHeight;
-            
-                let style = `transform: translate(${positionX}px, ${positionY}px);`;
-            
-                if (hotspotClone.type !== 'audio') {
-                    const sizeX = (hotspotClone.size.width / 100) * this.hotspotWrapperWidth;
-                    const sizeY = (hotspotClone.size.height / 100) * this.hotspotWrapperHeight;
-            
-                    style += `width: ${sizeX}px; height: ${sizeY}px;`;
-            
-                    return {
-                        "data-x": positionX,
-                        "data-y": positionY,
-                        "style": style
-                    };
-                }
+                const positionX = (hotspot.position.x / 100) * this.hotspotWrapperWidth;
+                const positionY = (hotspot.position.y / 100) * this.hotspotWrapperHeight;
+                const sizeX     = hotspot.size.width ? (hotspot.size.width / 100) * this.hotspotWrapperWidth : 50;
+                const sizeY     = hotspot.size.height ? (hotspot.size.height / 100) * this.hotspotWrapperHeight : 50;
             
                 return {
                     "data-x": positionX,
                     "data-y": positionY,
-                    "style": style
+                    "style": `transform: translate(${positionX}px, ${positionY}px); width: ${sizeX}px; height: ${sizeY}px;`
                 };
             },
             cloneObject(object) {
