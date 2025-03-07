@@ -273,7 +273,9 @@ function render_flipper_builder_meta_box( $post ) {
                                                 </template>
 
                                                 <template x-if="hotspot.extras.mode === 'area' && hotspot.type === 'link'">
-                                                    <div class="area-mode-hotspot"></div>
+                                                    <div class="area-mode-hotspot">
+                                                        <i class="fa-solid fa-link"></i>
+                                                    </div>
                                                 </template>
                                             </div>
                                         </div>
