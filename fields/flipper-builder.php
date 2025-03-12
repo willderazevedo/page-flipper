@@ -109,8 +109,15 @@ function render_flipper_builder_meta_box( $post ) {
                                                         <input type="url" x-model="hotspot.extras.link_url">
                                                     </li>
 
-                                                    <li x-show="hotspot.type === 'link' && hotspot.extras.mode === 'inline'">
-                                                        <label><?php _e('Link Text', 'page-flipper'); ?></label>
+                                                    <li x-show="hotspot.type === 'link'">
+                                                        <template x-if="hotspot.extras.mode === 'inline'">
+                                                            <label><?php _e('Link Text', 'page-flipper'); ?></label>
+                                                        </template>
+
+                                                        <template x-if="hotspot.extras.mode !== 'inline'">
+                                                            <label><?php _e('Link Title', 'page-flipper'); ?></label>
+                                                        </template>
+                                                        
                                                         <input type="text" x-model="hotspot.extras.link_text">
                                                     </li>
 

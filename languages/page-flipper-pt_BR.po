@@ -298,6 +298,9 @@ msgstr "Página em Branco"
 msgid "Same Page"
 msgstr "Mesma Página"
 
+msgid "Link Title"
+msgstr "Título do Hyperlink"
+
 # ============================
 # 🛠️ Mensagens do Shortcode Metabox
 # ============================
