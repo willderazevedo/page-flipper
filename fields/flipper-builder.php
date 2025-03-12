@@ -67,9 +67,9 @@ function render_flipper_builder_meta_box( $post ) {
                     <template x-if="hotspotWrapperWidth && hotspotWrapperHeight">
                         <div class="hotspots-wrapper" x-bind:style="`width: ${hotspotWrapperWidth}px; height: ${hotspotWrapperHeight}px;`">
                             <template x-for="(hotspot, index) in selectedPage.hotspots">
-                                <div class="hotspot-container" x-bind="buildHotspotInitialAttributes(hotspot)">
+                                <div class="hotspot-container" x-bind="buildHotspotInitialAttributes(hotspot)" x-bind:description="hotspot.type === 'narration' ? '<?php _e('Remove Narration', 'page-flipper'); ?>' : null">
                                     <template x-if="hotspot.type === 'narration'">
-                                        <div x-data="{hover: false}"  x-on:mouseover="hover = true" x-on:mouseover.away="hover = false" x-on:click="removeHotspot(index)" class="narration-hotspot" description="<?php _e('Remove Narration', 'page-flipper'); ?>">
+                                        <div x-data="{hover: false}"  x-on:mouseover="hover = true" x-on:mouseover.away="hover = false" x-on:click="removeHotspot(index)">
                                             <i x-show="!hover" class="fa-solid fa-audio-description"></i>
                                             <i x-show="hover" class="fa-solid fa-trash"></i>
                                         </div>

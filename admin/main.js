@@ -241,7 +241,7 @@ document.addEventListener('alpine:init', () => {
                 this.selectedPage.hotspots.forEach(hotspot => {
                     if (hotspot.type === 'narration') return true;
 
-                    const interactInstance = interact(`.hotspot-container`);
+                    const interactInstance = interact(`.hotspot-container:not(.narration-hotspot)`);
 
                     interactInstance.resizable({
                         edges: { left: true, right: true, bottom: true, top: true },
@@ -378,7 +378,9 @@ document.addEventListener('alpine:init', () => {
                 }
             },
             buildHotspotInitialAttributes(hotspot) {
-                if (hotspot.type === 'narration') return {};
+                if (hotspot.type === 'narration') return {
+                    'class': 'narration-hotspot'
+                };
 
                 const positionX = (hotspot.position.x / 100) * this.hotspotWrapperWidth;
                 const positionY = (hotspot.position.y / 100) * this.hotspotWrapperHeight;
