@@ -257,11 +257,11 @@
     left: 50%;
 }
 
-.flipper-widget-wrapper.flipper-pages-wrapper.zooming {
+.flipper-widget-wrapper .flipper-pages-wrapper.zooming {
     cursor: grab;
 }
 
-.flipper-widget-wrapper.flipper-pages-wrapper.zooming:active {
+.flipper-widget-wrapper .flipper-pages-wrapper.zooming:active {
     cursor: grabbing;
 }
 
@@ -273,4 +273,81 @@
     align-items: center;
     position: relative;
     overflow: hidden;
+}
+
+.flipper-widget-wrapper .hotspots-wrapper {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    top: 0;
+    left: 0;
+}
+
+.flipper-widget-wrapper .hotspots-wrapper [class*="-hotspot"] {
+    position: absolute;
+}
+
+.flipper-widget-wrapper .hotspots-wrapper [class*="-hotspot"]:hover {
+    z-index: 999;
+}
+
+.flipper-widget-wrapper .hotspots-wrapper [class*="icon-"], .flipper-widget-wrapper .hotspots-wrapper [class*="-link-hotspot"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flipper-widget-wrapper .hotspots-wrapper .hotspot-popover {
+    --bs-popover-bg: var(--background);
+    min-width: 400px;
+    border-radius: 0;
+    user-select: text;
+}
+
+.flipper-widget-wrapper .hotspots-wrapper .hotspot-popover::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: transparent;
+    z-index: -1;
+}
+
+.flipper-widget-wrapper .hotspots-wrapper .hotspot-popover .popover-body {
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+    color: var(--font-color);
+    font-weight: var(--font-weight);
+    text-decoration: var(--text-decoration);
+    text-align: var(--text-align);
+}
+
+.flipper-widget-wrapper .hotspots-wrapper .inline-video-hotspot, .flipper-widget-wrapper .hotspots-wrapper [class*="-image-hotspot"] {
+    width: 100%;
+    height: 100%;
+}
+
+.flipper-widget-wrapper [id*="modal-"] .modal-content {
+    background-color: transparent;
+    gap: 10px;
+    align-items: end;
+}
+
+.flipper-widget-wrapper [id*="modal-"] .modal-content .modal-close {
+    color: #ffffff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    background: none;
+    padding: 0;
+}
+
+.flipper-widget-wrapper [id*="modal-"] .modal-content .modal-close:hover {
+    background: none;
+}
+
+.flipper-widget-wrapper [id*="modal-"] .modal-body {
+    padding: 0;
 }

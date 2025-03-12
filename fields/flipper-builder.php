@@ -66,10 +66,10 @@ function render_flipper_builder_meta_box( $post ) {
                 
                     <template x-if="hotspotWrapperWidth && hotspotWrapperHeight">
                         <div class="hotspots-wrapper" x-bind:style="`width: ${hotspotWrapperWidth}px; height: ${hotspotWrapperHeight}px;`">
-                            <template x-for="(hotspot, index) in selectedPage.hotspots">
+                            <template x-for="hotspot in selectedPage.hotspots" :key="hotspot.id">
                                 <div class="hotspot-container" x-bind="buildHotspotInitialAttributes(hotspot)" x-bind:description="hotspot.type === 'narration' ? '<?php _e('Remove Narration', 'page-flipper'); ?>' : null">
                                     <template x-if="hotspot.type === 'narration'">
-                                        <div x-data="{hover: false}"  x-on:mouseover="hover = true" x-on:mouseover.away="hover = false" x-on:click="removeHotspot(index)">
+                                        <div x-data="{hover: false}"  x-on:mouseover="hover = true" x-on:mouseover.away="hover = false" x-on:click="removeHotspot(hotspot)">
                                             <i x-show="!hover" class="fa-solid fa-audio-description"></i>
                                             <i x-show="hover" class="fa-solid fa-trash"></i>
                                         </div>
@@ -88,7 +88,7 @@ function render_flipper_builder_meta_box( $post ) {
                                                             </button>
                                                         </template>
 
-                                                        <button type="button" x-on:click="removeHotspot(index)" description="<?php _e('Remove Hotspot', 'page-flipper'); ?>">
+                                                        <button type="button" x-on:click="removeHotspot(hotspot)" description="<?php _e('Remove Hotspot', 'page-flipper'); ?>">
                                                             <i class="fa-solid fa-trash"></i>
                                                         </button>
                                                     </div>
@@ -201,6 +201,11 @@ function render_flipper_builder_meta_box( $post ) {
                                                     <li x-show="hotspot.extras.mode === 'icon'">
                                                         <label><?php _e('Icon Background Color', 'page-flipper'); ?></label>
                                                         <input type="color" x-model="hotspot.extras.icon_background">
+                                                    </li>
+
+                                                    <li x-show="hotspot.extras.mode === 'icon' && hotspot.type !== 'link'">
+                                                        <label><?php _e('Popover Background Color', 'page-flipper'); ?></label>
+                                                        <input type="color" x-model="hotspot.extras.popover_background">
                                                     </li>
 
                                                     <li x-show="hotspot.extras.mode === 'icon'">

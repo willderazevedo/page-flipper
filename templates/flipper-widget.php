@@ -31,7 +31,7 @@ $data          = !empty($data) ? esc_attr($data) : '[]';
                     <i class="fa-solid fa-audio-description"></i>
                 </button>
                 
-                <button x-on:click="toggleZoom" type="button" description="<?php _e('Zoom', 'page-flipper'); ?>">
+                <button x-on:click="toggleZoom($event, true)" type="button" description="<?php _e('Zoom', 'page-flipper'); ?>">
                     <i x-show="!zoomActive" class="fas fa-search-plus"></i>
                     <i x-show="zoomActive" class="fas fa-search-minus"></i>
                 </button>

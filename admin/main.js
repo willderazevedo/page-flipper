@@ -33,6 +33,7 @@ document.addEventListener('alpine:init', () => {
         });
 
         const hotspotObject = {
+            id: null,
             type: '',
             position: { x: 30, y: 5 },
             size: {width: null, height: null},
@@ -42,6 +43,7 @@ document.addEventListener('alpine:init', () => {
                 icon_border: '50%',
                 icon_color: '#ffffff',
                 icon_background: '#2271b1',
+                popover_background: '#333333',
                 icon_name: 'fa-solid fa-circle-info',
                 icon_size: 15,
                 font_size: 15,
@@ -141,7 +143,7 @@ document.addEventListener('alpine:init', () => {
                 media.on('select', () => {
                     const selection = media.state().get('selection');
                     
-                    selection.forEach(attachment => {
+                    selection.forEach((attachment, index) => {
                         if (this.hotspotToEdit) {
                             this.hotspotToEdit.attachment.id    = attachment.id
                             this.hotspotToEdit.attachment.title = attachment.attributes.title
@@ -154,6 +156,7 @@ document.addEventListener('alpine:init', () => {
                         }
 
                         const newHotspot            = this.cloneObject(hotspotObject);
+                        newHotspot.id               = this.generateHotspotId();
                         newHotspot.type             = this.hotspotType;
                         newHotspot.extras.icon_name = this.getDefaultHotspotIcon(this.hotspotType);
                         newHotspot.attachment.id    = attachment.id
@@ -241,7 +244,7 @@ document.addEventListener('alpine:init', () => {
                 this.selectedPage.hotspots.forEach(hotspot => {
                     if (hotspot.type === 'narration') return true;
 
-                    const interactInstance = interact(`.hotspot-container:not(.narration-hotspot)`);
+                    const interactInstance = interact(`.hotspot-container.interact`);
 
                     interactInstance.resizable({
                         edges: { left: true, right: true, bottom: true, top: true },
@@ -260,10 +263,12 @@ document.addEventListener('alpine:init', () => {
                                 target.setAttribute('data-y', y);
                             },
                             end: (event) => {
-                                hotspot.size.width  = (event.rect.width * 100) / this.hotspotWrapperWidth;
-                                hotspot.size.height = (event.rect.height * 100) / this.hotspotWrapperHeight;
-                                hotspot.position.x  = (parseFloat(event.target.getAttribute('data-x')) * 100) / this.hotspotWrapperWidth;
-                                hotspot.position.y  = (parseFloat(event.target.getAttribute('data-y')) * 100) / this.hotspotWrapperHeight;
+                                const oldHotspot = this.selectedPage.hotspots.find(item => item.id == event.target.getAttribute('data-id'));
+
+                                oldHotspot.size.width  = (event.rect.width * 100) / this.hotspotWrapperWidth;
+                                oldHotspot.size.height = (event.rect.height * 100) / this.hotspotWrapperHeight;
+                                oldHotspot.position.x  = (parseFloat(event.target.getAttribute('data-x')) * 100) / this.hotspotWrapperWidth;
+                                oldHotspot.position.y  = (parseFloat(event.target.getAttribute('data-y')) * 100) / this.hotspotWrapperHeight;
                             }
                         },
                         inertia: true,
@@ -287,8 +292,10 @@ document.addEventListener('alpine:init', () => {
                                 target.setAttribute('data-y', y);
                             },
                             end: (event) => {
-                                hotspot.position.x = (parseFloat(event.target.getAttribute('data-x')) * 100) / this.hotspotWrapperWidth;
-                                hotspot.position.y = (parseFloat(event.target.getAttribute('data-y')) * 100) / this.hotspotWrapperHeight;
+                                const oldHotspot = this.selectedPage.hotspots.find(item => item.id == event.target.getAttribute('data-id'));
+
+                                oldHotspot.position.x = (parseFloat(event.target.getAttribute('data-x')) * 100) / this.hotspotWrapperWidth;
+                                oldHotspot.position.y = (parseFloat(event.target.getAttribute('data-y')) * 100) / this.hotspotWrapperHeight;
                             }
                         },
                         inertia: true,
@@ -321,8 +328,11 @@ document.addEventListener('alpine:init', () => {
                 this.pages = [];
                 this.sortable = null;
             },
-            removeHotspot(hotspotIndex) {
-                this.selectedPage.hotspots.splice(hotspotIndex, 1);
+            removeHotspot(hotspot) {
+                this.selectedPage.hotspots = this.selectedPage.hotspots.filter(item => item.id !== hotspot.id);
+            },
+            generateHotspotId() {
+                return Math.random().toString(36).slice(2, 8) + Math.random().toString(36).slice(2, 3);
             },
             addHotspot(type) {
                 this.hotspotType = type;
@@ -350,6 +360,7 @@ document.addEventListener('alpine:init', () => {
 
                     default:
                         const newHotspot = this.cloneObject(hotspotObject);
+                        newHotspot.id    = this.generateHotspotId();
                         newHotspot.type  = type;
                         newHotspot.extras.icon_name = this.getDefaultHotspotIcon(type);
 
@@ -379,18 +390,25 @@ document.addEventListener('alpine:init', () => {
             },
             buildHotspotInitialAttributes(hotspot) {
                 if (hotspot.type === 'narration') return {
-                    'class': 'narration-hotspot'
+                    "class": 'narration-hotspot'
                 };
+
+                if (!hotspot.size.width || !hotspot.size.height) {
+                    hotspot.size.width = (50 / this.hotspotWrapperWidth) * 100;
+                    hotspot.size.height = (50 / this.hotspotWrapperHeight) * 100;
+                }
 
                 const positionX = (hotspot.position.x / 100) * this.hotspotWrapperWidth;
                 const positionY = (hotspot.position.y / 100) * this.hotspotWrapperHeight;
-                const sizeX     = hotspot.size.width ? (hotspot.size.width / 100) * this.hotspotWrapperWidth : 50;
-                const sizeY     = hotspot.size.height ? (hotspot.size.height / 100) * this.hotspotWrapperHeight : 50;
+                const sizeX     = (hotspot.size.width / 100) * this.hotspotWrapperWidth;
+                const sizeY     = (hotspot.size.height / 100) * this.hotspotWrapperHeight;
             
                 return {
+                    "data-id": hotspot.id,
                     "data-x": positionX,
                     "data-y": positionY,
-                    "style": `transform: translate(${positionX}px, ${positionY}px); width: ${sizeX}px; height: ${sizeY}px;`
+                    "style": `transform: translate(${positionX}px, ${positionY}px); width: ${sizeX}px; height: ${sizeY}px;`,
+                    "class": 'interact'
                 };
             },
             getDefaultHotspotIcon(type) {

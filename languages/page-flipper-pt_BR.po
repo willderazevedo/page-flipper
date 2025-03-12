@@ -301,6 +301,12 @@ msgstr "Mesma Página"
 msgid "Link Title"
 msgstr "Título do Hyperlink"
 
+msgid "Text Decoration"
+msgstr "Decoração do Texto"
+
+msgid "Popover Background Color"
+msgstr "Cor de Fundo da Janela de Conteúdo"
+
 # ============================
 # 🛠️ Mensagens do Shortcode Metabox
 # ============================
