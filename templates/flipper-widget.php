@@ -1,15 +1,31 @@
 <?php
 if (!defined('ABSPATH')) exit;
 
-$postId        = esc_attr($atts['id']);
-$showSummary   = esc_attr($atts['summary']) === 'yes';
-$showActionBar = esc_attr($atts['action_bar']) === 'yes';
-$showControls  = esc_attr($atts['controls']) === 'yes';
-$goBackUrl     = wp_get_referer();
-$data          = get_post_meta($postId, '_flipper_builder_data', true);
-$data          = !empty($data) ? esc_attr($data) : '[]';
+$postId              = esc_attr($atts['id']);
+$showSummary         = esc_attr($atts['summary']) === 'yes';
+$showActionBar       = esc_attr($atts['action_bar']) === 'yes';
+$showControls        = esc_attr($atts['controls']) === 'yes';
+$pageBackground      = esc_attr($atts['page_bg']);
+$actionBarBackground = esc_attr($atts['action_bar_bg']);
+$summaryBackground   = esc_attr($atts['summary_bg']);
+$controlsIconColor   = esc_attr($atts['controls_icon']);
+$fontColor           = esc_attr($atts['font_color']);
+$goBackUrl           = wp_get_referer();
+$builderData         = get_post_meta($postId, '_flipper_builder_data', true);
+$builderData         = !empty($builderData) ? esc_attr($builderData) : '[]';
+$pdfAttachment       = get_post_meta($postId, '_flipper_pdf_data', true);
+$pdfAttachment       = !empty($pdfAttachment) ? esc_attr($pdfAttachment) : 'null';
 ?>
-<div x-data="flipperWidget(<?php echo $data; ?>)" class="flipper-widget-wrapper">
+<div 
+    x-data="flipperWidget(<?php echo $builderData; ?>, <?php echo $pdfAttachment; ?>)"
+    class="flipper-widget-wrapper"
+    style="
+        --page-bg: <?php echo $pageBackground; ?>;
+        --action-bar-bg: <?php echo $actionBarBackground; ?>;
+        --summary-bg: <?php echo $summaryBackground; ?>;
+        --icon-color: <?php echo $controlsIconColor; ?>;
+        --font-color: <?php echo $fontColor; ?>;
+    ">
     <?php if ($showActionBar) : ?>
         <div class="flipper-action-bar">
             <div class="flipper-actions actions-left">
@@ -27,7 +43,7 @@ $data          = !empty($data) ? esc_attr($data) : '[]';
             </div>
             
             <div class="flipper-actions actions-right">
-                <button type="button" class="active" x-on:click="narrationActive ? stopNarration() : startNarration()" x-bind:disabled="!hasNarration" x-bind:description="!hasNarration ? '<?php _e('No Audio Description in Current Page', 'page-flipper'); ?>' : (narrationActive ? '<?php _e('Pause Audio Description', 'page-flipper'); ?>' : '<?php _e('Play Audio Description', 'page-flipper'); ?>')">
+                <button type="button" class="narration-toggler" x-bind:class="{'mobile-mode': isMobile()}" x-on:click="narrationActive ? stopNarration() : startNarration()" x-bind:disabled="!hasNarration" x-bind:description="!hasNarration ? '<?php _e('No Audio Description in Current Page', 'page-flipper'); ?>' : (narrationActive ? '<?php _e('Pause Audio Description', 'page-flipper'); ?>' : '<?php _e('Play Audio Description', 'page-flipper'); ?>')">
                     <i x-show="!narrationActive" class="fa-solid fa-play"></i>
                     <i x-show="narrationActive" class="fa-solid fa-pause"></i>
 
@@ -39,9 +55,11 @@ $data          = !empty($data) ? esc_attr($data) : '[]';
                     <i x-show="zoomActive" class="fas fa-search-minus"></i>
                 </button>
                 
-                <button type="button" description="<?php _e('Download PDF File', 'page-flipper'); ?>">
-                    <i class="fas fa-file-pdf"></i>
-                </button>
+                <template x-if="pdfFile !== null">
+                    <a x-bind:href="pdfFile.url" target="_blank" description="<?php _e('Download PDF File', 'page-flipper'); ?>">
+                        <i class="fas fa-file-pdf"></i>
+                    </a>
+                </template>
             </div>
         </div>
     <?php endif; ?>

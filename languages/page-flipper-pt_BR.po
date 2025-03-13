@@ -328,6 +328,49 @@ msgstr "Shortcode copiado!"
 msgid "Shortcode"
 msgstr "Shortcode"
 
+msgid "Extra Options"
+msgstr "Opções Extras"
+
+msgid "Show or Hide the summary. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Mostrar ou ocultar o sumário. Valores possíveis: `yes` ou `no`. Padrão: `yes`"
+
+msgid "Show or Hide the action bar. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Mostrar ou ocultar a barra de ações. Valores possíveis: `yes` ou `no`. Padrão: `yes`"
+
+msgid "Show or Hide the controls. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Mostrar ou ocultar os controles. Valores possíveis: `yes` ou `no`. Padrão: `yes`"
+
+msgid "Element background color. Default: `#333333`"
+msgstr "Cor de fundo do elemento. Padrão: `#333333`"
+
+msgid "Action Bar background color. Default: `#555555`"
+msgstr "Cor de fundo da barra de ações. Padrão: `#555555`"
+
+msgid "Summary background color. Default: `#555555`"
+msgstr "Cor de fundo do sumário. Padrão: `#555555`"
+
+msgid "Controls icons color. Default: `#ffffff`"
+msgstr "Cor dos ícones dos controles. Padrão: `#ffffff`"
+
+msgid "Element font color. Default: `#ffffff`"
+msgstr "Cor da fonte do elemento. Padrão: `#ffffff`"
+
+
+# ============================
+# 🛠️ Mensagens do PDF File Widget
+# ============================
+msdid "PDF File"
+msgstr "Arquivo PDF"
+
+msdid "Upload PDF File"
+msgstr "Enviar Arquivo PDF"
+
+msdid "Remove PDF File"
+msgstr "Remover Arquivo PDF"
+
+msdid "Click on the box above to update the file."
+msgstr "Clique na caixa acima para atualizar o arquivo."
+
 # ============================
 # 🛠️ Mensagens do Widget
 # ============================

@@ -187,6 +187,41 @@
     color: #00a32a;
 }
 
+.flipper-shortcode-wrapper .extra-title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.flipper-shortcode-wrapper .param-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.flipper-shortcode-wrapper .param-list span {
+    display: inline-block;
+    padding: 2.5px 5px;
+    background: #eee;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    position: relative;
+}
+
+.flipper-shortcode-wrapper .param-list span:hover:after {
+    position: absolute;
+    content: attr(description);
+    z-index: 1;
+    right: 0;
+    bottom: 26px;
+    background-color: rgba(0, 0, 0, .7);
+    padding: 5px 10px;
+    color: #fff;
+    min-width: 250px;
+    text-align: center;
+}
+
 .flipper-builder-wrapper .hotspot-container.narration-hotspot {
     position: absolute;
     left: -40px;
@@ -363,4 +398,29 @@
     background: rgba(34, 113, 177, .5);
     color: #ffffff;
     font-size: 15px;
+}
+
+.flipper-pdf-wrapper .file-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #eee;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.flipper-pdf-wrapper .file-edit-hint {
+    color: #646970;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.flipper-pdf-wrapper a {
+    margin: 13px 0;
+    display: block;
+}
+
+.flipper-pdf-wrapper .remove-pdf-file {
+    color: #b32d2e;
 }

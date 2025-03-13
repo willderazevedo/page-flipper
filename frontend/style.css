@@ -61,7 +61,7 @@
     width: 250px;
     margin-left: -250px;
     transition: margin-left .5s ease-in-out;
-    z-index: 2;
+    z-index: 9999;
 }
 
 .flipper-widget-wrapper .flipper-summary-wrapper.active {
@@ -183,8 +183,22 @@
 }
 
 .flipper-widget-wrapper .flipper-action-bar .flipper-actions button:hover, .flipper-widget-wrapper .flipper-action-bar .flipper-actions button:focus, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a:hover,
-.flipper-widget-wrapper .flipper-action-bar .flipper-actions button.active, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a.active {
+.flipper-widget-wrapper .flipper-action-bar .flipper-actions .narration-toggler:not(.mobile-mode) {
     background: rgba(255,255,255, .2);
+}
+
+.flipper-widget-wrapper .flipper-action-bar .flipper-actions .narration-toggler.mobile-mode[disabled] i, .flipper-widget-wrapper .flipper-action-bar .flipper-actions .narration-toggler.mobile-mode[disabled] span {
+    opacity: .4;
+}
+
+.flipper-widget-wrapper .flipper-action-bar .flipper-actions .narration-toggler.mobile-mode {
+    position: absolute;
+    right: 10px;
+    top: 70px;
+    outline: 10px solid var(--action-bar-bg);
+    opacity: 1;
+    border-radius: 0 0 0 10px;
+    background: var(--action-bar-bg);
 }
 
 .flipper-widget-wrapper .flipper-action-bar .flipper-actions button:hover::after, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a:hover::after {

@@ -8,6 +8,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 require_once plugin_dir_path( __FILE__ ) . 'fields/flipper-builder.php';
+require_once plugin_dir_path( __FILE__ ) . 'fields/flipper-pdf.php';
 require_once plugin_dir_path( __FILE__ ) . 'fields/flipper-shortcode.php';
 
 function flipper_load_textdomain() {
@@ -104,7 +105,6 @@ function render_flipper_shortcode($atts) {
 
     $atts = shortcode_atts([
         'id'               => get_the_ID(),
-        'elementor'        => 'no',
         'summary'          => 'yes',
         'action_bar'       => 'yes',
         'controls'         => 'yes',
@@ -112,8 +112,7 @@ function render_flipper_shortcode($atts) {
         'action_bar_bg'    => '#555555',
         'summary_bg'       => '#555555',
         'controls_icon'    => '#ffffff',
-        'font_color'       => '#ffffff',
-        'typography'       => '',
+        'font_color'       => '#ffffff'
     ], $atts, 'page_flipper');
 
     include plugin_dir_path(__FILE__) . 'templates/flipper-widget.php';

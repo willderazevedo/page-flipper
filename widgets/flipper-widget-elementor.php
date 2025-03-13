@@ -118,10 +118,7 @@ class Flipper_Widget_Elementor extends \Elementor\Widget_Base {
             [
                 'label'     => __( 'Page Background Color', 'page-flipper' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
-                'default'   => '#333333',
-                'selectors' => [
-                    '{{WRAPPER}} .flipper-widget-wrapper' => '--page-bg: {{VALUE}};',
-                ],
+                'default'   => '#333333'
             ]
         );
 
@@ -131,10 +128,7 @@ class Flipper_Widget_Elementor extends \Elementor\Widget_Base {
             [
                 'label'     => __( 'Action Bar Background Color', 'page-flipper' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
-                'default'   => '#555555',
-                'selectors' => [
-                    '{{WRAPPER}} .flipper-widget-wrapper' => '--action-bar-bg: {{VALUE}};',
-                ],
+                'default'   => '#555555'
             ]
         );
 
@@ -144,10 +138,7 @@ class Flipper_Widget_Elementor extends \Elementor\Widget_Base {
             [
                 'label'     => __( 'Summary Background Color', 'page-flipper' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
-                'default'   => '#555555',
-                'selectors' => [
-                    '{{WRAPPER}} .flipper-widget-wrapper' => '--summary-bg: {{VALUE}};',
-                ],
+                'default'   => '#555555'
             ]
         );
 
@@ -157,10 +148,7 @@ class Flipper_Widget_Elementor extends \Elementor\Widget_Base {
             [
                 'label'     => __( 'Controls Icon Color', 'page-flipper' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
-                'default'   => '#ffffff',
-                'selectors' => [
-                    '{{WRAPPER}} .flipper-widget-wrapper' => '--icon-color: {{VALUE}};',
-                ],
+                'default'   => '#ffffff'
             ]
         );
 
@@ -170,10 +158,7 @@ class Flipper_Widget_Elementor extends \Elementor\Widget_Base {
             [
                 'label'     => __( 'Font Color', 'page-flipper' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
-                'default'   => '#ffffff',
-                'selectors' => [
-                    '{{WRAPPER}} .flipper-widget-wrapper' => '--font-color: {{VALUE}};',
-                ],
+                'default'   => '#ffffff'
             ]
         );
 
@@ -200,6 +185,11 @@ class Flipper_Widget_Elementor extends \Elementor\Widget_Base {
                 'summary="' . esc_attr($settings['enable_summary']) . '" ' .
                 'action_bar="' . esc_attr($settings['enable_action_bar']) . '" ' .
                 'controls="' . esc_attr($settings['enable_controls']) . '" ' .
+                'page_bg="' . esc_attr($settings['page_bg_color']) . '" ' .
+                'action_bar_bg="' . esc_attr($settings['action_bar_bg_color']) . '" ' .
+                'summary_bg="' . esc_attr($settings['summary_bg_color']) . '" ' .
+                'controls_icon="' . esc_attr($settings['controls_icon_color']) . '" ' .
+                'font_color="' . esc_attr($settings['font_color']) . '" ' .
             ']'
         );
     }

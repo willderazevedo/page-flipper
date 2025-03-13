@@ -4,7 +4,9 @@ document.addEventListener('alpine:init', () => {
             multiple: 'add',
             library: {
                 type: [ 'image' ],
-                uploadedTo: wp.media.view.settings.post.id
+                uploadedTo: wp.media.view.settings.post.id,
+                orderby: 'date',
+                order: 'DESC'
             }
         });
 
@@ -28,6 +30,14 @@ document.addEventListener('alpine:init', () => {
             multiple: false,
             library: {
                 type: [ 'video' ],
+                uploadedTo: wp.media.view.settings.post.id
+            }
+        });
+
+        const pdfMediaFrame = wp.media({
+            multiple: false,
+            library: {
+                type: [ 'application/pdf' ],
                 uploadedTo: wp.media.view.settings.post.id
             }
         });
@@ -445,6 +455,48 @@ document.addEventListener('alpine:init', () => {
             },
             cloneObject(object) {
                 return JSON.parse(JSON.stringify(object));
+            }
+        }));
+
+        Alpine.data('flipperPdf', (attachment = null) => ({
+            attachment: null,
+            init() {
+                this.attachment = attachment;
+
+                this.setupPdfMediaFrameListeners();
+            },
+            setupPdfMediaFrameListeners() {
+                pdfMediaFrame.on('select', () => {
+                    const selection = pdfMediaFrame.state().get('selection');
+                    
+                    selection.forEach(attachment => {
+                        this.attachment = {
+                           id: attachment.id,
+                           title: attachment.attributes.title,
+                           url: attachment.attributes.url
+                        }
+                    });
+                });
+    
+                pdfMediaFrame.on('open', () => {
+                    const selection = pdfMediaFrame.state().get('selection');
+    
+                    if (this.attachment === null) return;
+    
+                    const attachment = wp.media.attachment(this.attachment.id);
+
+                    selection.add(attachment ? [attachment] : []);
+                });
+            },
+            selectPdfFile(event) {
+                event.preventDefault();
+
+                pdfMediaFrame.open();
+            },
+            removePdfFile(event) {
+                event.preventDefault();
+                
+                this.attachment = null;
             }
         }));
     }

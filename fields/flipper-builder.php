@@ -3,9 +3,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-/**
- * Adiciona um metabox ao post type "page_flipper"
- */
 function add_flipper_builder_meta_box() {
     add_meta_box(
         'flipper_builder',
@@ -18,9 +15,6 @@ function add_flipper_builder_meta_box() {
 }
 add_action( 'add_meta_boxes', 'add_flipper_builder_meta_box' );
 
-/**
- * Renderiza o campo de upload de múltiplas imagens dentro do metabox
- */
 function render_flipper_builder_meta_box( $post ) {
     wp_nonce_field( 'flipper_builder_nonce_action', 'flipper_builder_nonce' );
 
@@ -328,9 +322,6 @@ function render_flipper_builder_meta_box( $post ) {
     <?php
 }
 
-/**
- * Salva os IDs das imagens no post_meta
- */
 function save_flipper_builder_meta_box( $post_id ) {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
         return;
@@ -349,7 +340,7 @@ function save_flipper_builder_meta_box( $post_id ) {
         $builder_data = json_decode( $builder_data, true );
 
         if ( json_last_error() === JSON_ERROR_NONE ) {
-            update_post_meta( $post_id, '_flipper_builder_data', wp_json_encode( $builder_data ) );
+            update_post_meta( $post_id, '_flipper_builder_data', wp_json_encode( $builder_data, JSON_UNESCAPED_UNICODE ) );
         }
     }
 }

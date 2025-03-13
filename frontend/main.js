@@ -1,5 +1,5 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.data('flipperWidget', (pages = []) => ({
+    Alpine.data('flipperWidget', (pages = [], pdfFile = null) => ({
         pages: [],
         actualPage: 1,
         summaryActive: false,
@@ -10,8 +10,10 @@ document.addEventListener('alpine:init', () => {
         narrationCurrentTime: 0,
         narrationDuration: '0:00',
         turnedElement: null,
+        pdfFile: null,
         init() {
             this.pages = pages.sort((a, b) => a.order - b.order);
+            this.pdfFile = pdfFile;
 
             this.setupPageViewer();
         },
