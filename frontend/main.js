@@ -24,13 +24,16 @@ document.addEventListener('alpine:init', () => {
 
             image.src = this.pages[0].attachment.url;
             image.onload = () => {
-                const maxWidth  = window.innerWidth - (window.innerWidth * 0.2); 
-                const maxHeight = (window.innerHeight - 60) - (window.innerHeight * 0.2);
+                
+				const containerBreakpoint = 992;
+                const wrapper   = document.querySelector('.flipper-widget-wrapper');
+                const maxWidth  = wrapper.offsetWidth - (wrapper.offsetWidth * 0.2); 
+                const maxHeight = (wrapper.offsetHeight - 60) - (wrapper.offsetHeight * 0.2);
                 const ratio     = Math.min(maxWidth / image.width, maxHeight / image.height);
                 let imageWidth  = (image.width * ratio);
                 let imageHeight = image.height * ratio;
 				
-                if (!this.isMobile()) imageWidth = imageWidth * 2;
+                if (maxWidth > containerBreakpoint) imageWidth = imageWidth * 2;
                 if (imageWidth == imageHeight) imageHeight = imageHeight / 2;
 
                 this.turnedElement = jQuery(".flipper-pages");
@@ -41,7 +44,7 @@ document.addEventListener('alpine:init', () => {
                     width: imageWidth,
                     height: imageHeight,
                     autoCenter: true,
-                    display: this.isMobile() ? 'single' : 'double',
+                    display: maxWidth <= containerBreakpoint ? 'single' : 'double',
                     when: {
                         turning: (event, page, view) => {
                             const element = jQuery(event.target);
