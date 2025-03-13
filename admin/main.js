@@ -45,6 +45,7 @@ document.addEventListener('alpine:init', () => {
                 icon_background: '#2271b1',
                 popover_background: '#333333',
                 icon_name: 'fa-solid fa-circle-info',
+                pause_icon_name: 'fa-solid fa-pause',
                 icon_size: 15,
                 font_size: 15,
                 font_family: '',

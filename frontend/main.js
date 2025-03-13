@@ -114,8 +114,7 @@ document.addEventListener('alpine:init', () => {
         buildHotspotIconElement(hotspotElement, hotspot) {
             const iconElement = document.createElement('i');
 
-            hotspot.extras.icon_name.split(' ').forEach(iconClass => iconElement.classList.add(iconClass));
-
+            iconElement.className                = hotspot.extras.icon_name;
             hotspotElement.style.fontSize        = hotspot.extras.icon_size;
             hotspotElement.style.backgroundColor = hotspot.extras.icon_background;
             hotspotElement.style.color           = hotspot.extras.icon_color;
@@ -124,6 +123,8 @@ document.addEventListener('alpine:init', () => {
             else hotspotElement.style.borderRadius = hotspot.extras.icon_border;
 
             hotspotElement.append(iconElement);
+
+            return iconElement;
         },
         buildHotspotPopoverElement(hotspotElement, hotspot, content, typographyStyles = false, usesHTML = false) {
             hotspotElement.setAttribute('data-bs-toggle', 'popover');
@@ -256,11 +257,18 @@ document.addEventListener('alpine:init', () => {
 
                         switch (hotspot.extras.mode) {
                             case "icon":
-                                this.buildHotspotIconElement(hotspotElement, hotspot);
+                                const iconElement = this.buildHotspotIconElement(hotspotElement, hotspot);
 
                                 hotspotElement.addEventListener('click', () => {
-                                    if (audioElement.paused) audioElement.play();
-                                    else audioElement.pause();
+                                    if (audioElement.paused) {
+                                        iconElement.className = hotspot.extras.pause_icon_name;
+                                        audioElement.play();
+
+                                        return;
+                                    }
+
+                                    iconElement.className = hotspot.extras.icon_name;
+                                    audioElement.pause();
                                 });
                             break;
 

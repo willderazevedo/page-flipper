@@ -307,6 +307,9 @@ msgstr "Decoração do Texto"
 msgid "Popover Background Color"
 msgstr "Cor de Fundo da Janela de Conteúdo"
 
+msgid "Pause Icon Name"
+msgstr "Nome do Ícone de Pause"
+
 # ============================
 # 🛠️ Mensagens do Shortcode Metabox
 # ============================

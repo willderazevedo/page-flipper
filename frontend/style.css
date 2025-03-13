@@ -351,3 +351,17 @@
 .flipper-widget-wrapper [id*="modal-"] .modal-body {
     padding: 0;
 }
+
+.flipper-widget-wrapper .hotspots-wrapper .icon-audio-hotspot {
+    cursor: pointer;
+}
+
+.flipper-widget-wrapper .hotspots-wrapper .inline-audio-hotspot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flipper-widget-wrapper .hotspots-wrapper .inline-audio-hotspot audio {
+    width: 100%;
+}

@@ -213,6 +213,11 @@ function render_flipper_builder_meta_box( $post ) {
                                                         <input type="text" x-model="hotspot.extras.icon_name">
                                                     </li>
 
+                                                    <li x-show="hotspot.extras.mode === 'icon' && hotspot.type === 'audio'">
+                                                        <label><?php _e('Pause Icon Name', 'page-flipper'); ?> <a href="https://fontawesome.com/icons" target="_blank"><small>(Font Awesome Icons)</small></a></label>
+                                                        <input type="text" x-model="hotspot.extras.pause_icon_name">
+                                                    </li>
+
                                                     <li x-show="hotspot.extras.mode === 'icon'">
                                                         <label><?php _e('Icon Size', 'page-flipper'); ?> <small>(px)</small></label>
                                                         <input type="number" x-model="hotspot.extras.icon_size">
@@ -305,7 +310,7 @@ function render_flipper_builder_meta_box( $post ) {
                             <i class="fa-solid fa-volume-high"></i>
                         </button>
                         <button type="button" description="<?php _e('Video', 'page-flipper'); ?>" x-on:click="addHotspot('video')">
-                            <i class="fa-solid fa-play"></i>
+                            <i class="fa-solid fa-video"></i>
                         </button>
                         <button type="button" description="<?php _e('Image', 'page-flipper'); ?>" x-on:click="addHotspot('image')">
                             <i class="fa-solid fa-image"></i>

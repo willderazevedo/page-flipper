@@ -330,6 +330,10 @@
     height: 100%;
 }
 
+.flipper-builder-wrapper .hotspot-container .audio-hotspot audio {
+    width: 100%;
+}
+
 .flipper-builder-wrapper .hotspot-container .text-hotspot .inline-mode-hotspot article, .flipper-builder-wrapper .hotspot-container .link-hotspot .inline-mode-hotspot {
     width: 100%;
     height: 100%;
@@ -345,7 +349,7 @@
     align-items: center;
 }
 
-.flipper-builder-wrapper .hotspot-container .link-hotspot .inline-mode-hotspot a {
+.flipper-builder-wrapper .hotspot-container .link-hotspot .inline-mode-hotspot a, .flipper-builder-wrapper .hotspot-container .video-hotspot video, .flipper-builder-wrapper .hotspot-container .audio-hotspot audio {
     pointer-events: none;
 }
 
