@@ -179,7 +179,7 @@
 
 .flipper-widget-wrapper .flipper-action-bar .flipper-actions .narration-time {
     font-size: 12px;
-    color: #ffffff;
+    color: var(--font-color);
 }
 
 .flipper-widget-wrapper .flipper-action-bar .flipper-actions button:hover, .flipper-widget-wrapper .flipper-action-bar .flipper-actions button:focus, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a:hover,
