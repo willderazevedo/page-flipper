@@ -45,7 +45,7 @@ function render_flipper_builder_meta_box( $post ) {
                         
                         <ul class="page-list">
                             <template x-for="page in pages">
-                                <li x-on:click.stop="selectPage(page)" x-bind:class="{'selected': page.selected}">
+                                <li x-on:click.stop="selectPage(page)" x-bind:class="{'selected': isSelected(page)}">
                                     <button type="button" class="drag-page">
                                         <i class="fa-solid fa-bars"></i>
                                     </button>

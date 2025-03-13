@@ -222,7 +222,7 @@
     height: inherit;
 }
 
-.flipper-widget-wrapper .flipper-pages-wrapper .odd.gradient {
+.flipper-widget-wrapper .flipper-pages-wrapper .page.even .gradient {
     position: absolute;
     z-index: 1;
     top: 0;
@@ -233,7 +233,7 @@
     background-image: linear-gradient(left, rgba(0,0,0,0) 95%, rgba(0,0,0,0.2) 100%);
 }
     
-.flipper-widget-wrapper .flipper-pages-wrapper .even.gradient {
+.flipper-widget-wrapper .flipper-pages-wrapper .page.odd .gradient {
     position: absolute;
     z-index: 1;
     top: 0;

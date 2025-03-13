@@ -44,7 +44,6 @@ document.addEventListener('alpine:init', () => {
                         },
                         turned: (e, page) => {
                             this.actualPage = page;
-                            
                             // checkNarration();
                         }
                     }
@@ -101,12 +100,12 @@ document.addEventListener('alpine:init', () => {
         addPage(page, range) {
             if (this.turnedElement.turn('hasPage', range)) return;
 
-            const element = jQuery('<div />', {'class': `page loading ${((range % 2==0) ? 'odd' : 'even')}`}).html(`<div class="gradient ${((range % 2==0) ? 'odd' : 'even')}"><i class="fa-solid fa-circle-notch fa-2x fa-spin"></i>`);
+            const element = jQuery('<div />', {'class': `page`}).html(`<div class="gradient"><i class="fa-solid fa-circle-notch fa-2x fa-spin"></i>`);
             
             this.turnedElement.turn('addPage', element, range);
             
 			setTimeout(() => {
-				element.html(`<div class="gradient ${((range % 2==0) ? 'odd' : 'even')}"></div><img src="${page.attachment.url}" alt="${page.attachment.alt}" draggable="false" width="100%" height="100%">`);
+				element.html(`<div class="gradient"></div><img src="${page.attachment.url}" alt="${page.attachment.alt}" draggable="false" width="100%" height="100%">`);
 
                 this.buildPageHotspots(range - 1, element);
 			}, 1000);	
@@ -166,7 +165,7 @@ document.addEventListener('alpine:init', () => {
 
             hotspotWrapper.classList.add(`hotspots-wrapper`);
 
-            pageHotspots.forEach((hotspot, index) => {
+            pageHotspots.forEach(hotspot => {
                 if (hotspot.type === 'narration') return true;
 
                 const hotspotElement = document.createElement(hotspot.type === 'link' ? 'a' : 'div');

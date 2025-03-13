@@ -35,7 +35,7 @@ document.addEventListener('alpine:init', () => {
         const hotspotObject = {
             id: null,
             type: '',
-            position: { x: 30, y: 5 },
+            position: { x: 45, y: 45 },
             size: {width: null, height: null},
             attachment: {},
             extras: { 
@@ -66,15 +66,13 @@ document.addEventListener('alpine:init', () => {
             hotspotToEdit: null,
             hotspotWrapperWidth: 0,
             hotspotWrapperHeight: 0,
-            get selectedPage() {
-                return this.pages.find(page => page.selected);
-            },
+            selectedPage: null,
             init() {
                 this.$watch('selectedPage', () => this.setupHotspotsWrapperSizes());
     
                 if (pages.length) {
                     pages.sort((a, b) => a.order - b.order).forEach((page, index) => {
-                        page.selected = index === 0;
+                        if (index === 0) this.selectedPage = page;
     
                         this.pages.push(page);
                     });
@@ -86,7 +84,6 @@ document.addEventListener('alpine:init', () => {
                 this.setupHotspotMediaFrameListeners(audioHotspotMediaFrame);
                 this.setupHotspotMediaFrameListeners(imageHotspotMediaFrame);
                 this.setupHotspotMediaFrameListeners(videoHotspotMediaFrame);
-
             },
             setupPagesMediaFrameListeners() {
                 pagesMediaFrame.on('select', () => {
@@ -100,7 +97,7 @@ document.addEventListener('alpine:init', () => {
                         const page = this.pages.find(page => page.attachment.id === attachment.id);
     
                         if (page) {
-                            if (!this.selectedPage) page.selected = true;
+                            if (!this.selectedPage) this.selectedPage = page;
     
                             page.attachment = {
                                 id: attachment.id,
@@ -110,10 +107,10 @@ document.addEventListener('alpine:init', () => {
                             };
     
                             return true;
-                        } 
-    
-                        this.pages.push({
-                            selected: this.selectedPage ? false : index === 0,
+                        }
+
+                        const newPage = {
+                            id: this.generateRandomId(),
                             order: this.pages.length,
                             hotspots: [],
                             attachment: {
@@ -122,7 +119,11 @@ document.addEventListener('alpine:init', () => {
                                 url: attachment.attributes.url,
                                 alt: attachment.attributes.alt,
                             },
-                        });
+                        };
+
+                        if (!this.selectedPage && index === 0) this.selectedPage = newPage;
+    
+                        this.pages.push(newPage);
                     });
     
                     setTimeout(() => this.setupPageListSort(), 300);
@@ -157,7 +158,7 @@ document.addEventListener('alpine:init', () => {
                         }
 
                         const newHotspot            = this.cloneObject(hotspotObject);
-                        newHotspot.id               = this.generateHotspotId();
+                        newHotspot.id               = this.generateRandomId();
                         newHotspot.type             = this.hotspotType;
                         newHotspot.extras.icon_name = this.getDefaultHotspotIcon(this.hotspotType);
                         newHotspot.attachment.id    = attachment.id
@@ -215,6 +216,8 @@ document.addEventListener('alpine:init', () => {
                 });
             },
             setupHotspotsWrapperSizes() {
+                if (!this.selectedPage) return;
+
                 const image = document.querySelector('.flipper-builder-wrapper .flipper-page img');
     
                 image.onload = () => {
@@ -306,10 +309,11 @@ document.addEventListener('alpine:init', () => {
                     });
                 });
             },
+            isSelected(page) {
+                return this.selectedPage.id === page.id;
+            },
             selectPage(page) {
-                if (this.selectedPage) this.selectedPage.selected = false;
-    
-                page.selected = true;
+                this.selectedPage = page;
             },
             removePage(page) {
                 const pageIndex = this.pages.findIndex(item => item.attachment.id === page.attachment.id);
@@ -319,7 +323,7 @@ document.addEventListener('alpine:init', () => {
                     if (item.order > page.order) item.order -= 1;
                 });
     
-                if (page.selected && this.pages.length) this.selectPage(this.pages[0]);
+                if (this.selectedPage.id === page.id && this.pages.length) this.selectPage(this.pages[0]);
                 if (!this.pages.length) this.sortable = null;
             },
             addPages() {
@@ -327,12 +331,13 @@ document.addEventListener('alpine:init', () => {
             },
             removePages() {
                 this.pages = [];
+                this.selectedPage = null;
                 this.sortable = null;
             },
             removeHotspot(hotspot) {
                 this.selectedPage.hotspots = this.selectedPage.hotspots.filter(item => item.id !== hotspot.id);
             },
-            generateHotspotId() {
+            generateRandomId() {
                 return Math.random().toString(36).slice(2, 8) + Math.random().toString(36).slice(2, 3);
             },
             addHotspot(type) {
@@ -361,7 +366,7 @@ document.addEventListener('alpine:init', () => {
 
                     default:
                         const newHotspot = this.cloneObject(hotspotObject);
-                        newHotspot.id    = this.generateHotspotId();
+                        newHotspot.id    = this.generateRandomId();
                         newHotspot.type  = type;
                         newHotspot.extras.icon_name = this.getDefaultHotspotIcon(type);
 
@@ -394,9 +399,12 @@ document.addEventListener('alpine:init', () => {
                     "class": 'narration-hotspot'
                 };
 
+                
                 if (!hotspot.size.width || !hotspot.size.height) {
-                    hotspot.size.width = (50 / this.hotspotWrapperWidth) * 100;
-                    hotspot.size.height = (50 / this.hotspotWrapperHeight) * 100;
+                    const oldHotspot = this.selectedPage.hotspots.find(item => item.id === hotspot.id);
+                    
+                    oldHotspot.size.width = (50 / this.hotspotWrapperWidth) * 100;
+                    oldHotspot.size.height = (50 / this.hotspotWrapperHeight) * 100;
                 }
 
                 const positionX = (hotspot.position.x / 100) * this.hotspotWrapperWidth;
