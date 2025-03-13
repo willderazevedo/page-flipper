@@ -359,16 +359,16 @@ msgstr "Cor da fonte do elemento. Padrão: `#ffffff`"
 # ============================
 # 🛠️ Mensagens do PDF File Widget
 # ============================
-msdid "PDF File"
+msgid "PDF File"
 msgstr "Arquivo PDF"
 
-msdid "Upload PDF File"
+msgid "Upload PDF File"
 msgstr "Enviar Arquivo PDF"
 
-msdid "Remove PDF File"
+msgid "Remove PDF File"
 msgstr "Remover Arquivo PDF"
 
-msdid "Click on the box above to update the file."
+msgid "Click on the box above to update the file."
 msgstr "Clique na caixa acima para atualizar o arquivo."
 
 # ============================
