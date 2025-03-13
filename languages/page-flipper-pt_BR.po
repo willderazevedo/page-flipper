@@ -337,6 +337,12 @@ msgstr "Voltar"
 msgid "Play Audio Description"
 msgstr "Iniciar Áudio Descrição"
 
+msgid "Pause Audio Description"
+msgstr "Pausar Áudio Descrição"
+
+msgid "No Audio Description in Current Page"
+msgstr "Sem Áudio Descrição na Página Atual"
+
 msgid "Zoom"
 msgstr "Zoom"
 
@@ -345,3 +351,6 @@ msgstr "Baixar Arquivo PDF"
 
 msgid "Summary"
 msgstr "Sumário"
+
+msgid "Page"
+msgstr "Página"

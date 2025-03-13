@@ -161,15 +161,25 @@
     background: transparent;
     cursor: pointer;
     padding: 0;
-    width: 30px;
-    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
     border-radius: 3px;
     transition: background 300ms ease-in-out;
     position: relative;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 7px;
 }
 
-.flipper-widget-wrapper .flipper-action-bar .flipper-actions button:hover, .flipper-widget-wrapper .flipper-action-bar .flipper-actions button:focus, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a:hover {
+.flipper-widget-wrapper .flipper-action-bar .flipper-actions .narration-time {
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.flipper-widget-wrapper .flipper-action-bar .flipper-actions button:hover, .flipper-widget-wrapper .flipper-action-bar .flipper-actions button:focus, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a:hover,
+.flipper-widget-wrapper .flipper-action-bar .flipper-actions button.active, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a.active {
     background: rgba(255,255,255, .2);
 }
 

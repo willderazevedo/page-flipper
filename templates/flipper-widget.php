@@ -21,17 +21,22 @@ $data          = !empty($data) ? esc_attr($data) : '[]';
             </div>
 
             <div class="flipper-pagination">
-                <input type="tel" x-model:value="actualPage" x-on:focus="$event.target.select()" x-on:input.debounce.500ms="goToPage(actualPage)" maxlength="3">
+                <input type="tel" x-model:value="actualPage" x-on:focus="$event.target.select()" x-on:input.debounce.500ms="goToPage(actualPage)" x-bind:disabled="narrationActive" maxlength="3">
                 <span>/</span>
                 <input type="tel" x-bind:value="pages.length" readonly> 
             </div>
             
             <div class="flipper-actions actions-right">
-                <button type="button" description="<?php _e('Play Audio Description', 'page-flipper'); ?>">
-                    <i class="fa-solid fa-audio-description"></i>
+                <button type="button" x-bind:class="{'active': narrationActive}" x-on:click="narrationActive ? stopNarration() : startNarration()" x-bind:disabled="!hasNarration" x-bind:description="!hasNarration ? '<?php _e('No Audio Description in Current Page', 'page-flipper'); ?>' : (narrationActive ? '<?php _e('Pause Audio Description', 'page-flipper'); ?>' : '<?php _e('Play Audio Description', 'page-flipper'); ?>')">
+                    <i x-show="!narrationActive" class="fa-solid fa-audio-description"></i>
+                    <i x-show="narrationActive" class="fa-solid fa-pause"></i>
+
+                    <template x-if="narrationActive">
+                        <span class="narration-time" x-text="`${timeString(narrationCurrentTime)}/${timeString(narrationAudio[0].duration)}`"></span>
+                    </template>
                 </button>
                 
-                <button x-on:click="toggleZoom($event, true)" type="button" description="<?php _e('Zoom', 'page-flipper'); ?>">
+                <button x-on:click="toggleZoom($event, true)" x-bind:disabled="narrationActive" type="button" description="<?php _e('Zoom', 'page-flipper'); ?>">
                     <i x-show="!zoomActive" class="fas fa-search-plus"></i>
                     <i x-show="zoomActive" class="fas fa-search-minus"></i>
                 </button>
@@ -44,32 +49,36 @@ $data          = !empty($data) ? esc_attr($data) : '[]';
     <?php endif; ?>
     
     <?php if ($showSummary) : ?>
-        <div class="flipper-summary-wrapper" x-bind:class="{'active': summaryActive}">
-            <button x-on:click="summaryActive = !summaryActive" type="button" class="summary-toggler" description="<?php _e('Summary', 'page-flipper'); ?>">
-                <i x-show="!summaryActive" class="fas fa-angle-right" aria-hidden="true"></i>
-                <i x-show="summaryActive" class="fas fa-angle-left" aria-hidden="true"></i>
-            </button>
-
-            <div class="summary-pages">
-                <template x-for="(page, index) in pages">
-                    <div class="page" x-on:click="goToPage(index + 1)">
-                        <img x-bind:src="page.attachment.url" alt="page.attachment.alt">
-                    </div>
-                </template>
+        <template x-if="!narrationActive">
+            <div class="flipper-summary-wrapper" x-bind:class="{'active': summaryActive}">
+                <button x-on:click="summaryActive = !summaryActive" type="button" class="summary-toggler" description="<?php _e('Summary', 'page-flipper'); ?>">
+                    <i x-show="!summaryActive" class="fas fa-angle-right" aria-hidden="true"></i>
+                    <i x-show="summaryActive" class="fas fa-angle-left" aria-hidden="true"></i>
+                </button>
+    
+                <div class="summary-pages">
+                    <template x-for="(page, index) in pages">
+                        <div class="page" x-on:click="goToPage(index + 1)">
+                            <img x-bind:src="page.attachment.url" alt="page.attachment.alt">
+                        </div>
+                    </template>
+                </div>
             </div>
-        </div>
+        </template>
     <?php endif; ?>
     
     <?php if ($showControls) : ?>
-        <div class="flipper-controls">
-            <button type="button" x-on:click="previousPage()">
-                <i class="fa-solid fa-angle-left"></i>
-            </button>
-            
-            <button type="button" x-on:click="nextPage()">
-                <i class="fa-solid fa-angle-right"></i>
-            </button>
-        </div>
+        <template x-if="!narrationActive">
+            <div class="flipper-controls">
+                <button type="button" x-on:click="previousPage()">
+                    <i class="fa-solid fa-angle-left"></i>
+                </button>
+                
+                <button type="button" x-on:click="nextPage()">
+                    <i class="fa-solid fa-angle-right"></i>
+                </button>
+            </div>
+        </template>
     <?php endif; ?>
     
     <div class="flipper-pages-wrapper" x-bind:class="{'zooming': zoomActive}">

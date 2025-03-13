@@ -4,6 +4,10 @@ document.addEventListener('alpine:init', () => {
         actualPage: 1,
         summaryActive: false,
         zoomActive: false,
+        hasNarration: false,
+        narrationActive: false,
+        narrationAudio: null,
+        narrationCurrentTime: 0,
         turnedElement: null,
         init() {
             this.pages = pages.sort((a, b) => a.order - b.order);
@@ -44,6 +48,8 @@ document.addEventListener('alpine:init', () => {
                         },
                         turned: (e, page) => {
                             this.actualPage = page;
+
+                            this.checkNarration();
                         }
                     }
                 });
@@ -74,6 +80,7 @@ document.addEventListener('alpine:init', () => {
             }
         },
         toggleZoom(event, ignoreTarget = false) {
+            if (this.narrationActive) return;
             if (!ignoreTarget && !jQuery(event.target).parent().hasClass('page')) return;
 
             if (!this.zoomActive) {
@@ -108,6 +115,62 @@ document.addEventListener('alpine:init', () => {
 
                 this.buildPageHotspots(range - 1, element);
 			}, 1000);	
+        },
+        startNarration() {
+            this.narrationActive = true;
+            this.narrationAudio  = jQuery(`.flipper-widget-wrapper .page.p${this.actualPage} .narration-hotspot audio`);
+
+            this.narrationAudio.on('timeupdate', () => this.narrationCurrentTime = this.narrationAudio[0].currentTime);
+
+            this.narrationAudio.on('ended', () => {
+                this.turnedElement.turn("disable", false);
+                this.narrationAudio.off('ended');
+                this.narrationAudio.off('timeupdate');
+
+                if (this.actualPage + 1 > this.pages.length) {
+                    this.stopNarration();
+
+                    return;
+                }
+
+                this.goToPage(this.actualPage + 1);
+            });
+
+            this.turnedElement.turn("disable", true);
+            this.narrationAudio.trigger('play');
+        },
+        stopNarration() {
+            this.narrationActive = false;
+
+            this.narrationAudio.trigger('pause');
+            this.narrationAudio.off('ended');
+            this.narrationAudio.off('timeupdate');
+            this.turnedElement.turn("disable", false);
+        },
+        checkNarration() {
+            this.hasNarration = this.pages[this.actualPage - 1].hotspots.findIndex(hotspot => hotspot.type === 'narration') !== -1;
+
+            if (this.hasNarration && !this.narrationActive && this.narrationAudio) {
+                this.narrationCurrentTime = 0;
+                this.audioElement[0].currentTime = 0;
+                this.narrationAudio = null;
+            }
+
+            if (this.hasNarration && this.narrationActive) this.startNarration();
+            if (!this.hasNarration && this.narrationActive) this.stopNarration();
+        },
+        timeString(time) {
+            let ss = Math.floor(time)
+            let hh = Math.floor(ss / 3600)
+            let mm = Math.floor((ss - hh * 3600) / 60);
+
+            ss = ss - hh * 3600 - mm * 60;
+          
+            if (hh > 0) mm = mm < 10 ? "0" + mm : mm;
+
+            ss = ss < 10 ? "0" + ss : ss;
+
+            return hh > 0 ? `${hh}:${mm}:${ss}` : `${mm}:${ss}`;
         },
         buildHotspotIconElement(hotspotElement, hotspot) {
             const iconElement = document.createElement('i');
@@ -181,15 +244,25 @@ document.addEventListener('alpine:init', () => {
             hotspotWrapper.classList.add(`hotspots-wrapper`);
 
             pageHotspots.forEach(hotspot => {
-                if (hotspot.type === 'narration') return true;
-
                 const hotspotElement = document.createElement(hotspot.type === 'link' ? 'a' : 'div');
-                const positionX      = (hotspot.position.x / 100) * element.width();
-                const positionY      = (hotspot.position.y / 100) * element.height();
-                const sizeX          = (hotspot.size.width / 100) * element.width();
-                const sizeY          = (hotspot.size.height / 100) * element.height();
+
+                if (hotspot.type === 'narration') {
+                    const audioElement = document.createElement('audio');
+                    audioElement.src   = hotspot.attachment.url;
+
+                    hotspotElement.classList.add(`narration-hotspot`);
+                    hotspotElement.append(audioElement);
+                    hotspotWrapper.append(hotspotElement);
+
+                    return true;
+                }
 
                 hotspotElement.classList.add(`${hotspot.extras.mode}-${hotspot.type}-hotspot`);
+
+                const positionX = (hotspot.position.x / 100) * element.width();
+                const positionY = (hotspot.position.y / 100) * element.height();
+                const sizeX     = (hotspot.size.width / 100) * element.width();
+                const sizeY     = (hotspot.size.height / 100) * element.height();
 
                 hotspotElement.style.width     = `${sizeX}px`;
                 hotspotElement.style.height    = `${sizeY}px`;
