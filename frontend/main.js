@@ -8,6 +8,7 @@ document.addEventListener('alpine:init', () => {
         narrationActive: false,
         narrationAudio: null,
         narrationCurrentTime: 0,
+        narrationDuration: '0:00',
         turnedElement: null,
         init() {
             this.pages = pages.sort((a, b) => a.order - b.order);
@@ -141,6 +142,8 @@ document.addEventListener('alpine:init', () => {
         },
         stopNarration() {
             this.narrationActive = false;
+            this.narrationCurrentTime = 0;
+            this.narrationDuration = '0:00';
 
             this.narrationAudio.trigger('pause');
             this.narrationAudio.off('ended');
@@ -148,11 +151,15 @@ document.addEventListener('alpine:init', () => {
             this.turnedElement.turn("disable", false);
         },
         checkNarration() {
-            this.hasNarration = this.pages[this.actualPage - 1].hotspots.findIndex(hotspot => hotspot.type === 'narration') !== -1;
+            const hotspot = this.pages[this.actualPage - 1].hotspots.find(hotspot => hotspot.type === 'narration');
+
+            this.narrationDuration = hotspot?.attachment?.duration ?? '0:00';
+            this.hasNarration = !!hotspot;
 
             if (this.hasNarration && !this.narrationActive && this.narrationAudio) {
                 this.narrationCurrentTime = 0;
-                this.audioElement[0].currentTime = 0;
+                this.narrationDuration = '0:00';
+                this.narrationAudio[0].currentTime = 0;
                 this.narrationAudio = null;
             }
 

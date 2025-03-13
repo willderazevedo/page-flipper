@@ -27,13 +27,11 @@ $data          = !empty($data) ? esc_attr($data) : '[]';
             </div>
             
             <div class="flipper-actions actions-right">
-                <button type="button" x-bind:class="{'active': narrationActive}" x-on:click="narrationActive ? stopNarration() : startNarration()" x-bind:disabled="!hasNarration" x-bind:description="!hasNarration ? '<?php _e('No Audio Description in Current Page', 'page-flipper'); ?>' : (narrationActive ? '<?php _e('Pause Audio Description', 'page-flipper'); ?>' : '<?php _e('Play Audio Description', 'page-flipper'); ?>')">
-                    <i x-show="!narrationActive" class="fa-solid fa-audio-description"></i>
+                <button type="button" class="active" x-on:click="narrationActive ? stopNarration() : startNarration()" x-bind:disabled="!hasNarration" x-bind:description="!hasNarration ? '<?php _e('No Audio Description in Current Page', 'page-flipper'); ?>' : (narrationActive ? '<?php _e('Pause Audio Description', 'page-flipper'); ?>' : '<?php _e('Play Audio Description', 'page-flipper'); ?>')">
+                    <i x-show="!narrationActive" class="fa-solid fa-play"></i>
                     <i x-show="narrationActive" class="fa-solid fa-pause"></i>
 
-                    <template x-if="narrationActive">
-                        <span class="narration-time" x-text="`${timeString(narrationCurrentTime)}/${timeString(narrationAudio[0].duration)}`"></span>
-                    </template>
+                    <span class="narration-time" x-text="`<?php _e('Page', 'page-flipper'); ?> ${actualPage} - ${timeString(narrationCurrentTime)}/${narrationDuration}`"></span>
                 </button>
                 
                 <button x-on:click="toggleZoom($event, true)" x-bind:disabled="narrationActive" type="button" description="<?php _e('Zoom', 'page-flipper'); ?>">

@@ -152,7 +152,10 @@ document.addEventListener('alpine:init', () => {
                             this.hotspotToEdit.attachment.url   = attachment.attributes.url
                             this.hotspotToEdit.attachment.alt   = attachment.attributes.alt
                             this.hotspotToEdit.attachment.mime  = attachment.attributes.mime
-                            this.hotspotToEdit                  = null;
+
+                            if (this.hotspotType === 'narration') this.hotspotToEdit.attachment.duration = attachment.attributes.fileLength;
+
+                            this.hotspotToEdit = null;
     
                             return;
                         }
@@ -166,6 +169,8 @@ document.addEventListener('alpine:init', () => {
                         newHotspot.attachment.url   = attachment.attributes.url
                         newHotspot.attachment.alt   = attachment.attributes.alt
                         newHotspot.attachment.mime  = attachment.attributes.mime
+
+                        if (this.hotspotType === 'narration') newHotspot.attachment.duration = attachment.attributes.fileLength;
 
                         this.selectedPage.hotspots.push(newHotspot);
                     });

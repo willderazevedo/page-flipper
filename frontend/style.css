@@ -32,6 +32,10 @@
     align-items: center;
     gap: 10px;
     font-size: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .flipper-widget-wrapper .flipper-action-bar .flipper-pagination input {
@@ -169,7 +173,7 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 7px;
     padding: 5px 7px;
 }
 
