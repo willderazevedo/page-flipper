@@ -44,7 +44,6 @@ document.addEventListener('alpine:init', () => {
                         },
                         turned: (e, page) => {
                             this.actualPage = page;
-                            // checkNarration();
                         }
                     }
                 });
@@ -56,8 +55,8 @@ document.addEventListener('alpine:init', () => {
                         tap: event => this.toggleZoom(event),
                         swipeLeft: () => this.nextPage(),
                         swipeRight: () => this.previousPage(),
-                        // zoomIn: () => resizeHotspots(),
-                        // zoomOut: () => resizeHotspots()
+                        zoomIn: () => this.resizePageHotspots(),
+                        zoomOut: () => this.resizePageHotspots()
                     }
                 });
 
@@ -155,6 +154,22 @@ document.addEventListener('alpine:init', () => {
             hotspotElement.style.color          = hotspot.extras.font_color;
             hotspotElement.style.fontWeight     = hotspot.extras.font_weight;
             hotspotElement.style.textDecoration = hotspot.extras.text_decoration;
+        },
+        resizePageHotspots() {
+            this.pages.forEach((page, pageIndex) => {
+                const pageNumber = pageIndex + 1;
+
+                if (!this.turnedElement.turn('hasPage', pageNumber)) return true;
+
+                const element = jQuery(`.flipper-widget-wrapper .page.p${pageNumber}`);
+                const hotspotWrapper = element.find('.hotspots-wrapper');
+
+                if (hotspotWrapper.length) {
+                    hotspotWrapper.remove();
+
+                    setTimeout(() => this.buildPageHotspots(pageIndex, element), 300);
+                }
+            });
         },
         buildPageHotspots(page, element) {
             const pageHotspots = this.pages[page].hotspots;
