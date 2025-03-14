@@ -28,17 +28,17 @@ O **Page Flipper** é um plugin **gratuito** para WordPress que permite a criaç
   - Incorporar o livro digital em qualquer parte do site.
   - Formato padrão: `[page_flipper id="post_id"]`
   - Parâmetros opcionais:
-
-| Parâmetro      | Descrição                                         | Valores Possíveis | Padrão    |
-|---------------|-------------------------------------------------|-----------------|-----------|
-| `summary`     | Exibe ou oculta o sumário                      | `yes` ou `no`  | `yes`     |
-| `action_bar`  | Exibe ou oculta a barra de ações               | `yes` ou `no`  | `yes`     |
-| `controls`    | Exibe ou oculta os controles                   | `yes` ou `no`  | `yes`     |
-| `page_bg`     | Cor de fundo das páginas                       | Hexadecimal    | `#333333` |
-| `action_bar_bg` | Cor de fundo da barra de ações               | Hexadecimal    | `#555555` |
-| `summary_bg`  | Cor de fundo do sumário                        | Hexadecimal    | `#555555` |
-| `controls_icon` | Cor dos ícones dos controles                 | Hexadecimal    | `#ffffff` |
-| `font_color`  | Cor da fonte do livro                          | Hexadecimal    | `#ffffff` |
+    
+    | Parâmetro      | Descrição                                         | Valores Possíveis | Padrão    |
+    |---------------|-------------------------------------------------|-----------------|-----------|
+    | `summary`     | Exibe ou oculta o sumário                      | `yes` ou `no`  | `yes`     |
+    | `action_bar`  | Exibe ou oculta a barra de ações               | `yes` ou `no`  | `yes`     |
+    | `controls`    | Exibe ou oculta os controles                   | `yes` ou `no`  | `yes`     |
+    | `page_bg`     | Cor de fundo das páginas                       | Hexadecimal    | `#333333` |
+    | `action_bar_bg` | Cor de fundo da barra de ações               | Hexadecimal    | `#555555` |
+    | `summary_bg`  | Cor de fundo do sumário                        | Hexadecimal    | `#555555` |
+    | `controls_icon` | Cor dos ícones dos controles                 | Hexadecimal    | `#ffffff` |
+    | `font_color`  | Cor da fonte do livro                          | Hexadecimal    | `#ffffff` |
 
 - **Integração com Elementor:**
   - Widget para adicionar livros digitais.
