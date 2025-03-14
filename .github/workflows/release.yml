@@ -22,7 +22,7 @@ jobs:
       - name: Criar arquivo ZIP com versão
         run: |
           zip -r page-flipper-${VERSION}.zip . \
-          -x ".git/*" ".github/*" "LICENSE" "README.md"
+          -x ".git/*" ".github/*"
 
       - name: Criar Release e anexar ZIP
         uses: softprops/action-gh-release@v1
