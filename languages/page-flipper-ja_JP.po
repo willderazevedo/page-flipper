@@ -1,0 +1,398 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ja_JP\n"
+
+# =====================
+# CPT
+# =====================
+# =====================
+# 📚 カスタム投稿タイプ: デジタルブック
+# =====================
+msgid "Digital Books"
+msgstr "デジタルブック"
+
+msgid "Digital Book"
+msgstr "デジタルブック"
+
+msgid "Add New"
+msgstr "新規追加"
+
+msgid "Add New Digital Book"
+msgstr "新しいデジタルブックを追加"
+
+msgid "New Digital Book"
+msgstr "新しいデジタルブック"
+
+msgid "Edit Digital Book"
+msgstr "デジタルブックを編集"
+
+msgid "View Digital Book"
+msgstr "デジタルブックを表示"
+
+msgid "All Digital Books"
+msgstr "すべてのデジタルブック"
+
+msgid "Search Digital Book"
+msgstr "デジタルブックを検索"
+
+msgid "No Digital Books found"
+msgstr "デジタルブックが見つかりません"
+
+msgid "No Digital Books found in trash"
+msgstr "ゴミ箱にデジタルブックが見つかりません"
+
+# =====================
+# 🏷️ タクソノミー: カテゴリー
+# =====================
+msgid "Categories"
+msgstr "カテゴリー"
+
+msgid "Category"
+msgstr "カテゴリー"
+
+msgid "Search Categories"
+msgstr "カテゴリーを検索"
+
+msgid "All Categories"
+msgstr "すべてのカテゴリー"
+
+msgid "Edit Category"
+msgstr "カテゴリーを編集"
+
+msgid "Update Category"
+msgstr "カテゴリーを更新"
+
+msgid "Add New Category"
+msgstr "新しいカテゴリーを追加"
+
+msgid "New Category Name"
+msgstr "新しいカテゴリー名"
+
+# =====================
+#  Elementor ウィジェット
+# =====================
+
+# =====================
+# 🏷️ セクション名
+# =====================
+msgid "Page Flipper"
+msgstr "ページフリッパー"
+
+msgid "Query"
+msgstr "クエリ"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Style"
+msgstr "スタイル"
+
+# ============================
+# 🔍 クエリ設定
+# ============================
+msgid "Select a Page Flipper"
+msgstr "ページフリッパーを選択"
+
+msgid "Leave empty to use Current Query"
+msgstr "空白のままにすると現在のクエリを使用"
+
+# ============================
+# 🔧 一般設定
+# ============================
+msgid "Yes"
+msgstr "はい"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "Enable Summary"
+msgstr "目次を有効化"
+
+msgid "Enable Action Bar"
+msgstr "アクションバーを有効化"
+
+msgid "Enable Navigation Controls"
+msgstr "ナビゲーションコントロールを有効化"
+
+# ============================
+# 🎨 スタイルタブ (Style)
+# ============================
+msgid "Page Background Color"
+msgstr "ページの背景色"
+
+msgid "Action Bar Background Color"
+msgstr "アクションバーの背景色"
+
+msgid "Summary Background Color"
+msgstr "目次の背景色"
+
+msgid "Controls Icon Color"
+msgstr "コントロールアイコンの色"
+
+msgid "Font Color"
+msgstr "フォントの色"
+
+msgid "Typography"
+msgstr "タイポグラフィ"
+
+# ============================
+# 🛠️ ビルダーのメッセージ
+# ============================
+msgid "Flipper Builder"
+msgstr "ブックビルダー"
+
+msgid "No pages found."
+msgstr "ページが見つかりません。"
+
+msgid "Select Images"
+msgstr "画像を選択"
+
+msgid "Remove Pages"
+msgstr "ページを削除"
+
+msgid "Page List"
+msgstr "ページリスト"
+
+msgid "Selected Page"
+msgstr "選択されたページ"
+
+msgid "Unselected Page"
+msgstr "選択されていないページ"
+
+msgid "Narration"
+msgstr "ナレーション"
+
+msgid "Audio"
+msgstr "オーディオ"
+
+msgid "Video"
+msgstr "ビデオ"
+
+msgid "Image"
+msgstr "画像"
+
+msgid "Text"
+msgstr "テキスト"
+
+msgid "Hyperlink"
+msgstr "リンク"
+
+msgid "Remove Narration"
+msgstr "ナレーションを削除"
+
+msgid "Display Mode"
+msgstr "表示モード"
+
+msgid "Inline"
+msgstr "インライン"
+
+msgid "Icon"
+msgstr "アイコン"
+
+msgid "Icon Color"
+msgstr "アイコンの色"
+
+msgid "Icon Background Color"
+msgstr "アイコンの背景色"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Change File"
+msgstr "ファイルを変更"
+
+msgid "Remove Hotspot"
+msgstr "削除"
+
+msgid "Icon Name"
+msgstr "アイコン名"
+
+msgid "Rounded"
+msgstr "丸み"
+
+msgid "Smooth"
+msgstr "やや丸み"
+
+msgid "Sharp"
+msgstr "なし"
+
+msgid "Icon Border Radius"
+msgstr "アイコンの形状"
+
+msgid "Icon Size"
+msgstr "アイコンサイズ"
+
+msgid "Custom"
+msgstr "カスタム"
+
+msgid "Example"
+msgstr "例"
+
+msgid "Custom Radius"
+msgstr "カスタム半径"
+
+msgid "Font Size"
+msgstr "フォントサイズ"
+
+msgid "Font Family"
+msgstr "フォントファミリー"
+
+msgid "Font Color"
+msgstr "フォントカラー"
+
+msgid "Content"
+msgstr "コンテンツ"
+
+msgid "Text Align"
+msgstr "テキストの配置"
+
+msgid "Left"
+msgstr "左"
+
+msgid "Right"
+msgstr "右"
+
+msgid "Center"
+msgstr "中央"
+
+msgid "Justify"
+msgstr "両端揃え"
+
+msgid "Normal"
+msgstr "ノーマル"
+
+msgid "Lighter"
+msgstr "ライト"
+
+msgid "Bold"
+msgstr "ボールド"
+
+msgid "Bolder"
+msgstr "ボルダー"
+
+msgid "None"
+msgstr "なし"
+
+msgid "Underline"
+msgstr "下線"
+
+msgid "Line Through"
+msgstr "取り消し線"
+
+msgid "Stipulated Area"
+msgstr "指定エリア"
+
+msgid "Link Url"
+msgstr "リンクのURL"
+
+msgid "Link Text"
+msgstr "リンクのテキスト"
+
+msgid "Link Target"
+msgstr "リンクのターゲット"
+
+msgid "Blank Page"
+msgstr "新しいページ"
+
+msgid "Same Page"
+msgstr "同じページ"
+
+msgid "Link Title"
+msgstr "リンクのタイトル"
+
+msgid "Text Decoration"
+msgstr "テキスト装飾"
+
+msgid "Popover Background Color"
+msgstr "ポップオーバーの背景色"
+
+msgid "Pause Icon Name"
+msgstr "一時停止アイコン名"
+
+# ============================
+# 🛠️ ショートコードメタボックスのメッセージ
+# ============================
+msgid "Use the shortcode below to display this Digital Book:"
+msgstr "以下のショートコードを使用して、このデジタルブックを表示してください:"
+
+msgid "Copy"
+msgstr "コピー"
+
+msgid "Save the post to generate the shortcode."
+msgstr "ショートコードを生成するには、投稿を保存してください。"
+
+msgid "Shortcode copied!"
+msgstr "ショートコードがコピーされました！"
+
+msgid "Shortcode"
+msgstr "ショートコード"
+
+msgid "Extra Options"
+msgstr "追加オプション"
+
+msgid "Show or Hide the summary. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "要約を表示または非表示にする。可能な値: `yes` または `no`。デフォルト: `yes`"
+
+msgid "Show or Hide the action bar. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "アクションバーを表示または非表示にする。可能な値: `yes` または `no`。デフォルト: `yes`"
+
+msgid "Show or Hide the controls. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "コントロールを表示または非表示にする。可能な値: `yes` または `no`。デフォルト: `yes`"
+
+msgid "Element background color. Default: `#333333`"
+msgstr "要素の背景色。デフォルト: `#333333`"
+
+msgid "Action Bar background color. Default: `#555555`"
+msgstr "アクションバーの背景色。デフォルト: `#555555`"
+
+msgid "Summary background color. Default: `#555555`"
+msgstr "要約の背景色。デフォルト: `#555555`"
+
+msgid "Controls icons color. Default: `#ffffff`"
+msgstr "コントロールアイコンの色。デフォルト: `#ffffff`"
+
+msgid "Element font color. Default: `#ffffff`"
+msgstr "要素のフォントカラー。デフォルト: `#ffffff`"
+
+# ============================
+# 🛠️ PDFファイルウィジェットのメッセージ
+# ============================
+msgid "PDF File"
+msgstr "PDFファイル"
+
+msgid "Upload PDF File"
+msgstr "PDFファイルをアップロード"
+
+msgid "Remove PDF File"
+msgstr "PDFファイルを削除"
+
+msgid "Click on the box above to update the file."
+msgstr "ファイルを更新するには、上のボックスをクリックしてください。"
+
+# ============================
+# 🛠️ ウィジェットのメッセージ
+# ============================
+msgid "Go back"
+msgstr "戻る"
+
+msgid "Play Audio Description"
+msgstr "音声説明を再生"
+
+msgid "Pause Audio Description"
+msgstr "音声説明を一時停止"
+
+msgid "No Audio Description in Current Page"
+msgstr "現在のページには音声説明がありません"
+
+msgid "Zoom"
+msgstr "ズーム"
+
+msgid "Download PDF File"
+msgstr "PDFファイルをダウンロード"
+
+msgid "Summary"
+msgstr "要約"
+
+msgid "Page"
+msgstr "ページ"

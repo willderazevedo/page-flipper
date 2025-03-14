@@ -1,0 +1,398 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh_CN\n"
+
+# =====================
+# CPT
+# =====================
+# =====================
+# 📚 自定义文章类型: 数字书籍
+# =====================
+msgid "Digital Books"
+msgstr "数字书籍"
+
+msgid "Digital Book"
+msgstr "数字书籍"
+
+msgid "Add New"
+msgstr "添加新内容"
+
+msgid "Add New Digital Book"
+msgstr "添加新数字书籍"
+
+msgid "New Digital Book"
+msgstr "新数字书籍"
+
+msgid "Edit Digital Book"
+msgstr "编辑数字书籍"
+
+msgid "View Digital Book"
+msgstr "查看数字书籍"
+
+msgid "All Digital Books"
+msgstr "所有数字书籍"
+
+msgid "Search Digital Book"
+msgstr "搜索数字书籍"
+
+msgid "No Digital Books found"
+msgstr "未找到数字书籍"
+
+msgid "No Digital Books found in trash"
+msgstr "回收站中未找到数字书籍"
+
+# =====================
+# 🏷️ 分类: 目录
+# =====================
+msgid "Categories"
+msgstr "分类"
+
+msgid "Category"
+msgstr "分类"
+
+msgid "Search Categories"
+msgstr "搜索分类"
+
+msgid "All Categories"
+msgstr "所有分类"
+
+msgid "Edit Category"
+msgstr "编辑分类"
+
+msgid "Update Category"
+msgstr "更新分类"
+
+msgid "Add New Category"
+msgstr "添加新分类"
+
+msgid "New Category Name"
+msgstr "新分类名称"
+
+# =====================
+#  Elementor 小部件
+# =====================
+
+# =====================
+# 🏷️ 部分名称
+# =====================
+msgid "Page Flipper"
+msgstr "翻页器"
+
+msgid "Query"
+msgstr "查询"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Style"
+msgstr "样式"
+
+# ============================
+# 🔍 查询设置
+# ============================
+msgid "Select a Page Flipper"
+msgstr "选择翻页器"
+
+msgid "Leave empty to use Current Query"
+msgstr "留空以使用当前查询"
+
+# ============================
+# 🔧 常规设置
+# ============================
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+msgid "Enable Summary"
+msgstr "启用摘要"
+
+msgid "Enable Action Bar"
+msgstr "启用操作栏"
+
+msgid "Enable Navigation Controls"
+msgstr "启用导航控件"
+
+# ============================
+# 🎨 样式选项卡
+# ============================
+msgid "Page Background Color"
+msgstr "页面背景颜色"
+
+msgid "Action Bar Background Color"
+msgstr "操作栏背景颜色"
+
+msgid "Summary Background Color"
+msgstr "摘要背景颜色"
+
+msgid "Controls Icon Color"
+msgstr "控件图标颜色"
+
+msgid "Font Color"
+msgstr "字体颜色"
+
+msgid "Typography"
+msgstr "排版"
+
+# ============================
+# 🛠️ 构建器消息
+# ============================
+msgid "Flipper Builder"
+msgstr "翻页器构建器"
+
+msgid "No pages found."
+msgstr "未找到页面。"
+
+msgid "Select Images"
+msgstr "选择图片"
+
+msgid "Remove Pages"
+msgstr "移除页面"
+
+msgid "Page List"
+msgstr "页面列表"
+
+msgid "Selected Page"
+msgstr "已选页面"
+
+msgid "Unselected Page"
+msgstr "未选页面"
+
+msgid "Narration"
+msgstr "旁白"
+
+msgid "Audio"
+msgstr "音频"
+
+msgid "Video"
+msgstr "视频"
+
+msgid "Image"
+msgstr "图片"
+
+msgid "Text"
+msgstr "文本"
+
+msgid "Hyperlink"
+msgstr "超链接"
+
+msgid "Remove Narration"
+msgstr "移除旁白"
+
+msgid "Display Mode"
+msgstr "显示模式"
+
+msgid "Inline"
+msgstr "内联"
+
+msgid "Icon"
+msgstr "图标"
+
+msgid "Icon Color"
+msgstr "图标颜色"
+
+msgid "Icon Background Color"
+msgstr "图标背景颜色"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Change File"
+msgstr "更改文件"
+
+msgid "Remove Hotspot"
+msgstr "移除热点"
+
+msgid "Icon Name"
+msgstr "图标名称"
+
+msgid "Rounded"
+msgstr "圆角"
+
+msgid "Smooth"
+msgstr "轻微圆角"
+
+msgid "Sharp"
+msgstr "无"
+
+msgid "Icon Border Radius"
+msgstr "图标边框半径"
+
+msgid "Icon Size"
+msgstr "图标大小"
+
+msgid "Custom"
+msgstr "自定义"
+
+msgid "Example"
+msgstr "示例"
+
+msgid "Custom Radius"
+msgstr "自定义半径"
+
+msgid "Font Size"
+msgstr "字体大小"
+
+msgid "Font Family"
+msgstr "字体系列"
+
+msgid "Font Color"
+msgstr "字体颜色"
+
+msgid "Content"
+msgstr "内容"
+
+msgid "Text Align"
+msgstr "文本对齐"
+
+msgid "Left"
+msgstr "左对齐"
+
+msgid "Right"
+msgstr "右对齐"
+
+msgid "Center"
+msgstr "居中"
+
+msgid "Justify"
+msgstr "两端对齐"
+
+msgid "Normal"
+msgstr "正常"
+
+msgid "Lighter"
+msgstr "细体"
+
+msgid "Bold"
+msgstr "加粗"
+
+msgid "Bolder"
+msgstr "更粗"
+
+msgid "None"
+msgstr "无"
+
+msgid "Underline"
+msgstr "下划线"
+
+msgid "Line Through"
+msgstr "删除线"
+
+msgid "Stipulated Area"
+msgstr "规定区域"
+
+msgid "Link Url"
+msgstr "超链接 URL"
+
+msgid "Link Text"
+msgstr "超链接文本"
+
+msgid "Link Target"
+msgstr "超链接目标"
+
+msgid "Blank Page"
+msgstr "新页面"
+
+msgid "Same Page"
+msgstr "当前页面"
+
+msgid "Link Title"
+msgstr "超链接标题"
+
+msgid "Text Decoration"
+msgstr "文本装饰"
+
+msgid "Popover Background Color"
+msgstr "弹出窗口背景颜色"
+
+msgid "Pause Icon Name"
+msgstr "暂停图标名称"
+
+# ============================
+# 🛠️ Shortcode Metabox 消息
+# ============================
+msgid "Use the shortcode below to display this Digital Book:"
+msgstr "使用下面的短代码来显示此电子书："
+
+msgid "Copy"
+msgstr "复制"
+
+msgid "Save the post to generate the shortcode."
+msgstr "保存文章以生成短代码。"
+
+msgid "Shortcode copied!"
+msgstr "短代码已复制！"
+
+msgid "Shortcode"
+msgstr "短代码"
+
+msgid "Extra Options"
+msgstr "额外选项"
+
+msgid "Show or Hide the summary. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "显示或隐藏摘要。可能的值：`yes` 或 `no`。默认：`yes`"
+
+msgid "Show or Hide the action bar. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "显示或隐藏操作栏。可能的值：`yes` 或 `no`。默认：`yes`"
+
+msgid "Show or Hide the controls. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "显示或隐藏控件。可能的值：`yes` 或 `no`。默认：`yes`"
+
+msgid "Element background color. Default: `#333333`"
+msgstr "元素背景颜色。默认：`#333333`"
+
+msgid "Action Bar background color. Default: `#555555`"
+msgstr "操作栏背景颜色。默认：`#555555`"
+
+msgid "Summary background color. Default: `#555555`"
+msgstr "摘要背景颜色。默认：`#555555`"
+
+msgid "Controls icons color. Default: `#ffffff`"
+msgstr "控件图标颜色。默认：`#ffffff`"
+
+msgid "Element font color. Default: `#ffffff`"
+msgstr "元素字体颜色。默认：`#ffffff`"
+
+# ============================
+# 🛠️ PDF 文件小部件消息
+# ============================
+msgid "PDF File"
+msgstr "PDF 文件"
+
+msgid "Upload PDF File"
+msgstr "上传 PDF 文件"
+
+msgid "Remove PDF File"
+msgstr "移除 PDF 文件"
+
+msgid "Click on the box above to update the file."
+msgstr "点击上方框以更新文件。"
+
+# ============================
+# 🛠️ 小部件消息
+# ============================
+msgid "Go back"
+msgstr "返回"
+
+msgid "Play Audio Description"
+msgstr "播放音频描述"
+
+msgid "Pause Audio Description"
+msgstr "暂停音频描述"
+
+msgid "No Audio Description in Current Page"
+msgstr "当前页面无音频描述"
+
+msgid "Zoom"
+msgstr "缩放"
+
+msgid "Download PDF File"
+msgstr "下载 PDF 文件"
+
+msgid "Summary"
+msgstr "摘要"
+
+msgid "Page"
+msgstr "页面"

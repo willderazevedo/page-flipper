@@ -1,0 +1,399 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fr_FR\n"
+
+# =====================
+# CPT
+# =====================
+# =====================
+# 📚 Type de publication personnalisé : Livres numériques
+# =====================
+msgid "Digital Books"
+msgstr "Livres numériques"
+
+msgid "Digital Book"
+msgstr "Livre numérique"
+
+msgid "Add New"
+msgstr "Ajouter Nouveau"
+
+msgid "Add New Digital Book"
+msgstr "Ajouter un Nouveau Livre Numérique"
+
+msgid "New Digital Book"
+msgstr "Nouveau Livre Numérique"
+
+msgid "Edit Digital Book"
+msgstr "Modifier le Livre Numérique"
+
+msgid "View Digital Book"
+msgstr "Voir le Livre Numérique"
+
+msgid "All Digital Books"
+msgstr "Tous les Livres Numériques"
+
+msgid "Search Digital Book"
+msgstr "Rechercher un Livre Numérique"
+
+msgid "No Digital Books found"
+msgstr "Aucun Livre Numérique trouvé"
+
+msgid "No Digital Books found in trash"
+msgstr "Aucun Livre Numérique trouvé dans la corbeille"
+
+# =====================
+# 🏷️ Taxonomie : Catégories
+# =====================
+msgid "Categories"
+msgstr "Catégories"
+
+msgid "Category"
+msgstr "Catégorie"
+
+msgid "Search Categories"
+msgstr "Rechercher des Catégories"
+
+msgid "All Categories"
+msgstr "Toutes les Catégories"
+
+msgid "Edit Category"
+msgstr "Modifier la Catégorie"
+
+msgid "Update Category"
+msgstr "Mettre à jour la Catégorie"
+
+msgid "Add New Category"
+msgstr "Ajouter une Nouvelle Catégorie"
+
+msgid "New Category Name"
+msgstr "Nouveau Nom de la Catégorie"
+
+# =====================
+#  Widget Elementor
+# =====================
+
+# =====================
+# 🏷️ Noms des sections
+# =====================
+msgid "Page Flipper"
+msgstr "Tourneur de Pages"
+
+msgid "Query"
+msgstr "Requête"
+
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "Style"
+msgstr "Style"
+
+# ============================
+# 🔍 Paramètres de la requête
+# ============================
+msgid "Select a Page Flipper"
+msgstr "Sélectionner un Tourneur de Pages"
+
+msgid "Leave empty to use Current Query"
+msgstr "Laisser vide pour utiliser la requête actuelle"
+
+# ============================
+# 🔧 Paramètres généraux
+# ============================
+msgid "Yes"
+msgstr "Oui"
+
+msgid "No"
+msgstr "Non"
+
+msgid "Enable Summary"
+msgstr "Activer le Sommaire"
+
+msgid "Enable Action Bar"
+msgstr "Activer la Barre d'Actions"
+
+msgid "Enable Navigation Controls"
+msgstr "Activer les Contrôles de Navigation"
+
+# ============================
+# 🎨 Onglet Style
+# ============================
+msgid "Page Background Color"
+msgstr "Couleur de Fond de la Page"
+
+msgid "Action Bar Background Color"
+msgstr "Couleur de Fond de la Barre d'Actions"
+
+msgid "Summary Background Color"
+msgstr "Couleur de Fond du Sommaire"
+
+msgid "Controls Icon Color"
+msgstr "Couleur des Icônes des Contrôles"
+
+msgid "Font Color"
+msgstr "Couleur de la Police"
+
+msgid "Typography"
+msgstr "Typographie"
+
+# ============================
+# 🛠️ Messages du Builder
+# ============================
+msgid "Flipper Builder"
+msgstr "Constructeur de Livres"
+
+msgid "No pages found."
+msgstr "Aucune page trouvée."
+
+msgid "Select Images"
+msgstr "Sélectionner des Images"
+
+msgid "Remove Pages"
+msgstr "Supprimer des Pages"
+
+msgid "Page List"
+msgstr "Liste des Pages"
+
+msgid "Selected Page"
+msgstr "Page Sélectionnée"
+
+msgid "Unselected Page"
+msgstr "Page Non Sélectionnée"
+
+msgid "Narration"
+msgstr "Narration"
+
+msgid "Audio"
+msgstr "Audio"
+
+msgid "Video"
+msgstr "Vidéo"
+
+msgid "Image"
+msgstr "Image"
+
+msgid "Text"
+msgstr "Texte"
+
+msgid "Hyperlink"
+msgstr "Lien"
+
+msgid "Remove Narration"
+msgstr "Supprimer la Narration"
+
+msgid "Display Mode"
+msgstr "Mode d'Affichage"
+
+msgid "Inline"
+msgstr "En ligne"
+
+msgid "Icon"
+msgstr "Icône"
+
+msgid "Icon Color"
+msgstr "Couleur de l'Icône"
+
+msgid "Icon Background Color"
+msgstr "Couleur de Fond de l'Icône"
+
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "Change File"
+msgstr "Changer de Fichier"
+
+msgid "Remove Hotspot"
+msgstr "Supprimer"
+
+msgid "Icon Name"
+msgstr "Nom de l'Icône"
+
+msgid "Rounded"
+msgstr "Arrondi"
+
+msgid "Smooth"
+msgstr "Légèrement arrondi"
+
+msgid "Sharp"
+msgstr "Aucun"
+
+msgid "Icon Border Radius"
+msgstr "Forme de l'Icône"
+
+msgid "Icon Size"
+msgstr "Taille de l'Icône"
+
+msgid "Custom"
+msgstr "Personnalisé"
+
+msgid "Example"
+msgstr "Exemple"
+
+msgid "Custom Radius"
+msgstr "Rayon Personnalisé"
+
+msgid "Font Size"
+msgstr "Taille de la Police"
+
+msgid "Font Family"
+msgstr "Famille de Police"
+
+msgid "Font Color"
+msgstr "Couleur de la Police"
+
+msgid "Content"
+msgstr "Contenu"
+
+msgid "Text Align"
+msgstr "Alignement du Texte"
+
+msgid "Left"
+msgstr "Gauche"
+
+msgid "Right"
+msgstr "Droite"
+
+msgid "Center"
+msgstr "Centre"
+
+msgid "Justify"
+msgstr "Justifié"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Lighter"
+msgstr "Plus léger"
+
+msgid "Bold"
+msgstr "Gras"
+
+msgid "Bolder"
+msgstr "Plus gras"
+
+msgid "None"
+msgstr "Aucun"
+
+msgid "Underline"
+msgstr "Souligné"
+
+msgid "Line Through"
+msgstr "Barré"
+
+msgid "Stipulated Area"
+msgstr "Zone Définie"
+
+msgid "Link Url"
+msgstr "URL du Lien"
+
+msgid "Link Text"
+msgstr "Texte du Lien"
+
+msgid "Link Target"
+msgstr "Cible du Lien"
+
+msgid "Blank Page"
+msgstr "Nouvelle Page"
+
+msgid "Same Page"
+msgstr "Même Page"
+
+msgid "Link Title"
+msgstr "Titre du Lien"
+
+msgid "Text Decoration"
+msgstr "Décoration du Texte"
+
+msgid "Popover Background Color"
+msgstr "Couleur de Fond de la Fenêtre Contextuelle"
+
+msgid "Pause Icon Name"
+msgstr "Nom de l'Icône de Pause"
+
+# ============================
+# 🛠️ Messages du Shortcode Metabox
+# ============================
+msgid "Use the shortcode below to display this Digital Book:"
+msgstr "Utilisez le shortcode ci-dessous pour afficher ce Livre Numérique :"
+
+msgid "Copy"
+msgstr "Copier"
+
+msgid "Save the post to generate the shortcode."
+msgstr "Enregistrez l'article pour générer le shortcode."
+
+msgid "Shortcode copied!"
+msgstr "Shortcode copié !"
+
+msgid "Shortcode"
+msgstr "Shortcode"
+
+msgid "Extra Options"
+msgstr "Options Supplémentaires"
+
+msgid "Show or Hide the summary. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Afficher ou masquer le sommaire. Valeurs possibles : `yes` ou `no`. Par défaut : `yes`"
+
+msgid "Show or Hide the action bar. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Afficher ou masquer la barre d'actions. Valeurs possibles : `yes` ou `no`. Par défaut : `yes`"
+
+msgid "Show or Hide the controls. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Afficher ou masquer les contrôles. Valeurs possibles : `yes` ou `no`. Par défaut : `yes`"
+
+msgid "Element background color. Default: `#333333`"
+msgstr "Couleur de fond de l'élément. Par défaut : `#333333`"
+
+msgid "Action Bar background color. Default: `#555555`"
+msgstr "Couleur de fond de la barre d'actions. Par défaut : `#555555`"
+
+msgid "Summary background color. Default: `#555555`"
+msgstr "Couleur de fond du sommaire. Par défaut : `#555555`"
+
+msgid "Controls icons color. Default: `#ffffff`"
+msgstr "Couleur des icônes des contrôles. Par défaut : `#ffffff`"
+
+msgid "Element font color. Default: `#ffffff`"
+msgstr "Couleur de la police de l'élément. Par défaut : `#ffffff`"
+
+# ============================
+# 🛠️ Messages du Widget de Fichier PDF
+# ============================
+msgid "PDF File"
+msgstr "Fichier PDF"
+
+msgid "Upload PDF File"
+msgstr "Téléverser un Fichier PDF"
+
+msgid "Remove PDF File"
+msgstr "Supprimer le Fichier PDF"
+
+msgid "Click on the box above to update the file."
+msgstr "Cliquez sur la boîte ci-dessus pour mettre à jour le fichier."
+
+
+# ============================
+# 🛠️ Messages du Widget
+# ============================
+msgid "Go back"
+msgstr "Retour"
+
+msgid "Play Audio Description"
+msgstr "Lancer la Description Audio"
+
+msgid "Pause Audio Description"
+msgstr "Mettre en Pause la Description Audio"
+
+msgid "No Audio Description in Current Page"
+msgstr "Aucune Description Audio sur la Page Actuelle"
+
+msgid "Zoom"
+msgstr "Zoom"
+
+msgid "Download PDF File"
+msgstr "Télécharger le Fichier PDF"
+
+msgid "Summary"
+msgstr "Sommaire"
+
+msgid "Page"
+msgstr "Page"

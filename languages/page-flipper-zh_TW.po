@@ -1,0 +1,398 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh_TW\n"
+
+# =====================
+# CPT
+# =====================
+# =====================
+# 📚 自定義文章類型：電子書
+# =====================
+msgid "Digital Books"
+msgstr "電子書"
+
+msgid "Digital Book"
+msgstr "電子書"
+
+msgid "Add New"
+msgstr "新增"
+
+msgid "Add New Digital Book"
+msgstr "新增電子書"
+
+msgid "New Digital Book"
+msgstr "新電子書"
+
+msgid "Edit Digital Book"
+msgstr "編輯電子書"
+
+msgid "View Digital Book"
+msgstr "查看電子書"
+
+msgid "All Digital Books"
+msgstr "所有電子書"
+
+msgid "Search Digital Book"
+msgstr "搜尋電子書"
+
+msgid "No Digital Books found"
+msgstr "未找到電子書"
+
+msgid "No Digital Books found in trash"
+msgstr "回收桶中沒有電子書"
+
+# =====================
+# 🏷️ 分類法：分類
+# =====================
+msgid "Categories"
+msgstr "分類"
+
+msgid "Category"
+msgstr "分類"
+
+msgid "Search Categories"
+msgstr "搜尋分類"
+
+msgid "All Categories"
+msgstr "所有分類"
+
+msgid "Edit Category"
+msgstr "編輯分類"
+
+msgid "Update Category"
+msgstr "更新分類"
+
+msgid "Add New Category"
+msgstr "新增分類"
+
+msgid "New Category Name"
+msgstr "新分類名稱"
+
+# =====================
+#  Elementor 小工具
+# =====================
+
+# =====================
+# 🏷️ 區段名稱
+# =====================
+msgid "Page Flipper"
+msgstr "翻頁效果"
+
+msgid "Query"
+msgstr "查詢"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Style"
+msgstr "樣式"
+
+# ============================
+# 🔍 查詢設定
+# ============================
+msgid "Select a Page Flipper"
+msgstr "選擇翻頁效果"
+
+msgid "Leave empty to use Current Query"
+msgstr "留空以使用當前查詢"
+
+# ============================
+# 🔧 一般設定
+# ============================
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+msgid "Enable Summary"
+msgstr "啟用摘要"
+
+msgid "Enable Action Bar"
+msgstr "啟用操作欄"
+
+msgid "Enable Navigation Controls"
+msgstr "啟用導航控制"
+
+# ============================
+# 🎨 樣式設定
+# ============================
+msgid "Page Background Color"
+msgstr "頁面背景顏色"
+
+msgid "Action Bar Background Color"
+msgstr "操作欄背景顏色"
+
+msgid "Summary Background Color"
+msgstr "摘要背景顏色"
+
+msgid "Controls Icon Color"
+msgstr "控制圖示顏色"
+
+msgid "Font Color"
+msgstr "字體顏色"
+
+msgid "Typography"
+msgstr "字體排版"
+
+# ============================
+# 🛠️ 建置器訊息
+# ============================
+msgid "Flipper Builder"
+msgstr "翻頁建置器"
+
+msgid "No pages found."
+msgstr "未找到頁面。"
+
+msgid "Select Images"
+msgstr "選擇圖片"
+
+msgid "Remove Pages"
+msgstr "移除頁面"
+
+msgid "Page List"
+msgstr "頁面列表"
+
+msgid "Selected Page"
+msgstr "已選擇頁面"
+
+msgid "Unselected Page"
+msgstr "未選擇頁面"
+
+msgid "Narration"
+msgstr "旁白"
+
+msgid "Audio"
+msgstr "音訊"
+
+msgid "Video"
+msgstr "影片"
+
+msgid "Image"
+msgstr "圖片"
+
+msgid "Text"
+msgstr "文字"
+
+msgid "Hyperlink"
+msgstr "超連結"
+
+msgid "Remove Narration"
+msgstr "移除旁白"
+
+msgid "Display Mode"
+msgstr "顯示模式"
+
+msgid "Inline"
+msgstr "內嵌"
+
+msgid "Icon"
+msgstr "圖示"
+
+msgid "Icon Color"
+msgstr "圖示顏色"
+
+msgid "Icon Background Color"
+msgstr "圖示背景顏色"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Change File"
+msgstr "更換檔案"
+
+msgid "Remove Hotspot"
+msgstr "移除"
+
+msgid "Icon Name"
+msgstr "圖示名稱"
+
+msgid "Rounded"
+msgstr "圓角"
+
+msgid "Smooth"
+msgstr "微圓角"
+
+msgid "Sharp"
+msgstr "直角"
+
+msgid "Icon Border Radius"
+msgstr "圖示邊框半徑"
+
+msgid "Icon Size"
+msgstr "圖示大小"
+
+msgid "Custom"
+msgstr "自訂"
+
+msgid "Example"
+msgstr "範例"
+
+msgid "Custom Radius"
+msgstr "自訂半徑"
+
+msgid "Font Size"
+msgstr "字體大小"
+
+msgid "Font Family"
+msgstr "字體"
+
+msgid "Font Color"
+msgstr "字體顏色"
+
+msgid "Content"
+msgstr "內容"
+
+msgid "Text Align"
+msgstr "文字對齊"
+
+msgid "Left"
+msgstr "左對齊"
+
+msgid "Right"
+msgstr "右對齊"
+
+msgid "Center"
+msgstr "置中"
+
+msgid "Justify"
+msgstr "對齊"
+
+msgid "Normal"
+msgstr "正常"
+
+msgid "Lighter"
+msgstr "細體"
+
+msgid "Bold"
+msgstr "粗體"
+
+msgid "Bolder"
+msgstr "更粗體"
+
+msgid "None"
+msgstr "無"
+
+msgid "Underline"
+msgstr "底線"
+
+msgid "Line Through"
+msgstr "刪除線"
+
+msgid "Stipulated Area"
+msgstr "指定區域"
+
+msgid "Link Url"
+msgstr "超連結網址"
+
+msgid "Link Text"
+msgstr "超連結文字"
+
+msgid "Link Target"
+msgstr "超連結目標"
+
+msgid "Blank Page"
+msgstr "新分頁開啟"
+
+msgid "Same Page"
+msgstr "同頁開啟"
+
+msgid "Link Title"
+msgstr "超連結標題"
+
+msgid "Text Decoration"
+msgstr "文字裝飾"
+
+msgid "Popover Background Color"
+msgstr "彈出視窗背景顏色"
+
+msgid "Pause Icon Name"
+msgstr "暫停圖示名稱"
+
+# ============================
+# 🛠️ Shortcode Metabox 訊息
+# ============================
+msgid "Use the shortcode below to display this Digital Book:"
+msgstr "使用以下短代碼來顯示此數位書籍："
+
+msgid "Copy"
+msgstr "複製"
+
+msgid "Save the post to generate the shortcode."
+msgstr "儲存文章以生成短代碼。"
+
+msgid "Shortcode copied!"
+msgstr "短代碼已複製！"
+
+msgid "Shortcode"
+msgstr "短代碼"
+
+msgid "Extra Options"
+msgstr "額外選項"
+
+msgid "Show or Hide the summary. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "顯示或隱藏目錄。可選值：`yes` 或 `no`。預設值：`yes`"
+
+msgid "Show or Hide the action bar. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "顯示或隱藏操作欄。可選值：`yes` 或 `no`。預設值：`yes`"
+
+msgid "Show or Hide the controls. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "顯示或隱藏控制項。可選值：`yes` 或 `no`。預設值：`yes`"
+
+msgid "Element background color. Default: `#333333`"
+msgstr "元素背景顏色。預設值：`#333333`"
+
+msgid "Action Bar background color. Default: `#555555`"
+msgstr "操作欄背景顏色。預設值：`#555555`"
+
+msgid "Summary background color. Default: `#555555`"
+msgstr "目錄背景顏色。預設值：`#555555`"
+
+msgid "Controls icons color. Default: `#ffffff`"
+msgstr "控制圖示顏色。預設值：`#ffffff`"
+
+msgid "Element font color. Default: `#ffffff`"
+msgstr "元素字體顏色。預設值：`#ffffff`"
+
+# ============================
+# 🛠️ PDF 檔案小工具訊息
+# ============================
+msgid "PDF File"
+msgstr "PDF 檔案"
+
+msgid "Upload PDF File"
+msgstr "上傳 PDF 檔案"
+
+msgid "Remove PDF File"
+msgstr "移除 PDF 檔案"
+
+msgid "Click on the box above to update the file."
+msgstr "點擊上方框框來更新檔案。"
+
+# ============================
+# 🛠️ 小工具訊息
+# ============================
+msgid "Go back"
+msgstr "返回"
+
+msgid "Play Audio Description"
+msgstr "播放音訊描述"
+
+msgid "Pause Audio Description"
+msgstr "暫停音訊描述"
+
+msgid "No Audio Description in Current Page"
+msgstr "當前頁面無音訊描述"
+
+msgid "Zoom"
+msgstr "縮放"
+
+msgid "Download PDF File"
+msgstr "下載 PDF 檔案"
+
+msgid "Summary"
+msgstr "目錄"
+
+msgid "Page"
+msgstr "頁面"

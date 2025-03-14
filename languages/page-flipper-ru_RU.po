@@ -1,0 +1,398 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ru_RU\n"
+
+# =====================
+# CPT
+# =====================
+# =====================
+# 📚 Custom Post Type: Digital Books
+# =====================
+msgid "Digital Books"
+msgstr "Цифровые книги"
+
+msgid "Digital Book"
+msgstr "Цифровая книга"
+
+msgid "Add New"
+msgstr "Добавить новый"
+
+msgid "Add New Digital Book"
+msgstr "Добавить новую цифровую книгу"
+
+msgid "New Digital Book"
+msgstr "Новая цифровая книга"
+
+msgid "Edit Digital Book"
+msgstr "Редактировать цифровую книгу"
+
+msgid "View Digital Book"
+msgstr "Просмотреть цифровую книгу"
+
+msgid "All Digital Books"
+msgstr "Все цифровые книги"
+
+msgid "Search Digital Book"
+msgstr "Искать цифровую книгу"
+
+msgid "No Digital Books found"
+msgstr "Цифровые книги не найдены"
+
+msgid "No Digital Books found in trash"
+msgstr "В корзине нет цифровых книг"
+
+# =====================
+# 🏷️ Taxonomy: Categories
+# =====================
+msgid "Categories"
+msgstr "Категории"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Search Categories"
+msgstr "Искать категории"
+
+msgid "All Categories"
+msgstr "Все категории"
+
+msgid "Edit Category"
+msgstr "Редактировать категорию"
+
+msgid "Update Category"
+msgstr "Обновить категорию"
+
+msgid "Add New Category"
+msgstr "Добавить новую категорию"
+
+msgid "New Category Name"
+msgstr "Новое название категории"
+
+# =====================
+#  Elementor Widget
+# =====================
+
+# =====================
+# 🏷️ Называния секций
+# =====================
+msgid "Page Flipper"
+msgstr "Перелистывание страниц"
+
+msgid "Query"
+msgstr "Запрос"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Style"
+msgstr "Стиль"
+
+# ============================
+# 🔍 Настройки запроса
+# ============================
+msgid "Select a Page Flipper"
+msgstr "Выберите запись"
+
+msgid "Leave empty to use Current Query"
+msgstr "Оставьте пустым для использования текущего запроса"
+
+# ============================
+# 🔧 Общие настройки
+# ============================
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Enable Summary"
+msgstr "Включить содержание"
+
+msgid "Enable Action Bar"
+msgstr "Включить панель действий"
+
+msgid "Enable Navigation Controls"
+msgstr "Включить элементы управления навигацией"
+
+# ============================
+# 🎨 Вкладка стиля (Style)
+# ============================
+msgid "Page Background Color"
+msgstr "Цвет фона страницы"
+
+msgid "Action Bar Background Color"
+msgstr "Цвет фона панели действий"
+
+msgid "Summary Background Color"
+msgstr "Цвет фона содержания"
+
+msgid "Controls Icon Color"
+msgstr "Цвет значков управления"
+
+msgid "Font Color"
+msgstr "Цвет шрифта"
+
+msgid "Typography"
+msgstr "Типографика"
+
+# ============================
+# 🛠️ Сообщения конструктора
+# ============================
+msgid "Flipper Builder"
+msgstr "Конструктор книг"
+
+msgid "No pages found."
+msgstr "Страницы не найдены."
+
+msgid "Select Images"
+msgstr "Выбрать изображения"
+
+msgid "Remove Pages"
+msgstr "Удалить страницы"
+
+msgid "Page List"
+msgstr "Список страниц"
+
+msgid "Selected Page"
+msgstr "Выбранная страница"
+
+msgid "Unselected Page"
+msgstr "Невыбранная страница"
+
+msgid "Narration"
+msgstr "Озвучка"
+
+msgid "Audio"
+msgstr "Аудио"
+
+msgid "Video"
+msgstr "Видео"
+
+msgid "Image"
+msgstr "Изображение"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "Hyperlink"
+msgstr "Гиперссылка"
+
+msgid "Remove Narration"
+msgstr "Удалить озвучку"
+
+msgid "Display Mode"
+msgstr "Режим отображения"
+
+msgid "Inline"
+msgstr "Встроенный"
+
+msgid "Icon"
+msgstr "Иконка"
+
+msgid "Icon Color"
+msgstr "Цвет иконки"
+
+msgid "Icon Background Color"
+msgstr "Цвет фона иконки"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Change File"
+msgstr "Изменить файл"
+
+msgid "Remove Hotspot"
+msgstr "Удалить"
+
+msgid "Icon Name"
+msgstr "Название иконки"
+
+msgid "Rounded"
+msgstr "Закругленный"
+
+msgid "Smooth"
+msgstr "Слегка закругленный"
+
+msgid "Sharp"
+msgstr "Без закругления"
+
+msgid "Icon Border Radius"
+msgstr "Форма иконки"
+
+msgid "Icon Size"
+msgstr "Размер иконки"
+
+msgid "Custom"
+msgstr "Пользовательский"
+
+msgid "Example"
+msgstr "Пример"
+
+msgid "Custom Radius"
+msgstr "Пользовательский радиус"
+
+msgid "Font Size"
+msgstr "Размер шрифта"
+
+msgid "Font Family"
+msgstr "Семейство шрифтов"
+
+msgid "Font Color"
+msgstr "Цвет шрифта"
+
+msgid "Content"
+msgstr "Содержание"
+
+msgid "Text Align"
+msgstr "Выравнивание текста"
+
+msgid "Left"
+msgstr "По левому краю"
+
+msgid "Right"
+msgstr "По правому краю"
+
+msgid "Center"
+msgstr "По центру"
+
+msgid "Justify"
+msgstr "По ширине"
+
+msgid "Normal"
+msgstr "Обычный"
+
+msgid "Lighter"
+msgstr "Тонкий"
+
+msgid "Bold"
+msgstr "Жирный"
+
+msgid "Bolder"
+msgstr "Очень жирный"
+
+msgid "None"
+msgstr "Нет"
+
+msgid "Underline"
+msgstr "Подчеркнутый"
+
+msgid "Line Through"
+msgstr "Зачеркнутый"
+
+msgid "Stipulated Area"
+msgstr "Определенная область"
+
+msgid "Link Url"
+msgstr "URL гиперссылки"
+
+msgid "Link Text"
+msgstr "Текст гиперссылки"
+
+msgid "Link Target"
+msgstr "Цель гиперссылки"
+
+msgid "Blank Page"
+msgstr "Новая страница"
+
+msgid "Same Page"
+msgstr "Та же страница"
+
+msgid "Link Title"
+msgstr "Название гиперссылки"
+
+msgid "Text Decoration"
+msgstr "Оформление текста"
+
+msgid "Popover Background Color"
+msgstr "Цвет фона всплывающего окна"
+
+msgid "Pause Icon Name"
+msgstr "Название иконки паузы"
+
+# ============================
+# 🛠️ Сообщения метабокса шорткода
+# ============================
+msgid "Use the shortcode below to display this Digital Book:"
+msgstr "Используйте приведенный ниже шорткод, чтобы отобразить эту цифровую книгу:"
+
+msgid "Copy"
+msgstr "Копировать"
+
+msgid "Save the post to generate the shortcode."
+msgstr "Сохраните запись, чтобы сгенерировать шорткод."
+
+msgid "Shortcode copied!"
+msgstr "Шорткод скопирован!"
+
+msgid "Shortcode"
+msgstr "Шорткод"
+
+msgid "Extra Options"
+msgstr "Дополнительные параметры"
+
+msgid "Show or Hide the summary. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Показать или скрыть содержание. Возможные значения: `yes` или `no`. По умолчанию: `yes`"
+
+msgid "Show or Hide the action bar. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Показать или скрыть панель действий. Возможные значения: `yes` или `no`. По умолчанию: `yes`"
+
+msgid "Show or Hide the controls. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Показать или скрыть элементы управления. Возможные значения: `yes` или `no`. По умолчанию: `yes`"
+
+msgid "Element background color. Default: `#333333`"
+msgstr "Цвет фона элемента. По умолчанию: `#333333`"
+
+msgid "Action Bar background color. Default: `#555555`"
+msgstr "Цвет фона панели действий. По умолчанию: `#555555`"
+
+msgid "Summary background color. Default: `#555555`"
+msgstr "Цвет фона содержания. По умолчанию: `#555555`"
+
+msgid "Controls icons color. Default: `#ffffff`"
+msgstr "Цвет значков управления. По умолчанию: `#ffffff`"
+
+msgid "Element font color. Default: `#ffffff`"
+msgstr "Цвет шрифта элемента. По умолчанию: `#ffffff`"
+
+# ============================
+# 🛠️ Сообщения виджета PDF-файла
+# ============================
+msgid "PDF File"
+msgstr "PDF-файл"
+
+msgid "Upload PDF File"
+msgstr "Загрузить PDF-файл"
+
+msgid "Remove PDF File"
+msgstr "Удалить PDF-файл"
+
+msgid "Click on the box above to update the file."
+msgstr "Нажмите на поле выше, чтобы обновить файл."
+
+# ============================
+# 🛠️ Сообщения виджета
+# ============================
+msgid "Go back"
+msgstr "Назад"
+
+msgid "Play Audio Description"
+msgstr "Включить аудиоописание"
+
+msgid "Pause Audio Description"
+msgstr "Пауза аудиоописания"
+
+msgid "No Audio Description in Current Page"
+msgstr "На текущей странице нет аудиоописания"
+
+msgid "Zoom"
+msgstr "Масштаб"
+
+msgid "Download PDF File"
+msgstr "Скачать PDF-файл"
+
+msgid "Summary"
+msgstr "Оглавление"
+
+msgid "Page"
+msgstr "Страница"
