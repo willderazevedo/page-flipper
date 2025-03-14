@@ -10,10 +10,10 @@ The **Page Flipper** is a **free** WordPress plugin that enables the creation of
 ## Features
 
 - **Custom Post Type:**
-  - A new post type for digital books.
+  - A new post type called digital books.
   - Exclusive categories for digital books.
 - **Book Builder:**
-  - Upload images for book pages.
+  - Upload images to create pages.
   - Reorder pages.
   - Add and remove pages.
   - Add **interactive hotspots**, such as:
@@ -45,6 +45,16 @@ The **Page Flipper** is a **free** WordPress plugin that enables the creation of
   - Widget to add digital books.
   - Support for selecting a specific book or using the current query.
 
+## Screenshots
+Here are some screenshots showcasing the **Page Flipper** plugin in action:
+
+<p float="left">
+  <img alt="Builder" src="screenshots/builder.png" width="49%">
+  <img alt="Builder Hotspots" src="screenshots/builder-hotspots.png" width="49%">
+  <img alt="Builder" src="screenshots/flipper.png" width="49%">
+  <img alt="Builder Hotspots" src="screenshots/flipper-opened.png" width="49%">
+</p>
+
 ## Language Support
 The plugin is available in the following languages:
 
@@ -58,9 +68,7 @@ The plugin is available in the following languages:
 - Simplified Chinese
 
 ## Contribution
-If you want to contribute to the development of **Page Flipper**, visit the GitHub repository:
-
-[GitHub Repository](https://github.com/willderazevedo/page-flipper)
+If you want to contribute to the development of **Page Flipper**, feel free to send a pull request.
 
 ---
 
