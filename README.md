@@ -1,62 +1,67 @@
 
-# Page Flipper - Documentação
+# Page Flipper - Documentation
 
-![GitHub release](https://img.shields.io/github/v/release/willderazevedo/page-flipper)  ![License](https://img.shields.io/github/license/willderazevedo/page-flipper)
+![GitHub release](https://img.shields.io/github/v/release/willderazevedo/page-flipper)
+![License](https://img.shields.io/github/license/willderazevedo/page-flipper)
 
-## Descrição
-O **Page Flipper** é um plugin **gratuito** para WordPress que permite a criação de livros digitais interativos. Ele adiciona um novo post type para livros digitais, oferecendo um conjunto de funcionalidades para gerenciar livros e adicionar interatividade com hotspots.
+## Description
+The **Page Flipper** is a **free** WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots.
 
-## Funcionalidades
+## Features
 
-- **Post Type Personalizado:**
-  - Um novo tipo de post para livros digitais.
-  - Categorias exclusivas para os livros digitais.
-- **Construtor de Livros:**
-  - Upload de imagens para as páginas do livro.
-  - Reordenação de páginas.
-  - Adição e remoção de páginas.
-  - Adição de **hotspots** interativos, como:
-    - Narração
-    - Áudio
-    - Vídeo
-    - Imagem
-    - Texto
+- **Custom Post Type:**
+  - A new post type for digital books.
+  - Exclusive categories for digital books.
+- **Book Builder:**
+  - Upload images for book pages.
+  - Reorder pages.
+  - Add and remove pages.
+  - Add **interactive hotspots**, such as:
+    - Narration
+    - Audio
+    - Video
+    - Image
+    - Text
     - Link
-- **Upload de PDF:**
-  - Opcional, para permitir o download do livro em PDF.
-- **Shortcode para Incorporação:**
-  - Incorporar o livro digital em qualquer parte do site.
-  - Formato padrão: `[page_flipper id="post_id"]`
-  - Parâmetros opcionais:
+- **PDF Upload:**
+  - Optional, to allow book download in PDF format.
+- **Shortcode for Embedding:**
+  - Embed the digital book anywhere on the site.
+  - Default format: `[page_flipper id="post_id"]`
+  - Optional parameters:
     
-    | Parâmetro      | Descrição                                         | Valores Possíveis | Padrão    |
-    |---------------|-------------------------------------------------|-----------------|-----------|
-    | `summary`     | Exibe ou oculta o sumário                      | `yes` ou `no`  | `yes`     |
-    | `action_bar`  | Exibe ou oculta a barra de ações               | `yes` ou `no`  | `yes`     |
-    | `controls`    | Exibe ou oculta os controles                   | `yes` ou `no`  | `yes`     |
-    | `page_bg`     | Cor de fundo das páginas                       | Hexadecimal    | `#333333` |
-    | `action_bar_bg` | Cor de fundo da barra de ações               | Hexadecimal    | `#555555` |
-    | `summary_bg`  | Cor de fundo do sumário                        | Hexadecimal    | `#555555` |
-    | `controls_icon` | Cor dos ícones dos controles                 | Hexadecimal    | `#ffffff` |
-    | `font_color`  | Cor da fonte do livro                          | Hexadecimal    | `#ffffff` |
+    | Parameter      | Description                                  | Possible Values | Default   |
+    |---------------|----------------------------------------------|-----------------|-----------|
+    | `summary`     | Show or hide the summary                     | `yes` or `no`  | `yes`     |
+    | `action_bar`  | Show or hide the action bar                  | `yes` or `no`  | `yes`     |
+    | `controls`    | Show or hide controls                        | `yes` or `no`  | `yes`     |
+    | `page_bg`     | Page background color                        | Hexadecimal    | `#333333` |
+    | `action_bar_bg` | Action bar background color                | Hexadecimal    | `#555555` |
+    | `summary_bg`  | Summary background color                     | Hexadecimal    | `#555555` |
+    | `controls_icon` | Control icons color                        | Hexadecimal    | `#ffffff` |
+    | `font_color`  | Book font color                             | Hexadecimal    | `#ffffff` |
 
-- **Integração com Elementor:**
-  - Widget para adicionar livros digitais.
-  - Suporte para selecionar um livro específico ou utilizar a query atual.
+- **Elementor Integration:**
+  - Widget to add digital books.
+  - Support for selecting a specific book or using the current query.
 
-## Suporte a Idiomas
-O plugin está disponível nos seguintes idiomas:
+## Language Support
+The plugin is available in the following languages:
 
-- Inglês
-- Português Brasileiro
-- Francês
-- Russo
-- Espanhol
-- Japonês
-- Chinês Tradicional
-- Chinês Simplificado
+- English
+- Brazilian Portuguese
+- French
+- Russian
+- Spanish
+- Japanese
+- Traditional Chinese
+- Simplified Chinese
 
-## Contribuição
-Se você deseja contribuir para o desenvolvimento do **Page Flipper**, acesse o repositório no GitHub:
+## Contribution
+If you want to contribute to the development of **Page Flipper**, visit the GitHub repository:
 
-[Repositório no GitHub](https://github.com/willderazevedo/page-flipper)
+[GitHub Repository](https://github.com/willderazevedo/page-flipper)
+
+---
+
+**Made with ❤️ by Willder Azevedo**
