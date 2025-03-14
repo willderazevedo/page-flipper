@@ -310,6 +310,18 @@ msgstr "Cor de Fundo da Janela de Conteúdo"
 msgid "Pause Icon Name"
 msgstr "Nome do Ícone de Pause"
 
+msgid "Show Video Controls"
+msgstr "Exibir Controles do Vídeo"
+
+msgid "Video Muted"
+msgstr "Mutar Vídeo"
+
+msgid "Video Autoplay"
+msgstr "Habilitar Reprodução Automática"
+
+msgid "Video Loop"
+msgstr "Habilitar Loop do Vídeo"
+
 # ============================
 # 🛠️ Mensagens do Shortcode Metabox
 # ============================

@@ -310,6 +310,18 @@ msgstr "Couleur de Fond de la Fenêtre Contextuelle"
 msgid "Pause Icon Name"
 msgstr "Nom de l'Icône de Pause"
 
+msgid "Show Video Controls"
+msgstr "Afficher les contrôles de la vidéo"
+
+msgid "Video Muted"
+msgstr "Couper le son de la vidéo"
+
+msgid "Video Autoplay"
+msgstr "Activer la lecture automatique"
+
+msgid "Video Loop"
+msgstr "Activer la lecture en boucle"
+
 # ============================
 # 🛠️ Messages du Shortcode Metabox
 # ============================

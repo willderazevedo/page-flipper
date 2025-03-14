@@ -98,6 +98,38 @@ function render_flipper_builder_meta_box( $post ) {
                                                         </select>
                                                     </li>
 
+                                                    <li x-show="hotspot.type === 'video'">
+                                                        <label><?php _e('Show Video Controls', 'page-flipper'); ?></label>
+                                                        <select x-model="hotspot.extras.video_controls">
+                                                            <option value="yes"><?php _e('Yes', 'page-flipper'); ?></option>
+                                                            <option value="no"><?php _e('No', 'page-flipper'); ?></option>
+                                                        </select>
+                                                    </li>
+
+                                                    <li x-show="hotspot.type === 'video'">
+                                                        <label><?php _e('Video Muted', 'page-flipper'); ?></label>
+                                                        <select x-model="hotspot.extras.video_muted">
+                                                            <option value="yes"><?php _e('Yes', 'page-flipper'); ?></option>
+                                                            <option value="no"><?php _e('No', 'page-flipper'); ?></option>
+                                                        </select>
+                                                    </li>
+
+                                                    <li x-show="hotspot.type === 'video'">
+                                                        <label><?php _e('Video Autoplay', 'page-flipper'); ?></label>
+                                                        <select x-model="hotspot.extras.video_autoplay">
+                                                            <option value="yes"><?php _e('Yes', 'page-flipper'); ?></option>
+                                                            <option value="no"><?php _e('No', 'page-flipper'); ?></option>
+                                                        </select>
+                                                    </li>
+
+                                                    <li x-show="hotspot.type === 'video'">
+                                                        <label><?php _e('Video Loop', 'page-flipper'); ?></label>
+                                                        <select x-model="hotspot.extras.video_loop">
+                                                            <option value="yes"><?php _e('Yes', 'page-flipper'); ?></option>
+                                                            <option value="no"><?php _e('No', 'page-flipper'); ?></option>
+                                                        </select>
+                                                    </li>
+
                                                     <li x-show="hotspot.type === 'link'">
                                                         <label><?php _e('Link Url', 'page-flipper'); ?></label>
                                                         <input type="url" x-model="hotspot.extras.link_url">

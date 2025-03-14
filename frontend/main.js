@@ -112,7 +112,7 @@ document.addEventListener('alpine:init', () => {
         addPage(page, range) {
             if (this.turnedElement.turn('hasPage', range)) return;
 
-            const element = jQuery('<div />', {'class': `page`}).html(`<div class="gradient"><i class="fa-solid fa-circle-notch fa-2x fa-spin"></i>`);
+            const element = jQuery('<div />', {'class': `page`}).html(`<div class="gradient"></div><i class="fa-solid fa-circle-notch fa-2x fa-spin"></i>`);
             
             this.turnedElement.turn('addPage', element, range);
             
@@ -317,8 +317,12 @@ document.addEventListener('alpine:init', () => {
                     case "video":
                         const videoElement = document.createElement('video');
 
-                        videoElement.src      = hotspot.attachment.url;
-                        videoElement.controls = true;
+                        videoElement.src         = hotspot.attachment.url;
+                        videoElement.controls    = hotspot.extras.video_controls === 'yes';
+                        videoElement.autoplay    = hotspot.extras.video_autoplay === 'yes';
+                        videoElement.playsInline = hotspot.extras.video_autoplay === 'yes';
+                        videoElement.muted       = hotspot.extras.video_muted === 'yes';
+                        videoElement.loop        = hotspot.extras.video_loop === 'yes';
 
                         switch (hotspot.extras.mode) {
                             case "icon":

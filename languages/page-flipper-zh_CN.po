@@ -310,6 +310,18 @@ msgstr "弹出窗口背景颜色"
 msgid "Pause Icon Name"
 msgstr "暂停图标名称"
 
+msgid "Show Video Controls"
+msgstr "显示视频控件"
+
+msgid "Video Muted"
+msgstr "静音视频"
+
+msgid "Video Autoplay"
+msgstr "启用自动播放"
+
+msgid "Video Loop"
+msgstr "启用循环播放"
+
 # ============================
 # 🛠️ Shortcode Metabox 消息
 # ============================

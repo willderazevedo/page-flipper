@@ -310,6 +310,18 @@ msgstr "Color de Fondo de la Ventana Emergente"
 msgid "Pause Icon Name"
 msgstr "Nombre del Ícono de Pausa"
 
+msgid "Show Video Controls"
+msgstr "Mostrar Controles del Video"
+
+msgid "Video Muted"
+msgstr "Silenciar Video"
+
+msgid "Video Autoplay"
+msgstr "Habilitar Reproducción Automática"
+
+msgid "Video Loop"
+msgstr "Habilitar Repetición del Video"
+
 # ============================
 # 🛠️ Mensajes del Shortcode Metabox
 # ============================

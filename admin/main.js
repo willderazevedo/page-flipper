@@ -79,7 +79,11 @@ document.addEventListener('alpine:init', () => {
                 text_decoration: 'none',
                 link_url: '',
                 link_target: '_blank',
-                link_text: ''
+                link_text: '',
+                video_controls: 'no',
+                video_muted: 'yes',
+                video_autoplay: 'yes',
+                video_loop: 'yes'
             }
         };
     
