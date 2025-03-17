@@ -51,7 +51,9 @@ Here are some screenshots showcasing the **Page Flipper** plugin in action:
 <p float="left">
   <img alt="Builder" src="screenshots/builder.png" width="49%">
   <img alt="Builder Hotspots" src="screenshots/builder-hotspots.png" width="49%">
+  <img alt="Builder Hotspots" src="screenshots/builder-hotspot-options.png" width="49%">
   <img alt="Builder" src="screenshots/flipper.png" width="49%">
+  <img alt="Builder" src="screenshots/flipper-hotspot-show.png" width="49%">
   <img alt="Builder Hotspots" src="screenshots/flipper-opened.png" width="49%">
 </p>
 
