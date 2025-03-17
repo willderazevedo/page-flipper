@@ -1,8 +1,10 @@
 
-# Page Flipper - Documentation
+# Page Flipper
 
 ![GitHub release](https://img.shields.io/github/v/release/willderazevedo/page-flipper)
 ![License](https://img.shields.io/github/license/willderazevedo/page-flipper)
+
+<img alt="Builder" src="assets/banner.png">
 
 ## Description
 The **Page Flipper** is a **free** WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots.

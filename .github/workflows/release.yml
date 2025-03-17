@@ -13,24 +13,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout código
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Capturar versão da tag
+      - name: Capture tag version
         run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
-      - name: Mover readme.txt para a raiz
-        run: mv assets/readme.txt ./readme.txt
-
-      - name: Copiar arquivo de licença para padrão do wordpress
+      - name: Copy license to wordpress version
         run: cp LICENSE ./license.txt
 
-      - name: Criar arquivo ZIP com versão
+      - name: Create ZIP file
         run: |
           zip -r page-flipper-${VERSION}.zip . \
-          -x ".git/*" ".github/*" "README.md" "LICENSE"
+          -x ".git/*" ".github/*" "README.md" "LICENSE" "assets/banner.png"
 
-      - name: Criar Release e anexar ZIP
+      - name: Create release and attach ZIP
         uses: softprops/action-gh-release@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
