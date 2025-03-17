@@ -6,6 +6,8 @@
  * Version:     1.0.0
  * Author:      Willder Azevedo
  * Author URI:  https://github.com/willderazevedo
+ * License: GPLv3
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * 
  * @package PageFlipper
  * @category Plugin
@@ -98,7 +100,7 @@ function load_admin_flipper_assets() {
     wp_enqueue_script('flipper-sortable-lib', plugin_dir_url(__FILE__) . 'assets/libs/sortable.js', [], '1.15.6', true);
     wp_enqueue_script('flipper-interact-lib', plugin_dir_url(__FILE__) . 'assets/libs/interact.js', [], '1.10.27', true);
     wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'assets/admin/style.css', [], '1.0.0');
-    wp_enqueue_style('flipper-icons-lib', 'https://use.fontawesome.com/releases/v6.5.1/css/all.css?ver=8.5.14');
+    wp_enqueue_style('flipper-icons-lib', 'https://use.fontawesome.com/releases/v6.5.1/css/all.css?ver=8.5.14', [], '6.5.1');
     wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'assets/admin/main.js', ['flipper-sortable-lib', 'flipper-interact-lib'], '1.0.0', true);
 }
 

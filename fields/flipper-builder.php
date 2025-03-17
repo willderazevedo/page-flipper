@@ -19,22 +19,22 @@ function render_flipper_builder_meta_box( $post ) {
     wp_nonce_field( 'flipper_builder_nonce_action', 'flipper_builder_nonce' );
 
     $builder_data = get_post_meta( $post->ID, '_flipper_builder_data', true );
-    $builder_data = !empty($builder_data) ? esc_attr($builder_data) : '[]';
+    $builder_data = !empty($builder_data) ? $builder_data : '[]';
 
     ?>
-        <div x-data="flipperBuilder(<?php echo $builder_data; ?>)" class="flipper-builder-wrapper">
+        <div x-data="flipperBuilder(<?php echo esc_js($builder_data); ?>)" class="flipper-builder-wrapper">
             <input type="hidden" name="builder_data" x-bind:value="JSON.stringify(pages)">
 
             <div class="flipper-sidebar">
                 <div class="sidebar-actions">
-                    <button type="button" x-on:click="addPages()"><?php _e('Select Images', 'page-flipper'); ?></button>
-                    <button x-on:click="removePages()" x-bind:class="{'disabled': !pages.length}" x-bind:disabled="!pages.length" type="button"><?php _e('Remove Pages', 'page-flipper'); ?></button>
+                    <button type="button" x-on:click="addPages()"><?php esc_html_e('Select Images', 'page-flipper'); ?></button>
+                    <button x-on:click="removePages()" x-bind:class="{'disabled': !pages.length}" x-bind:disabled="!pages.length" type="button"><?php esc_html_e('Remove Pages', 'page-flipper'); ?></button>
                 </div>
 
                 <template x-if="pages.length">
                     <div class="sidebar-pages">
                         <div class="section-title">
-                            <?php _e('Page List', 'page-flipper'); ?>
+                            <?php esc_html_e('Page List', 'page-flipper'); ?>
                         </div>
                         
                         <ul class="page-list">
@@ -61,7 +61,7 @@ function render_flipper_builder_meta_box( $post ) {
                     <template x-if="hotspotWrapperWidth && hotspotWrapperHeight">
                         <div class="hotspots-wrapper" x-bind:style="`width: ${hotspotWrapperWidth}px; height: ${hotspotWrapperHeight}px;`">
                             <template x-for="hotspot in selectedPage.hotspots" :key="hotspot.id">
-                                <div class="hotspot-container" x-bind="buildHotspotInitialAttributes(hotspot)" x-bind:description="hotspot.type === 'narration' ? '<?php _e('Remove Narration', 'page-flipper'); ?>' : null">
+                                <div class="hotspot-container" x-bind="buildHotspotInitialAttributes(hotspot)" x-bind:description="hotspot.type === 'narration' ? '<?php esc_attr_e('Remove Narration', 'page-flipper'); ?>' : null">
                                     <template x-if="hotspot.type === 'narration'">
                                         <div x-data="{hover: false}"  x-on:mouseover="hover = true" x-on:mouseover.away="hover = false" x-on:click="removeHotspot(hotspot)">
                                             <i x-show="!hover" class="fa-solid fa-audio-description"></i>
@@ -73,16 +73,16 @@ function render_flipper_builder_meta_box( $post ) {
                                         <div x-bind:class="`${hotspot.type}-hotspot`">
                                             <div class="hotspot-extras">
                                                 <div class="extras-title">
-                                                    <?php _e('Settings', 'page-flipper'); ?>
+                                                    <?php esc_html_e('Settings', 'page-flipper'); ?>
 
                                                     <div class="extras-actions">
                                                         <template x-if="hotspot.type !== 'text' && hotspot.type !== 'link'">
-                                                            <button type="button" x-on:click="editHotspotMedia(hotspot)" description="<?php _e('Change File', 'page-flipper'); ?>">
+                                                            <button type="button" x-on:click="editHotspotMedia(hotspot)" description="<?php esc_attr_e('Change File', 'page-flipper'); ?>">
                                                                 <i class="fa-solid fa-file-pen"></i>
                                                             </button>
                                                         </template>
 
-                                                        <button type="button" x-on:click="removeHotspot(hotspot)" description="<?php _e('Remove Hotspot', 'page-flipper'); ?>">
+                                                        <button type="button" x-on:click="removeHotspot(hotspot)" description="<?php esc_attr_e('Remove Hotspot', 'page-flipper'); ?>">
                                                             <i class="fa-solid fa-trash"></i>
                                                         </button>
                                                     </div>
@@ -90,162 +90,162 @@ function render_flipper_builder_meta_box( $post ) {
 
                                                 <ul>
                                                     <li>
-                                                        <label><?php _e('Display Mode', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Display Mode', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.mode">
-                                                            <option value="icon"><?php _e('Icon', 'page-flipper'); ?></option>
-                                                            <option value="inline"><?php _e('Inline', 'page-flipper'); ?></option>
-                                                            <option x-show="hotspot.type === 'link'" value="area"><?php _e('Stipulated Area', 'page-flipper'); ?></option>
+                                                            <option value="icon"><?php esc_html_e('Icon', 'page-flipper'); ?></option>
+                                                            <option value="inline"><?php esc_html_e('Inline', 'page-flipper'); ?></option>
+                                                            <option x-show="hotspot.type === 'link'" value="area"><?php esc_html_e('Stipulated Area', 'page-flipper'); ?></option>
                                                         </select>
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'video'">
-                                                        <label><?php _e('Show Video Controls', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Show Video Controls', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.video_controls">
-                                                            <option value="yes"><?php _e('Yes', 'page-flipper'); ?></option>
-                                                            <option value="no"><?php _e('No', 'page-flipper'); ?></option>
+                                                            <option value="yes"><?php esc_html_e('Yes', 'page-flipper'); ?></option>
+                                                            <option value="no"><?php esc_html_e('No', 'page-flipper'); ?></option>
                                                         </select>
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'video'">
-                                                        <label><?php _e('Video Muted', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Video Muted', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.video_muted">
-                                                            <option value="yes"><?php _e('Yes', 'page-flipper'); ?></option>
-                                                            <option value="no"><?php _e('No', 'page-flipper'); ?></option>
+                                                            <option value="yes"><?php esc_html_e('Yes', 'page-flipper'); ?></option>
+                                                            <option value="no"><?php esc_html_e('No', 'page-flipper'); ?></option>
                                                         </select>
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'video'">
-                                                        <label><?php _e('Video Autoplay', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Video Autoplay', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.video_autoplay">
-                                                            <option value="yes"><?php _e('Yes', 'page-flipper'); ?></option>
-                                                            <option value="no"><?php _e('No', 'page-flipper'); ?></option>
+                                                            <option value="yes"><?php esc_html_e('Yes', 'page-flipper'); ?></option>
+                                                            <option value="no"><?php esc_html_e('No', 'page-flipper'); ?></option>
                                                         </select>
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'video'">
-                                                        <label><?php _e('Video Loop', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Video Loop', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.video_loop">
-                                                            <option value="yes"><?php _e('Yes', 'page-flipper'); ?></option>
-                                                            <option value="no"><?php _e('No', 'page-flipper'); ?></option>
+                                                            <option value="yes"><?php esc_html_e('Yes', 'page-flipper'); ?></option>
+                                                            <option value="no"><?php esc_html_e('No', 'page-flipper'); ?></option>
                                                         </select>
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'link'">
-                                                        <label><?php _e('Link Url', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Link Url', 'page-flipper'); ?></label>
                                                         <input type="url" x-model="hotspot.extras.link_url">
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'link'">
                                                         <template x-if="hotspot.extras.mode === 'inline'">
-                                                            <label><?php _e('Link Text', 'page-flipper'); ?></label>
+                                                            <label><?php esc_html_e('Link Text', 'page-flipper'); ?></label>
                                                         </template>
 
                                                         <template x-if="hotspot.extras.mode !== 'inline'">
-                                                            <label><?php _e('Link Title', 'page-flipper'); ?></label>
+                                                            <label><?php esc_html_e('Link Title', 'page-flipper'); ?></label>
                                                         </template>
                                                         
                                                         <input type="text" x-model="hotspot.extras.link_text">
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'link'">
-                                                        <label><?php _e('Link Target', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Link Target', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.link_target">
-                                                            <option value="_blank"><?php _e('Blank Page', 'page-flipper'); ?></option>
-                                                            <option value="_self"><?php _e('Same Page', 'page-flipper'); ?></option>
+                                                            <option value="_blank"><?php esc_html_e('Blank Page', 'page-flipper'); ?></option>
+                                                            <option value="_self"><?php esc_html_e('Same Page', 'page-flipper'); ?></option>
                                                         </select>
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'text' || (hotspot.type === 'link' && hotspot.extras.mode === 'inline')">
-                                                        <label><?php _e('Font Size', 'page-flipper'); ?> <small>(px)</small></label>
+                                                        <label><?php esc_html_e('Font Size', 'page-flipper'); ?> <small>(px)</small></label>
                                                         <input type="number" x-model="hotspot.extras.font_size">
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'text' || (hotspot.type === 'link' && hotspot.extras.mode === 'inline')">
-                                                        <label><?php _e('Font Family', 'page-flipper'); ?> <small>(<?php _e('Example', 'page-flipper'); ?>: Lora, Arial)</small></label>
+                                                        <label><?php esc_html_e('Font Family', 'page-flipper'); ?> <small>(<?php esc_html_e('Example', 'page-flipper'); ?>: Lora, Arial)</small></label>
                                                         <input type="text" x-model="hotspot.extras.font_family">
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'text' || (hotspot.type === 'link' && hotspot.extras.mode === 'inline')">
-                                                        <label><?php _e('Font Color', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Font Color', 'page-flipper'); ?></label>
                                                         <input type="color" x-model="hotspot.extras.font_color">
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'text' || (hotspot.type === 'link' && hotspot.extras.mode === 'inline')">
-                                                        <label><?php _e('Font Weight', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Font Weight', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.font_weight">
-                                                            <option value="normal"><?php _e('Normal', 'page-flipper'); ?></option>
-                                                            <option value="lighter"><?php _e('Lighter', 'page-flipper'); ?></option>
-                                                            <option value="bold"><?php _e('Bold', 'page-flipper'); ?></option>
-                                                            <option value="bolder"><?php _e('Bolder', 'page-flipper'); ?></option>
+                                                            <option value="normal"><?php esc_html_e('Normal', 'page-flipper'); ?></option>
+                                                            <option value="lighter"><?php esc_html_e('Lighter', 'page-flipper'); ?></option>
+                                                            <option value="bold"><?php esc_html_e('Bold', 'page-flipper'); ?></option>
+                                                            <option value="bolder"><?php esc_html_e('Bolder', 'page-flipper'); ?></option>
                                                         </select>
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'text' || (hotspot.type === 'link' && hotspot.extras.mode === 'inline')">
-                                                        <label><?php _e('Text Decoration', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Text Decoration', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.text_decoration">
-                                                            <option value="none"><?php _e('None', 'page-flipper'); ?></option>
-                                                            <option value="underline"><?php _e('Underline', 'page-flipper'); ?></option>
-                                                            <option value="line-through"><?php _e('Line Through', 'page-flipper'); ?></option>
+                                                            <option value="none"><?php esc_html_e('None', 'page-flipper'); ?></option>
+                                                            <option value="underline"><?php esc_html_e('Underline', 'page-flipper'); ?></option>
+                                                            <option value="line-through"><?php esc_html_e('Line Through', 'page-flipper'); ?></option>
                                                         </select>
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'text'">
-                                                        <label><?php _e('Text Align', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Text Align', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.text_align">
-                                                            <option value="left"><?php _e('Left', 'page-flipper'); ?></option>
-                                                            <option value="right"><?php _e('Right', 'page-flipper'); ?></option>
-                                                            <option value="center"><?php _e('Center', 'page-flipper'); ?></option>
-                                                            <option value="justify"><?php _e('Justify', 'page-flipper'); ?></option>
+                                                            <option value="left"><?php esc_html_e('Left', 'page-flipper'); ?></option>
+                                                            <option value="right"><?php esc_html_e('Right', 'page-flipper'); ?></option>
+                                                            <option value="center"><?php esc_html_e('Center', 'page-flipper'); ?></option>
+                                                            <option value="justify"><?php esc_html_e('Justify', 'page-flipper'); ?></option>
                                                         </select>
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'text'">
-                                                        <label><?php _e('Content', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Content', 'page-flipper'); ?></label>
                                                         <textarea x-model="hotspot.extras.content" rows="5"></textarea>
                                                     </li>
 
                                                     <li x-show="hotspot.extras.mode === 'icon'">
-                                                        <label><?php _e('Icon Border Radius', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Icon Border Radius', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.icon_border">
-                                                            <option value="50%"><?php _e('Rounded', 'page-flipper'); ?></option>
-                                                            <option value="5px"><?php _e('Smooth', 'page-flipper'); ?></option>
-                                                            <option value="0px"><?php _e('Sharp', 'page-flipper'); ?></option>
-                                                            <option value="custom"><?php _e('Custom', 'page-flipper'); ?></option>
+                                                            <option value="50%"><?php esc_html_e('Rounded', 'page-flipper'); ?></option>
+                                                            <option value="5px"><?php esc_html_e('Smooth', 'page-flipper'); ?></option>
+                                                            <option value="0px"><?php esc_html_e('Sharp', 'page-flipper'); ?></option>
+                                                            <option value="custom"><?php esc_html_e('Custom', 'page-flipper'); ?></option>
                                                         </select>
                                                     </li>
 
                                                     <li x-show="hotspot.extras.icon_border === 'custom'">
-                                                        <label><?php _e('Custom Radius', 'page-flipper'); ?> <small>(<?php _e('Example', 'page-flipper'); ?>: 50% 0 10px 0)</small></label>
+                                                        <label><?php esc_html_e('Custom Radius', 'page-flipper'); ?> <small>(<?php esc_html_e('Example', 'page-flipper'); ?>: 50% 0 10px 0)</small></label>
                                                         <input type="text" x-model="hotspot.extras.icon_border_custom">
                                                     </li>
 
                                                     <li x-show="hotspot.extras.mode === 'icon'">
-                                                        <label><?php _e('Icon Color', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Icon Color', 'page-flipper'); ?></label>
                                                         <input type="color" x-model="hotspot.extras.icon_color">
                                                     </li>
 
                                                     <li x-show="hotspot.extras.mode === 'icon'">
-                                                        <label><?php _e('Icon Background Color', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Icon Background Color', 'page-flipper'); ?></label>
                                                         <input type="color" x-model="hotspot.extras.icon_background">
                                                     </li>
 
                                                     <li x-show="hotspot.extras.mode === 'icon' && hotspot.type !== 'link'">
-                                                        <label><?php _e('Popover Background Color', 'page-flipper'); ?></label>
+                                                        <label><?php esc_html_e('Popover Background Color', 'page-flipper'); ?></label>
                                                         <input type="color" x-model="hotspot.extras.popover_background">
                                                     </li>
 
                                                     <li x-show="hotspot.extras.mode === 'icon'">
-                                                        <label><?php _e('Icon Name', 'page-flipper'); ?> <a href="https://fontawesome.com/icons" target="_blank"><small>(Font Awesome Icons)</small></a></label>
+                                                        <label><?php esc_html_e('Icon Name', 'page-flipper'); ?> <a href="https://fontawesome.com/icons" target="_blank"><small>(Font Awesome Icons)</small></a></label>
                                                         <input type="text" x-model="hotspot.extras.icon_name">
                                                     </li>
 
                                                     <li x-show="hotspot.extras.mode === 'icon' && hotspot.type === 'audio'">
-                                                        <label><?php _e('Pause Icon Name', 'page-flipper'); ?> <a href="https://fontawesome.com/icons" target="_blank"><small>(Font Awesome Icons)</small></a></label>
+                                                        <label><?php esc_html_e('Pause Icon Name', 'page-flipper'); ?> <a href="https://fontawesome.com/icons" target="_blank"><small>(Font Awesome Icons)</small></a></label>
                                                         <input type="text" x-model="hotspot.extras.pause_icon_name">
                                                     </li>
 
                                                     <li x-show="hotspot.extras.mode === 'icon'">
-                                                        <label><?php _e('Icon Size', 'page-flipper'); ?> <small>(px)</small></label>
+                                                        <label><?php esc_html_e('Icon Size', 'page-flipper'); ?> <small>(px)</small></label>
                                                         <input type="number" x-model="hotspot.extras.icon_size">
                                                     </li>
                                                 </ul>
@@ -329,22 +329,22 @@ function render_flipper_builder_meta_box( $post ) {
                     </template>
 
                     <div class="page-actions">
-                        <button type="button" description="<?php _e('Narration', 'page-flipper'); ?>" x-on:click="addHotspot('narration')">
+                        <button type="button" description="<?php esc_attr_e('Narration', 'page-flipper'); ?>" x-on:click="addHotspot('narration')">
                             <i class="fa-solid fa-audio-description"></i>
                         </button>
-                        <button type="button" description="<?php _e('Audio', 'page-flipper'); ?>" x-on:click="addHotspot('audio')">
+                        <button type="button" description="<?php esc_attr_e('Audio', 'page-flipper'); ?>" x-on:click="addHotspot('audio')">
                             <i class="fa-solid fa-volume-high"></i>
                         </button>
-                        <button type="button" description="<?php _e('Video', 'page-flipper'); ?>" x-on:click="addHotspot('video')">
+                        <button type="button" description="<?php esc_attr_e('Video', 'page-flipper'); ?>" x-on:click="addHotspot('video')">
                             <i class="fa-solid fa-video"></i>
                         </button>
-                        <button type="button" description="<?php _e('Image', 'page-flipper'); ?>" x-on:click="addHotspot('image')">
+                        <button type="button" description="<?php esc_attr_e('Image', 'page-flipper'); ?>" x-on:click="addHotspot('image')">
                             <i class="fa-solid fa-image"></i>
                         </button>
-                        <button type="button" description="<?php _e('Text', 'page-flipper'); ?>" x-on:click="addHotspot('text')">
+                        <button type="button" description="<?php esc_attr_e('Text', 'page-flipper'); ?>" x-on:click="addHotspot('text')">
                             <i class="fa-solid fa-font"></i>
                         </button>
-                        <button type="button" description="<?php _e('Hyperlink', 'page-flipper'); ?>" x-on:click="addHotspot('link')">
+                        <button type="button" description="<?php esc_attr_e('Hyperlink', 'page-flipper'); ?>" x-on:click="addHotspot('link')">
                             <i class="fa-solid fa-link"></i>
                         </button>
                     </div>

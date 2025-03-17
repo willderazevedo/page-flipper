@@ -12,25 +12,25 @@ $controlsIconColor   = esc_attr($atts['controls_icon']);
 $fontColor           = esc_attr($atts['font_color']);
 $goBackUrl           = wp_get_referer();
 $builderData         = get_post_meta($postId, '_flipper_builder_data', true);
-$builderData         = !empty($builderData) ? esc_attr($builderData) : '[]';
 $pdfAttachment       = get_post_meta($postId, '_flipper_pdf_data', true);
-$pdfAttachment       = !empty($pdfAttachment) ? esc_attr($pdfAttachment) : 'null';
+$builderData         = !empty($builderData) ? $builderData : '[]';
+$pdfAttachment       = !empty($pdfAttachment) ? $pdfAttachment : 'null';
 ?>
 <div 
-    x-data="flipperWidget(<?php echo $builderData; ?>, <?php echo $pdfAttachment; ?>)"
+    x-data="flipperWidget(<?php echo esc_js($builderData); ?>, <?php echo esc_js($pdfAttachment); ?>)"
     class="flipper-widget-wrapper"
     style="
-        --page-bg: <?php echo $pageBackground; ?>;
-        --action-bar-bg: <?php echo $actionBarBackground; ?>;
-        --summary-bg: <?php echo $summaryBackground; ?>;
-        --icon-color: <?php echo $controlsIconColor; ?>;
-        --font-color: <?php echo $fontColor; ?>;
+        --page-bg: <?php echo esc_attr($pageBackground); ?>;
+        --action-bar-bg: <?php echo esc_attr($actionBarBackground); ?>;
+        --summary-bg: <?php echo esc_attr($summaryBackground); ?>;
+        --icon-color: <?php echo esc_attr($controlsIconColor); ?>;
+        --font-color: <?php echo esc_attr($fontColor); ?>;
     ">
     <?php if ($showActionBar) : ?>
         <div class="flipper-action-bar">
             <div class="flipper-actions actions-left">
                 <?php if ($goBackUrl) : ?>
-                    <a href="<?php echo esc_url($goBackUrl); ?>" description="<?php _e('Go back', 'page-flipper'); ?>">
+                    <a href="<?php echo esc_url($goBackUrl); ?>" description="<?php esc_attr_e('Go back', 'page-flipper'); ?>">
                         <i class="fa-solid fa-angle-left"></i>
                     </a>
                 <?php endif; ?>
@@ -43,20 +43,20 @@ $pdfAttachment       = !empty($pdfAttachment) ? esc_attr($pdfAttachment) : 'null
             </div>
             
             <div class="flipper-actions actions-right">
-                <button type="button" class="narration-toggler" x-bind:class="{'mobile-mode': isMobile()}" x-on:click="narrationActive ? stopNarration() : startNarration()" x-bind:disabled="!hasNarration" x-bind:description="!hasNarration ? '<?php _e('No Audio Description in Current Page', 'page-flipper'); ?>' : (narrationActive ? '<?php _e('Pause Audio Description', 'page-flipper'); ?>' : '<?php _e('Play Audio Description', 'page-flipper'); ?>')">
+                <button type="button" class="narration-toggler" x-bind:class="{'mobile-mode': isMobile()}" x-on:click="narrationActive ? stopNarration() : startNarration()" x-bind:disabled="!hasNarration" x-bind:description="!hasNarration ? '<?php esc_attr_e('No Audio Description in Current Page', 'page-flipper'); ?>' : (narrationActive ? '<?php esc_attr_e('Pause Audio Description', 'page-flipper'); ?>' : '<?php esc_attr_e('Play Audio Description', 'page-flipper'); ?>')">
                     <i x-show="!narrationActive" class="fa-solid fa-play"></i>
                     <i x-show="narrationActive" class="fa-solid fa-pause"></i>
 
-                    <span class="narration-time" x-text="`<?php _e('Page', 'page-flipper'); ?> ${actualPage} - ${timeString(narrationCurrentTime)}/${narrationDuration}`"></span>
+                    <span class="narration-time" x-text="`<?php esc_attr_e('Page', 'page-flipper'); ?> ${actualPage} - ${timeString(narrationCurrentTime)}/${narrationDuration}`"></span>
                 </button>
                 
-                <button x-on:click="toggleZoom($event, true)" x-bind:disabled="narrationActive" type="button" description="<?php _e('Zoom', 'page-flipper'); ?>">
+                <button x-on:click="toggleZoom($event, true)" x-bind:disabled="narrationActive" type="button" description="<?php esc_attr_e('Zoom', 'page-flipper'); ?>">
                     <i x-show="!zoomActive" class="fas fa-search-plus"></i>
                     <i x-show="zoomActive" class="fas fa-search-minus"></i>
                 </button>
                 
                 <template x-if="pdfFile !== null">
-                    <a x-bind:href="pdfFile.url" target="_blank" description="<?php _e('Download PDF File', 'page-flipper'); ?>">
+                    <a x-bind:href="pdfFile.url" target="_blank" description="<?php esc_attr_e('Download PDF File', 'page-flipper'); ?>">
                         <i class="fas fa-file-pdf"></i>
                     </a>
                 </template>
@@ -67,7 +67,7 @@ $pdfAttachment       = !empty($pdfAttachment) ? esc_attr($pdfAttachment) : 'null
     <?php if ($showSummary) : ?>
         <template x-if="!narrationActive">
             <div class="flipper-summary-wrapper" x-bind:class="{'active': summaryActive}">
-                <button x-on:click="summaryActive = !summaryActive" type="button" class="summary-toggler" description="<?php _e('Summary', 'page-flipper'); ?>">
+                <button x-on:click="summaryActive = !summaryActive" type="button" class="summary-toggler" description="<?php esc_attr_e('Summary', 'page-flipper'); ?>">
                     <i x-show="!summaryActive" class="fas fa-angle-right" aria-hidden="true"></i>
                     <i x-show="summaryActive" class="fas fa-angle-left" aria-hidden="true"></i>
                 </button>
@@ -103,7 +103,7 @@ $pdfAttachment       = !empty($pdfAttachment) ? esc_attr($pdfAttachment) : 'null
                 <div class="page change">
                     <i class="fa-solid fa-circle-notch fa-spin fa-2x"></i>
                 </div>
-            <? endforeach; ?>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
