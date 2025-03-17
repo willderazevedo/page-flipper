@@ -77,7 +77,10 @@ msgstr "Nouveau Nom de la Catégorie"
 # 🏷️ Noms des sections
 # =====================
 msgid "Page Flipper"
-msgstr "Tourneur de Pages"
+msgstr "Page Flipper"
+
+msgid "The Page Flipper is a free WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots."
+msgstr "Le Page Flipper est un plugin gratuit pour WordPress qui permet la création de livres numériques interactifs. Il ajoute un nouveau type de publication pour les livres numériques, offrant un ensemble de fonctionnalités pour gérer les livres et ajouter de l'interactivité avec des hotspots."
 
 msgid "Query"
 msgstr "Requête"

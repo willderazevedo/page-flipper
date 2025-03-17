@@ -77,7 +77,10 @@ msgstr "新分類名稱"
 # 🏷️ 區段名稱
 # =====================
 msgid "Page Flipper"
-msgstr "翻頁效果"
+msgstr "Page Flipper"
+
+msgid "The Page Flipper is a free WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots."
+msgstr "Page Flipper 是一個免費的 WordPress 外掛，允許創建互動式電子書。它新增了一種電子書的文章類型，提供一套功能來管理書籍並透過熱點增加互動性。"
 
 msgid "Query"
 msgstr "查詢"

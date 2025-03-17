@@ -79,6 +79,9 @@ msgstr "Novo Nome da Categoria"
 msgid "Page Flipper"
 msgstr "Page Flipper"
 
+msgid "The Page Flipper is a free WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots."
+msgstr "O Page Flipper é um plugin gratuito para WordPress que permite a criação de livros digitais interativos. Ele adiciona um novo tipo de postagem para livros digitais, oferecendo um conjunto de recursos para gerenciar livros e adicionar interatividade com hotspots."
+
 msgid "Query"
 msgstr "Consulta"
 
