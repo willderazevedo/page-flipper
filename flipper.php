@@ -1,9 +1,24 @@
 <?php
 /**
  * Plugin Name: Page Flipper
- * Description: Melhor page flipper da terra, com varias funções, integração com elementor e GRATUITO
+ * Plugin URI:  https://github.com/willderazevedo/page-flipper
+ * Description: The Page Flipper is a free WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots.
  * Version:     1.0.0
  * Author:      Willder Azevedo
+ * Author URI:  https://github.com/willderazevedo
+ * 
+ * @package PageFlipper
+ * @category Plugin
+ * 
+ * Page Flipper is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ * 
+ * Page Flipper is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -79,23 +94,23 @@ function register_page_flipper_post_type() {
 add_action( 'init', 'register_page_flipper_post_type' );
 
 function load_admin_flipper_assets() {
-    wp_enqueue_script('flipper-alpine-lib', plugin_dir_url(__FILE__) . 'libs/alpine.js', ['flipper-script'], '3.14.8', true);
-    wp_enqueue_script('flipper-sortable-lib', plugin_dir_url(__FILE__) . 'libs/sortable.js', [], '1.15.6', true);
-    wp_enqueue_script('flipper-interact-lib', plugin_dir_url(__FILE__) . 'libs/interact.js', [], '1.10.27', true);
-    wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'admin/style.css', [], '1.0.0');
+    wp_enqueue_script('flipper-alpine-lib', plugin_dir_url(__FILE__) . 'assets/libs/alpine.js', ['flipper-script'], '3.14.8', true);
+    wp_enqueue_script('flipper-sortable-lib', plugin_dir_url(__FILE__) . 'assets/libs/sortable.js', [], '1.15.6', true);
+    wp_enqueue_script('flipper-interact-lib', plugin_dir_url(__FILE__) . 'assets/libs/interact.js', [], '1.10.27', true);
+    wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'assets/admin/style.css', [], '1.0.0');
     wp_enqueue_style('flipper-icons-lib', 'https://use.fontawesome.com/releases/v6.5.1/css/all.css?ver=8.5.14');
-    wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'admin/main.js', ['flipper-sortable-lib', 'flipper-interact-lib'], '1.0.0', true);
+    wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'assets/admin/main.js', ['flipper-sortable-lib', 'flipper-interact-lib'], '1.0.0', true);
 }
 
 add_action('admin_enqueue_scripts', 'load_admin_flipper_assets');
 
 function load_frontend_flipper_assets() {
-    wp_enqueue_script('flipper-alpine-lib', plugin_dir_url(__FILE__) . 'libs/alpine.js', ['flipper-script'], '3.14.8', true);
-    wp_enqueue_script('flipper-turnjs-lib', plugin_dir_url(__FILE__) . 'libs/turnjs.js', ['jquery'], '4.1.0', true);
-    wp_enqueue_script('flipper-zoom-lib', plugin_dir_url(__FILE__) . 'libs/zoom.js', [], '4.1.0', true);
-    wp_enqueue_script('flipper-bootstrap-lib', plugin_dir_url(__FILE__) . 'libs/bootstrap.js', [], '5.3.3', true);
-    wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'frontend/style.css', [], '1.0.0');
-    wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'frontend/main.js', ['flipper-turnjs-lib', 'flipper-zoom-lib', 'flipper-bootstrap-lib'], '1.0.0', true);
+    wp_enqueue_script('flipper-alpine-lib', plugin_dir_url(__FILE__) . 'assets/libs/alpine.js', ['flipper-script'], '3.14.8', true);
+    wp_enqueue_script('flipper-turnjs-lib', plugin_dir_url(__FILE__) . 'assets/libs/turnjs.js', ['jquery'], '4.1.0', true);
+    wp_enqueue_script('flipper-zoom-lib', plugin_dir_url(__FILE__) . 'assets/libs/zoom.js', [], '4.1.0', true);
+    wp_enqueue_script('flipper-bootstrap-lib', plugin_dir_url(__FILE__) . 'assets/libs/bootstrap.js', [], '5.3.3', true);
+    wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'assets/frontend/style.css', [], '1.0.0');
+    wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'assets/frontend/main.js', ['flipper-turnjs-lib', 'flipper-zoom-lib', 'flipper-bootstrap-lib'], '1.0.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'load_frontend_flipper_assets');

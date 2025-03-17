@@ -19,10 +19,16 @@ jobs:
       - name: Capturar versão da tag
         run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
+      - name: Mover readme.txt para a raiz
+        run: mv assets/readme.txt ./readme.txt
+
+      - name: Copiar arquivo de licença para padrão do wordpress
+        run: cp LICENSE ./license.txt
+
       - name: Criar arquivo ZIP com versão
         run: |
           zip -r page-flipper-${VERSION}.zip . \
-          -x ".git/*" ".github/*"
+          -x ".git/*" ".github/*" "README.md" "LICENSE"
 
       - name: Criar Release e anexar ZIP
         uses: softprops/action-gh-release@v1

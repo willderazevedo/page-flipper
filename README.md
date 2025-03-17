@@ -49,12 +49,12 @@ The **Page Flipper** is a **free** WordPress plugin that enables the creation of
 Here are some screenshots showcasing the **Page Flipper** plugin in action:
 
 <p float="left">
-  <img alt="Builder" src="screenshots/builder.png" width="49%">
-  <img alt="Builder Hotspots" src="screenshots/builder-hotspots.png" width="49%">
-  <img alt="Builder Hotspots" src="screenshots/builder-hotspot-options.png" width="49%">
-  <img alt="Builder" src="screenshots/flipper.png" width="49%">
-  <img alt="Builder" src="screenshots/flipper-hotspot-show.png" width="49%">
-  <img alt="Builder Hotspots" src="screenshots/flipper-opened.png" width="49%">
+  <img alt="Builder" src="assets/screenshot-1.png" width="49%">
+  <img alt="Builder Hotspots" src="assets/screenshot-2.png" width="49%">
+  <img alt="Builder Hotspots" src="assets/screenshot-3.png" width="49%">
+  <img alt="Builder" src="assets/screenshot-4.png" width="49%">
+  <img alt="Builder" src="assets/screenshot-5.png" width="49%">
+  <img alt="Builder Hotspots" src="assets/screenshot-6.png" width="49%">
 </p>
 
 ## Language Support
@@ -69,9 +69,7 @@ The plugin is available in the following languages:
 - Traditional Chinese
 - Simplified Chinese
 
-## Contribution
-If you want to contribute to the development of **Page Flipper**, feel free to send a pull request.
+## 💖 Support This Project  
+If you like this project, consider making a donation to help with development.  
 
----
-
-**Made with ❤️ by Willder Azevedo**
+[![Sponsor via GitHub Sponsors](https://img.shields.io/badge/Sponsor-GitHub-blue?style=flat&logo=github)](https://github.com/sponsors/willderazevedo)

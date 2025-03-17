@@ -77,7 +77,7 @@ msgstr "Novo Nome da Categoria"
 # 🏷️ Nomes das seções
 # =====================
 msgid "Page Flipper"
-msgstr "Virador de Página"
+msgstr "Page Flipper"
 
 msgid "Query"
 msgstr "Consulta"
