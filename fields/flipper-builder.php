@@ -3,22 +3,22 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-function add_flipper_builder_meta_box() {
+function wa_page_flipper_builder_meta_box_config() {
     add_meta_box(
-        'flipper_builder',
+        'wa_page_flipper_builder',
         __( 'Flipper Builder', 'page-flipper' ),
-        'render_flipper_builder_meta_box',
-        'page_flipper',
+        'wa_page_flipper_builder_meta_box',
+        'wa_page_flipper',
         'normal',
         'high'
     );
 }
-add_action( 'add_meta_boxes', 'add_flipper_builder_meta_box' );
+add_action( 'add_meta_boxes', 'wa_page_flipper_builder_meta_box_config' );
 
-function render_flipper_builder_meta_box( $post ) {
-    wp_nonce_field( 'flipper_builder_nonce_action', 'flipper_builder_nonce' );
+function wa_page_flipper_builder_meta_box( $post ) {
+    wp_nonce_field( 'page_flipper_builder_nonce_action', 'page_flipper_builder_nonce' );
 
-    $builder_data = get_post_meta( $post->ID, '_flipper_builder_data', true );
+    $builder_data = get_post_meta( $post->ID, '_page_flipper_builder_data', true );
     $builder_data = !empty($builder_data) ? $builder_data : '[]';
 
     ?>
@@ -354,12 +354,12 @@ function render_flipper_builder_meta_box( $post ) {
     <?php
 }
 
-function save_flipper_builder_meta_box( $post_id ) {
+function wa_page_flipper_builder_meta_box_save( $post_id ) {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
         return;
     }
 
-    if ( ! isset( $_POST['flipper_builder_nonce'] ) || ! wp_verify_nonce( $_POST['flipper_builder_nonce'], 'flipper_builder_nonce_action' ) ) {
+    if ( ! isset( $_POST['page_flipper_builder_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['page_flipper_builder_nonce'] ) ), 'page_flipper_builder_nonce_action' ) ) {
         return;
     }
 
@@ -372,8 +372,8 @@ function save_flipper_builder_meta_box( $post_id ) {
         $builder_data = json_decode( $builder_data, true );
 
         if ( json_last_error() === JSON_ERROR_NONE ) {
-            update_post_meta( $post_id, '_flipper_builder_data', wp_json_encode( $builder_data, JSON_UNESCAPED_UNICODE ) );
+            update_post_meta( $post_id, '_page_flipper_builder_data', wp_json_encode( $builder_data, JSON_UNESCAPED_UNICODE ) );
         }
     }
 }
-add_action( 'save_post', 'save_flipper_builder_meta_box' );
+add_action( 'save_post', 'wa_page_flipper_builder_meta_box_save' );

@@ -1,5 +1,5 @@
 document.addEventListener('alpine:init', () => {
-    if (window.pagenow === 'page_flipper') {
+    if (window.pagenow === 'wa_page_flipper') {
         wp.media.featuredImage.frame().on('open', () => {
 			const library = wp.media.featuredImage.frame().state().get('library');
 
@@ -515,6 +515,24 @@ document.addEventListener('alpine:init', () => {
                 event.preventDefault();
                 
                 this.attachment = null;
+            }
+        }));
+
+        Alpine.data('flipperShortcode', () => ({
+            copyShortcode: (sucessMessage) => {
+                const actions = document.querySelector('.flipper-shortcode-actions');
+                const shortcodeInput = document.querySelector(".flipper-shortcode");
+                const copyMessage    = document.createElement('span');
+                copyMessage.innerHTML = sucessMessage;
+
+                if (window.isSecureContext && navigator.clipboard) {
+                    navigator.clipboard.writeText(shortcodeInput.innerText);
+                    actions.prepend(copyMessage);
+                } else {
+                    alert("Not available in an insecure context!");
+                }
+
+                setTimeout(() => copyMessage.remove(), 2500);
             }
         }));
     }

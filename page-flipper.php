@@ -28,13 +28,7 @@ require_once plugin_dir_path( __FILE__ ) . 'fields/flipper-builder.php';
 require_once plugin_dir_path( __FILE__ ) . 'fields/flipper-pdf.php';
 require_once plugin_dir_path( __FILE__ ) . 'fields/flipper-shortcode.php';
 
-function flipper_load_textdomain() {
-    load_plugin_textdomain('page-flipper', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
-}
-
-add_action('plugins_loaded', 'flipper_load_textdomain');
-
-function register_page_flipper_post_type() {
+function wa_page_flipper_post_type_register() {
     // Registrar Custom Post Type: Digital Books
     $labels = [
         'name'               => __( 'Digital Books', 'page-flipper' ),
@@ -66,7 +60,7 @@ function register_page_flipper_post_type() {
         'show_in_rest'  => true, 
     ];
 
-    register_post_type('page_flipper', $args);
+    register_post_type('wa_page_flipper', $args);
 
     // Registrar Taxonomia: Categories
     $tax_labels = [
@@ -90,23 +84,23 @@ function register_page_flipper_post_type() {
         'show_in_rest'      => true,
     ];
 
-    register_taxonomy('page_flipper_category', 'page_flipper', $tax_args);
+    register_taxonomy('wa_page_flipper_category', 'wa_page_flipper', $tax_args);
 }
 
-add_action( 'init', 'register_page_flipper_post_type' );
+add_action( 'init', 'wa_page_flipper_post_type_register' );
 
-function load_admin_flipper_assets() {
+function wa_page_flipper_admin_assets() {
     wp_enqueue_script('flipper-alpine-lib', plugin_dir_url(__FILE__) . 'assets/libs/alpine.js', ['flipper-script'], '3.14.8', true);
     wp_enqueue_script('flipper-sortable-lib', plugin_dir_url(__FILE__) . 'assets/libs/sortable.js', [], '1.15.6', true);
     wp_enqueue_script('flipper-interact-lib', plugin_dir_url(__FILE__) . 'assets/libs/interact.js', [], '1.10.27', true);
     wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'assets/admin/style.css', [], '1.0.0');
-    wp_enqueue_style('flipper-icons-lib', 'https://use.fontawesome.com/releases/v6.5.1/css/all.css?ver=8.5.14', [], '6.5.1');
-    wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'assets/admin/main.js', ['flipper-sortable-lib', 'flipper-interact-lib'], '1.0.0', true);
+    wp_enqueue_style('flipper-icons-lib', plugin_dir_url(__FILE__) . 'assets/libs/fontawesome.css', [], '6.5.1');
+    wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'assets/admin/main.js', ['flipper-sortable-lib', 'flipper-interact-lib'], '1.0.1', true);
 }
 
-add_action('admin_enqueue_scripts', 'load_admin_flipper_assets');
+add_action('admin_enqueue_scripts', 'wa_page_flipper_admin_assets');
 
-function load_frontend_flipper_assets() {
+function wa_page_flipper_frontend_assets() {
     wp_enqueue_script('flipper-alpine-lib', plugin_dir_url(__FILE__) . 'assets/libs/alpine.js', ['flipper-script'], '3.14.8', true);
     wp_enqueue_script('flipper-turnjs-lib', plugin_dir_url(__FILE__) . 'assets/libs/turnjs.js', ['jquery'], '4.1.0', true);
     wp_enqueue_script('flipper-zoom-lib', plugin_dir_url(__FILE__) . 'assets/libs/zoom.js', [], '4.1.0', true);
@@ -115,9 +109,9 @@ function load_frontend_flipper_assets() {
     wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'assets/frontend/main.js', ['flipper-turnjs-lib', 'flipper-zoom-lib', 'flipper-bootstrap-lib'], '1.0.0', true);
 }
 
-add_action('wp_enqueue_scripts', 'load_frontend_flipper_assets');
+add_action('wp_enqueue_scripts', 'wa_page_flipper_frontend_assets');
 
-function render_flipper_shortcode($atts) {
+function wa_page_flipper_shortcode($atts) {
     ob_start();
 
     $atts = shortcode_atts([
@@ -137,14 +131,14 @@ function render_flipper_shortcode($atts) {
     return ob_get_clean();
 }
 
-add_shortcode('page_flipper', 'render_flipper_shortcode');
+add_shortcode('page_flipper', 'wa_page_flipper_shortcode');
 
 if (has_action('elementor/widgets/register')) {
-    function register_flipper_widget( $widgets_manager ) {
+    function wa_page_flipper_widget( $widgets_manager ) {
         require_once( __DIR__ . '/widgets/flipper-widget-elementor.php' );
     
-        $widgets_manager->register( new \Flipper_Widget_Elementor() );
+        $widgets_manager->register( new \Page_Flipper_Widget_Elementor() );
     }
     
-    add_action('elementor/widgets/register', 'register_flipper_widget');
+    add_action('elementor/widgets/register', 'wa_page_flipper_widget');
 }

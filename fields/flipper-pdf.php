@@ -3,22 +3,22 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-function add_flipper_pdf_meta_box() {
+function wa_page_flipper_pdf_meta_box_config() {
     add_meta_box(
-        'flipper_pdf',
+        'wa_page_flipper_pdf',
         __( 'PDF File', 'page-flipper' ),
-        'render_flipper_pdf_meta_box',
-        'page_flipper',
+        'wa_page_flipper_pdf_meta_box',
+        'wa_page_flipper',
         'side',
         'low'
     );
 }
-add_action( 'add_meta_boxes', 'add_flipper_pdf_meta_box' );
+add_action( 'add_meta_boxes', 'wa_page_flipper_pdf_meta_box_config' );
 
-function render_flipper_pdf_meta_box( $post ) {
-    wp_nonce_field( 'flipper_pdf_nonce_action', 'flipper_pdf_nonce' );
+function wa_page_flipper_pdf_meta_box( $post ) {
+    wp_nonce_field( 'page_flipper_pdf_nonce_action', 'page_flipper_pdf_nonce' );
 
-    $pdf_data   = get_post_meta( $post->ID, '_flipper_pdf_data', true );
+    $pdf_data   = get_post_meta( $post->ID, '_page_flipper_pdf_data', true );
     $attachment = !empty($pdf_data) ? $pdf_data : 'null';
     ?>
         <div x-data="flipperPdf(<?php echo esc_js($attachment); ?>)" class="flipper-pdf-wrapper">
@@ -39,12 +39,12 @@ function render_flipper_pdf_meta_box( $post ) {
     <?php
 }
 
-function save_flipper_pdf_meta_box( $post_id ) {
+function wa_page_flipper_pdf_meta_box_save( $post_id ) {
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
         return;
     }
 
-    if ( ! isset( $_POST['flipper_pdf_nonce'] ) || ! wp_verify_nonce( $_POST['flipper_pdf_nonce'], 'flipper_pdf_nonce_action' ) ) {
+    if ( ! isset( $_POST['page_flipper_pdf_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['page_flipper_pdf_nonce'] ) ), 'page_flipper_pdf_nonce_action' ) ) {
         return;
     }
 
@@ -57,8 +57,8 @@ function save_flipper_pdf_meta_box( $post_id ) {
         $pdf_data = json_decode( $pdf_data, true );
 
         if ( json_last_error() === JSON_ERROR_NONE ) {
-            update_post_meta( $post_id, '_flipper_pdf_data', wp_json_encode( $pdf_data, JSON_UNESCAPED_UNICODE ) );
+            update_post_meta( $post_id, '_page_flipper_pdf_data', wp_json_encode( $pdf_data, JSON_UNESCAPED_UNICODE ) );
         }
     }
 }
-add_action( 'save_post', 'save_flipper_pdf_meta_box' );
+add_action( 'save_post', 'wa_page_flipper_pdf_meta_box_save' );
