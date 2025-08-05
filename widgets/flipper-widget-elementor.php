@@ -1,5 +1,5 @@
 <?php
-class Page_Flipper_Widget_Elementor extends \Elementor\Widget_Base {
+class Wa_Page_Flipper_Widget_Elementor extends \Elementor\Widget_Base {
     public function get_name() {
         return 'flipper_widget';
     }

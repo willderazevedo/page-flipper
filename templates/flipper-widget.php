@@ -10,30 +10,20 @@ $actionBarBackground = esc_attr($atts['action_bar_bg']);
 $summaryBackground   = esc_attr($atts['summary_bg']);
 $controlsIconColor   = esc_attr($atts['controls_icon']);
 $fontColor           = esc_attr($atts['font_color']);
-$goBackUrl           = wp_get_referer();
-$builderData         = get_post_meta($postId, '_flipper_builder_data', true);
-$pdfAttachment       = get_post_meta($postId, '_flipper_pdf_data', true);
+$builderData         = get_post_meta($postId, '_page_flipper_builder_data', true);
+$pdfAttachment       = get_post_meta($postId, '_page_flipper_pdf_data', true);
 $builderData         = !empty($builderData) ? $builderData : '[]';
 $pdfAttachment       = !empty($pdfAttachment) ? $pdfAttachment : 'null';
 ?>
 <div 
     x-data="flipperWidget(<?php echo esc_js($builderData); ?>, <?php echo esc_js($pdfAttachment); ?>)"
     class="flipper-widget-wrapper"
-    style="
-        --page-bg: <?php echo esc_attr($pageBackground); ?>;
-        --action-bar-bg: <?php echo esc_attr($actionBarBackground); ?>;
-        --summary-bg: <?php echo esc_attr($summaryBackground); ?>;
-        --icon-color: <?php echo esc_attr($controlsIconColor); ?>;
-        --font-color: <?php echo esc_attr($fontColor); ?>;
-    ">
+    style=""
+>
     <?php if ($showActionBar) : ?>
-        <div class="flipper-action-bar">
+        <!-- <div class="flipper-action-bar">
             <div class="flipper-actions actions-left">
-                <?php if ($goBackUrl) : ?>
-                    <a href="<?php echo esc_url($goBackUrl); ?>" description="<?php esc_attr_e('Go back', 'page-flipper'); ?>">
-                        <i class="fa-solid fa-angle-left"></i>
-                    </a>
-                <?php endif; ?>
+                
             </div>
 
             <div class="flipper-pagination">
@@ -61,15 +51,15 @@ $pdfAttachment       = !empty($pdfAttachment) ? $pdfAttachment : 'null';
                     </a>
                 </template>
             </div>
-        </div>
+        </div> -->
     <?php endif; ?>
     
     <?php if ($showSummary) : ?>
         <template x-if="!narrationActive">
             <div class="flipper-summary-wrapper" x-bind:class="{'active': summaryActive}">
-                <button x-on:click="summaryActive = !summaryActive" type="button" class="summary-toggler" description="<?php esc_attr_e('Summary', 'page-flipper'); ?>">
-                    <i x-show="!summaryActive" class="fas fa-angle-right" aria-hidden="true"></i>
-                    <i x-show="summaryActive" class="fas fa-angle-left" aria-hidden="true"></i>
+                <button x-on:click="summaryActive = !summaryActive" type="button" class="summary-toggler">
+                    <i x-show="!summaryActive" class="fas fa-bars" aria-hidden="true"></i>
+                    <i x-show="summaryActive" class="fas fa-xmark" aria-hidden="true"></i>
                 </button>
     
                 <div class="summary-pages">
@@ -86,11 +76,11 @@ $pdfAttachment       = !empty($pdfAttachment) ? $pdfAttachment : 'null';
     <?php if ($showControls) : ?>
         <template x-if="!narrationActive">
             <div class="flipper-controls">
-                <button type="button" x-on:click="previousPage()">
+                <button type="button" class="previous-page" x-on:click="previousPage()">
                     <i class="fa-solid fa-angle-left"></i>
                 </button>
                 
-                <button type="button" x-on:click="nextPage()">
+                <button type="button" class="next-page" x-on:click="nextPage()">
                     <i class="fa-solid fa-angle-right"></i>
                 </button>
             </div>

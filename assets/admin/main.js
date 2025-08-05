@@ -4,7 +4,6 @@ document.addEventListener('alpine:init', () => {
 			const library = wp.media.featuredImage.frame().state().get('library');
 
 			library.props.set({
-				uploadedTo: wp.media.view.settings.post.id,
 				order: 'ASC'
 			});
 
@@ -15,7 +14,6 @@ document.addEventListener('alpine:init', () => {
             multiple: 'add',
             library: {
                 type: [ 'image' ],
-                uploadedTo: wp.media.view.settings.post.id,
                 order: 'ASC'
             }
         });
@@ -24,7 +22,6 @@ document.addEventListener('alpine:init', () => {
             multiple: false,
             library: {
                 type: [ 'audio' ],
-                uploadedTo: wp.media.view.settings.post.id,
                 order: 'ASC'
             }
         });
@@ -33,7 +30,6 @@ document.addEventListener('alpine:init', () => {
             multiple: false,
             library: {
                 type: [ 'image' ],
-                uploadedTo: wp.media.view.settings.post.id,
                 order: 'ASC'
             }
         });
@@ -42,7 +38,6 @@ document.addEventListener('alpine:init', () => {
             multiple: false,
             library: {
                 type: [ 'video' ],
-                uploadedTo: wp.media.view.settings.post.id,
                 order: 'ASC'
             }
         });
@@ -51,7 +46,6 @@ document.addEventListener('alpine:init', () => {
             multiple: false,
             library: {
                 type: [ 'application/pdf' ],
-                uploadedTo: wp.media.view.settings.post.id,
                 order: 'ASC'
             }
         });
@@ -77,9 +71,11 @@ document.addEventListener('alpine:init', () => {
                 text_align: 'left',
                 font_weight: 'normal',
                 text_decoration: 'none',
+                link_type: 'url',
                 link_url: '',
                 link_target: '_blank',
                 link_text: '',
+                link_page: '',
                 video_controls: 'no',
                 video_muted: 'yes',
                 video_autoplay: 'yes',
@@ -99,11 +95,10 @@ document.addEventListener('alpine:init', () => {
                 this.$watch('selectedPage', () => this.setupHotspotsWrapperSizes());
     
                 if (pages.length) {
-                    pages.sort((a, b) => a.order - b.order).forEach((page, index) => {
-                        if (index === 0) this.selectedPage = page;
-    
-                        this.pages.push(page);
-                    });
+                    const sortedPages = pages.sort((a, b) => a.order - b.order);
+                    
+                    this.pages = sortedPages;
+                    this.selectedPage = this.pages[0];
     
                     setTimeout(() => this.setupPageListSort(), 300);
                 }

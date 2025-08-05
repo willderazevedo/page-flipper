@@ -38,12 +38,12 @@ function wa_page_flipper_builder_meta_box( $post ) {
                         </div>
                         
                         <ul class="page-list">
-                            <template x-for="page in pages">
+                            <template x-for="(page, pageIndex) in pages">
                                 <li x-on:click.stop="selectPage(page)" x-bind:class="{'selected': isSelected(page)}">
                                     <button type="button" class="drag-page">
                                         <i class="fa-solid fa-bars"></i>
                                     </button>
-                                    <span x-text="page.attachment.title"></span>
+                                    <span x-text="page.attachment.title" x-bind:title="page.attachment.title"></span>
                                     <button x-on:click.stop="removePage(page)" type="button" class="remove-page">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
@@ -130,9 +130,27 @@ function wa_page_flipper_builder_meta_box( $post ) {
                                                         </select>
                                                     </li>
 
-                                                    <li x-show="hotspot.type === 'link'">
-                                                        <label><?php esc_html_e('Link Url', 'page-flipper'); ?></label>
+                                                    <li>
+                                                        <label><?php esc_html_e('Action Type', 'page-flipper'); ?></label>
+                                                        <select x-model="hotspot.extras.link_type">
+                                                            <option value="url"><?php esc_html_e('Link Url', 'page-flipper'); ?></option>
+                                                            <option value="anchor"><?php esc_html_e('Page Anchor', 'page-flipper'); ?></option>
+                                                        </select>
+                                                    </li>
+
+                                                    <li x-show="hotspot.type === 'link' && hotspot.extras.link_type === 'url'">
+                                                        <label><?php esc_html_e('Url', 'page-flipper'); ?></label>
                                                         <input type="url" x-model="hotspot.extras.link_url">
+                                                    </li>
+
+                                                    <li x-show="hotspot.type === 'link' && hotspot.extras.link_type === 'anchor'">
+                                                        <label><?php esc_html_e('Page', 'page-flipper'); ?></label>
+                                                        <select x-model="hotspot.extras.link_page">
+                                                            <option value=""><?php esc_html_e('Select Page', 'page-flipper'); ?></option>
+                                                            <template x-for="page in pages">
+                                                                <option x-bind:value="page.id" x-bind:selected="hotspot.extras.link_page === page.id" x-text="page.attachment.title"></option>
+                                                            </template>
+                                                        </select>
                                                     </li>
 
                                                     <li x-show="hotspot.type === 'link'">

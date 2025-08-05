@@ -286,6 +286,18 @@ msgstr "Linha Através"
 msgid "Stipulated Area"
 msgstr "Área Estipulada"
 
+msgid "Page Anchor"
+msgstr "Âncora de Página"
+
+msgid "Action Type"
+msgstr "Ação do Hyperlink"
+
+msgid "Url"
+msgstr "Url"
+
+msgid "Link Url"
+msgstr "Url Customizada"
+
 msgid "Link Url"
 msgstr "Url do Hyperlink"
 
@@ -412,3 +424,6 @@ msgstr "Sumário"
 
 msgid "Page"
 msgstr "Página"
+
+msgid "Select Page"
+msgstr "Selecionar Página"

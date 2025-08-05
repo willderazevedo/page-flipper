@@ -3,7 +3,7 @@
  * Plugin Name: Page Flipper
  * Plugin URI:  https://github.com/willderazevedo/page-flipper
  * Description: The Page Flipper is a free WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots.
- * Version:     1.0.0
+ * Version:     1.0.2
  * Author:      Willder Azevedo
  * Author URI:  https://github.com/willderazevedo
  * License: GPLv3
@@ -106,6 +106,7 @@ function wa_page_flipper_frontend_assets() {
     wp_enqueue_script('flipper-zoom-lib', plugin_dir_url(__FILE__) . 'assets/libs/zoom.js', [], '4.1.0', true);
     wp_enqueue_script('flipper-bootstrap-lib', plugin_dir_url(__FILE__) . 'assets/libs/bootstrap.js', [], '5.3.3', true);
     wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'assets/frontend/style.css', [], '1.0.0');
+    wp_enqueue_style('flipper-icons-lib', plugin_dir_url(__FILE__) . 'assets/libs/fontawesome.css', [], '6.5.1');
     wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'assets/frontend/main.js', ['flipper-turnjs-lib', 'flipper-zoom-lib', 'flipper-bootstrap-lib'], '1.0.0', true);
 }
 
@@ -137,7 +138,7 @@ if (has_action('elementor/widgets/register')) {
     function wa_page_flipper_widget( $widgets_manager ) {
         require_once( __DIR__ . '/widgets/flipper-widget-elementor.php' );
     
-        $widgets_manager->register( new \Page_Flipper_Widget_Elementor() );
+        $widgets_manager->register( new \Wa_Page_Flipper_Widget_Elementor() );
     }
     
     add_action('elementor/widgets/register', 'wa_page_flipper_widget');

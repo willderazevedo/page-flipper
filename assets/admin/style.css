@@ -93,6 +93,7 @@
     text-overflow: ellipsis;
     max-width: 100%;
     overflow: hidden;
+    cursor: help;
 }
 
 .flipper-builder-wrapper .page-list li button {

@@ -1,13 +1,13 @@
 .flipper-widget-wrapper i {
-    color: var(--icon-color);
+    color: #fff;
 }
 
 .flipper-widget-wrapper .flipper-action-bar .flipper-pagination input, .flipper-widget-wrapper {
-    color: var(--font-color);
+    color: #fff;
 }
 
 .flipper-widget-wrapper {
-    background-color: var(--page-bg);
+    background-color: #333333;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -17,7 +17,6 @@
 }
 
 .flipper-widget-wrapper .flipper-action-bar {
-    background-color: var(--action-bar-bg);
     position: absolute;
     height: 60px;
     width: 100%;
@@ -49,10 +48,6 @@
     padding: 3px;
 }
 
-.flipper-widget-wrapper .flipper-summary-wrapper, .flipper-widget-wrapper .summary-toggler {
-    background-color: var(--summary-bg);
-}
-
 .flipper-widget-wrapper .flipper-summary-wrapper {
     position: fixed;
     left: 0;
@@ -64,8 +59,27 @@
     z-index: 9999;
 }
 
-.flipper-widget-wrapper .flipper-summary-wrapper.active {
+.flipper-widget-wrapper .flipper-summary-wrapper.active, .flipper-widget-wrapper .flipper-summary-wrapper.active .summary-toggler {
     margin-left: 0;
+    background-color: #fff;
+    color: #000;
+}
+
+.flipper-widget-wrapper .summary-toggler:focus,
+.flipper-widget-wrapper .summary-toggler:focus i {
+    background-color: rgba(0, 0, 0, .4);
+    color: #fff;
+}
+
+.flipper-widget-wrapper .summary-toggler:hover,
+.flipper-widget-wrapper .summary-toggler:hover i {
+    background-color: #fff;
+    color: #000;
+}
+
+.flipper-widget-wrapper .flipper-summary-wrapper.active .summary-toggler {
+    border-radius: 0 30px 30px 0;
+    right: -40px;
 }
 
 .flipper-widget-wrapper .summary-pages {
@@ -74,13 +88,13 @@
     display: flex;
     flex-direction: column;
     background: transparent;
-    padding: 0 50px;
+    padding: 36px;
 }
 
 .flipper-widget-wrapper .summary-pages::-webkit-scrollbar-track
 {
     -webkit-box-shadow: none;
-    background-color: rgba(255,255,255, .2);
+    background-color: rgba(0,0,0, .2);
 }
 
 .flipper-widget-wrapper .summary-pages::-webkit-scrollbar
@@ -90,7 +104,7 @@
 
 .flipper-widget-wrapper .summary-pages::-webkit-scrollbar-thumb
 {
-    background-color: rgba(255,255,255, .4);
+    background-color: rgba(0,0,0, .4);
     border: none
 }
 
@@ -107,32 +121,19 @@
 
 .flipper-widget-wrapper .summary-toggler {
     position: absolute;
-    right: -35px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 35px;
-    height: 60px;
+    background-color: rgba(0, 0, 0, .4);
+    right: -50px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
     padding: 0;
-    border-radius: 0 30px 30px 0;
-}
-
-.flipper-widget-wrapper .summary-toggler:hover, .flipper-widget-wrapper .summary-toggler:focus {
-    background-color: var(--summary-bg);
-}
-
-.flipper-widget-wrapper .summary-toggler:hover::after {
-    position: absolute;
-    content: attr(description);
-    z-index: 1;
-    left: 40px;
-    bottom: 12px;
-    background-color: rgba(0, 0, 0, .5);
-    padding: 5px 10px;
-    color: #fff;
-    white-space: nowrap;
-    text-align: center;
+    outline: none;
+    cursor: pointer;
+    border-radius: 30px;
 }
 
 .flipper-widget-wrapper .summary-toggler i {
@@ -168,7 +169,6 @@
     min-width: 30px;
     min-height: 30px;
     border-radius: 3px;
-    transition: background 300ms ease-in-out;
     position: relative;
     text-decoration: none;
     display: flex;
@@ -179,7 +179,7 @@
 
 .flipper-widget-wrapper .flipper-action-bar .flipper-actions .narration-time {
     font-size: 12px;
-    color: var(--font-color);
+    color: #fff;
 }
 
 .flipper-widget-wrapper .flipper-action-bar .flipper-actions button:hover, .flipper-widget-wrapper .flipper-action-bar .flipper-actions button:focus, .flipper-widget-wrapper .flipper-action-bar .flipper-actions a:hover,
@@ -223,10 +223,9 @@
 
 .flipper-widget-wrapper .flipper-controls {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .flipper-widget-wrapper .flipper-controls button {
@@ -237,12 +236,30 @@
     border-radius: 100%;
     width: 40px;
     height: 40px;
-    transition: background 300ms ease-in-out;
-    background: rgba(255,255,255, .1);
+    background: rgba(0,0,0, .4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.flipper-widget-wrapper .flipper-controls button:hover, .flipper-widget-wrapper .flipper-controls button:focus {
-    background: rgba(255,255,255, .2);
+.flipper-widget-wrapper .flipper-controls .previous-page {
+    margin-left: 10px;
+}
+
+.flipper-widget-wrapper .flipper-controls .next-page {
+    margin-right: 10px;
+}
+
+.flipper-widget-wrapper .flipper-controls button:focus,
+.flipper-widget-wrapper .flipper-controls button:focus i {
+    background: rgba(0,0,0, .4);
+    color: #fff;
+}
+
+.flipper-widget-wrapper .flipper-controls button:hover,
+.flipper-widget-wrapper .flipper-controls button:hover i {
+    background: #fff;
+    color: #000;
 }
 
 .flipper-widget-wrapper .flipper-pages-wrapper {
@@ -276,6 +293,12 @@
     user-select: none;
     position: absolute;
     background-color: #fff;
+}
+
+.flipper-widget-wrapper .flipper-pages-wrapper .page img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .flipper-widget-wrapper .flipper-pages-wrapper .fa-spin {
@@ -326,7 +349,7 @@
 }
 
 .flipper-widget-wrapper .hotspots-wrapper .hotspot-popover {
-    --bs-popover-bg: var(--background);
+    --bs-popover-bg: rgba(0,0,0, .4);
     min-width: 400px;
     border-radius: 0;
     user-select: text;
@@ -346,7 +369,7 @@
 .flipper-widget-wrapper .hotspots-wrapper .hotspot-popover .popover-body {
     font-size: var(--font-size);
     font-family: var(--font-family);
-    color: var(--font-color);
+    color: #fff;
     font-weight: var(--font-weight);
     text-decoration: var(--text-decoration);
     text-align: var(--text-align);

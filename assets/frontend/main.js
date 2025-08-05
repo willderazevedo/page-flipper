@@ -24,20 +24,20 @@ document.addEventListener('alpine:init', () => {
 
             image.src = this.pages[0].attachment.url;
             image.onload = () => {
-                
-				const containerBreakpoint = 992;
-                const wrapper   = document.querySelector('.flipper-widget-wrapper');
-                const maxWidth  = wrapper.offsetWidth - (wrapper.offsetWidth * 0.2); 
-                const maxHeight = (wrapper.offsetHeight - 60) - (wrapper.offsetHeight * 0.2);
-                const ratio     = Math.min(maxWidth / image.width, maxHeight / image.height);
-                let imageWidth  = (image.width * ratio);
-                let imageHeight = image.height * ratio;
-				
-                if (maxWidth > containerBreakpoint) imageWidth = imageWidth * 2;
-                if (imageWidth == imageHeight) imageHeight = imageHeight / 2;
-
                 this.turnedElement = jQuery(".flipper-pages");
-                this.turnedElement.parent().css({'width': `${imageWidth}px`, 'height': `${imageHeight}px`});
+
+                const containerBreakpoint = 992;
+                const wrapper   = document.querySelector('.flipper-widget-wrapper');
+                const maxWidth  = wrapper.offsetWidth - (wrapper.offsetWidth * 0.05); 
+                const maxHeight = wrapper.offsetHeight - (wrapper.offsetHeight * 0.05);
+                const ratio     = Math.min(maxWidth / image.width, maxHeight / image.height);
+                let imageWidth  = image.width * ratio;
+                let imageHeight = image.height * ratio;
+
+                if (maxWidth > containerBreakpoint) imageWidth = imageWidth * 2;
+                if (imageWidth === imageHeight) imageHeight = imageHeight / 2;
+
+                jQuery('.flipper-pages-wrapper').css({margin: 'auto', width: imageWidth, height: imageHeight});
 
                 this.turnedElement.turn({
                     pages: this.pages.length,
@@ -282,8 +282,21 @@ document.addEventListener('alpine:init', () => {
 
                 switch (hotspot.type) {
                     case "link":
-                        hotspotElement.href   = hotspot.extras.link_url;
-                        hotspotElement.target = hotspot.extras.link_target;
+                        switch (hotspot.extras.link_type) {
+                            case 'anchor':
+                                hotspotElement.addEventListener('click', event => {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+
+                                    this.goToPage(hotspot.extras.link_page);
+                                });
+                            break;
+
+                            default:
+                                hotspotElement.href   = hotspot.extras.link_url;
+                                hotspotElement.target = hotspot.extras.link_target;
+                        }
+
 
                         switch (hotspot.extras.mode) {
                             case "area":
