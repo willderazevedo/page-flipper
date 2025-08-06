@@ -112,12 +112,13 @@ document.addEventListener('alpine:init', () => {
         addPage(page, range) {
             if (this.turnedElement.turn('hasPage', range)) return;
 
-            const element = jQuery('<div />', {'class': `page`}).html(`<div class="gradient"></div><i class="fa-solid fa-circle-notch fa-2x fa-spin"></i>`);
+            const element = jQuery('<div />', {'class': `page loading`}).html(`<div class="gradient"></div><i class="fa-solid fa-circle-notch fa-2x fa-spin"></i>`);
             
             this.turnedElement.turn('addPage', element, range);
             
 			setTimeout(() => {
 				element.html(`<div class="gradient"></div><img src="${page.attachment.url}" alt="${page.attachment.alt}" draggable="false" width="100%" height="100%">`);
+                element.removeClass('loading');
 
                 this.buildPageHotspots(range - 1, element);
 			}, 1000);	

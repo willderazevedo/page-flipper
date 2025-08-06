@@ -270,6 +270,7 @@
 .flipper-builder-wrapper .hotspot-container .hotspot-extras {
     position: absolute;
     min-width: 300px;
+    max-width: 300px;
     left: -305px;
     background: #ffffff;
     opacity: 0;

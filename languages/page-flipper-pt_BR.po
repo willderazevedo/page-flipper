@@ -70,6 +70,33 @@ msgid "New Category Name"
 msgstr "Novo Nome da Categoria"
 
 # =====================
+# 🏷️ Taxonomy: Edition
+# =====================
+msgid "Editions"
+msgstr "Edições"
+
+msgid "Edition"
+msgstr "Edição"
+
+msgid "Search Editions"
+msgstr "Buscar Edições"
+
+msgid "All Editions"
+msgstr "Todas as Edições"
+
+msgid "Edit Edition"
+msgstr "Editar Edição"
+
+msgid "Update Edition"
+msgstr "Atualizar Edição"
+
+msgid "Add New Edition"
+msgstr "Adicionar Nova Edição"
+
+msgid "New Edition Name"
+msgstr "Novo Nome da Edição"
+
+# =====================
 #  Elementor Widget
 # =====================
 
@@ -112,11 +139,20 @@ msgstr "Não"
 msgid "Enable Summary"
 msgstr "Habilitar Sumário"
 
-msgid "Enable Action Bar"
-msgstr "Habilitar Barra de Ações"
+msgid "Enable Sumário"
+msgstr "Habilitar itens relacionados"
 
 msgid "Enable Navigation Controls"
 msgstr "Habilitar Controles de Navegação"
+
+msgid "Enable Share"
+msgstr "Habilitar Compartilhamento"
+
+msgid "Enable Zoom"
+msgstr "Habilitar Ampliação"
+
+msgid "Enable Background Image"
+msgstr "Habilitar Imagem de Fundo"
 
 # ============================
 # 🎨 Aba de Estilo (Style)
@@ -124,14 +160,14 @@ msgstr "Habilitar Controles de Navegação"
 msgid "Page Background Color"
 msgstr "Cor de Fundo da Página"
 
-msgid "Action Bar Background Color"
-msgstr "Cor de Fundo da Barra de Ações"
+msgid "Page Surface Color"
+msgstr "Cor da Superfície da Página"
 
-msgid "Summary Background Color"
-msgstr "Cor de Fundo do Sumário"
+msgid "Page Surface Accent Color"
+msgstr "Cor de Destaque da Superfície da Página"
 
-msgid "Controls Icon Color"
-msgstr "Cor dos Ícones dos Controles"
+msgid "Page Accent Color"
+msgstr "Cor de Destaque da Página"
 
 msgid "Font Color"
 msgstr "Cor da Fonte"
@@ -361,27 +397,35 @@ msgstr "Opções Extras"
 msgid "Show or Hide the summary. Possible Values: `yes` or `no`. Default: `yes`"
 msgstr "Mostrar ou ocultar o sumário. Valores possíveis: `yes` ou `no`. Padrão: `yes`"
 
-msgid "Show or Hide the action bar. Possible Values: `yes` or `no`. Default: `yes`"
-msgstr "Mostrar ou ocultar a barra de ações. Valores possíveis: `yes` ou `no`. Padrão: `yes`"
+msgid "Show or Hide the related posts. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Mostrar ou ocultar os itens relacionados. Valores possíveis: `yes` ou `no`. Padrão: `yes`"
+
+msgid "Show or Hide the share buttons. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Mostrar ou ocultar os botões de compartilhamento. Valores possíveis: `yes` ou `no`. Padrão: `yes`"
+
+msgid "Show or Hide the zoom button. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Mostrar ou ocultar o botão de zoom. Valores possíveis: `yes` ou `no`. Padrão: `yes`"
+
+msgid "Use or not the cover image as background. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Usar ou não a capa como plano de fundo. Valores possíveis: `yes` ou `no`. Padrão: `yes`"
 
 msgid "Show or Hide the controls. Possible Values: `yes` or `no`. Default: `yes`"
 msgstr "Mostrar ou ocultar os controles. Valores possíveis: `yes` ou `no`. Padrão: `yes`"
 
-msgid "Element background color. Default: `#333333`"
-msgstr "Cor de fundo do elemento. Padrão: `#333333`"
+msgid "Page background color. Default: `#333333`"
+msgstr "Cor de fundo da Página. Padrão: `#333333`"
 
-msgid "Action Bar background color. Default: `#555555`"
-msgstr "Cor de fundo da barra de ações. Padrão: `#555555`"
+msgid "Page surface color. Default: `rgba(0, 0, 0, 0.4)`"
+msgstr "Cor da superfície da Página. Padrão: `rgba(0, 0, 0, 0.4)`"
 
-msgid "Summary background color. Default: `#555555`"
-msgstr "Cor de fundo do sumário. Padrão: `#555555`"
+msgid "Page surface accent color. Default: `#ffffff`"
+msgstr "Cor de destaque da superfície da Página. Padrão: `#ffffff`"
 
-msgid "Controls icons color. Default: `#ffffff`"
-msgstr "Cor dos ícones dos controles. Padrão: `#ffffff`"
+msgid "Page accent color. Default: `#eac101`"
+msgstr "Cor de destaque da página. Padrão: `#eac101`"
 
-msgid "Element font color. Default: `#ffffff`"
-msgstr "Cor da fonte do elemento. Padrão: `#ffffff`"
-
+msgid "Page font color. Default: `#ffffff`"
+msgstr "Cor da fonte da Página. Padrão: `#ffffff`"
 
 # ============================
 # 🛠️ Mensagens do PDF File Widget

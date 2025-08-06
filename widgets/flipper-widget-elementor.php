@@ -72,11 +72,11 @@ class Wa_Page_Flipper_Widget_Elementor extends \Elementor\Widget_Base {
             ]
         );
 
-        // 🔘 Habilitar Barra de Ações
+        // 🔘 Habilitar Posts Relacionados
         $this->add_control(
-            'enable_action_bar',
+            'enable_related',
             [
-                'label'        => __( 'Enable Action Bar', 'page-flipper' ),
+                'label'        => __( 'Enable Related', 'page-flipper' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
                 'label_on'     => __( 'Yes', 'page-flipper' ),
                 'label_off'    => __( 'No', 'page-flipper' ),
@@ -90,6 +90,45 @@ class Wa_Page_Flipper_Widget_Elementor extends \Elementor\Widget_Base {
             'enable_controls',
             [
                 'label'        => __( 'Enable Navigation Controls', 'page-flipper' ),
+                'type'         => \Elementor\Controls_Manager::SWITCHER,
+                'label_on'     => __( 'Yes', 'page-flipper' ),
+                'label_off'    => __( 'No', 'page-flipper' ),
+                'return_value' => 'yes',
+                'default'      => 'yes',
+            ]
+        );
+
+        // 🔘 Habilitar Compartilhamento
+        $this->add_control(
+            'enable_share',
+            [
+                'label'        => __( 'Enable Share', 'page-flipper' ),
+                'type'         => \Elementor\Controls_Manager::SWITCHER,
+                'label_on'     => __( 'Yes', 'page-flipper' ),
+                'label_off'    => __( 'No', 'page-flipper' ),
+                'return_value' => 'yes',
+                'default'      => 'yes',
+            ]
+        );
+
+        // 🔘 Habilitar Zoom
+        $this->add_control(
+            'enable_zoom',
+            [
+                'label'        => __( 'Enable Zoom', 'page-flipper' ),
+                'type'         => \Elementor\Controls_Manager::SWITCHER,
+                'label_on'     => __( 'Yes', 'page-flipper' ),
+                'label_off'    => __( 'No', 'page-flipper' ),
+                'return_value' => 'yes',
+                'default'      => 'yes',
+            ]
+        );
+
+        // 🔘 Habilitar imagem como Background
+        $this->add_control(
+            'enable_background_image',
+            [
+                'label'        => __( 'Enable Background Image', 'page-flipper' ),
                 'type'         => \Elementor\Controls_Manager::SWITCHER,
                 'label_on'     => __( 'Yes', 'page-flipper' ),
                 'label_off'    => __( 'No', 'page-flipper' ),
@@ -114,7 +153,7 @@ class Wa_Page_Flipper_Widget_Elementor extends \Elementor\Widget_Base {
 
         // 🎨 Cor de fundo da página
         $this->add_control(
-            'page_bg_color',
+            'page_background_color',
             [
                 'label'     => __( 'Page Background Color', 'page-flipper' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
@@ -124,37 +163,37 @@ class Wa_Page_Flipper_Widget_Elementor extends \Elementor\Widget_Base {
 
         // 🎨 Cor de fundo da barra de ações
         $this->add_control(
-            'action_bar_bg_color',
+            'page_surface_color',
             [
-                'label'     => __( 'Action Bar Background Color', 'page-flipper' ),
+                'label'     => __( 'Page Surface Color', 'page-flipper' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
-                'default'   => '#555555'
+                'default'   => 'rgba(0, 0, 0, 0.4)'
             ]
         );
 
-        // 🎨 Cor de fundo do sumário
+        // 🎨 Cor de fundo da barra de ações
         $this->add_control(
-            'summary_bg_color',
+            'page_surface_accent_color',
             [
-                'label'     => __( 'Summary Background Color', 'page-flipper' ),
-                'type'      => \Elementor\Controls_Manager::COLOR,
-                'default'   => '#555555'
-            ]
-        );
-
-        // 🎨 Cor dos ícones dos botões de controle
-        $this->add_control(
-            'controls_icon_color',
-            [
-                'label'     => __( 'Controls Icon Color', 'page-flipper' ),
+                'label'     => __( 'Page Surface Accent Color', 'page-flipper' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
                 'default'   => '#ffffff'
             ]
         );
 
+        // 🎨 Cor de fundo do sumário
+        $this->add_control(
+            'page_accent_color',
+            [
+                'label'     => __( 'Page Accent Color', 'page-flipper' ),
+                'type'      => \Elementor\Controls_Manager::COLOR,
+                'default'   => '#eac101'
+            ]
+        );
+
         // 🎨 Cor dos ícones dos botões de controle
         $this->add_control(
-            'font_color',
+            'page_font_color',
             [
                 'label'     => __( 'Font Color', 'page-flipper' ),
                 'type'      => \Elementor\Controls_Manager::COLOR,
@@ -182,14 +221,17 @@ class Wa_Page_Flipper_Widget_Elementor extends \Elementor\Widget_Base {
         echo do_shortcode(
             '[page_flipper ' .
                 'id="' . esc_attr($flipper_id) . '" ' .
-                'summary="' . esc_attr($settings['enable_summary']) . '" ' .
-                'action_bar="' . esc_attr($settings['enable_action_bar']) . '" ' .
-                'controls="' . esc_attr($settings['enable_controls']) . '" ' .
-                'page_bg="' . esc_attr($settings['page_bg_color']) . '" ' .
-                'action_bar_bg="' . esc_attr($settings['action_bar_bg_color']) . '" ' .
-                'summary_bg="' . esc_attr($settings['summary_bg_color']) . '" ' .
-                'controls_icon="' . esc_attr($settings['controls_icon_color']) . '" ' .
-                'font_color="' . esc_attr($settings['font_color']) . '" ' .
+                'enable_summary=' . esct_attr($settings['enable_summary']) .
+                'enable_related=' . esct_attr($settings['enable_related']) .
+                'enable_controls=' . esct_attr($settings['enable_controls']) .
+                'enable_share=' . esct_attr($settings['enable_share']) .
+                'enable_zoom=' . esct_attr($settings['enable_zoom']) .
+                'enable_background_image=' . esct_attr($settings['enable_background_image']) .
+                'page_background_color=' . esct_attr($settings['page_background_color']) .
+                'page_surface_color=' . esct_attr($settings['page_surface_color']) .
+                'page_surface_accent_color=' . esct_attr($settings['page_surface_accent_color']) .
+                'page_accent_color=' . esct_attr($settings['page_accent_color']) .
+                'page_font_color=' . esct_attr($settings['page_font_color']) .
             ']'
         );
     }

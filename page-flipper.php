@@ -63,7 +63,7 @@ function wa_page_flipper_post_type_register() {
     register_post_type('wa_page_flipper', $args);
 
     // Registrar Taxonomia: Categories
-    $tax_labels = [
+    $category_labels = [
         'name'              => __( 'Categories', 'page-flipper' ),
         'singular_name'     => __( 'Category', 'page-flipper' ),
         'search_items'      => __( 'Search Categories', 'page-flipper' ),
@@ -75,8 +75,8 @@ function wa_page_flipper_post_type_register() {
         'menu_name'         => __( 'Categories', 'page-flipper' ),
     ];
 
-    $tax_args = [
-        'labels'            => $tax_labels,
+    $category_args = [
+        'labels'            => $category_labels,
         'public'            => true,
         'hierarchical'      => true,
         'show_admin_column' => true,
@@ -84,7 +84,31 @@ function wa_page_flipper_post_type_register() {
         'show_in_rest'      => true,
     ];
 
-    register_taxonomy('wa_page_flipper_category', 'wa_page_flipper', $tax_args);
+    register_taxonomy('wa_page_flipper_category', 'wa_page_flipper', $category_args);
+
+    // Registrar Taxonomia: Edition
+    $edition_labels = [
+        'name'              => __( 'Editions', 'page-flipper' ),
+        'singular_name'     => __( 'Edition', 'page-flipper' ),
+        'search_items'      => __( 'Search Editions', 'page-flipper' ),
+        'all_items'         => __( 'All Editions', 'page-flipper' ),
+        'edit_item'         => __( 'Edit Edition', 'page-flipper' ),
+        'update_item'       => __( 'Update Edition', 'page-flipper' ),
+        'add_new_item'      => __( 'Add New Edition', 'page-flipper' ),
+        'new_item_name'     => __( 'New Edition Name', 'page-flipper' ),
+        'menu_name'         => __( 'Editions', 'page-flipper' ),
+    ];
+
+    $edition_args = [
+        'labels'            => $edition_labels,
+        'public'            => true,
+        'hierarchical'      => true,
+        'show_admin_column' => true,
+        'rewrite'           => [ 'slug' => 'digital-books-edition' ],
+        'show_in_rest'      => true,
+    ];
+
+    register_taxonomy('wa_page_flipper_edition', 'wa_page_flipper', $edition_args);
 }
 
 add_action( 'init', 'wa_page_flipper_post_type_register' );
@@ -116,15 +140,18 @@ function wa_page_flipper_shortcode($atts) {
     ob_start();
 
     $atts = shortcode_atts([
-        'id'               => get_the_ID(),
-        'summary'          => 'yes',
-        'action_bar'       => 'yes',
-        'controls'         => 'yes',
-        'page_bg'          => '#333333',
-        'action_bar_bg'    => '#555555',
-        'summary_bg'       => '#555555',
-        'controls_icon'    => '#ffffff',
-        'font_color'       => '#ffffff'
+        'id'                        => get_the_ID(),
+        'enable_summary'            => 'yes',
+        'enable_related'            => 'yes',
+        'enable_controls'           => 'yes',
+        'enable_share'              => 'yes',
+        'enable_zoom'               => 'yes',
+        'enable_background_image'   => 'yes',
+        'page_background_color'     => '#333333',
+        'page_surface_color'        => 'rgba(0, 0, 0, 0.4)',
+        'page_surface_accent_color' => '#ffffff',
+        'page_accent_color'         => '#eac101',
+        'page_font_color'           => '#ffffff'
     ], $atts, 'page_flipper');
 
     include plugin_dir_path(__FILE__) . 'templates/flipper-widget.php';

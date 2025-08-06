@@ -16,9 +16,9 @@ function wa_page_flipper_pdf_meta_box_config() {
 add_action( 'add_meta_boxes', 'wa_page_flipper_pdf_meta_box_config' );
 
 function wa_page_flipper_pdf_meta_box( $post ) {
-    wp_nonce_field( 'page_flipper_pdf_nonce_action', 'page_flipper_pdf_nonce' );
+    wp_nonce_field( 'wa_page_flipper_pdf_nonce_action', 'wa_page_flipper_pdf_nonce' );
 
-    $pdf_data   = get_post_meta( $post->ID, '_page_flipper_pdf_data', true );
+    $pdf_data   = get_post_meta( $post->ID, '_wa_page_flipper_pdf_data', true );
     $attachment = !empty($pdf_data) ? $pdf_data : 'null';
     ?>
         <div x-data="flipperPdf(<?php echo esc_js($attachment); ?>)" class="flipper-pdf-wrapper">
@@ -44,7 +44,7 @@ function wa_page_flipper_pdf_meta_box_save( $post_id ) {
         return;
     }
 
-    if ( ! isset( $_POST['page_flipper_pdf_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['page_flipper_pdf_nonce'] ) ), 'page_flipper_pdf_nonce_action' ) ) {
+    if ( ! isset( $_POST['wa_page_flipper_pdf_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wa_page_flipper_pdf_nonce'] ) ), 'wa_page_flipper_pdf_nonce_action' ) ) {
         return;
     }
 
@@ -57,7 +57,7 @@ function wa_page_flipper_pdf_meta_box_save( $post_id ) {
         $pdf_data = json_decode( $pdf_data, true );
 
         if ( json_last_error() === JSON_ERROR_NONE ) {
-            update_post_meta( $post_id, '_page_flipper_pdf_data', wp_json_encode( $pdf_data, JSON_UNESCAPED_UNICODE ) );
+            update_post_meta( $post_id, '_wa_page_flipper_pdf_data', wp_json_encode( $pdf_data, JSON_UNESCAPED_UNICODE ) );
         }
     }
 }

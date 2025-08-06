@@ -16,9 +16,9 @@ function wa_page_flipper_builder_meta_box_config() {
 add_action( 'add_meta_boxes', 'wa_page_flipper_builder_meta_box_config' );
 
 function wa_page_flipper_builder_meta_box( $post ) {
-    wp_nonce_field( 'page_flipper_builder_nonce_action', 'page_flipper_builder_nonce' );
+    wp_nonce_field( 'wa_page_flipper_builder_nonce_action', 'wa_page_flipper_builder_nonce' );
 
-    $builder_data = get_post_meta( $post->ID, '_page_flipper_builder_data', true );
+    $builder_data = get_post_meta( $post->ID, '_wa_page_flipper_builder_data', true );
     $builder_data = !empty($builder_data) ? $builder_data : '[]';
 
     ?>
@@ -130,7 +130,7 @@ function wa_page_flipper_builder_meta_box( $post ) {
                                                         </select>
                                                     </li>
 
-                                                    <li>
+                                                    <li x-show="hotspot.type === 'link'">
                                                         <label><?php esc_html_e('Action Type', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.link_type">
                                                             <option value="url"><?php esc_html_e('Link Url', 'page-flipper'); ?></option>
@@ -377,7 +377,7 @@ function wa_page_flipper_builder_meta_box_save( $post_id ) {
         return;
     }
 
-    if ( ! isset( $_POST['page_flipper_builder_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['page_flipper_builder_nonce'] ) ), 'page_flipper_builder_nonce_action' ) ) {
+    if ( ! isset( $_POST['wa_page_flipper_builder_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['wa_page_flipper_builder_nonce'] ) ), 'wa_page_flipper_builder_nonce_action' ) ) {
         return;
     }
 
@@ -390,7 +390,7 @@ function wa_page_flipper_builder_meta_box_save( $post_id ) {
         $builder_data = json_decode( $builder_data, true );
 
         if ( json_last_error() === JSON_ERROR_NONE ) {
-            update_post_meta( $post_id, '_page_flipper_builder_data', wp_json_encode( $builder_data, JSON_UNESCAPED_UNICODE ) );
+            update_post_meta( $post_id, '_wa_page_flipper_builder_data', wp_json_encode( $builder_data, JSON_UNESCAPED_UNICODE ) );
         }
     }
 }
