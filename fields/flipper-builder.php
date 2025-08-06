@@ -165,7 +165,7 @@ function wa_page_flipper_builder_meta_box( $post ) {
                                                         <input type="text" x-model="hotspot.extras.link_text">
                                                     </li>
 
-                                                    <li x-show="hotspot.type === 'link'">
+                                                    <li x-show="hotspot.type === 'link' && hotspot.extras.link_type === 'url'">
                                                         <label><?php esc_html_e('Link Target', 'page-flipper'); ?></label>
                                                         <select x-model="hotspot.extras.link_target">
                                                             <option value="_blank"><?php esc_html_e('Blank Page', 'page-flipper'); ?></option>

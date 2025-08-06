@@ -56,20 +56,27 @@
     border-radius: 30px;
 }
 
-.flipper-widget-wrapper .flipper-summary-wrapper.active .summary-toggler, .flipper-widget-wrapper .flipper-summary-wrapper.active .summary-toggler i {
+.flipper-widget-wrapper .flipper-summary-wrapper.active .summary-toggler {
     background-color: var(--page-surface-accent-color);
+}
+
+.flipper-widget-wrapper .flipper-summary-wrapper.active .summary-toggler i {
     color: var(--page-accent-color);
 }
 
-.flipper-widget-wrapper .summary-toggler:focus,
-.flipper-widget-wrapper .summary-toggler:focus i {
+.flipper-widget-wrapper .summary-toggler:focus {
     background-color: var(--page-surface-color);
+}
+
+.flipper-widget-wrapper .summary-toggler:focus i {
     color: var(--page-font-color);
 }
 
-.flipper-widget-wrapper .summary-toggler:hover,
-.flipper-widget-wrapper .summary-toggler:hover i {
+.flipper-widget-wrapper .summary-toggler:hover {
     background-color: var(--page-surface-accent-color);
+}
+
+.flipper-widget-wrapper .summary-toggler:hover i {
     color: var(--page-accent-color);
 }
 
@@ -139,15 +146,19 @@
     margin-right: 20px;
 }
 
-.flipper-widget-wrapper .flipper-controls button:focus,
-.flipper-widget-wrapper .flipper-controls button:focus i {
+.flipper-widget-wrapper .flipper-controls button:focus {
     background: var(--page-surface-color);
+}
+
+.flipper-widget-wrapper .flipper-controls button:focus i {
     color: var(--page-font-color);
 }
 
-.flipper-widget-wrapper .flipper-controls button:hover,
-.flipper-widget-wrapper .flipper-controls button:hover i {
+.flipper-widget-wrapper .flipper-controls button:hover {
     background: var(--page-surface-accent-color);
+}
+
+.flipper-widget-wrapper .flipper-controls button:hover i {
     color: var(--page-accent-color);
 }
 
@@ -238,6 +249,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.flipper-widget-wrapper .hotspots-wrapper [class*="-link-hotspot"][data-page] {
+    cursor: pointer;
+}
+
+.flipper-widget-wrapper .hotspots-wrapper .icon-link-hotspot {
+    text-decoration: none;
 }
 
 .flipper-widget-wrapper .hotspots-wrapper .hotspot-popover {

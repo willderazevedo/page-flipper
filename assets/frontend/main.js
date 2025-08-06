@@ -285,12 +285,7 @@ document.addEventListener('alpine:init', () => {
                     case "link":
                         switch (hotspot.extras.link_type) {
                             case 'anchor':
-                                hotspotElement.addEventListener('click', event => {
-                                    event.preventDefault();
-                                    event.stopPropagation();
-
-                                    this.goToPage(hotspot.extras.link_page);
-                                });
+                                hotspotElement.dataset.page = hotspot.extras.link_page;
                             break;
 
                             default:
@@ -402,6 +397,21 @@ document.addEventListener('alpine:init', () => {
             });
 
             element.append(hotspotWrapper);
+
+            this.applySummaryListeners();
+        },
+        applySummaryListeners() {
+            const navigators = jQuery('a[data-page]');
+
+            navigators.each((index, element) => {
+                const $el = jQuery(element);
+
+                $el.off('click').on('click', (event) => {
+                    event.preventDefault();
+
+                    this.goToPage(this.pages.findIndex(page => page.id === $el.attr('data-page')) + 1);
+                });
+            });
         },
         isMobile() {
             const toMatch = [
