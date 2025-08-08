@@ -455,7 +455,10 @@ msgid "Pause Audio Description"
 msgstr "Pausar Áudio Descrição"
 
 msgid "No Audio Description in Current Page"
-msgstr "Sem Áudio Descrição na Página Atual"
+msgstr "Página Atual não possui Áudio Descrição"
+
+msgid "No PDF file available"
+msgstr "Nenhum PDF disponível"
 
 msgid "Zoom"
 msgstr "Zoom"

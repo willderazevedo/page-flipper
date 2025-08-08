@@ -117,6 +117,108 @@
     width: 100%;
 }
 
+.flipper-widget-wrapper .flipper-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.flipper-widget-wrapper .flipper-actions button {
+    background-color: var(--page-surface-color);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 0;
+    outline: none;
+    border-radius: 30px;
+    position: relative;
+}
+
+.flipper-widget-wrapper .flipper-actions button:not(:disabled) {
+    cursor: pointer;
+}
+
+.flipper-widget-wrapper .flipper-actions button:disabled {
+    opacity: 0.6;
+}
+
+.flipper-widget-wrapper .flipper-actions button[description]:hover:after {
+    position: absolute;
+    content: attr(description);
+    z-index: 1;
+    right: 50px;
+    top:7px;
+    background-color: var(--page-surface-color);
+    padding: 5px 10px;
+    color: var(--page-font-color);
+    min-width: 100px;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.flipper-widget-wrapper .flipper-actions button:not(:disabled):focus {
+    background-color: var(--page-surface-color);
+}
+
+.flipper-widget-wrapper .flipper-actions button:not(:disabled):focus i {
+    color: var(--page-font-color);
+}
+
+.flipper-widget-wrapper .flipper-actions button:not(:disabled):hover {
+    background-color: var(--page-surface-accent-color);
+}
+
+.flipper-widget-wrapper .flipper-actions button:not(:disabled):hover i {
+    color: var(--page-accent-color);
+}
+
+.flipper-widget-wrapper .flipper-share-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.flipper-widget-wrapper .flipper-share-buttons button {
+    background-color: var(--page-surface-color);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 0;
+    outline: none;
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+}
+
+.flipper-widget-wrapper .flipper-share-buttons button:not(:disabled):focus {
+    background-color: var(--page-surface-color);
+}
+
+.flipper-widget-wrapper .flipper-share-buttons button:not(:disabled):focus i {
+    color: var(--page-font-color);
+}
+
+.flipper-widget-wrapper .flipper-share-buttons button:not(:disabled):hover {
+    background-color: var(--page-surface-accent-color);
+}
+
+.flipper-widget-wrapper .flipper-share-buttons button:not(:disabled):hover i {
+    color: var(--page-accent-color);
+}
+
 .flipper-widget-wrapper .flipper-controls {
     position: absolute;
     display: flex;

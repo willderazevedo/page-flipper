@@ -117,7 +117,7 @@ function wa_page_flipper_admin_assets() {
     wp_enqueue_script('flipper-alpine-lib', plugin_dir_url(__FILE__) . 'assets/libs/alpine.js', ['flipper-script'], '3.14.8', true);
     wp_enqueue_script('flipper-sortable-lib', plugin_dir_url(__FILE__) . 'assets/libs/sortable.js', [], '1.15.6', true);
     wp_enqueue_script('flipper-interact-lib', plugin_dir_url(__FILE__) . 'assets/libs/interact.js', [], '1.10.27', true);
-    wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'assets/admin/style.css', [], '1.0.0');
+    wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'assets/admin/style.css', [], '1.0.1');
     wp_enqueue_style('flipper-icons-lib', plugin_dir_url(__FILE__) . 'assets/libs/fontawesome.css', [], '6.5.1');
     wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'assets/admin/main.js', ['flipper-sortable-lib', 'flipper-interact-lib'], '1.0.1', true);
 }
@@ -128,10 +128,11 @@ function wa_page_flipper_frontend_assets() {
     wp_enqueue_script('flipper-alpine-lib', plugin_dir_url(__FILE__) . 'assets/libs/alpine.js', ['flipper-script'], '3.14.8', true);
     wp_enqueue_script('flipper-turnjs-lib', plugin_dir_url(__FILE__) . 'assets/libs/turnjs.js', ['jquery'], '4.1.0', true);
     wp_enqueue_script('flipper-zoom-lib', plugin_dir_url(__FILE__) . 'assets/libs/zoom.js', [], '4.1.0', true);
-    wp_enqueue_script('flipper-bootstrap-lib', plugin_dir_url(__FILE__) . 'assets/libs/bootstrap.js', [], '5.3.3', true);
-    wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'assets/frontend/style.css', [], '1.0.0');
+    wp_enqueue_script('flipper-bootstrap-lib', plugin_dir_url(__FILE__) . 'assets/libs/bootstrap.js', [], '0.5.2', true);
+    wp_enqueue_script('flipper-sharer-lib', plugin_dir_url(__FILE__) . 'assets/libs/sharer.js', [], '5.3.3', true);
+    wp_enqueue_style('flipper-style', plugin_dir_url(__FILE__) . 'assets/frontend/style.css', [], '1.0.1');
     wp_enqueue_style('flipper-icons-lib', plugin_dir_url(__FILE__) . 'assets/libs/fontawesome.css', [], '6.5.1');
-    wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'assets/frontend/main.js', ['flipper-turnjs-lib', 'flipper-zoom-lib', 'flipper-bootstrap-lib'], '1.0.0', true);
+    wp_enqueue_script('flipper-script', plugin_dir_url(__FILE__) . 'assets/frontend/main.js', ['flipper-turnjs-lib', 'flipper-zoom-lib', 'flipper-bootstrap-lib', 'flipper-sharer-lib'], '1.0.1', true);
 }
 
 add_action('wp_enqueue_scripts', 'wa_page_flipper_frontend_assets');

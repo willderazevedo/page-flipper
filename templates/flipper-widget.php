@@ -2,6 +2,8 @@
 if (!defined('ABSPATH')) exit;
 
 $postId                = esc_attr($atts['id']);
+$postTitle             = esc_attr(get_the_title($postId));
+$postUrl               = esc_attr(get_permalink($postId));
 $enableSummary         = esc_attr($atts['enable_summary']) === 'yes';
 $enableRelated         = esc_attr($atts['enable_related']) === 'yes';
 $enableControls        = esc_attr($atts['enable_controls']) === 'yes';
@@ -38,40 +40,6 @@ $pdfAttachment         = $pdfAttachment ?: null;
             <div class="flipper-widget-background"></div>
         <?php endif; ?>
 
-        <?php if (false) : ?>
-            <!-- <div class="flipper-action-bar">
-                <div class="flipper-actions actions-left">
-                    
-                </div>
-
-                <div class="flipper-pagination">
-                    <input type="tel" x-model:value="actualPage" x-on:focus="$event.target.select()" x-on:input.debounce.500ms="goToPage(actualPage)" x-bind:disabled="narrationActive" maxlength="3">
-                    <span>/</span>
-                    <input type="tel" x-bind:value="pages.length" readonly> 
-                </div>
-                
-                <div class="flipper-actions actions-right">
-                    <button type="button" class="narration-toggler" x-bind:class="{'mobile-mode': isMobile()}" x-on:click="narrationActive ? stopNarration() : startNarration()" x-bind:disabled="!hasNarration" x-bind:description="!hasNarration ? '<?php esc_attr_e('No Audio Description in Current Page', 'page-flipper'); ?>' : (narrationActive ? '<?php esc_attr_e('Pause Audio Description', 'page-flipper'); ?>' : '<?php esc_attr_e('Play Audio Description', 'page-flipper'); ?>')">
-                        <i x-show="!narrationActive" class="fa-solid fa-play"></i>
-                        <i x-show="narrationActive" class="fa-solid fa-pause"></i>
-
-                        <span class="narration-time" x-text="`<?php esc_attr_e('Page', 'page-flipper'); ?> ${actualPage} - ${timeString(narrationCurrentTime)}/${narrationDuration}`"></span>
-                    </button>
-                    
-                    <button x-on:click="toggleZoom($event, true)" x-bind:disabled="narrationActive" type="button" description="<?php esc_attr_e('Zoom', 'page-flipper'); ?>">
-                        <i x-show="!zoomActive" class="fas fa-search-plus"></i>
-                        <i x-show="zoomActive" class="fas fa-search-minus"></i>
-                    </button>
-                    
-                    <template x-if="pdfFile !== null">
-                        <a x-bind:href="pdfFile.url" target="_blank" description="<?php esc_attr_e('Download PDF File', 'page-flipper'); ?>">
-                            <i class="fas fa-file-pdf"></i>
-                        </a>
-                    </template>
-                </div>
-            </div> -->
-        <?php endif; ?>
-        
         <?php if ($enableSummary) : ?>
             <template x-if="!narrationActive">
                 <div class="flipper-summary-wrapper" x-bind:class="{'active': summaryActive}">
@@ -90,6 +58,24 @@ $pdfAttachment         = $pdfAttachment ?: null;
                 </div>
             </template>
         <?php endif; ?>
+
+        <div class="flipper-actions">
+            <?php if ($enableZoom) : ?>
+                <button x-on:click="toggleZoom($event, true)" x-bind:disabled="narrationActive" type="button">
+                    <i x-show="!zoomActive" class="fas fa-search-plus"></i>
+                    <i x-show="zoomActive" class="fas fa-search-minus"></i>
+                </button>
+            <?php endif; ?>
+
+            <button type="button" class="narration-toggler" x-bind:class="{'mobile-mode': isMobile()}" x-on:click="narrationActive ? stopNarration() : startNarration()" x-bind:disabled="!hasNarration" x-bind:description="!hasNarration ? '<?php esc_attr_e('No Audio Description in Current Page', 'page-flipper'); ?>' : `<?php esc_attr_e('Page', 'page-flipper'); ?> ${actualPage} - ${timeString(narrationCurrentTime)}/${narrationDuration}`">
+                <i x-show="!narrationActive" class="fa-solid fa-play"></i>
+                <i x-show="narrationActive" class="fa-solid fa-pause"></i>
+            </button>
+
+            <button type="button" x-on:click="downloadPdfFile()" x-bind:disabled="pdfFile === null" x-bind:description="pdfFile === null ? '<?php esc_attr_e('No PDF file available', 'page-flipper'); ?>' : '<?php esc_attr_e('Download PDF File', 'page-flipper'); ?>'">
+                <i class="fas fa-file-pdf"></i>
+            </button>
+        </div>
         
         <?php if ($enableControls) : ?>
             <template x-if="!narrationActive">
@@ -103,6 +89,30 @@ $pdfAttachment         = $pdfAttachment ?: null;
                     </button>
                 </div>
             </template>
+        <?php endif; ?>
+
+        <?php if ($enableShare) : ?>
+            <div class="flipper-share-buttons">
+                <button type="button" data-sharer="facebook" data-title="<?php echo $postTitle; ?>" data-url="<?php echo $postUrl; ?>">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </button>
+
+                <button type="button" data-sharer="x" data-title="<?php echo $postTitle; ?>" data-url="<?php echo $postUrl; ?>">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </button>
+
+                <button type="button" data-sharer="whatsapp" data-title="<?php echo $postTitle; ?>" data-url="<?php echo $postUrl; ?>">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </button>
+
+                <button type="button" data-sharer="telegram" data-title="<?php echo $postTitle; ?>" data-url="<?php echo $postUrl; ?>">
+                    <i class="fa-brands fa-telegram"></i>
+                </button>
+
+                <button type="button" data-sharer="email" data-title="<?php echo $postTitle; ?>" data-url="<?php echo $postUrl; ?>">
+                    <i class="fa-solid fa-envelope"></i>
+                </button>
+            </div>
         <?php endif; ?>
         
         <div class="flipper-pages-wrapper" x-bind:class="{'zooming': zoomActive}">

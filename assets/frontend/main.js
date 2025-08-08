@@ -149,7 +149,6 @@ document.addEventListener('alpine:init', () => {
         stopNarration() {
             this.narrationActive = false;
             this.narrationCurrentTime = 0;
-            this.narrationDuration = '0:00';
 
             this.narrationAudio.trigger('pause');
             this.narrationAudio.off('ended');
@@ -164,7 +163,6 @@ document.addEventListener('alpine:init', () => {
 
             if (this.hasNarration && !this.narrationActive && this.narrationAudio) {
                 this.narrationCurrentTime = 0;
-                this.narrationDuration = '0:00';
                 this.narrationAudio[0].currentTime = 0;
                 this.narrationAudio = null;
             }
@@ -412,6 +410,11 @@ document.addEventListener('alpine:init', () => {
                     this.goToPage(this.pages.findIndex(page => page.id === $el.attr('data-page')) + 1);
                 });
             });
+        },
+        downloadPdfFile() {
+            if (!this.pdfFile) return;
+
+            window.open(this.pdfFile.url, '_blank');
         },
         isMobile() {
             const toMatch = [
