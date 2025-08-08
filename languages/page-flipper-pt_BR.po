@@ -437,3 +437,9 @@ msgstr "Selecionar Página"
 
 msgid "Available Editions"
 msgstr "Edições Disponíveis"
+
+msgid "Enable Related"
+msgstr "Habilitar itens relacionados"
+
+msgid "No other editions available"
+msgstr "Nenhuma outra edição disponível"

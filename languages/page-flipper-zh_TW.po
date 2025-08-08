@@ -437,3 +437,6 @@ msgstr "選擇頁面"
 
 msgid "Available Editions"
 msgstr "可用版本"
+
+msgid "Enable Related"
+msgstr "啟用相關項目"

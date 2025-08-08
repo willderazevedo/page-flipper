@@ -437,3 +437,12 @@ msgstr "选择页面"
 
 msgid "Available Editions"
 msgstr "可用版本"
+
+msgid "Enable Related"
+msgstr "启用相关项目"
+
+msgid "No other editions available"
+msgstr "没有其他版本可用"
+
+msgid "No other editions available"
+msgstr "沒有其他版本可用"

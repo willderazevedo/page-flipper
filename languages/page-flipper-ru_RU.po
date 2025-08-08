@@ -437,3 +437,9 @@ msgstr "Выбрать страницу"
 
 msgid "Available Editions"
 msgstr "Доступные издания"
+
+msgid "Enable Related"
+msgstr "Включить связанные элементы"
+
+msgid "No other editions available"
+msgstr "Другие издания отсутствуют"

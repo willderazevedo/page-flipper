@@ -70,6 +70,7 @@ The plugin is available in the following languages:
 - Japanese
 - Traditional Chinese
 - Simplified Chinese
+- German
 
 ## 💖 Support This Project  
 If you like this project, consider making a donation to help with development.  

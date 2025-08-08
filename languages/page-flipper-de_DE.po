@@ -1,0 +1,445 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: de_DE\n"
+
+msgid "Digital Books"
+msgstr "Digitale Bücher"
+
+msgid "Digital Book"
+msgstr "Digitales Buch"
+
+msgid "Add New"
+msgstr "Neu hinzufügen"
+
+msgid "Add New Digital Book"
+msgstr "Neues digitales Buch hinzufügen"
+
+msgid "New Digital Book"
+msgstr "Neues digitales Buch"
+
+msgid "Edit Digital Book"
+msgstr "Digitales Buch bearbeiten"
+
+msgid "View Digital Book"
+msgstr "Digitales Buch ansehen"
+
+msgid "All Digital Books"
+msgstr "Alle digitalen Bücher"
+
+msgid "Search Digital Book"
+msgstr "Digitales Buch suchen"
+
+msgid "No Digital Books found"
+msgstr "Keine digitalen Bücher gefunden"
+
+msgid "No Digital Books found in trash"
+msgstr "Keine digitalen Bücher im Papierkorb gefunden"
+
+msgid "Categories"
+msgstr "Kategorien"
+
+msgid "Category"
+msgstr "Kategorie"
+
+msgid "Search Categories"
+msgstr "Kategorien suchen"
+
+msgid "All Categories"
+msgstr "Alle Kategorien"
+
+msgid "Edit Category"
+msgstr "Kategorie bearbeiten"
+
+msgid "Update Category"
+msgstr "Kategorie aktualisieren"
+
+msgid "Add New Category"
+msgstr "Neue Kategorie hinzufügen"
+
+msgid "New Category Name"
+msgstr "Neuer Kategoriename"
+
+msgid "Authors"
+msgstr "Autoren"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Search Authors"
+msgstr "Autoren suchen"
+
+msgid "All Authors"
+msgstr "Alle Autoren"
+
+msgid "Edit Author"
+msgstr "Autor bearbeiten"
+
+msgid "Update Author"
+msgstr "Autor aktualisieren"
+
+msgid "Add New Author"
+msgstr "Neuen Autor hinzufügen"
+
+msgid "New Author Name"
+msgstr "Neuer Autorenname"
+
+msgid "Page Flipper"
+msgstr "Page Flipper"
+
+msgid "The Page Flipper is a free WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots."
+msgstr "Der Page Flipper ist ein kostenloses WordPress-Plugin, das die Erstellung interaktiver digitaler Bücher ermöglicht. Es fügt einen neuen Beitragstyp für digitale Bücher hinzu und bietet eine Reihe von Funktionen zur Verwaltung von Büchern und zur Hinzufügung von Interaktivität mit Hotspots."
+
+msgid "Query"
+msgstr "Abfrage"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Style"
+msgstr "Stil"
+
+msgid "Select a Page Flipper"
+msgstr "Wählen Sie einen Page Flipper"
+
+msgid "Leave empty to use Current Query"
+msgstr "Leer lassen, um die aktuelle Abfrage zu verwenden"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nein"
+
+msgid "Enable Summary"
+msgstr "Zusammenfassung aktivieren"
+
+msgid "Enable Sumário"
+msgstr "Verwandte Elemente aktivieren"
+
+msgid "Enable Navigation Controls"
+msgstr "Navigationssteuerung aktivieren"
+
+msgid "Enable Share"
+msgstr "Teilen aktivieren"
+
+msgid "Enable Zoom"
+msgstr "Zoom aktivieren"
+
+msgid "Enable Background Image"
+msgstr "Hintergrundbild aktivieren"
+
+msgid "Page Background Color"
+msgstr "Seitenhintergrundfarbe"
+
+msgid "Page Surface Color"
+msgstr "Seitenoberflächenfarbe"
+
+msgid "Page Surface Accent Color"
+msgstr "Akzentfarbe der Seitenoberfläche"
+
+msgid "Page Accent Color"
+msgstr "Seitenakzentfarbe"
+
+msgid "Font Color"
+msgstr "Schriftfarbe"
+
+msgid "Typography"
+msgstr "Typografie"
+
+msgid "Flipper Builder"
+msgstr "Flipper-Builder"
+
+msgid "No pages found."
+msgstr "Keine Seiten gefunden."
+
+msgid "Select Images"
+msgstr "Bilder auswählen"
+
+msgid "Remove Pages"
+msgstr "Seiten entfernen"
+
+msgid "Page List"
+msgstr "Seitenliste"
+
+msgid "Selected Page"
+msgstr "Ausgewählte Seite"
+
+msgid "Unselected Page"
+msgstr "Nicht ausgewählte Seite"
+
+msgid "Narration"
+msgstr "Erzählung"
+
+msgid "Audio"
+msgstr "Audio"
+
+msgid "Video"
+msgstr "Video"
+
+msgid "Image"
+msgstr "Bild"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "Hyperlink"
+msgstr "Hyperlink"
+
+msgid "Remove Narration"
+msgstr "Erzählung entfernen"
+
+msgid "Display Mode"
+msgstr "Anzeigemodus"
+
+msgid "Inline"
+msgstr "Inline"
+
+msgid "Icon"
+msgstr "Symbol"
+
+msgid "Icon Color"
+msgstr "Symbolfarbe"
+
+msgid "Icon Background Color"
+msgstr "Symbol-Hintergrundfarbe"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Change File"
+msgstr "Datei ändern"
+
+msgid "Remove Hotspot"
+msgstr "Hotspot entfernen"
+
+msgid "Icon Name"
+msgstr "Symbolname"
+
+msgid "Rounded"
+msgstr "Abgerundet"
+
+msgid "Smooth"
+msgstr "Leicht abgerundet"
+
+msgid "Sharp"
+msgstr "Keine"
+
+msgid "Icon Border Radius"
+msgstr "Symbol-Rundungsradius"
+
+msgid "Icon Size"
+msgstr "Symbolgröße"
+
+msgid "Custom"
+msgstr "Benutzerdefiniert"
+
+msgid "Example"
+msgstr "Beispiel"
+
+msgid "Custom Radius"
+msgstr "Benutzerdefinierter Radius"
+
+msgid "Font Size"
+msgstr "Schriftgröße"
+
+msgid "Font Family"
+msgstr "Schriftfamilie"
+
+msgid "Font Color"
+msgstr "Schriftfarbe"
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Text Align"
+msgstr "Textausrichtung"
+
+msgid "Left"
+msgstr "Links"
+
+msgid "Right"
+msgstr "Rechts"
+
+msgid "Center"
+msgstr "Zentriert"
+
+msgid "Justify"
+msgstr "Blocksatz"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Lighter"
+msgstr "Leichter"
+
+msgid "Bold"
+msgstr "Fett"
+
+msgid "Bolder"
+msgstr "Fetter"
+
+msgid "None"
+msgstr "Keine"
+
+msgid "Underline"
+msgstr "Unterstrichen"
+
+msgid "Line Through"
+msgstr "Durchgestrichen"
+
+msgid "Stipulated Area"
+msgstr "Bestimmter Bereich"
+
+msgid "Page Anchor"
+msgstr "Seitenanker"
+
+msgid "Action Type"
+msgstr "Aktionstyp"
+
+msgid "Url"
+msgstr "URL"
+
+msgid "Link Url"
+msgstr "Benutzerdefinierte URL"
+
+msgid "Link Url"
+msgstr "Hyperlink-URL"
+
+msgid "Link Text"
+msgstr "Linktext"
+
+msgid "Link Target"
+msgstr "Linkziel"
+
+msgid "Blank Page"
+msgstr "Leere Seite"
+
+msgid "Same Page"
+msgstr "Gleiche Seite"
+
+msgid "Link Title"
+msgstr "Linktitel"
+
+msgid "Text Decoration"
+msgstr "Textdekoration"
+
+msgid "Popover Background Color"
+msgstr "Hintergrundfarbe des Popovers"
+
+msgid "Pause Icon Name"
+msgstr "Pause-Symbolname"
+
+msgid "Show Video Controls"
+msgstr "Videosteuerung anzeigen"
+
+msgid "Video Muted"
+msgstr "Video stummgeschaltet"
+
+msgid "Video Autoplay"
+msgstr "Automatische Wiedergabe"
+
+msgid "Video Loop"
+msgstr "Video-Wiederholung"
+
+msgid "Use the shortcode below to display this Digital Book:"
+msgstr "Verwenden Sie den untenstehenden Shortcode, um dieses digitale Buch anzuzeigen:"
+
+msgid "Copy"
+msgstr "Kopieren"
+
+msgid "Save the post to generate the shortcode."
+msgstr "Speichern Sie den Beitrag, um den Shortcode zu erzeugen."
+
+msgid "Shortcode copied!"
+msgstr "Shortcode kopiert!"
+
+msgid "Shortcode"
+msgstr "Shortcode"
+
+msgid "Extra Options"
+msgstr "Zusätzliche Optionen"
+
+msgid "Show or Hide the summary. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Zusammenfassung anzeigen oder ausblenden. Mögliche Werte: `yes` oder `no`. Standard: `yes`"
+
+msgid "Show or Hide the related posts. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Verwandte Beiträge anzeigen oder ausblenden. Mögliche Werte: `yes` oder `no`. Standard: `yes`"
+
+msgid "Show or Hide the share buttons. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Teilen-Schaltflächen anzeigen oder ausblenden. Mögliche Werte: `yes` oder `no`. Standard: `yes`"
+
+msgid "Show or Hide the zoom button. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Zoom-Schaltfläche anzeigen oder ausblenden. Mögliche Werte: `yes` oder `no`. Standard: `yes`"
+
+msgid "Use or not the cover image as background. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Coverbild als Hintergrund verwenden oder nicht. Mögliche Werte: `yes` oder `no`. Standard: `yes`"
+
+msgid "Show or Hide the controls. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Steuerungselemente anzeigen oder ausblenden. Mögliche Werte: `yes` oder `no`. Standard: `yes`"
+
+msgid "Page background color. Default: `#333333`"
+msgstr "Seitenhintergrundfarbe. Standard: `#333333`"
+
+msgid "Page surface color. Default: `rgba(0, 0, 0, 0.4)`"
+msgstr "Seitenoberflächenfarbe. Standard: `rgba(0, 0, 0, 0.4)`"
+
+msgid "Page surface accent color. Default: `#ffffff`"
+msgstr "Akzentfarbe der Seitenoberfläche. Standard: `#ffffff`"
+
+msgid "Page accent color. Default: `#eac101`"
+msgstr "Seitenakzentfarbe. Standard: `#eac101`"
+
+msgid "Page font color. Default: `#ffffff`"
+msgstr "Seiten-Schriftfarbe. Standard: `#ffffff`"
+
+msgid "PDF File"
+msgstr "PDF-Datei"
+
+msgid "Upload PDF File"
+msgstr "PDF-Datei hochladen"
+
+msgid "Remove PDF File"
+msgstr "PDF-Datei entfernen"
+
+msgid "Click on the box above to update the file."
+msgstr "Klicken Sie auf das obige Feld, um die Datei zu aktualisieren."
+
+msgid "Go back"
+msgstr "Zurück"
+
+msgid "Play Audio Description"
+msgstr "Audio-Beschreibung abspielen"
+
+msgid "Pause Audio Description"
+msgstr "Audio-Beschreibung pausieren"
+
+msgid "No Audio Description in Current Page"
+msgstr "Keine Audio-Beschreibung auf der aktuellen Seite"
+
+msgid "No PDF file available"
+msgstr "Keine PDF-Datei verfügbar"
+
+msgid "Zoom"
+msgstr "Zoom"
+
+msgid "Download PDF File"
+msgstr "PDF-Datei herunterladen"
+
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+msgid "Page"
+msgstr "Seite"
+
+msgid "Select Page"
+msgstr "Seite auswählen"
+
+msgid "Available Editions"
+msgstr "Verfügbare Ausgaben"
+
+msgid "Enable Related"
+msgstr "Verwandte Elemente aktivieren"
+
+msgid "No other editions available"
+msgstr "Keine weiteren Ausgaben verfügbar"

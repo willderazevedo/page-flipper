@@ -78,7 +78,7 @@ $pdfAttachment         = $pdfAttachment ?: null;
             </button>
 
             <?php if ($enableRelated) : ?>
-                <button type="button" class="related-toggler" x-bind:class="{'active': relatedActive}" x-on:click="relatedActive = !relatedActive" description="<?php esc_attr_e('Available Editions', 'page-flipper'); ?>">
+                <button type="button" class="related-toggler" <?php if (!$relatedPosts): ?> disabled <?php endif; ?> x-bind:class="{'active': relatedActive}" x-on:click="relatedActive = !relatedActive" description="<?php $relatedPosts ? esc_attr_e('Available Editions', 'page-flipper') : esc_attr_e('No other editions available', 'page-flipper') ; ?>">
                     <i class="fa-solid fa-ellipsis"></i>
                 </button>
             <?php endif; ?>
@@ -128,7 +128,7 @@ $pdfAttachment         = $pdfAttachment ?: null;
             </div>
         <?php endif; ?>
 
-        <?php if ($relatedPosts): ?>
+        <?php if ($enableRelated && $relatedPosts): ?>
             <div class="related-posts-wrapper" x-bind:class="{'active': relatedActive}">
                 <div class="related-posts">
                     <div class="title"><?php esc_html_e('Available Editions', 'page-flipper'); ?></div>

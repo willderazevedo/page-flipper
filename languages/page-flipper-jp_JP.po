@@ -434,3 +434,9 @@ msgstr "ページを選択"
 
 msgid "Available Editions"
 msgstr "利用可能な版"
+
+msgid "Enable Related"
+msgstr "関連項目を有効にする"
+
+msgid "No other editions available"
+msgstr "他の版は利用できません"

@@ -221,24 +221,24 @@ class Wa_Page_Flipper_Widget_Elementor extends \Elementor\Widget_Base {
         echo do_shortcode(
             '[page_flipper ' .
                 'id="' . esc_attr($flipper_id) . '" ' .
-                'enable_summary=' . esct_attr($settings['enable_summary']) .
-                'enable_related=' . esct_attr($settings['enable_related']) .
-                'enable_controls=' . esct_attr($settings['enable_controls']) .
-                'enable_share=' . esct_attr($settings['enable_share']) .
-                'enable_zoom=' . esct_attr($settings['enable_zoom']) .
-                'enable_background_image=' . esct_attr($settings['enable_background_image']) .
-                'page_background_color=' . esct_attr($settings['page_background_color']) .
-                'page_surface_color=' . esct_attr($settings['page_surface_color']) .
-                'page_surface_accent_color=' . esct_attr($settings['page_surface_accent_color']) .
-                'page_accent_color=' . esct_attr($settings['page_accent_color']) .
-                'page_font_color=' . esct_attr($settings['page_font_color']) .
+                'enable_summary="' . esc_attr($settings['enable_summary']) . '" ' .
+                'enable_related="' . esc_attr($settings['enable_related']) . '" ' .
+                'enable_controls="' . esc_attr($settings['enable_controls']) . '" ' .
+                'enable_share="' . esc_attr($settings['enable_share']) . '" ' .
+                'enable_zoom="' . esc_attr($settings['enable_zoom']) . '" ' .
+                'enable_background_image="' . esc_attr($settings['enable_background_image']) . '" ' .
+                'page_background_color="' . esc_attr($settings['page_background_color']) . '" ' .
+                'page_surface_color="' . esc_attr($settings['page_surface_color']) . '" ' .
+                'page_surface_accent_color="' . esc_attr($settings['page_surface_accent_color']) . '" ' .
+                'page_accent_color="' . esc_attr($settings['page_accent_color']) . '" ' .
+                'page_font_color="' . esc_attr($settings['page_font_color']) . '" ' .
             ']'
         );
     }
 
     private function get_page_flipper_options() {
         $posts = get_posts([
-            'post_type'      => 'page_flipper',
+            'post_type'      => 'wa_page_flipper',
             'posts_per_page' => -1,
         ]);
     

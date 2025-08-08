@@ -27,10 +27,10 @@ document.addEventListener('alpine:init', () => {
             image.onload = () => {
                 this.turnedElement = jQuery(".flipper-pages");
 
-                const containerBreakpoint = 992;
                 const wrapper   = document.querySelector('.flipper-widget-wrapper');
-                const maxWidth  = wrapper.offsetWidth - (wrapper.offsetWidth * 0.05); 
-                const maxHeight = wrapper.offsetHeight - (wrapper.offsetHeight * 0.05);
+                const maxWidth  = wrapper.offsetWidth * 0.95;
+                const maxHeight = wrapper.offsetHeight * 0.95;
+                const containerBreakpoint = 992 / 0.95;
                 const ratio     = Math.min(maxWidth / image.width, maxHeight / image.height);
                 let imageWidth  = image.width * ratio;
                 let imageHeight = image.height * ratio;
