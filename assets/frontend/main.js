@@ -6,6 +6,7 @@ document.addEventListener('alpine:init', () => {
         zoomActive: false,
         hasNarration: false,
         narrationActive: false,
+        relatedActive: false,
         narrationAudio: null,
         narrationCurrentTime: 0,
         narrationDuration: '0:00',

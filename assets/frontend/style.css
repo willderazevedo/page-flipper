@@ -10,6 +10,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
 }
 
 .flipper-widget-background {
@@ -54,6 +55,7 @@
     outline: none;
     cursor: pointer;
     border-radius: 30px;
+    z-index: 999;
 }
 
 .flipper-widget-wrapper .flipper-summary-wrapper.active .summary-toggler {
@@ -124,6 +126,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
+    z-index: 999;
 }
 
 .flipper-widget-wrapper .flipper-actions button {
@@ -179,6 +182,40 @@
     color: var(--page-accent-color);
 }
 
+.flipper-widget-wrapper .flipper-pagination  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.flipper-widget-wrapper .flipper-pagination input {
+    -moz-appearance: textfield;
+    outline: none;
+    width: 35px;
+    text-align: center;
+    border: none;
+    height: 20px;
+    background: transparent;
+    color: var(--page-font-color);
+}
+
+.flipper-widget-wrapper .flipper-pagination .actual-page {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.flipper-widget-wrapper .flipper-pagination .pages-separator {
+    color: var(--page-font-color);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.flipper-widget-wrapper .flipper-pagination input::-webkit-outer-spin-button,
+.flipper-widget-wrapper .flipper-pagination input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
 .flipper-widget-wrapper .flipper-share-buttons {
     display: flex;
     flex-direction: column;
@@ -186,6 +223,7 @@
     position: absolute;
     bottom: 20px;
     right: 20px;
+    z-index: 999;
 }
 
 .flipper-widget-wrapper .flipper-share-buttons button {
@@ -224,6 +262,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    z-index: 999;
 }
 
 .flipper-widget-wrapper .flipper-controls button {
@@ -264,9 +303,78 @@
     color: var(--page-accent-color);
 }
 
+.flipper-widget-wrapper .related-toggler.active {
+    background-color: var(--page-surface-accent-color);
+}
+
+.flipper-widget-wrapper .related-toggler.active i {
+    color: var(--page-accent-color);
+}
+
+.flipper-widget-wrapper .related-posts-wrapper {
+    background-color: var(--page-surface-accent-color);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    min-height: 288px;
+    margin-bottom: -288px;
+    transition: margin-bottom .5s ease-in-out;
+}
+
+
+.flipper-widget-wrapper .related-posts-wrapper.active {
+    margin-bottom: 0;
+}
+
+.flipper-widget-wrapper .related-posts {
+    padding: 30px 30px 25px;
+}
+
+.flipper-widget-wrapper .related-posts .title {
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 5px;
+    font-size: 12px;
+}
+
+.flipper-widget-wrapper .related-posts-list {
+    max-width: 25vw;
+    max-height: 25vh;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 7px;
+}
+
+
+.flipper-widget-wrapper .related-posts-list::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: none;
+    background-color: rgba(0,0,0, .2);
+}
+
+.flipper-widget-wrapper .related-posts-list::-webkit-scrollbar
+{
+    width: 5px;
+}
+
+.flipper-widget-wrapper .related-posts-list::-webkit-scrollbar-thumb
+{
+    background-color: var(--page-surface-color);
+    border: none
+}
+
+.flipper-widget-wrapper .related-posts-list img {
+    max-width: 100%;
+}
+
 .flipper-widget-wrapper .flipper-pages-wrapper {
     width: inherit;
     height: inherit;
+    overflow: visible !important;
 }
 
 .flipper-widget-wrapper .flipper-pages-wrapper .page.even .gradient {
@@ -328,7 +436,6 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden;
 }
 
 .flipper-widget-wrapper .hotspots-wrapper {

@@ -2,6 +2,7 @@
 if (!defined('ABSPATH')) exit;
 
 $postId                = esc_attr($atts['id']);
+$relatedPosts          = wa_page_flipper_get_related_posts($postId);
 $postTitle             = esc_attr(get_the_title($postId));
 $postUrl               = esc_attr(get_permalink($postId));
 $enableSummary         = esc_attr($atts['enable_summary']) === 'yes';
@@ -67,7 +68,7 @@ $pdfAttachment         = $pdfAttachment ?: null;
                 </button>
             <?php endif; ?>
 
-            <button type="button" class="narration-toggler" x-bind:class="{'mobile-mode': isMobile()}" x-on:click="narrationActive ? stopNarration() : startNarration()" x-bind:disabled="!hasNarration" x-bind:description="!hasNarration ? '<?php esc_attr_e('No Audio Description in Current Page', 'page-flipper'); ?>' : `<?php esc_attr_e('Page', 'page-flipper'); ?> ${actualPage} - ${timeString(narrationCurrentTime)}/${narrationDuration}`">
+            <button type="button" class="narration-toggler" x-on:click="narrationActive ? stopNarration() : startNarration()" x-bind:disabled="!hasNarration" x-bind:description="!hasNarration ? '<?php esc_attr_e('No Audio Description in Current Page', 'page-flipper'); ?>' : `<?php esc_attr_e('Page', 'page-flipper'); ?> ${actualPage} - ${timeString(narrationCurrentTime)}/${narrationDuration}`">
                 <i x-show="!narrationActive" class="fa-solid fa-play"></i>
                 <i x-show="narrationActive" class="fa-solid fa-pause"></i>
             </button>
@@ -75,6 +76,18 @@ $pdfAttachment         = $pdfAttachment ?: null;
             <button type="button" x-on:click="downloadPdfFile()" x-bind:disabled="pdfFile === null" x-bind:description="pdfFile === null ? '<?php esc_attr_e('No PDF file available', 'page-flipper'); ?>' : '<?php esc_attr_e('Download PDF File', 'page-flipper'); ?>'">
                 <i class="fas fa-file-pdf"></i>
             </button>
+
+            <?php if ($enableRelated) : ?>
+                <button type="button" class="related-toggler" x-bind:class="{'active': relatedActive}" x-on:click="relatedActive = !relatedActive" description="<?php esc_attr_e('Available Editions', 'page-flipper'); ?>">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </button>
+            <?php endif; ?>
+
+            <div class="flipper-pagination">
+                <input type="number" class="actual-page" x-model:value="actualPage" x-on:focus="$event.target.select()" x-on:input.debounce.300ms="goToPage(actualPage)" x-bind:disabled="narrationActive" step="1" maxlength="3">
+                <span class="pages-separator">-</span>
+                <input type="number" class="total-pages" x-bind:value="pages.length" readonly> 
+            </div>
         </div>
         
         <?php if ($enableControls) : ?>
@@ -112,6 +125,24 @@ $pdfAttachment         = $pdfAttachment ?: null;
                 <button type="button" data-sharer="email" data-title="<?php echo $postTitle; ?>" data-url="<?php echo $postUrl; ?>">
                     <i class="fa-solid fa-envelope"></i>
                 </button>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($relatedPosts): ?>
+            <div class="related-posts-wrapper" x-bind:class="{'active': relatedActive}">
+                <div class="related-posts">
+                    <div class="title"><?php esc_html_e('Available Editions', 'page-flipper'); ?></div>
+    
+                    <div class="related-posts-list">
+                        <?php foreach ($relatedPosts as $relatedPost): ?>
+                            <?php if (!has_post_thumbnail($relatedPost->ID)) continue; ?>
+    
+                            <a href="<?php echo get_permalink($relatedPost->ID); ?>">
+                                <img src="<?php echo esc_attr(wp_get_attachment_image_src(get_post_thumbnail_id($relatedPost->ID), 'full')[0]); ?>" alt="<?php echo esc_attr($relatedPost->post_title); ?>">
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
             </div>
         <?php endif; ?>
         

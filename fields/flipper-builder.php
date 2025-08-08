@@ -43,6 +43,7 @@ function wa_page_flipper_builder_meta_box( $post ) {
                                     <button type="button" class="drag-page">
                                         <i class="fa-solid fa-bars"></i>
                                     </button>
+                                    <img x-bind:src="page.attachment.url" x-bind:alt="page.attachment.alt">
                                     <span x-text="page.attachment.title" x-bind:title="page.attachment.title"></span>
                                     <button x-on:click.stop="removePage(page)" type="button" class="remove-page">
                                         <i class="fa-solid fa-trash"></i>

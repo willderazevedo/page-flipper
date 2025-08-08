@@ -74,8 +74,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     margin-bottom: 0;
+}
+
+.flipper-builder-wrapper .page-list img {
+    width: 20px;
 }
 
 .flipper-builder-wrapper .page-list li.selected {

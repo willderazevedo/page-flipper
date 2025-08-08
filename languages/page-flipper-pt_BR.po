@@ -70,31 +70,31 @@ msgid "New Category Name"
 msgstr "Novo Nome da Categoria"
 
 # =====================
-# 🏷️ Taxonomy: Edition
+# 🏷️ Taxonomy: Author
 # =====================
-msgid "Editions"
-msgstr "Edições"
+msgid "Authors"
+msgstr "Autores"
 
-msgid "Edition"
-msgstr "Edição"
+msgid "Author"
+msgstr "Autor"
 
-msgid "Search Editions"
-msgstr "Buscar Edições"
+msgid "Search Authors"
+msgstr "Buscar Autores"
 
-msgid "All Editions"
-msgstr "Todas as Edições"
+msgid "All Authors"
+msgstr "Todas as Autores"
 
-msgid "Edit Edition"
-msgstr "Editar Edição"
+msgid "Edit Author"
+msgstr "Editar Autor"
 
-msgid "Update Edition"
-msgstr "Atualizar Edição"
+msgid "Update Author"
+msgstr "Atualizar Autor"
 
-msgid "Add New Edition"
-msgstr "Adicionar Nova Edição"
+msgid "Add New Author"
+msgstr "Adicionar Nova Autor"
 
-msgid "New Edition Name"
-msgstr "Novo Nome da Edição"
+msgid "New Author Name"
+msgstr "Novo Nome da Autor"
 
 # =====================
 #  Elementor Widget
@@ -474,3 +474,6 @@ msgstr "Página"
 
 msgid "Select Page"
 msgstr "Selecionar Página"
+
+msgid "Available Editions"
+msgstr "Edições Disponíveis"

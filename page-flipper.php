@@ -86,29 +86,29 @@ function wa_page_flipper_post_type_register() {
 
     register_taxonomy('wa_page_flipper_category', 'wa_page_flipper', $category_args);
 
-    // Registrar Taxonomia: Edition
-    $edition_labels = [
-        'name'              => __( 'Editions', 'page-flipper' ),
-        'singular_name'     => __( 'Edition', 'page-flipper' ),
-        'search_items'      => __( 'Search Editions', 'page-flipper' ),
-        'all_items'         => __( 'All Editions', 'page-flipper' ),
-        'edit_item'         => __( 'Edit Edition', 'page-flipper' ),
-        'update_item'       => __( 'Update Edition', 'page-flipper' ),
-        'add_new_item'      => __( 'Add New Edition', 'page-flipper' ),
-        'new_item_name'     => __( 'New Edition Name', 'page-flipper' ),
-        'menu_name'         => __( 'Editions', 'page-flipper' ),
+    // Registrar Taxonomia: Authors
+    $author_labels = [
+        'name'              => __( 'Authors', 'page-flipper' ),
+        'singular_name'     => __( 'Author', 'page-flipper' ),
+        'search_items'      => __( 'Search Authors', 'page-flipper' ),
+        'all_items'         => __( 'All Authors', 'page-flipper' ),
+        'edit_item'         => __( 'Edit Author', 'page-flipper' ),
+        'update_item'       => __( 'Update Author', 'page-flipper' ),
+        'add_new_item'      => __( 'Add New Author', 'page-flipper' ),
+        'new_item_name'     => __( 'New Author Name', 'page-flipper' ),
+        'menu_name'         => __( 'Authors', 'page-flipper' ),
     ];
 
-    $edition_args = [
-        'labels'            => $edition_labels,
+    $author_args = [
+        'labels'            => $author_labels,
         'public'            => true,
         'hierarchical'      => true,
         'show_admin_column' => true,
-        'rewrite'           => [ 'slug' => 'digital-books-edition' ],
+        'rewrite'           => [ 'slug' => 'digital-books-author' ],
         'show_in_rest'      => true,
     ];
 
-    register_taxonomy('wa_page_flipper_edition', 'wa_page_flipper', $edition_args);
+    register_taxonomy('wa_page_flipper_author', 'wa_page_flipper', $author_args);
 }
 
 add_action( 'init', 'wa_page_flipper_post_type_register' );
@@ -170,4 +170,43 @@ if (has_action('elementor/widgets/register')) {
     }
     
     add_action('elementor/widgets/register', 'wa_page_flipper_widget');
+}
+
+function wa_page_flipper_no_custom_thumb($sizes, $metadata, $attachment_id) {
+    $post_parent = wp_get_post_parent_id($attachment_id);
+
+    if ($post_parent && get_post_type($post_parent) === 'wa_page_flipper') {
+        $featured_id = get_post_thumbnail_id($post_parent);
+        
+        if ($attachment_id != $featured_id) {
+            return [];
+        }
+    }
+
+    return $sizes;
+}
+
+add_filter('intermediate_image_sizes_advanced', 'wa_page_flipper_no_custom_thumb', 10, 3);
+
+function wa_page_flipper_get_related_posts($post_id, $taxonomy = "wa_page_flipper_author", $posts_per_page = -1) {
+    $terms = wp_get_post_terms($post_id, $taxonomy);
+    
+    if (!$terms || is_wp_error($terms)) {
+        return [];
+    }
+
+    $term_slugs = wp_list_pluck($terms, 'slug');
+
+    $query = new WP_Query([
+        'post_type' => 'wa_page_flipper',
+        'tax_query' => [[
+            'taxonomy' => $taxonomy,
+            'field' => 'slug',
+            'terms' => $term_slugs,
+        ]],
+        'post__not_in' => [$post_id],
+        'posts_per_page' => $posts_per_page,
+    ]);
+
+    return $query->posts;
 }
