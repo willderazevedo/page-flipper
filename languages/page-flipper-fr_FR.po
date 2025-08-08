@@ -3,17 +3,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: fr_FR\n"
 
-# =====================
-# CPT
-# =====================
-# =====================
-# 📚 Type de publication personnalisé : Livres numériques
-# =====================
 msgid "Digital Books"
-msgstr "Livres numériques"
+msgstr "Livres Numériques"
 
 msgid "Digital Book"
-msgstr "Livre numérique"
+msgstr "Livre Numérique"
 
 msgid "Add New"
 msgstr "Ajouter Nouveau"
@@ -42,9 +36,6 @@ msgstr "Aucun Livre Numérique trouvé"
 msgid "No Digital Books found in trash"
 msgstr "Aucun Livre Numérique trouvé dans la corbeille"
 
-# =====================
-# 🏷️ Taxonomie : Catégories
-# =====================
 msgid "Categories"
 msgstr "Catégories"
 
@@ -69,18 +60,35 @@ msgstr "Ajouter une Nouvelle Catégorie"
 msgid "New Category Name"
 msgstr "Nouveau Nom de la Catégorie"
 
-# =====================
-#  Widget Elementor
-# =====================
+msgid "Authors"
+msgstr "Auteurs"
 
-# =====================
-# 🏷️ Noms des sections
-# =====================
+msgid "Author"
+msgstr "Auteur"
+
+msgid "Search Authors"
+msgstr "Rechercher des Auteurs"
+
+msgid "All Authors"
+msgstr "Tous les Auteurs"
+
+msgid "Edit Author"
+msgstr "Modifier l'Auteur"
+
+msgid "Update Author"
+msgstr "Mettre à jour l'Auteur"
+
+msgid "Add New Author"
+msgstr "Ajouter un Nouvel Auteur"
+
+msgid "New Author Name"
+msgstr "Nouveau Nom de l'Auteur"
+
 msgid "Page Flipper"
 msgstr "Page Flipper"
 
 msgid "The Page Flipper is a free WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots."
-msgstr "Le Page Flipper est un plugin gratuit pour WordPress qui permet la création de livres numériques interactifs. Il ajoute un nouveau type de publication pour les livres numériques, offrant un ensemble de fonctionnalités pour gérer les livres et ajouter de l'interactivité avec des hotspots."
+msgstr "Page Flipper est une extension gratuite pour WordPress qui permet de créer des livres numériques interactifs. Elle ajoute un nouveau type de contenu pour les livres numériques, offrant un ensemble de fonctionnalités pour gérer les livres et ajouter de l'interactivité avec des points actifs."
 
 msgid "Query"
 msgstr "Requête"
@@ -91,18 +99,12 @@ msgstr "Paramètres"
 msgid "Style"
 msgstr "Style"
 
-# ============================
-# 🔍 Paramètres de la requête
-# ============================
 msgid "Select a Page Flipper"
-msgstr "Sélectionner un Tourneur de Pages"
+msgstr "Sélectionner un Page Flipper"
 
 msgid "Leave empty to use Current Query"
 msgstr "Laisser vide pour utiliser la requête actuelle"
 
-# ============================
-# 🔧 Paramètres généraux
-# ============================
 msgid "Yes"
 msgstr "Oui"
 
@@ -112,36 +114,39 @@ msgstr "Non"
 msgid "Enable Summary"
 msgstr "Activer le Sommaire"
 
-msgid "Enable Action Bar"
-msgstr "Activer la Barre d'Actions"
+msgid "Enable Sumário"
+msgstr "Activer les éléments liés"
 
 msgid "Enable Navigation Controls"
 msgstr "Activer les Contrôles de Navigation"
 
-# ============================
-# 🎨 Onglet Style
-# ============================
+msgid "Enable Share"
+msgstr "Activer le Partage"
+
+msgid "Enable Zoom"
+msgstr "Activer le Zoom"
+
+msgid "Enable Background Image"
+msgstr "Activer l'Image de Fond"
+
 msgid "Page Background Color"
 msgstr "Couleur de Fond de la Page"
 
-msgid "Action Bar Background Color"
-msgstr "Couleur de Fond de la Barre d'Actions"
+msgid "Page Surface Color"
+msgstr "Couleur de Surface de la Page"
 
-msgid "Summary Background Color"
-msgstr "Couleur de Fond du Sommaire"
+msgid "Page Surface Accent Color"
+msgstr "Couleur d'Accentuation de la Surface de la Page"
 
-msgid "Controls Icon Color"
-msgstr "Couleur des Icônes des Contrôles"
+msgid "Page Accent Color"
+msgstr "Couleur d'Accentuation de la Page"
 
 msgid "Font Color"
-msgstr "Couleur de la Police"
+msgstr "Couleur de Police"
 
 msgid "Typography"
 msgstr "Typographie"
 
-# ============================
-# 🛠️ Messages du Builder
-# ============================
 msgid "Flipper Builder"
 msgstr "Constructeur de Livres"
 
@@ -155,7 +160,7 @@ msgid "Remove Pages"
 msgstr "Supprimer des Pages"
 
 msgid "Page List"
-msgstr "Liste des Pages"
+msgstr "Liste de Pages"
 
 msgid "Selected Page"
 msgstr "Page Sélectionnée"
@@ -203,10 +208,10 @@ msgid "Settings"
 msgstr "Paramètres"
 
 msgid "Change File"
-msgstr "Changer de Fichier"
+msgstr "Changer le Fichier"
 
 msgid "Remove Hotspot"
-msgstr "Supprimer"
+msgstr "Supprimer le Point Actif"
 
 msgid "Icon Name"
 msgstr "Nom de l'Icône"
@@ -215,7 +220,7 @@ msgid "Rounded"
 msgstr "Arrondi"
 
 msgid "Smooth"
-msgstr "Légèrement arrondi"
+msgstr "Légèrement Arrondi"
 
 msgid "Sharp"
 msgstr "Aucun"
@@ -236,13 +241,13 @@ msgid "Custom Radius"
 msgstr "Rayon Personnalisé"
 
 msgid "Font Size"
-msgstr "Taille de la Police"
+msgstr "Taille de Police"
 
 msgid "Font Family"
 msgstr "Famille de Police"
 
 msgid "Font Color"
-msgstr "Couleur de la Police"
+msgstr "Couleur de Police"
 
 msgid "Content"
 msgstr "Contenu"
@@ -266,13 +271,13 @@ msgid "Normal"
 msgstr "Normal"
 
 msgid "Lighter"
-msgstr "Plus léger"
+msgstr "Plus Fin"
 
 msgid "Bold"
 msgstr "Gras"
 
 msgid "Bolder"
-msgstr "Plus gras"
+msgstr "Plus Gras"
 
 msgid "None"
 msgstr "Aucun"
@@ -286,23 +291,35 @@ msgstr "Barré"
 msgid "Stipulated Area"
 msgstr "Zone Définie"
 
+msgid "Page Anchor"
+msgstr "Ancre de Page"
+
+msgid "Action Type"
+msgstr "Action du Lien Hypertexte"
+
+msgid "Url"
+msgstr "URL"
+
 msgid "Link Url"
-msgstr "URL du Lien"
+msgstr "URL Personnalisée"
+
+msgid "Link Url"
+msgstr "URL du Lien Hypertexte"
 
 msgid "Link Text"
-msgstr "Texte du Lien"
+msgstr "Texte du Lien Hypertexte"
 
 msgid "Link Target"
-msgstr "Cible du Lien"
+msgstr "Cible du Lien Hypertexte"
 
 msgid "Blank Page"
-msgstr "Nouvelle Page"
+msgstr "Page Blanche"
 
 msgid "Same Page"
 msgstr "Même Page"
 
 msgid "Link Title"
-msgstr "Titre du Lien"
+msgstr "Titre du Lien Hypertexte"
 
 msgid "Text Decoration"
 msgstr "Décoration du Texte"
@@ -314,20 +331,17 @@ msgid "Pause Icon Name"
 msgstr "Nom de l'Icône de Pause"
 
 msgid "Show Video Controls"
-msgstr "Afficher les contrôles de la vidéo"
+msgstr "Afficher les Contrôles Vidéo"
 
 msgid "Video Muted"
-msgstr "Couper le son de la vidéo"
+msgstr "Couper le Son de la Vidéo"
 
 msgid "Video Autoplay"
-msgstr "Activer la lecture automatique"
+msgstr "Activer la Lecture Automatique"
 
 msgid "Video Loop"
-msgstr "Activer la lecture en boucle"
+msgstr "Activer la Lecture en Boucle"
 
-# ============================
-# 🛠️ Messages du Shortcode Metabox
-# ============================
 msgid "Use the shortcode below to display this Digital Book:"
 msgstr "Utilisez le shortcode ci-dessous pour afficher ce Livre Numérique :"
 
@@ -349,30 +363,36 @@ msgstr "Options Supplémentaires"
 msgid "Show or Hide the summary. Possible Values: `yes` or `no`. Default: `yes`"
 msgstr "Afficher ou masquer le sommaire. Valeurs possibles : `yes` ou `no`. Par défaut : `yes`"
 
-msgid "Show or Hide the action bar. Possible Values: `yes` or `no`. Default: `yes`"
-msgstr "Afficher ou masquer la barre d'actions. Valeurs possibles : `yes` ou `no`. Par défaut : `yes`"
+msgid "Show or Hide the related posts. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Afficher ou masquer les éléments liés. Valeurs possibles : `yes` ou `no`. Par défaut : `yes`"
+
+msgid "Show or Hide the share buttons. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Afficher ou masquer les boutons de partage. Valeurs possibles : `yes` ou `no`. Par défaut : `yes`"
+
+msgid "Show or Hide the zoom button. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Afficher ou masquer le bouton de zoom. Valeurs possibles : `yes` ou `no`. Par défaut : `yes`"
+
+msgid "Use or not the cover image as background. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "Utiliser ou non l'image de couverture comme arrière-plan. Valeurs possibles : `yes` ou `no`. Par défaut : `yes`"
 
 msgid "Show or Hide the controls. Possible Values: `yes` or `no`. Default: `yes`"
 msgstr "Afficher ou masquer les contrôles. Valeurs possibles : `yes` ou `no`. Par défaut : `yes`"
 
-msgid "Element background color. Default: `#333333`"
-msgstr "Couleur de fond de l'élément. Par défaut : `#333333`"
+msgid "Page background color. Default: `#333333`"
+msgstr "Couleur de fond de la page. Par défaut : `#333333`"
 
-msgid "Action Bar background color. Default: `#555555`"
-msgstr "Couleur de fond de la barre d'actions. Par défaut : `#555555`"
+msgid "Page surface color. Default: `rgba(0, 0, 0, 0.4)`"
+msgstr "Couleur de surface de la page. Par défaut : `rgba(0, 0, 0, 0.4)`"
 
-msgid "Summary background color. Default: `#555555`"
-msgstr "Couleur de fond du sommaire. Par défaut : `#555555`"
+msgid "Page surface accent color. Default: `#ffffff`"
+msgstr "Couleur d'accentuation de la surface de la page. Par défaut : `#ffffff`"
 
-msgid "Controls icons color. Default: `#ffffff`"
-msgstr "Couleur des icônes des contrôles. Par défaut : `#ffffff`"
+msgid "Page accent color. Default: `#eac101`"
+msgstr "Couleur d'accentuation de la page. Par défaut : `#eac101`"
 
-msgid "Element font color. Default: `#ffffff`"
-msgstr "Couleur de la police de l'élément. Par défaut : `#ffffff`"
+msgid "Page font color. Default: `#ffffff`"
+msgstr "Couleur de police de la page. Par défaut : `#ffffff`"
 
-# ============================
-# 🛠️ Messages du Widget de Fichier PDF
-# ============================
 msgid "PDF File"
 msgstr "Fichier PDF"
 
@@ -383,23 +403,22 @@ msgid "Remove PDF File"
 msgstr "Supprimer le Fichier PDF"
 
 msgid "Click on the box above to update the file."
-msgstr "Cliquez sur la boîte ci-dessus pour mettre à jour le fichier."
+msgstr "Cliquez sur la case ci-dessus pour mettre à jour le fichier."
 
-
-# ============================
-# 🛠️ Messages du Widget
-# ============================
 msgid "Go back"
 msgstr "Retour"
 
 msgid "Play Audio Description"
-msgstr "Lancer la Description Audio"
+msgstr "Lire l'Audiodescription"
 
 msgid "Pause Audio Description"
-msgstr "Mettre en Pause la Description Audio"
+msgstr "Mettre en Pause l'Audiodescription"
 
 msgid "No Audio Description in Current Page"
-msgstr "Aucune Description Audio sur la Page Actuelle"
+msgstr "Aucune audiodescription dans la page actuelle"
+
+msgid "No PDF file available"
+msgstr "Aucun fichier PDF disponible"
 
 msgid "Zoom"
 msgstr "Zoom"
@@ -412,3 +431,9 @@ msgstr "Sommaire"
 
 msgid "Page"
 msgstr "Page"
+
+msgid "Select Page"
+msgstr "Sélectionner la Page"
+
+msgid "Available Editions"
+msgstr "Éditions Disponibles"

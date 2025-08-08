@@ -3,12 +3,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: pt_BR\n"
 
-# =====================
-# CPT
-# =====================
-# =====================
-# 📚 Custom Post Type: Digital Books
-# =====================
 msgid "Digital Books"
 msgstr "Livros Digitais"
 
@@ -42,9 +36,6 @@ msgstr "Nenhum Livro Digital encontrado"
 msgid "No Digital Books found in trash"
 msgstr "Nenhum Livro Digital encontrado na lixeira"
 
-# =====================
-# 🏷️ Taxonomy: Categories
-# =====================
 msgid "Categories"
 msgstr "Categorias"
 
@@ -69,9 +60,6 @@ msgstr "Adicionar Nova Categoria"
 msgid "New Category Name"
 msgstr "Novo Nome da Categoria"
 
-# =====================
-# 🏷️ Taxonomy: Author
-# =====================
 msgid "Authors"
 msgstr "Autores"
 
@@ -96,13 +84,6 @@ msgstr "Adicionar Nova Autor"
 msgid "New Author Name"
 msgstr "Novo Nome da Autor"
 
-# =====================
-#  Elementor Widget
-# =====================
-
-# =====================
-# 🏷️ Nomes das seções
-# =====================
 msgid "Page Flipper"
 msgstr "Page Flipper"
 
@@ -118,18 +99,12 @@ msgstr "Configurações"
 msgid "Style"
 msgstr "Estilo"
 
-# ============================
-# 🔍 Configurações da Query
-# ============================
 msgid "Select a Page Flipper"
 msgstr "Selecione um Registro"
 
 msgid "Leave empty to use Current Query"
 msgstr "Deixe vazio para usar a Consulta Atual"
 
-# ============================
-# 🔧 Configurações Gerais
-# ============================
 msgid "Yes"
 msgstr "Sim"
 
@@ -154,9 +129,6 @@ msgstr "Habilitar Ampliação"
 msgid "Enable Background Image"
 msgstr "Habilitar Imagem de Fundo"
 
-# ============================
-# 🎨 Aba de Estilo (Style)
-# ============================
 msgid "Page Background Color"
 msgstr "Cor de Fundo da Página"
 
@@ -175,9 +147,6 @@ msgstr "Cor da Fonte"
 msgid "Typography"
 msgstr "Tipografia"
 
-# ============================
-# 🛠️ Mensagens do Builder
-# ============================
 msgid "Flipper Builder"
 msgstr "Construtor de Livros"
 
@@ -373,9 +342,6 @@ msgstr "Habilitar Reprodução Automática"
 msgid "Video Loop"
 msgstr "Habilitar Loop do Vídeo"
 
-# ============================
-# 🛠️ Mensagens do Shortcode Metabox
-# ============================
 msgid "Use the shortcode below to display this Digital Book:"
 msgstr "Use o shortcode abaixo para exibir esse Livro Digital:"
 
@@ -427,9 +393,6 @@ msgstr "Cor de destaque da página. Padrão: `#eac101`"
 msgid "Page font color. Default: `#ffffff`"
 msgstr "Cor da fonte da Página. Padrão: `#ffffff`"
 
-# ============================
-# 🛠️ Mensagens do PDF File Widget
-# ============================
 msgid "PDF File"
 msgstr "Arquivo PDF"
 
@@ -442,9 +405,6 @@ msgstr "Remover Arquivo PDF"
 msgid "Click on the box above to update the file."
 msgstr "Clique na caixa acima para atualizar o arquivo."
 
-# ============================
-# 🛠️ Mensagens do Widget
-# ============================
 msgid "Go back"
 msgstr "Voltar"
 

@@ -3,48 +3,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: zh_TW\n"
 
-# =====================
-# CPT
-# =====================
-# =====================
-# 📚 自定義文章類型：電子書
-# =====================
 msgid "Digital Books"
-msgstr "電子書"
+msgstr "數位書籍"
 
 msgid "Digital Book"
-msgstr "電子書"
+msgstr "數位書籍"
 
 msgid "Add New"
 msgstr "新增"
 
 msgid "Add New Digital Book"
-msgstr "新增電子書"
+msgstr "新增數位書籍"
 
 msgid "New Digital Book"
-msgstr "新電子書"
+msgstr "新數位書籍"
 
 msgid "Edit Digital Book"
-msgstr "編輯電子書"
+msgstr "編輯數位書籍"
 
 msgid "View Digital Book"
-msgstr "查看電子書"
+msgstr "檢視數位書籍"
 
 msgid "All Digital Books"
-msgstr "所有電子書"
+msgstr "所有數位書籍"
 
 msgid "Search Digital Book"
-msgstr "搜尋電子書"
+msgstr "搜尋數位書籍"
 
 msgid "No Digital Books found"
-msgstr "未找到電子書"
+msgstr "找不到數位書籍"
 
 msgid "No Digital Books found in trash"
-msgstr "回收桶中沒有電子書"
+msgstr "垃圾桶中找不到數位書籍"
 
-# =====================
-# 🏷️ 分類法：分類
-# =====================
 msgid "Categories"
 msgstr "分類"
 
@@ -69,18 +60,35 @@ msgstr "新增分類"
 msgid "New Category Name"
 msgstr "新分類名稱"
 
-# =====================
-#  Elementor 小工具
-# =====================
+msgid "Authors"
+msgstr "作者"
 
-# =====================
-# 🏷️ 區段名稱
-# =====================
+msgid "Author"
+msgstr "作者"
+
+msgid "Search Authors"
+msgstr "搜尋作者"
+
+msgid "All Authors"
+msgstr "所有作者"
+
+msgid "Edit Author"
+msgstr "編輯作者"
+
+msgid "Update Author"
+msgstr "更新作者"
+
+msgid "Add New Author"
+msgstr "新增作者"
+
+msgid "New Author Name"
+msgstr "新作者名稱"
+
 msgid "Page Flipper"
-msgstr "Page Flipper"
+msgstr "翻頁器"
 
 msgid "The Page Flipper is a free WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots."
-msgstr "Page Flipper 是一個免費的 WordPress 外掛，允許創建互動式電子書。它新增了一種電子書的文章類型，提供一套功能來管理書籍並透過熱點增加互動性。"
+msgstr "Page Flipper 是一款免費的 WordPress 外掛，可用於建立互動式數位書籍。它新增了一種數位書籍的文章類型，並提供管理書籍及使用熱點添加互動功能的多種功能。"
 
 msgid "Query"
 msgstr "查詢"
@@ -91,18 +99,12 @@ msgstr "設定"
 msgid "Style"
 msgstr "樣式"
 
-# ============================
-# 🔍 查詢設定
-# ============================
 msgid "Select a Page Flipper"
-msgstr "選擇翻頁效果"
+msgstr "選擇翻頁器"
 
 msgid "Leave empty to use Current Query"
-msgstr "留空以使用當前查詢"
+msgstr "留空以使用目前查詢"
 
-# ============================
-# 🔧 一般設定
-# ============================
 msgid "Yes"
 msgstr "是"
 
@@ -110,43 +112,46 @@ msgid "No"
 msgstr "否"
 
 msgid "Enable Summary"
-msgstr "啟用摘要"
+msgstr "啟用目錄"
 
-msgid "Enable Action Bar"
-msgstr "啟用操作欄"
+msgid "Enable Sumário"
+msgstr "啟用相關項目"
 
 msgid "Enable Navigation Controls"
 msgstr "啟用導航控制"
 
-# ============================
-# 🎨 樣式設定
-# ============================
+msgid "Enable Share"
+msgstr "啟用分享"
+
+msgid "Enable Zoom"
+msgstr "啟用縮放"
+
+msgid "Enable Background Image"
+msgstr "啟用背景圖片"
+
 msgid "Page Background Color"
 msgstr "頁面背景顏色"
 
-msgid "Action Bar Background Color"
-msgstr "操作欄背景顏色"
+msgid "Page Surface Color"
+msgstr "頁面表面顏色"
 
-msgid "Summary Background Color"
-msgstr "摘要背景顏色"
+msgid "Page Surface Accent Color"
+msgstr "頁面表面強調色"
 
-msgid "Controls Icon Color"
-msgstr "控制圖示顏色"
+msgid "Page Accent Color"
+msgstr "頁面強調色"
 
 msgid "Font Color"
 msgstr "字體顏色"
 
 msgid "Typography"
-msgstr "字體排版"
+msgstr "排版"
 
-# ============================
-# 🛠️ 建置器訊息
-# ============================
 msgid "Flipper Builder"
-msgstr "翻頁建置器"
+msgstr "翻頁器建構器"
 
 msgid "No pages found."
-msgstr "未找到頁面。"
+msgstr "找不到頁面。"
 
 msgid "Select Images"
 msgstr "選擇圖片"
@@ -158,10 +163,10 @@ msgid "Page List"
 msgstr "頁面列表"
 
 msgid "Selected Page"
-msgstr "已選擇頁面"
+msgstr "選取的頁面"
 
 msgid "Unselected Page"
-msgstr "未選擇頁面"
+msgstr "未選取的頁面"
 
 msgid "Narration"
 msgstr "旁白"
@@ -215,10 +220,10 @@ msgid "Rounded"
 msgstr "圓角"
 
 msgid "Smooth"
-msgstr "微圓角"
+msgstr "輕微圓角"
 
 msgid "Sharp"
-msgstr "直角"
+msgstr "銳角"
 
 msgid "Icon Border Radius"
 msgstr "圖示邊框半徑"
@@ -236,13 +241,13 @@ msgid "Custom Radius"
 msgstr "自訂半徑"
 
 msgid "Font Size"
-msgstr "字體大小"
+msgstr "字型大小"
 
 msgid "Font Family"
-msgstr "字體"
+msgstr "字型"
 
 msgid "Font Color"
-msgstr "字體顏色"
+msgstr "字型顏色"
 
 msgid "Content"
 msgstr "內容"
@@ -251,28 +256,28 @@ msgid "Text Align"
 msgstr "文字對齊"
 
 msgid "Left"
-msgstr "左對齊"
+msgstr "靠左"
 
 msgid "Right"
-msgstr "右對齊"
+msgstr "靠右"
 
 msgid "Center"
 msgstr "置中"
 
 msgid "Justify"
-msgstr "對齊"
+msgstr "兩端對齊"
 
 msgid "Normal"
 msgstr "正常"
 
 msgid "Lighter"
-msgstr "細體"
+msgstr "較淡"
 
 msgid "Bold"
 msgstr "粗體"
 
 msgid "Bolder"
-msgstr "更粗體"
+msgstr "更粗"
 
 msgid "None"
 msgstr "無"
@@ -286,23 +291,35 @@ msgstr "刪除線"
 msgid "Stipulated Area"
 msgstr "指定區域"
 
+msgid "Page Anchor"
+msgstr "頁面錨點"
+
+msgid "Action Type"
+msgstr "連結動作類型"
+
+msgid "Url"
+msgstr "網址"
+
 msgid "Link Url"
-msgstr "超連結網址"
+msgstr "自訂網址"
+
+msgid "Link Url"
+msgstr "連結網址"
 
 msgid "Link Text"
-msgstr "超連結文字"
+msgstr "連結文字"
 
 msgid "Link Target"
-msgstr "超連結目標"
+msgstr "連結目標"
 
 msgid "Blank Page"
-msgstr "新分頁開啟"
+msgstr "新分頁"
 
 msgid "Same Page"
-msgstr "同頁開啟"
+msgstr "同一分頁"
 
 msgid "Link Title"
-msgstr "超連結標題"
+msgstr "連結標題"
 
 msgid "Text Decoration"
 msgstr "文字裝飾"
@@ -314,65 +331,68 @@ msgid "Pause Icon Name"
 msgstr "暫停圖示名稱"
 
 msgid "Show Video Controls"
-msgstr "顯示影片控制"
+msgstr "顯示影片控制項"
 
 msgid "Video Muted"
 msgstr "靜音影片"
 
 msgid "Video Autoplay"
-msgstr "啟用自動播放"
+msgstr "自動播放影片"
 
 msgid "Video Loop"
-msgstr "啟用循環播放"
+msgstr "影片循環播放"
 
-# ============================
-# 🛠️ Shortcode Metabox 訊息
-# ============================
 msgid "Use the shortcode below to display this Digital Book:"
-msgstr "使用以下短代碼來顯示此數位書籍："
+msgstr "使用以下短碼顯示此數位書籍："
 
 msgid "Copy"
 msgstr "複製"
 
 msgid "Save the post to generate the shortcode."
-msgstr "儲存文章以生成短代碼。"
+msgstr "請儲存文章以產生短碼。"
 
 msgid "Shortcode copied!"
-msgstr "短代碼已複製！"
+msgstr "短碼已複製！"
 
 msgid "Shortcode"
-msgstr "短代碼"
+msgstr "短碼"
 
 msgid "Extra Options"
 msgstr "額外選項"
 
 msgid "Show or Hide the summary. Possible Values: `yes` or `no`. Default: `yes`"
-msgstr "顯示或隱藏目錄。可選值：`yes` 或 `no`。預設值：`yes`"
+msgstr "顯示或隱藏目錄。可能值：`yes` 或 `no`。預設：`yes`"
 
-msgid "Show or Hide the action bar. Possible Values: `yes` or `no`. Default: `yes`"
-msgstr "顯示或隱藏操作欄。可選值：`yes` 或 `no`。預設值：`yes`"
+msgid "Show or Hide the related posts. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "顯示或隱藏相關文章。可能值：`yes` 或 `no`。預設：`yes`"
+
+msgid "Show or Hide the share buttons. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "顯示或隱藏分享按鈕。可能值：`yes` 或 `no`。預設：`yes`"
+
+msgid "Show or Hide the zoom button. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "顯示或隱藏縮放按鈕。可能值：`yes` 或 `no`。預設：`yes`"
+
+msgid "Use or not the cover image as background. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "是否使用封面圖片作為背景。可能值：`yes` 或 `no`。預設：`yes`"
 
 msgid "Show or Hide the controls. Possible Values: `yes` or `no`. Default: `yes`"
-msgstr "顯示或隱藏控制項。可選值：`yes` 或 `no`。預設值：`yes`"
+msgstr "顯示或隱藏控制項。可能值：`yes` 或 `no`。預設：`yes`"
 
-msgid "Element background color. Default: `#333333`"
-msgstr "元素背景顏色。預設值：`#333333`"
+msgid "Page background color. Default: `#333333`"
+msgstr "頁面背景顏色。預設：`#333333`"
 
-msgid "Action Bar background color. Default: `#555555`"
-msgstr "操作欄背景顏色。預設值：`#555555`"
+msgid "Page surface color. Default: `rgba(0, 0, 0, 0.4)`"
+msgstr "頁面表面顏色。預設：`rgba(0, 0, 0, 0.4)`"
 
-msgid "Summary background color. Default: `#555555`"
-msgstr "目錄背景顏色。預設值：`#555555`"
+msgid "Page surface accent color. Default: `#ffffff`"
+msgstr "頁面表面強調色。預設：`#ffffff`"
 
-msgid "Controls icons color. Default: `#ffffff`"
-msgstr "控制圖示顏色。預設值：`#ffffff`"
+msgid "Page accent color. Default: `#eac101`"
+msgstr "頁面強調色。預設：`#eac101`"
 
-msgid "Element font color. Default: `#ffffff`"
-msgstr "元素字體顏色。預設值：`#ffffff`"
+msgid "Page font color. Default: `#ffffff`"
+msgstr "頁面字體顏色。預設：`#ffffff`"
 
-# ============================
-# 🛠️ PDF 檔案小工具訊息
-# ============================
 msgid "PDF File"
 msgstr "PDF 檔案"
 
@@ -383,22 +403,22 @@ msgid "Remove PDF File"
 msgstr "移除 PDF 檔案"
 
 msgid "Click on the box above to update the file."
-msgstr "點擊上方框框來更新檔案。"
+msgstr "點擊上方方框以更新檔案。"
 
-# ============================
-# 🛠️ 小工具訊息
-# ============================
 msgid "Go back"
 msgstr "返回"
 
 msgid "Play Audio Description"
-msgstr "播放音訊描述"
+msgstr "播放語音描述"
 
 msgid "Pause Audio Description"
-msgstr "暫停音訊描述"
+msgstr "暫停語音描述"
 
 msgid "No Audio Description in Current Page"
-msgstr "當前頁面無音訊描述"
+msgstr "本頁無語音描述"
+
+msgid "No PDF file available"
+msgstr "無可用的 PDF 檔案"
 
 msgid "Zoom"
 msgstr "縮放"
@@ -411,3 +431,9 @@ msgstr "目錄"
 
 msgid "Page"
 msgstr "頁面"
+
+msgid "Select Page"
+msgstr "選擇頁面"
+
+msgid "Available Editions"
+msgstr "可用版本"

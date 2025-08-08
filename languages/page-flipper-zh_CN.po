@@ -3,48 +3,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: zh_CN\n"
 
-# =====================
-# CPT
-# =====================
-# =====================
-# 📚 自定义文章类型: 数字书籍
-# =====================
 msgid "Digital Books"
 msgstr "数字书籍"
 
 msgid "Digital Book"
-msgstr "数字书籍"
+msgstr "数字书"
 
 msgid "Add New"
-msgstr "添加新内容"
+msgstr "新增"
 
 msgid "Add New Digital Book"
-msgstr "添加新数字书籍"
+msgstr "新增数字书"
 
 msgid "New Digital Book"
-msgstr "新数字书籍"
+msgstr "新数字书"
 
 msgid "Edit Digital Book"
-msgstr "编辑数字书籍"
+msgstr "编辑数字书"
 
 msgid "View Digital Book"
-msgstr "查看数字书籍"
+msgstr "查看数字书"
 
 msgid "All Digital Books"
 msgstr "所有数字书籍"
 
 msgid "Search Digital Book"
-msgstr "搜索数字书籍"
+msgstr "搜索数字书"
 
 msgid "No Digital Books found"
-msgstr "未找到数字书籍"
+msgstr "未找到数字书"
 
 msgid "No Digital Books found in trash"
-msgstr "回收站中未找到数字书籍"
+msgstr "回收站中未找到数字书"
 
-# =====================
-# 🏷️ 分类: 目录
-# =====================
 msgid "Categories"
 msgstr "分类"
 
@@ -64,23 +55,40 @@ msgid "Update Category"
 msgstr "更新分类"
 
 msgid "Add New Category"
-msgstr "添加新分类"
+msgstr "新增分类"
 
 msgid "New Category Name"
 msgstr "新分类名称"
 
-# =====================
-#  Elementor 小部件
-# =====================
+msgid "Authors"
+msgstr "作者"
 
-# =====================
-# 🏷️ 部分名称
-# =====================
+msgid "Author"
+msgstr "作者"
+
+msgid "Search Authors"
+msgstr "搜索作者"
+
+msgid "All Authors"
+msgstr "所有作者"
+
+msgid "Edit Author"
+msgstr "编辑作者"
+
+msgid "Update Author"
+msgstr "更新作者"
+
+msgid "Add New Author"
+msgstr "新增作者"
+
+msgid "New Author Name"
+msgstr "新作者名称"
+
 msgid "Page Flipper"
-msgstr "Page Flipper"
+msgstr "翻页插件"
 
 msgid "The Page Flipper is a free WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots."
-msgstr "Page Flipper 是一个免费的 WordPress 插件，可用于创建交互式电子书。它添加了一种新的电子书帖子类型，提供一套功能来管理书籍并通过热点增加交互性。"
+msgstr "Page Flipper 是一个免费的 WordPress 插件，支持创建互动式数字书籍。它添加了数字书籍的新文章类型，提供管理书籍和通过热点添加互动功能的一系列特性。"
 
 msgid "Query"
 msgstr "查询"
@@ -91,18 +99,12 @@ msgstr "设置"
 msgid "Style"
 msgstr "样式"
 
-# ============================
-# 🔍 查询设置
-# ============================
 msgid "Select a Page Flipper"
-msgstr "选择翻页器"
+msgstr "选择一个翻页插件"
 
 msgid "Leave empty to use Current Query"
-msgstr "留空以使用当前查询"
+msgstr "留空使用当前查询"
 
-# ============================
-# 🔧 常规设置
-# ============================
 msgid "Yes"
 msgstr "是"
 
@@ -110,40 +112,43 @@ msgid "No"
 msgstr "否"
 
 msgid "Enable Summary"
-msgstr "启用摘要"
+msgstr "启用目录"
 
-msgid "Enable Action Bar"
-msgstr "启用操作栏"
+msgid "Enable Sumário"
+msgstr "启用相关项目"
 
 msgid "Enable Navigation Controls"
 msgstr "启用导航控件"
 
-# ============================
-# 🎨 样式选项卡
-# ============================
+msgid "Enable Share"
+msgstr "启用分享"
+
+msgid "Enable Zoom"
+msgstr "启用缩放"
+
+msgid "Enable Background Image"
+msgstr "启用背景图"
+
 msgid "Page Background Color"
-msgstr "页面背景颜色"
+msgstr "页面背景色"
 
-msgid "Action Bar Background Color"
-msgstr "操作栏背景颜色"
+msgid "Page Surface Color"
+msgstr "页面表面颜色"
 
-msgid "Summary Background Color"
-msgstr "摘要背景颜色"
+msgid "Page Surface Accent Color"
+msgstr "页面表面强调色"
 
-msgid "Controls Icon Color"
-msgstr "控件图标颜色"
+msgid "Page Accent Color"
+msgstr "页面强调色"
 
 msgid "Font Color"
 msgstr "字体颜色"
 
 msgid "Typography"
-msgstr "排版"
+msgstr "字体排版"
 
-# ============================
-# 🛠️ 构建器消息
-# ============================
 msgid "Flipper Builder"
-msgstr "翻页器构建器"
+msgstr "翻页构建器"
 
 msgid "No pages found."
 msgstr "未找到页面。"
@@ -158,10 +163,10 @@ msgid "Page List"
 msgstr "页面列表"
 
 msgid "Selected Page"
-msgstr "已选页面"
+msgstr "选中页面"
 
 msgid "Unselected Page"
-msgstr "未选页面"
+msgstr "未选中页面"
 
 msgid "Narration"
 msgstr "旁白"
@@ -197,7 +202,7 @@ msgid "Icon Color"
 msgstr "图标颜色"
 
 msgid "Icon Background Color"
-msgstr "图标背景颜色"
+msgstr "图标背景色"
 
 msgid "Settings"
 msgstr "设置"
@@ -218,7 +223,7 @@ msgid "Smooth"
 msgstr "轻微圆角"
 
 msgid "Sharp"
-msgstr "无"
+msgstr "无圆角"
 
 msgid "Icon Border Radius"
 msgstr "图标边框半径"
@@ -239,7 +244,7 @@ msgid "Font Size"
 msgstr "字体大小"
 
 msgid "Font Family"
-msgstr "字体系列"
+msgstr "字体族"
 
 msgid "Font Color"
 msgstr "字体颜色"
@@ -266,7 +271,7 @@ msgid "Normal"
 msgstr "正常"
 
 msgid "Lighter"
-msgstr "细体"
+msgstr "较细"
 
 msgid "Bold"
 msgstr "加粗"
@@ -284,52 +289,61 @@ msgid "Line Through"
 msgstr "删除线"
 
 msgid "Stipulated Area"
-msgstr "规定区域"
+msgstr "指定区域"
+
+msgid "Page Anchor"
+msgstr "页面锚点"
+
+msgid "Action Type"
+msgstr "链接动作类型"
+
+msgid "Url"
+msgstr "网址"
 
 msgid "Link Url"
-msgstr "超链接 URL"
+msgstr "自定义链接"
+
+msgid "Link Url"
+msgstr "链接网址"
 
 msgid "Link Text"
-msgstr "超链接文本"
+msgstr "链接文本"
 
 msgid "Link Target"
-msgstr "超链接目标"
+msgstr "链接目标"
 
 msgid "Blank Page"
-msgstr "新页面"
+msgstr "新窗口"
 
 msgid "Same Page"
-msgstr "当前页面"
+msgstr "同一窗口"
 
 msgid "Link Title"
-msgstr "超链接标题"
+msgstr "链接标题"
 
 msgid "Text Decoration"
 msgstr "文本装饰"
 
 msgid "Popover Background Color"
-msgstr "弹出窗口背景颜色"
+msgstr "弹出窗口背景色"
 
 msgid "Pause Icon Name"
 msgstr "暂停图标名称"
 
 msgid "Show Video Controls"
-msgstr "显示视频控件"
+msgstr "显示视频控制"
 
 msgid "Video Muted"
-msgstr "静音视频"
+msgstr "视频静音"
 
 msgid "Video Autoplay"
-msgstr "启用自动播放"
+msgstr "视频自动播放"
 
 msgid "Video Loop"
-msgstr "启用循环播放"
+msgstr "视频循环播放"
 
-# ============================
-# 🛠️ Shortcode Metabox 消息
-# ============================
 msgid "Use the shortcode below to display this Digital Book:"
-msgstr "使用下面的短代码来显示此电子书："
+msgstr "使用以下短代码显示此数字书："
 
 msgid "Copy"
 msgstr "复制"
@@ -347,32 +361,38 @@ msgid "Extra Options"
 msgstr "额外选项"
 
 msgid "Show or Hide the summary. Possible Values: `yes` or `no`. Default: `yes`"
-msgstr "显示或隐藏摘要。可能的值：`yes` 或 `no`。默认：`yes`"
+msgstr "显示或隐藏目录。可选值：`yes` 或 `no`。默认：`yes`"
 
-msgid "Show or Hide the action bar. Possible Values: `yes` or `no`. Default: `yes`"
-msgstr "显示或隐藏操作栏。可能的值：`yes` 或 `no`。默认：`yes`"
+msgid "Show or Hide the related posts. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "显示或隐藏相关文章。可选值：`yes` 或 `no`。默认：`yes`"
+
+msgid "Show or Hide the share buttons. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "显示或隐藏分享按钮。可选值：`yes` 或 `no`。默认：`yes`"
+
+msgid "Show or Hide the zoom button. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "显示或隐藏缩放按钮。可选值：`yes` 或 `no`。默认：`yes`"
+
+msgid "Use or not the cover image as background. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "是否使用封面图片作为背景。可选值：`yes` 或 `no`。默认：`yes`"
 
 msgid "Show or Hide the controls. Possible Values: `yes` or `no`. Default: `yes`"
-msgstr "显示或隐藏控件。可能的值：`yes` 或 `no`。默认：`yes`"
+msgstr "显示或隐藏控制按钮。可选值：`yes` 或 `no`。默认：`yes`"
 
-msgid "Element background color. Default: `#333333`"
-msgstr "元素背景颜色。默认：`#333333`"
+msgid "Page background color. Default: `#333333`"
+msgstr "页面背景色。默认：`#333333`"
 
-msgid "Action Bar background color. Default: `#555555`"
-msgstr "操作栏背景颜色。默认：`#555555`"
+msgid "Page surface color. Default: `rgba(0, 0, 0, 0.4)`"
+msgstr "页面表面颜色。默认：`rgba(0, 0, 0, 0.4)`"
 
-msgid "Summary background color. Default: `#555555`"
-msgstr "摘要背景颜色。默认：`#555555`"
+msgid "Page surface accent color. Default: `#ffffff`"
+msgstr "页面表面强调色。默认：`#ffffff`"
 
-msgid "Controls icons color. Default: `#ffffff`"
-msgstr "控件图标颜色。默认：`#ffffff`"
+msgid "Page accent color. Default: `#eac101`"
+msgstr "页面强调色。默认：`#eac101`"
 
-msgid "Element font color. Default: `#ffffff`"
-msgstr "元素字体颜色。默认：`#ffffff`"
+msgid "Page font color. Default: `#ffffff`"
+msgstr "页面字体颜色。默认：`#ffffff`"
 
-# ============================
-# 🛠️ PDF 文件小部件消息
-# ============================
 msgid "PDF File"
 msgstr "PDF 文件"
 
@@ -385,9 +405,6 @@ msgstr "移除 PDF 文件"
 msgid "Click on the box above to update the file."
 msgstr "点击上方框以更新文件。"
 
-# ============================
-# 🛠️ 小部件消息
-# ============================
 msgid "Go back"
 msgstr "返回"
 
@@ -400,6 +417,9 @@ msgstr "暂停音频描述"
 msgid "No Audio Description in Current Page"
 msgstr "当前页面无音频描述"
 
+msgid "No PDF file available"
+msgstr "无可用 PDF 文件"
+
 msgid "Zoom"
 msgstr "缩放"
 
@@ -407,7 +427,13 @@ msgid "Download PDF File"
 msgstr "下载 PDF 文件"
 
 msgid "Summary"
-msgstr "摘要"
+msgstr "目录"
 
 msgid "Page"
 msgstr "页面"
+
+msgid "Select Page"
+msgstr "选择页面"
+
+msgid "Available Editions"
+msgstr "可用版本"

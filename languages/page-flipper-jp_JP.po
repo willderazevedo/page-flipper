@@ -1,14 +1,8 @@
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Language: ja_JP\n"
+"Language: jp_JP\n"
 
-# =====================
-# CPT
-# =====================
-# =====================
-# 📚 カスタム投稿タイプ: デジタルブック
-# =====================
 msgid "Digital Books"
 msgstr "デジタルブック"
 
@@ -40,11 +34,8 @@ msgid "No Digital Books found"
 msgstr "デジタルブックが見つかりません"
 
 msgid "No Digital Books found in trash"
-msgstr "ゴミ箱にデジタルブックが見つかりません"
+msgstr "ゴミ箱にデジタルブックがありません"
 
-# =====================
-# 🏷️ タクソノミー: カテゴリー
-# =====================
 msgid "Categories"
 msgstr "カテゴリー"
 
@@ -69,18 +60,35 @@ msgstr "新しいカテゴリーを追加"
 msgid "New Category Name"
 msgstr "新しいカテゴリー名"
 
-# =====================
-#  Elementor ウィジェット
-# =====================
+msgid "Authors"
+msgstr "著者"
 
-# =====================
-# 🏷️ セクション名
-# =====================
+msgid "Author"
+msgstr "著者"
+
+msgid "Search Authors"
+msgstr "著者を検索"
+
+msgid "All Authors"
+msgstr "すべての著者"
+
+msgid "Edit Author"
+msgstr "著者を編集"
+
+msgid "Update Author"
+msgstr "著者を更新"
+
+msgid "Add New Author"
+msgstr "新しい著者を追加"
+
+msgid "New Author Name"
+msgstr "新しい著者名"
+
 msgid "Page Flipper"
-msgstr "Page Flipper"
+msgstr "ページフリッパー"
 
 msgid "The Page Flipper is a free WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots."
-msgstr "Page Flipperは、インタラクティブなデジタルブックの作成を可能にする無料のWordPressプラグインです。デジタルブック用の新しい投稿タイプを追加し、本を管理し、ホットスポットでインタラクティブ性を追加するための機能を提供します。"
+msgstr "Page Flipperは、インタラクティブなデジタルブックを作成できる無料のWordPressプラグインです。デジタルブック用の新しい投稿タイプを追加し、ブックの管理やホットスポットによるインタラクティブ機能を提供します。"
 
 msgid "Query"
 msgstr "クエリ"
@@ -91,18 +99,12 @@ msgstr "設定"
 msgid "Style"
 msgstr "スタイル"
 
-# ============================
-# 🔍 クエリ設定
-# ============================
 msgid "Select a Page Flipper"
 msgstr "ページフリッパーを選択"
 
 msgid "Leave empty to use Current Query"
-msgstr "空白のままにすると現在のクエリを使用"
+msgstr "空欄のままにすると現在のクエリを使用します"
 
-# ============================
-# 🔧 一般設定
-# ============================
 msgid "Yes"
 msgstr "はい"
 
@@ -112,38 +114,41 @@ msgstr "いいえ"
 msgid "Enable Summary"
 msgstr "目次を有効化"
 
-msgid "Enable Action Bar"
-msgstr "アクションバーを有効化"
+msgid "Enable Sumário"
+msgstr "関連項目を有効化"
 
 msgid "Enable Navigation Controls"
 msgstr "ナビゲーションコントロールを有効化"
 
-# ============================
-# 🎨 スタイルタブ (Style)
-# ============================
+msgid "Enable Share"
+msgstr "共有を有効化"
+
+msgid "Enable Zoom"
+msgstr "ズームを有効化"
+
+msgid "Enable Background Image"
+msgstr "背景画像を有効化"
+
 msgid "Page Background Color"
-msgstr "ページの背景色"
+msgstr "ページ背景色"
 
-msgid "Action Bar Background Color"
-msgstr "アクションバーの背景色"
+msgid "Page Surface Color"
+msgstr "ページ表面色"
 
-msgid "Summary Background Color"
-msgstr "目次の背景色"
+msgid "Page Surface Accent Color"
+msgstr "ページ表面アクセント色"
 
-msgid "Controls Icon Color"
-msgstr "コントロールアイコンの色"
+msgid "Page Accent Color"
+msgstr "ページアクセント色"
 
 msgid "Font Color"
-msgstr "フォントの色"
+msgstr "フォント色"
 
 msgid "Typography"
 msgstr "タイポグラフィ"
 
-# ============================
-# 🛠️ ビルダーのメッセージ
-# ============================
 msgid "Flipper Builder"
-msgstr "ブックビルダー"
+msgstr "フリッパービルダー"
 
 msgid "No pages found."
 msgstr "ページが見つかりません。"
@@ -161,7 +166,7 @@ msgid "Selected Page"
 msgstr "選択されたページ"
 
 msgid "Unselected Page"
-msgstr "選択されていないページ"
+msgstr "未選択のページ"
 
 msgid "Narration"
 msgstr "ナレーション"
@@ -179,7 +184,7 @@ msgid "Text"
 msgstr "テキスト"
 
 msgid "Hyperlink"
-msgstr "リンク"
+msgstr "ハイパーリンク"
 
 msgid "Remove Narration"
 msgstr "ナレーションを削除"
@@ -194,10 +199,10 @@ msgid "Icon"
 msgstr "アイコン"
 
 msgid "Icon Color"
-msgstr "アイコンの色"
+msgstr "アイコン色"
 
 msgid "Icon Background Color"
-msgstr "アイコンの背景色"
+msgstr "アイコン背景色"
 
 msgid "Settings"
 msgstr "設定"
@@ -206,22 +211,22 @@ msgid "Change File"
 msgstr "ファイルを変更"
 
 msgid "Remove Hotspot"
-msgstr "削除"
+msgstr "ホットスポットを削除"
 
 msgid "Icon Name"
 msgstr "アイコン名"
 
 msgid "Rounded"
-msgstr "丸み"
+msgstr "角丸"
 
 msgid "Smooth"
-msgstr "やや丸み"
+msgstr "やや角丸"
 
 msgid "Sharp"
-msgstr "なし"
+msgstr "角なし"
 
 msgid "Icon Border Radius"
-msgstr "アイコンの形状"
+msgstr "アイコンの角丸半径"
 
 msgid "Icon Size"
 msgstr "アイコンサイズ"
@@ -242,37 +247,37 @@ msgid "Font Family"
 msgstr "フォントファミリー"
 
 msgid "Font Color"
-msgstr "フォントカラー"
+msgstr "フォント色"
 
 msgid "Content"
 msgstr "コンテンツ"
 
 msgid "Text Align"
-msgstr "テキストの配置"
+msgstr "テキスト配置"
 
 msgid "Left"
-msgstr "左"
+msgstr "左揃え"
 
 msgid "Right"
-msgstr "右"
+msgstr "右揃え"
 
 msgid "Center"
-msgstr "中央"
+msgstr "中央揃え"
 
 msgid "Justify"
 msgstr "両端揃え"
 
 msgid "Normal"
-msgstr "ノーマル"
+msgstr "標準"
 
 msgid "Lighter"
-msgstr "ライト"
+msgstr "細字"
 
 msgid "Bold"
-msgstr "ボールド"
+msgstr "太字"
 
 msgid "Bolder"
-msgstr "ボルダー"
+msgstr "極太字"
 
 msgid "None"
 msgstr "なし"
@@ -284,16 +289,25 @@ msgid "Line Through"
 msgstr "取り消し線"
 
 msgid "Stipulated Area"
-msgstr "指定エリア"
+msgstr "指定領域"
+
+msgid "Page Anchor"
+msgstr "ページアンカー"
+
+msgid "Action Type"
+msgstr "リンク動作"
+
+msgid "Url"
+msgstr "URL"
 
 msgid "Link Url"
-msgstr "リンクのURL"
+msgstr "リンクURL"
 
 msgid "Link Text"
-msgstr "リンクのテキスト"
+msgstr "リンクテキスト"
 
 msgid "Link Target"
-msgstr "リンクのターゲット"
+msgstr "リンクターゲット"
 
 msgid "Blank Page"
 msgstr "新しいページ"
@@ -302,13 +316,13 @@ msgid "Same Page"
 msgstr "同じページ"
 
 msgid "Link Title"
-msgstr "リンクのタイトル"
+msgstr "リンクタイトル"
 
 msgid "Text Decoration"
 msgstr "テキスト装飾"
 
 msgid "Popover Background Color"
-msgstr "ポップオーバーの背景色"
+msgstr "ポップオーバー背景色"
 
 msgid "Pause Icon Name"
 msgstr "一時停止アイコン名"
@@ -320,25 +334,22 @@ msgid "Video Muted"
 msgstr "ビデオをミュート"
 
 msgid "Video Autoplay"
-msgstr "自動再生を有効にする"
+msgstr "ビデオ自動再生"
 
 msgid "Video Loop"
-msgstr "ループ再生を有効にする"
+msgstr "ビデオループ"
 
-# ============================
-# 🛠️ ショートコードメタボックスのメッセージ
-# ============================
 msgid "Use the shortcode below to display this Digital Book:"
-msgstr "以下のショートコードを使用して、このデジタルブックを表示してください:"
+msgstr "以下のショートコードを使用してこのデジタルブックを表示します:"
 
 msgid "Copy"
 msgstr "コピー"
 
 msgid "Save the post to generate the shortcode."
-msgstr "ショートコードを生成するには、投稿を保存してください。"
+msgstr "ショートコードを生成するには投稿を保存してください。"
 
 msgid "Shortcode copied!"
-msgstr "ショートコードがコピーされました！"
+msgstr "ショートコードをコピーしました！"
 
 msgid "Shortcode"
 msgstr "ショートコード"
@@ -347,32 +358,38 @@ msgid "Extra Options"
 msgstr "追加オプション"
 
 msgid "Show or Hide the summary. Possible Values: `yes` or `no`. Default: `yes`"
-msgstr "要約を表示または非表示にする。可能な値: `yes` または `no`。デフォルト: `yes`"
+msgstr "目次を表示または非表示にします。可能な値: `yes` または `no`。デフォルト: `yes`"
 
-msgid "Show or Hide the action bar. Possible Values: `yes` or `no`. Default: `yes`"
-msgstr "アクションバーを表示または非表示にする。可能な値: `yes` または `no`。デフォルト: `yes`"
+msgid "Show or Hide the related posts. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "関連記事を表示または非表示にします。可能な値: `yes` または `no`。デフォルト: `yes`"
+
+msgid "Show or Hide the share buttons. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "共有ボタンを表示または非表示にします。可能な値: `yes` または `no`。デフォルト: `yes`"
+
+msgid "Show or Hide the zoom button. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "ズームボタンを表示または非表示にします。可能な値: `yes` または `no`。デフォルト: `yes`"
+
+msgid "Use or not the cover image as background. Possible Values: `yes` or `no`. Default: `yes`"
+msgstr "表紙画像を背景として使用するかどうか。可能な値: `yes` または `no`。デフォルト: `yes`"
 
 msgid "Show or Hide the controls. Possible Values: `yes` or `no`. Default: `yes`"
-msgstr "コントロールを表示または非表示にする。可能な値: `yes` または `no`。デフォルト: `yes`"
+msgstr "コントロールを表示または非表示にします。可能な値: `yes` または `no`。デフォルト: `yes`"
 
-msgid "Element background color. Default: `#333333`"
-msgstr "要素の背景色。デフォルト: `#333333`"
+msgid "Page background color. Default: `#333333`"
+msgstr "ページ背景色。デフォルト: `#333333`"
 
-msgid "Action Bar background color. Default: `#555555`"
-msgstr "アクションバーの背景色。デフォルト: `#555555`"
+msgid "Page surface color. Default: `rgba(0, 0, 0, 0.4)`"
+msgstr "ページ表面色。デフォルト: `rgba(0, 0, 0, 0.4)`"
 
-msgid "Summary background color. Default: `#555555`"
-msgstr "要約の背景色。デフォルト: `#555555`"
+msgid "Page surface accent color. Default: `#ffffff`"
+msgstr "ページ表面アクセント色。デフォルト: `#ffffff`"
 
-msgid "Controls icons color. Default: `#ffffff`"
-msgstr "コントロールアイコンの色。デフォルト: `#ffffff`"
+msgid "Page accent color. Default: `#eac101`"
+msgstr "ページアクセント色。デフォルト: `#eac101`"
 
-msgid "Element font color. Default: `#ffffff`"
-msgstr "要素のフォントカラー。デフォルト: `#ffffff`"
+msgid "Page font color. Default: `#ffffff`"
+msgstr "ページフォント色。デフォルト: `#ffffff`"
 
-# ============================
-# 🛠️ PDFファイルウィジェットのメッセージ
-# ============================
 msgid "PDF File"
 msgstr "PDFファイル"
 
@@ -383,22 +400,22 @@ msgid "Remove PDF File"
 msgstr "PDFファイルを削除"
 
 msgid "Click on the box above to update the file."
-msgstr "ファイルを更新するには、上のボックスをクリックしてください。"
+msgstr "上のボックスをクリックしてファイルを更新してください。"
 
-# ============================
-# 🛠️ ウィジェットのメッセージ
-# ============================
 msgid "Go back"
 msgstr "戻る"
 
 msgid "Play Audio Description"
-msgstr "音声説明を再生"
+msgstr "音声解説を再生"
 
 msgid "Pause Audio Description"
-msgstr "音声説明を一時停止"
+msgstr "音声解説を一時停止"
 
 msgid "No Audio Description in Current Page"
-msgstr "現在のページには音声説明がありません"
+msgstr "このページには音声解説がありません"
+
+msgid "No PDF file available"
+msgstr "利用可能なPDFがありません"
 
 msgid "Zoom"
 msgstr "ズーム"
@@ -407,7 +424,13 @@ msgid "Download PDF File"
 msgstr "PDFファイルをダウンロード"
 
 msgid "Summary"
-msgstr "要約"
+msgstr "目次"
 
 msgid "Page"
 msgstr "ページ"
+
+msgid "Select Page"
+msgstr "ページを選択"
+
+msgid "Available Editions"
+msgstr "利用可能な版"
