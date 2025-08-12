@@ -53,11 +53,24 @@ function wa_page_flipper_pdf_meta_box_save( $post_id ) {
     }
 
     if ( isset( $_POST['pdf_data'] ) ) {
-        $pdf_data = wp_unslash( $_POST['pdf_data'] );
-        $pdf_data = json_decode( $pdf_data, true );
+        $pdf_data_raw = wp_unslash( $_POST['pdf_data'] );
 
-        if ( json_last_error() === JSON_ERROR_NONE ) {
-            update_post_meta( $post_id, '_wa_page_flipper_pdf_data', wp_json_encode( $pdf_data, JSON_UNESCAPED_UNICODE ) );
+        if ( is_string( $pdf_data_raw ) ) {
+            $pdf_data = json_decode( $pdf_data_raw, true );
+
+            if ( json_last_error() === JSON_ERROR_NONE && is_array( $pdf_data ) ) {
+                array_walk_recursive( $pdf_data, function ( &$value ) {
+                    if ( is_string( $value ) ) {
+                        $value = sanitize_text_field( $value );
+                    }
+                });
+
+                update_post_meta(
+                    $post_id,
+                    '_wa_page_flipper_pdf_data',
+                    wp_json_encode( $pdf_data, JSON_UNESCAPED_UNICODE )
+                );
+            }
         }
     }
 }

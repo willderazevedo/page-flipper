@@ -3,11 +3,13 @@
  * Plugin Name: Page Flipper
  * Plugin URI:  https://github.com/willderazevedo/page-flipper
  * Description: The Page Flipper is a free WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots.
- * Version:     1.0.2
+ * Version:     1.0.3
  * Author:      Willder Azevedo
  * Author URI:  https://github.com/willderazevedo
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
+ * Text Domain: page-flipper
+ * Domain Path: /languages
  * 
  * @package PageFlipper
  * @category Plugin
@@ -27,12 +29,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 require_once plugin_dir_path( __FILE__ ) . 'fields/flipper-builder.php';
 require_once plugin_dir_path( __FILE__ ) . 'fields/flipper-pdf.php';
 require_once plugin_dir_path( __FILE__ ) . 'fields/flipper-shortcode.php';
-
-function wa_page_flipper_load_textdomain() {
-    load_plugin_textdomain('page-flipper', false, dirname(plugin_basename(__FILE__)) . '/languages/');
-}
-
-add_action('init', 'wa_page_flipper_load_textdomain');
 
 function wa_page_flipper_post_type_register() {
     // Registrar Custom Post Type: Digital Books

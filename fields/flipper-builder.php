@@ -387,11 +387,24 @@ function wa_page_flipper_builder_meta_box_save( $post_id ) {
     }
 
     if ( isset( $_POST['builder_data'] ) ) {
-        $builder_data = wp_unslash( $_POST['builder_data'] );
-        $builder_data = json_decode( $builder_data, true );
+        $builder_data_raw = wp_unslash( $_POST['builder_data'] );
 
-        if ( json_last_error() === JSON_ERROR_NONE ) {
-            update_post_meta( $post_id, '_wa_page_flipper_builder_data', wp_json_encode( $builder_data, JSON_UNESCAPED_UNICODE ) );
+        if ( is_string( $builder_data_raw ) ) {
+            $builder_data = json_decode( $builder_data_raw, true );
+
+            if ( json_last_error() === JSON_ERROR_NONE && is_array( $builder_data ) ) {
+                array_walk_recursive( $builder_data, function ( &$value ) {
+                    if ( is_string( $value ) ) {
+                        $value = sanitize_text_field( $value );
+                    }
+                });
+
+                update_post_meta(
+                    $post_id,
+                    '_wa_page_flipper_builder_data',
+                    wp_json_encode( $builder_data, JSON_UNESCAPED_UNICODE )
+                );
+            }
         }
     }
 }

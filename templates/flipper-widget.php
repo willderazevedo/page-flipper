@@ -3,19 +3,19 @@ if (!defined('ABSPATH')) exit;
 
 $postId                = esc_attr($atts['id']);
 $relatedPosts          = wa_page_flipper_get_related_posts($postId);
-$postTitle             = esc_attr(get_the_title($postId));
-$postUrl               = esc_attr(get_permalink($postId));
-$enableSummary         = esc_attr($atts['enable_summary']) === 'yes';
-$enableRelated         = esc_attr($atts['enable_related']) === 'yes';
-$enableControls        = esc_attr($atts['enable_controls']) === 'yes';
-$enableShare           = esc_attr($atts['enable_share']) === 'yes';
-$enableZoom            = esc_attr($atts['enable_zoom']) === 'yes';
-$enableBackgroundImage = esc_attr($atts['enable_background_image']) === 'yes';
-$backgroundColor       = esc_attr($atts['page_background_color']);
-$surfaceColor          = esc_attr($atts['page_surface_color']);
-$surfaceAccentColor    = esc_attr($atts['page_surface_accent_color']);
-$accentColor           = esc_attr($atts['page_accent_color']);
-$fontColor             = esc_attr($atts['page_font_color']);
+$postTitle             = get_the_title($postId);
+$postUrl               = get_permalink($postId);
+$enableSummary         = $atts['enable_summary'] === 'yes';
+$enableRelated         = $atts['enable_related'] === 'yes';
+$enableControls        = $atts['enable_controls'] === 'yes';
+$enableShare           = $atts['enable_share'] === 'yes';
+$enableZoom            = $atts['enable_zoom'] === 'yes';
+$enableBackgroundImage = $atts['enable_background_image'] === 'yes';
+$backgroundColor       = $atts['page_background_color'];
+$surfaceColor          = $atts['page_surface_color'];
+$surfaceAccentColor    = $atts['page_surface_accent_color'];
+$accentColor           = $atts['page_accent_color'];
+$fontColor             = $atts['page_font_color'];
 $backgroundImage       = has_post_thumbnail($postId) && $enableBackgroundImage ? wp_get_attachment_image_src(get_post_thumbnail_id($postId), 'full')[0] : null;
 $builderData           = get_post_meta($postId, '_wa_page_flipper_builder_data', true);
 $pdfAttachment         = get_post_meta($postId, '_wa_page_flipper_pdf_data', true);
@@ -107,23 +107,23 @@ $pdfAttachment         = $pdfAttachment ?: null;
 
         <?php if ($enableShare) : ?>
             <div class="flipper-share-buttons">
-                <button type="button" data-sharer="facebook" data-title="<?php echo $postTitle; ?>" data-url="<?php echo $postUrl; ?>">
+                <button type="button" data-sharer="facebook" data-title="<?php echo esc_attr($postTitle); ?>" data-url="<?php echo esc_attr($postUrl); ?>">
                     <i class="fa-brands fa-facebook-f"></i>
                 </button>
 
-                <button type="button" data-sharer="x" data-title="<?php echo $postTitle; ?>" data-url="<?php echo $postUrl; ?>">
+                <button type="button" data-sharer="x" data-title="<?php echo esc_attr($postTitle); ?>" data-url="<?php echo esc_attr($postUrl); ?>">
                     <i class="fa-brands fa-x-twitter"></i>
                 </button>
 
-                <button type="button" data-sharer="whatsapp" data-title="<?php echo $postTitle; ?>" data-url="<?php echo $postUrl; ?>">
+                <button type="button" data-sharer="whatsapp" data-title="<?php echo esc_attr($postTitle); ?>" data-url="<?php echo esc_attr($postUrl); ?>">
                     <i class="fa-brands fa-whatsapp"></i>
                 </button>
 
-                <button type="button" data-sharer="telegram" data-title="<?php echo $postTitle; ?>" data-url="<?php echo $postUrl; ?>">
+                <button type="button" data-sharer="telegram" data-title="<?php echo esc_attr($postTitle); ?>" data-url="<?php echo esc_attr($postUrl); ?>">
                     <i class="fa-brands fa-telegram"></i>
                 </button>
 
-                <button type="button" data-sharer="email" data-title="<?php echo $postTitle; ?>" data-url="<?php echo $postUrl; ?>">
+                <button type="button" data-sharer="email" data-title="<?php echo esc_attr($postTitle); ?>" data-url="<?php echo esc_attr($postUrl); ?>">
                     <i class="fa-solid fa-envelope"></i>
                 </button>
             </div>
@@ -138,7 +138,7 @@ $pdfAttachment         = $pdfAttachment ?: null;
                         <?php foreach ($relatedPosts as $relatedPost): ?>
                             <?php if (!has_post_thumbnail($relatedPost->ID)) continue; ?>
     
-                            <a href="<?php echo get_permalink($relatedPost->ID); ?>">
+                            <a href="<?php echo esc_attr(get_permalink($relatedPost->ID)); ?>">
                                 <img src="<?php echo esc_attr(wp_get_attachment_image_src(get_post_thumbnail_id($relatedPost->ID), 'full')[0]); ?>" alt="<?php echo esc_attr($relatedPost->post_title); ?>">
                             </a>
                         <?php endforeach; ?>
