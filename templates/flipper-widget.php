@@ -26,6 +26,7 @@ $pdfAttachment         = $pdfAttachment ?: null;
 <?php if ($builderData) : ?>
     <div 
         x-data="flipperWidget(<?php echo esc_js($builderData ?? '[]'); ?>, <?php echo esc_js($pdfAttachment ?? 'null'); ?>)"
+        x-bind:style="{'--page-surface-elevation': pages.length + 1}"
         class="flipper-widget-wrapper"
         style="
             --page-bg-image: url(<?php echo esc_attr($backgroundImage); ?>);

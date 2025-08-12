@@ -32,7 +32,7 @@
     width: 210px;
     margin-left: -210px;
     transition: margin-left .5s ease-in-out;
-    z-index: 10;
+    z-index: calc(var(--page-surface-elevation) + 1);
     background-color: var(--page-surface-accent-color);
 }
 
@@ -55,7 +55,7 @@
     outline: none;
     cursor: pointer;
     border-radius: 30px;
-    z-index: 10;
+    z-index: var(--page-surface-elevation);
 }
 
 .flipper-widget-wrapper .flipper-summary-wrapper.active .summary-toggler {
@@ -126,7 +126,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    z-index: 10;
+    z-index: var(--page-surface-elevation);
 }
 
 .flipper-widget-wrapper .flipper-actions button {
@@ -224,7 +224,7 @@
     position: absolute;
     bottom: 20px;
     right: 20px;
-    z-index: 10;
+    z-index: var(--page-surface-elevation);
 }
 
 .flipper-widget-wrapper .flipper-share-buttons button {
@@ -263,7 +263,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    z-index: 10;
+    z-index: var(--page-surface-elevation);
 }
 
 .flipper-widget-wrapper .flipper-controls button {
@@ -318,7 +318,7 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 10;
+    z-index: var(--page-surface-elevation);
     min-height: 288px;
     margin-bottom: -288px;
     transition: margin-bottom .5s ease-in-out;

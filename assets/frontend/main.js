@@ -18,6 +18,25 @@ document.addEventListener('alpine:init', () => {
 
             this.setupPageViewer();
         },
+        getWindowSizes() {
+            const wrapper = document.querySelector('.flipper-widget-wrapper');
+            const screenWidth = wrapper.offsetWidth;
+            let scaleFactor;
+
+            if (screenWidth <= 992) {
+                scaleFactor = 0.75;
+            } else if (screenWidth <= 1920) {
+                scaleFactor = 0.80;
+            } else {
+                scaleFactor = 0.95;
+            }
+
+            return {
+                maxWidth: wrapper.offsetWidth * scaleFactor,
+                maxHeight: wrapper.offsetHeight * scaleFactor,
+                containerBreakpoint: 992 / scaleFactor
+            }
+        },
         setupPageViewer() {
             if (!this.pages.length) return;
 
@@ -27,15 +46,12 @@ document.addEventListener('alpine:init', () => {
             image.onload = () => {
                 this.turnedElement = jQuery(".flipper-pages");
 
-                const wrapper   = document.querySelector('.flipper-widget-wrapper');
-                const maxWidth  = wrapper.offsetWidth * 0.95;
-                const maxHeight = wrapper.offsetHeight * 0.95;
-                const containerBreakpoint = 992 / 0.95;
-                const ratio     = Math.min(maxWidth / image.width, maxHeight / image.height);
+                const sizes = this.getWindowSizes();
+                const ratio = Math.min(sizes.maxWidth / image.width, sizes.maxHeight / image.height);
                 let imageWidth  = image.width * ratio;
                 let imageHeight = image.height * ratio;
 
-                if (maxWidth > containerBreakpoint) imageWidth = imageWidth * 2;
+                if (sizes.maxWidth > sizes.containerBreakpoint) imageWidth = imageWidth * 2;
                 if (imageWidth === imageHeight) imageHeight = imageHeight / 2;
 
                 jQuery('.flipper-pages-wrapper').css({margin: 'auto', width: imageWidth, height: imageHeight});
@@ -45,7 +61,7 @@ document.addEventListener('alpine:init', () => {
                     width: imageWidth,
                     height: imageHeight,
                     autoCenter: true,
-                    display: maxWidth <= containerBreakpoint ? 'single' : 'double',
+                    display: sizes.maxWidth <= sizes.containerBreakpoint ? 'single' : 'double',
                     when: {
                         turning: (event, page, view) => {
                             const element = jQuery(event.target);
