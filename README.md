@@ -29,19 +29,23 @@ The **Page Flipper** is a **free** WordPress plugin that enables the creation of
   - Optional, to allow book download in PDF format.
 - **Shortcode for Embedding:**
   - Embed the digital book anywhere on the site.
-  - Default format: `[page_flipper id="post_id"]`
+  - Default format: `[page_flipper]`
   - Optional parameters:
     
-    | Parameter      | Description                                  | Possible Values | Default   |
-    |---------------|----------------------------------------------|-----------------|-----------|
-    | `summary`     | Show or hide the summary                     | `yes` or `no`  | `yes`     |
-    | `action_bar`  | Show or hide the action bar                  | `yes` or `no`  | `yes`     |
-    | `controls`    | Show or hide controls                        | `yes` or `no`  | `yes`     |
-    | `page_bg`     | Page background color                        | Hexadecimal    | `#333333` |
-    | `action_bar_bg` | Action bar background color                | Hexadecimal    | `#555555` |
-    | `summary_bg`  | Summary background color                     | Hexadecimal    | `#555555` |
-    | `controls_icon` | Control icons color                        | Hexadecimal    | `#ffffff` |
-    | `font_color`  | Book font color                             | Hexadecimal    | `#ffffff` |
+    | Parameter                   | Description                              | Possible Values | Default              |
+    | --------------------------- | ---------------------------------------- | --------------- | -------------------- |
+    | `id`                        | The ID of the post                       | Post ID         | Current Query        |
+    | `enable_summary`            | Show or hide the summary                 | `yes` or `no`   | `yes`                |
+    | `enable_related`            | Show or hide the related posts           | `yes` or `no`   | `yes`                |
+    | `enable_controls`           | Show or hide the controls                | `yes` or `no`   | `yes`                |
+    | `enable_share`              | Show or hide the share buttons           | `yes` or `no`   | `yes`                |
+    | `enable_zoom`               | Show or hide the zoom button             | `yes` or `no`   | `yes`                |
+    | `enable_background_image`   | Use or not the cover image as background | `yes` or `no`   | `yes`                |
+    | `page_background_color`     | Page background color                    | Hexadecimal     | `#333333`            |
+    | `page_surface_color`        | Page surface color                       | RGBA or Hex     | `rgba(0, 0, 0, 0.4)` |
+    | `page_surface_accent_color` | Page surface accent color                | Hexadecimal     | `#ffffff`            |
+    | `page_accent_color`         | Page accent color                        | Hexadecimal     | `#eac101`            |
+    | `page_font_color`           | Page font color                          | Hexadecimal     | `#ffffff`            |
 
 - **Elementor Integration:**
   - Widget to add digital books.
