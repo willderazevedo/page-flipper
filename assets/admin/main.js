@@ -520,12 +520,11 @@ document.addEventListener('alpine:init', () => {
                 const copyMessage    = document.createElement('span');
                 copyMessage.innerHTML = sucessMessage;
 
-                if (window.isSecureContext && navigator.clipboard) {
-                    navigator.clipboard.writeText(shortcodeInput.innerText);
-                    actions.prepend(copyMessage);
-                } else {
-                    alert("Not available in an insecure context!");
-                }
+                shortcodeInput.select();
+                shortcodeInput.setSelectionRange(0, 99999);
+                document.execCommand("copy");
+                document.getSelection().removeAllRanges();
+                actions.prepend(copyMessage);
 
                 setTimeout(() => copyMessage.remove(), 2500);
             }

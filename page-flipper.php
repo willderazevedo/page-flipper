@@ -3,7 +3,7 @@
  * Plugin Name: Page Flipper
  * Plugin URI:  https://github.com/willderazevedo/page-flipper
  * Description: The Page Flipper is a free WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots.
- * Version:     1.0.4
+ * Version:     1.0.5
  * Author:      Willder Azevedo
  * Author URI:  https://github.com/willderazevedo
  * License: GPLv3
