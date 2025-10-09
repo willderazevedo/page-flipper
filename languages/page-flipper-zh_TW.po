@@ -440,3 +440,27 @@ msgstr "可用版本"
 
 msgid "Enable Related"
 msgstr "啟用相關項目"
+
+msgid "Enable Related"
+msgstr "啟用相關項目"
+
+msgid "No other editions available"
+msgstr "沒有其他版本可用"
+
+msgid "Digital Book Cover"
+msgstr "數位書籍封面"
+
+msgid "Remove Digital Book Cover"
+msgstr "移除電子書封面"
+
+msgid "Set Digital Book Cover"
+msgstr "設定電子書封面"
+
+msgid "Background Image"
+msgstr "背景圖片"
+
+msgid "Upload Background Image"
+msgstr "上傳背景圖片"
+
+msgid "Remove Background Image"
+msgstr "移除背景圖片"

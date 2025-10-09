@@ -443,3 +443,21 @@ msgstr "Activer les éléments associés"
 
 msgid "No other editions available"
 msgstr "Aucune autre édition disponible"
+
+msgid "Digital Book Cover"
+msgstr "Couverture du livre numérique"
+
+msgid "Remove Digital Book Cover"
+msgstr "Supprimer la couverture du livre numérique"
+
+msgid "Set Digital Book Cover"
+msgstr "Définir la couverture du livre numérique"
+
+msgid "Background Image"
+msgstr "Image de fond"
+
+msgid "Upload Background Image"
+msgstr "Téléverser l’image de fond"
+
+msgid "Remove Background Image"
+msgstr "Supprimer l’image de fond"

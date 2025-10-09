@@ -429,3 +429,24 @@
 .flipper-pdf-wrapper .remove-pdf-file {
     color: #b32d2e;
 }
+
+.flipper-background-wrapper .file-edit-hint {
+    color: #646970;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.flipper-background-wrapper a {
+    margin: 13px 0;
+    display: block;
+}
+
+.flipper-background-wrapper .background-image {
+    max-width: 100%;
+    cursor: pointer;
+}
+
+.flipper-background-wrapper .remove-background-file {
+    color: #b32d2e;
+    margin: 1em 0;
+}

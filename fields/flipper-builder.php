@@ -248,7 +248,7 @@ function wa_page_flipper_builder_meta_box( $post ) {
                                                         <input type="color" x-model="hotspot.extras.icon_background">
                                                     </li>
 
-                                                    <li x-show="hotspot.extras.mode === 'icon' && hotspot.type !== 'link'">
+                                                    <li x-show="hotspot.extras.mode === 'icon' && hotspot.type !== 'link' && hotspot.type !== 'audio'">
                                                         <label><?php esc_html_e('Popover Background Color', 'page-flipper'); ?></label>
                                                         <input type="color" x-model="hotspot.extras.popover_background">
                                                     </li>

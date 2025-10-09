@@ -1,19 +1,10 @@
 document.addEventListener('alpine:init', () => {
     if (window.pagenow === 'wa_page_flipper') {
-        wp.media.featuredImage.frame().on('open', () => {
-			const library = wp.media.featuredImage.frame().state().get('library');
-
-			library.props.set({
-				order: 'ASC'
-			});
-
-			library._requery(true);
-		});
-        
         const pagesMediaFrame = wp.media({
             multiple: 'add',
             library: {
                 type: [ 'image' ],
+                uploadedTo: wp.media.view.settings.post.id,
                 order: 'ASC'
             }
         });
@@ -21,32 +12,35 @@ document.addEventListener('alpine:init', () => {
         const audioHotspotMediaFrame = wp.media({
             multiple: false,
             library: {
-                type: [ 'audio' ],
-                order: 'ASC'
+                type: [ 'audio' ]
             }
         });
 
         const imageHotspotMediaFrame = wp.media({
             multiple: false,
             library: {
-                type: [ 'image' ],
-                order: 'ASC'
+                type: [ 'image' ]
             }
         });
 
         const videoHotspotMediaFrame = wp.media({
             multiple: false,
             library: {
-                type: [ 'video' ],
-                order: 'ASC'
+                type: [ 'video' ]
             }
         });
 
         const pdfMediaFrame = wp.media({
             multiple: false,
             library: {
-                type: [ 'application/pdf' ],
-                order: 'ASC'
+                type: [ 'application/pdf' ]
+            }
+        });
+
+        const backgroundMediaFrame = wp.media({
+            multiple: false,
+            library: {
+                type: [ 'image' ]
             }
         });
 
@@ -507,6 +501,48 @@ document.addEventListener('alpine:init', () => {
                 pdfMediaFrame.open();
             },
             removePdfFile(event) {
+                event.preventDefault();
+                
+                this.attachment = null;
+            }
+        }));
+
+        Alpine.data('flipperBackground', (attachment = null) => ({
+            attachment: null,
+            init() {
+                this.attachment = attachment;
+
+                this.setupBackgroundMediaFrameListeners();
+            },
+            setupBackgroundMediaFrameListeners() {
+                backgroundMediaFrame.on('select', () => {
+                    const selection = backgroundMediaFrame.state().get('selection');
+                    
+                    selection.forEach(attachment => {
+                        this.attachment = {
+                           id: attachment.id,
+                           title: attachment.attributes.title,
+                           url: attachment.attributes.url
+                        }
+                    });
+                });
+    
+                backgroundMediaFrame.on('open', () => {
+                    const selection = backgroundMediaFrame.state().get('selection');
+    
+                    if (this.attachment === null) return;
+    
+                    const attachment = wp.media.attachment(this.attachment.id);
+
+                    selection.add(attachment ? [attachment] : []);
+                });
+            },
+            selectBackgroundFile(event) {
+                event.preventDefault();
+
+                backgroundMediaFrame.open();
+            },
+            removeBackgroundFile(event) {
                 event.preventDefault();
                 
                 this.attachment = null;

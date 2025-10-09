@@ -443,3 +443,21 @@ msgstr "Включить связанные элементы"
 
 msgid "No other editions available"
 msgstr "Другие издания отсутствуют"
+
+msgid "Digital Book Cover"
+msgstr "Обложка цифровой книги"
+
+msgid "Remove Digital Book Cover"
+msgstr "Удалить обложку цифровой книги"
+
+msgid "Set Digital Book Cover"
+msgstr "Установить обложку цифровой книги"
+
+msgid "Background Image"
+msgstr "Фоновое изображение"
+
+msgid "Upload Background Image"
+msgstr "Загрузить фоновое изображение"
+
+msgid "Remove Background Image"
+msgstr "Удалить фоновое изображение"

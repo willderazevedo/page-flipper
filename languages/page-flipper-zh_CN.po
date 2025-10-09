@@ -446,3 +446,21 @@ msgstr "没有其他版本可用"
 
 msgid "No other editions available"
 msgstr "沒有其他版本可用"
+
+msgid "Digital Book Cover"
+msgstr "数字书籍封面"
+
+msgid "Remove Digital Book Cover"
+msgstr "移除电子书封面"
+
+msgid "Set Digital Book Cover"
+msgstr "设置电子书封面"
+
+msgid "Background Image"
+msgstr "背景图片"
+
+msgid "Upload Background Image"
+msgstr "上传背景图片"
+
+msgid "Remove Background Image"
+msgstr "移除背景图片"

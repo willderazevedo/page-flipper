@@ -440,3 +440,21 @@ msgstr "関連項目を有効にする"
 
 msgid "No other editions available"
 msgstr "他の版は利用できません"
+
+msgid "Digital Book Cover"
+msgstr "デジタルブックカバー"
+
+msgid "Remove Digital Book Cover"
+msgstr "デジタルブックのカバーを削除"
+
+msgid "Set Digital Book Cover"
+msgstr "デジタルブックのカバーを設定"
+
+msgid "Background Image"
+msgstr "背景画像"
+
+msgid "Upload Background Image"
+msgstr "背景画像をアップロード"
+
+msgid "Remove Background Image"
+msgstr "背景画像を削除"

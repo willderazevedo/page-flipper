@@ -443,3 +443,21 @@ msgstr "Verwandte Elemente aktivieren"
 
 msgid "No other editions available"
 msgstr "Keine weiteren Ausgaben verfügbar"
+
+msgid "Digital Book Cover"
+msgstr "Digitale Buchcover"
+
+msgid "Remove Digital Book Cover"
+msgstr "Digitale Buchumschlag entfernen"
+
+msgid "Set Digital Book Cover"
+msgstr "Digitalen Buchumschlag festlegen"
+
+msgid "Background Image"
+msgstr "Hintergrundbild"
+
+msgid "Upload Background Image"
+msgstr "Hintergrundbild hochladen"
+
+msgid "Remove Background Image"
+msgstr "Hintergrundbild entfernen"
