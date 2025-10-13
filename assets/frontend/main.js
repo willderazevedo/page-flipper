@@ -18,14 +18,14 @@ document.addEventListener('alpine:init', () => {
 
             this.setupPageViewer();
         },
-        getWindowSizes() {
+        getWindowSizes(image) {
             const wrapper = document.querySelector('.flipper-widget-wrapper');
             const screenWidth = wrapper.offsetWidth;
             let scaleFactor;
 
             if (screenWidth <= 992) {
                 scaleFactor = 0.75;
-            } else if (screenWidth <= 1920) {
+            } else if (screenWidth <= 1920 || image.width === image.height) {
                 scaleFactor = 0.80;
             } else {
                 scaleFactor = 0.95;
@@ -46,20 +46,20 @@ document.addEventListener('alpine:init', () => {
             image.onload = () => {
                 this.turnedElement = jQuery(".flipper-pages");
 
-                const sizes = this.getWindowSizes();
+                const sizes = this.getWindowSizes(image);
                 const ratio = Math.min(sizes.maxWidth / image.width, sizes.maxHeight / image.height);
-                let imageWidth  = image.width * ratio;
-                let imageHeight = image.height * ratio;
+                let finalWidth  = image.width * ratio;
+                let finalHeight = image.height * ratio;
 
-                if (sizes.maxWidth > sizes.containerBreakpoint) imageWidth = imageWidth * 2;
-                if (imageWidth === imageHeight) imageHeight = imageHeight / 2;
+                if (sizes.maxWidth > sizes.containerBreakpoint) finalWidth = finalWidth * 2;
+                if (finalWidth === finalHeight) finalHeight = finalHeight / 2;
 
-                jQuery('.flipper-pages-wrapper').css({margin: 'auto', width: imageWidth, height: imageHeight});
+                jQuery('.flipper-pages-wrapper').css({margin: 'auto', width: finalWidth, height: finalHeight});
 
                 this.turnedElement.turn({
                     pages: this.pages.length,
-                    width: imageWidth,
-                    height: imageHeight,
+                    width: finalWidth,
+                    height: finalHeight,
                     autoCenter: true,
                     display: sizes.maxWidth <= sizes.containerBreakpoint ? 'single' : 'double',
                     when: {
