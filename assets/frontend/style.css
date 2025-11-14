@@ -537,3 +537,21 @@
 .flipper-widget-wrapper .hotspots-wrapper .inline-audio-hotspot audio {
     width: 100%;
 }
+
+.flipper-widget-wrapper .flipper-actions .narration-toggler:not(:disabled) {
+	background: var(--page-surface-accent-color);
+	animation: pulse-animation 1s infinite;
+}
+
+.flipper-widget-wrapper .flipper-actions .narration-toggler:not(:disabled) i {
+	color: var(--page-accent-color);
+}
+
+@keyframes pulse-animation {
+	0% {
+		box-shadow: 0 0 0 0 color-mix(in srgb, var(--page-surface-accent-color) 70%, transparent);
+	}
+	100% {
+		box-shadow: 0 0 0 12px rgba(0, 0, 0, 0);
+	}
+}
