@@ -119,6 +119,18 @@ function wa_page_flipper_post_type_register() {
 
 add_action( 'init', 'wa_page_flipper_post_type_register' );
 
+function wa_page_flipper_upload_dir( $args ) {
+    if ( isset( $_REQUEST['post_id'] ) && 'wa_page_flipper' == get_post_type( $_REQUEST['post_id'] ) ) {
+        $newdir = '/wa-page-flipper'; 
+
+        $args['path'] = str_replace( $args['subdir'], $newdir, $args['path'] );
+        $args['url'] = str_replace( $args['subdir'], $newdir, $args['url'] );
+        $args['subdir'] = $newdir;
+    }
+	
+    return $args;
+}
+
 function wa_page_flipper_admin_assets() {
     wp_enqueue_script('flipper-alpine-lib', plugin_dir_url(__FILE__) . 'assets/libs/alpine.js', ['flipper-script'], '3.14.8', true);
     wp_enqueue_script('flipper-sortable-lib', plugin_dir_url(__FILE__) . 'assets/libs/sortable.js', [], '1.15.6', true);
