@@ -22,7 +22,7 @@ jobs:
       - name: Create ZIP file
         run: |
           zip -r page-flipper.zip . \
-          -x ".git/*" ".github/*" "README.md" "LICENSE" "assets/banner.png"
+          -x ".git/*" ".github/*" "README.md" "LICENSE" "assets/banner*.png" "assets/icon*.png" "assets/screenshot*.png"
 
       - name: Create release and attach ZIP
         uses: softprops/action-gh-release@v1
