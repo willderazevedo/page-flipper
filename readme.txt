@@ -1,8 +1,8 @@
 === Page Flipper ===
 Contributors: willderazevedo
 Tags: flipbook, digital book, interactive book, ebook, elementor
-Requires at least: 6.0
-Tested up to: 6.8
+Requires at least: 6.8
+Tested up to: 7.0
 Requires PHP: 8.0
 Stable tag: 1.0.3
 License: GPLv3
