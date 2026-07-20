@@ -4,7 +4,7 @@ Tags: flipbook, digital book, interactive book, ebook, elementor
 Requires at least: 6.8
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 1.0.13
+Stable tag: 1.0.14
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Donate link: https://github.com/sponsors/willderazevedo
