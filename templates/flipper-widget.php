@@ -1,48 +1,48 @@
 <?php
 if (!defined('ABSPATH')) exit;
 
-$postId                = esc_attr($atts['id']);
-$relatedPosts          = wa_page_flipper_get_related_posts($postId);
-$postTitle             = get_the_title($postId);
-$postUrl               = get_permalink($postId);
-$enableSummary         = $atts['enable_summary'] === 'yes';
-$enableRelated         = $atts['enable_related'] === 'yes';
-$enableControls        = $atts['enable_controls'] === 'yes';
-$enableShare           = $atts['enable_share'] === 'yes';
-$enableZoom            = $atts['enable_zoom'] === 'yes';
-$enableBackgroundImage = $atts['enable_background_image'] === 'yes';
-$backgroundColor       = $atts['page_background_color'];
-$surfaceColor          = $atts['page_surface_color'];
-$surfaceAccentColor    = $atts['page_surface_accent_color'];
-$accentColor           = $atts['page_accent_color'];
-$fontColor             = $atts['page_font_color'];
-$backgroundImage       = $enableBackgroundImage ? (json_decode(get_post_meta($postId, '_wa_page_flipper_background_data', true), true)['url'] ?? null) : null;
-$builderData           = get_post_meta($postId, '_wa_page_flipper_builder_data', true);
-$pdfAttachment         = get_post_meta($postId, '_wa_page_flipper_pdf_data', true);
-$builderData           = $builderData ?: null;
-$pdfAttachment         = $pdfAttachment ?: null;
+$waPageFlipperPostId                = esc_attr($atts['id']);
+$waPageFlipperRelatedPosts          = wa_page_flipper_get_related_posts($waPageFlipperPostId);
+$waPageFlipperPostTitle             = get_the_title($waPageFlipperPostId);
+$waPageFlipperPostUrl               = get_permalink($waPageFlipperPostId);
+$waPageFlipperEnableSummary         = $atts['enable_summary'] === 'yes';
+$waPageFlipperEnableRelated         = $atts['enable_related'] === 'yes';
+$waPageFlipperEnableControls        = $atts['enable_controls'] === 'yes';
+$waPageFlipperEnableShare           = $atts['enable_share'] === 'yes';
+$waPageFlipperEnableZoom            = $atts['enable_zoom'] === 'yes';
+$waPageFlipperEnableBackgroundImage = $atts['enable_background_image'] === 'yes';
+$waPageFlipperBackgroundColor       = $atts['page_background_color'];
+$waPageFlipperSurfaceColor          = $atts['page_surface_color'];
+$waPageFlipperSurfaceAccentColor    = $atts['page_surface_accent_color'];
+$waPageFlipperAccentColor           = $atts['page_accent_color'];
+$waPageFlipperFontColor             = $atts['page_font_color'];
+$waPageFlipperBackgroundImage       = $waPageFlipperEnableBackgroundImage ? (json_decode(get_post_meta($waPageFlipperPostId, '_wa_page_flipper_background_data', true), true)['url'] ?? null) : null;
+$waPageFlipperBuilderData           = get_post_meta($waPageFlipperPostId, '_wa_page_flipper_builder_data', true);
+$waPageFlipperPdfAttachment         = get_post_meta($waPageFlipperPostId, '_wa_page_flipper_pdf_data', true);
+$waPageFlipperBuilderData           = $waPageFlipperBuilderData ?: null;
+$waPageFlipperPdfAttachment         = $waPageFlipperPdfAttachment ?: null;
 ?>
 
-<?php if ($builderData) : ?>
+<?php if ($waPageFlipperBuilderData) : ?>
     <div 
-        x-data="flipperWidget(<?php echo esc_js($builderData ?? '[]'); ?>, <?php echo esc_js($pdfAttachment ?? 'null'); ?>)"
+        x-data="flipperWidget(<?php echo esc_js($waPageFlipperBuilderData ?? '[]'); ?>, <?php echo esc_js($waPageFlipperPdfAttachment ?? 'null'); ?>)"
         x-bind:style="{'--page-surface-elevation': pages.length + 1}"
         class="flipper-widget-wrapper"
         style="
-            --page-bg-image: url(<?php echo esc_attr($backgroundImage); ?>);
-            --page-bg-color: <?php echo esc_attr($backgroundColor); ?>;
-            --page-surface-color: <?php echo esc_attr($surfaceColor); ?>;
-            --page-surface-accent-color: <?php echo esc_attr($surfaceAccentColor); ?>;
-            --page-accent-color: <?php echo esc_attr($accentColor); ?>;
-            --page-font-color: <?php echo esc_attr($fontColor); ?>;
+            --page-bg-image: url(<?php echo esc_attr($waPageFlipperBackgroundImage); ?>);
+            --page-bg-color: <?php echo esc_attr($waPageFlipperBackgroundColor); ?>;
+            --page-surface-color: <?php echo esc_attr($waPageFlipperSurfaceColor); ?>;
+            --page-surface-accent-color: <?php echo esc_attr($waPageFlipperSurfaceAccentColor); ?>;
+            --page-accent-color: <?php echo esc_attr($waPageFlipperAccentColor); ?>;
+            --page-font-color: <?php echo esc_attr($waPageFlipperFontColor); ?>;
         "
     >
 
-        <?php if ($backgroundImage) : ?>
+        <?php if ($waPageFlipperBackgroundImage) : ?>
             <div class="flipper-widget-background"></div>
         <?php endif; ?>
 
-        <?php if ($enableSummary) : ?>
+        <?php if ($waPageFlipperEnableSummary) : ?>
             <template x-if="!narrationActive">
                 <div class="flipper-summary-wrapper" x-bind:class="{'active': summaryActive}">
                     <button x-on:click="summaryActive = !summaryActive" type="button" class="summary-toggler">
@@ -62,7 +62,7 @@ $pdfAttachment         = $pdfAttachment ?: null;
         <?php endif; ?>
 
         <div class="flipper-actions">
-            <?php if ($enableZoom) : ?>
+            <?php if ($waPageFlipperEnableZoom) : ?>
                 <button x-on:click="toggleZoom($event, true)" x-bind:disabled="narrationActive" type="button">
                     <i x-show="!zoomActive" class="fas fa-search-plus"></i>
                     <i x-show="zoomActive" class="fas fa-search-minus"></i>
@@ -78,8 +78,8 @@ $pdfAttachment         = $pdfAttachment ?: null;
                 <i class="fas fa-file-pdf"></i>
             </button>
 
-            <?php if ($enableRelated) : ?>
-                <button type="button" class="related-toggler" <?php if (!$relatedPosts): ?> disabled <?php endif; ?> x-bind:class="{'active': relatedActive}" x-on:click="relatedActive = !relatedActive" description="<?php $relatedPosts ? esc_attr_e('Available Editions', 'page-flipper') : esc_attr_e('No other editions available', 'page-flipper') ; ?>">
+            <?php if ($waPageFlipperEnableRelated) : ?>
+                <button type="button" class="related-toggler" <?php if (!$waPageFlipperRelatedPosts): ?> disabled <?php endif; ?> x-bind:class="{'active': relatedActive}" x-on:click="relatedActive = !relatedActive" description="<?php $waPageFlipperRelatedPosts ? esc_attr_e('Available Editions', 'page-flipper') : esc_attr_e('No other editions available', 'page-flipper') ; ?>">
                     <i class="fa-solid fa-ellipsis"></i>
                 </button>
             <?php endif; ?>
@@ -91,7 +91,7 @@ $pdfAttachment         = $pdfAttachment ?: null;
             </div>
         </div>
         
-        <?php if ($enableControls) : ?>
+        <?php if ($waPageFlipperEnableControls) : ?>
             <template x-if="!narrationActive">
                 <div class="flipper-controls">
                     <button type="button" class="previous-page" x-on:click="previousPage()">
@@ -105,37 +105,37 @@ $pdfAttachment         = $pdfAttachment ?: null;
             </template>
         <?php endif; ?>
 
-        <?php if ($enableShare) : ?>
+        <?php if ($waPageFlipperEnableShare) : ?>
             <div class="flipper-share-buttons">
-                <button type="button" data-sharer="facebook" data-title="<?php echo esc_attr($postTitle); ?>" data-url="<?php echo esc_attr($postUrl); ?>">
+                <button type="button" data-sharer="facebook" data-title="<?php echo esc_attr($waPageFlipperPostTitle); ?>" data-url="<?php echo esc_attr($waPageFlipperPostUrl); ?>">
                     <i class="fa-brands fa-facebook-f"></i>
                 </button>
 
-                <button type="button" data-sharer="x" data-title="<?php echo esc_attr($postTitle); ?>" data-url="<?php echo esc_attr($postUrl); ?>">
+                <button type="button" data-sharer="x" data-title="<?php echo esc_attr($waPageFlipperPostTitle); ?>" data-url="<?php echo esc_attr($waPageFlipperPostUrl); ?>">
                     <i class="fa-brands fa-x-twitter"></i>
                 </button>
 
-                <button type="button" data-sharer="whatsapp" data-title="<?php echo esc_attr($postTitle); ?>" data-url="<?php echo esc_attr($postUrl); ?>">
+                <button type="button" data-sharer="whatsapp" data-title="<?php echo esc_attr($waPageFlipperPostTitle); ?>" data-url="<?php echo esc_attr($waPageFlipperPostUrl); ?>">
                     <i class="fa-brands fa-whatsapp"></i>
                 </button>
 
-                <button type="button" data-sharer="telegram" data-title="<?php echo esc_attr($postTitle); ?>" data-url="<?php echo esc_attr($postUrl); ?>">
+                <button type="button" data-sharer="telegram" data-title="<?php echo esc_attr($waPageFlipperPostTitle); ?>" data-url="<?php echo esc_attr($waPageFlipperPostUrl); ?>">
                     <i class="fa-brands fa-telegram"></i>
                 </button>
 
-                <button type="button" data-sharer="email" data-title="<?php echo esc_attr($postTitle); ?>" data-url="<?php echo esc_attr($postUrl); ?>">
+                <button type="button" data-sharer="email" data-title="<?php echo esc_attr($waPageFlipperPostTitle); ?>" data-url="<?php echo esc_attr($waPageFlipperPostUrl); ?>">
                     <i class="fa-solid fa-envelope"></i>
                 </button>
             </div>
         <?php endif; ?>
 
-        <?php if ($enableRelated && $relatedPosts): ?>
+        <?php if ($waPageFlipperEnableRelated && $waPageFlipperRelatedPosts): ?>
             <div class="related-posts-wrapper" x-bind:class="{'active': relatedActive}">
                 <div class="related-posts">
                     <div class="title"><?php esc_html_e('Available Editions', 'page-flipper'); ?></div>
     
                     <div class="related-posts-list">
-                        <?php foreach ($relatedPosts as $relatedPost): ?>
+                        <?php foreach ($waPageFlipperRelatedPosts as $relatedPost): ?>
                             <?php if (!has_post_thumbnail($relatedPost->ID)) continue; ?>
     
                             <a href="<?php echo esc_attr(get_permalink($relatedPost->ID)); ?>">
