@@ -120,14 +120,18 @@ function wa_page_flipper_post_type_register() {
 add_action( 'init', 'wa_page_flipper_post_type_register' );
 
 function wa_page_flipper_upload_dir( $args ) {
-    if ( isset( $_REQUEST['post_id'] ) && 'wa_page_flipper' == get_post_type( $_REQUEST['post_id'] ) ) {
-        $newdir = '/wa-page-flipper'; 
+    $post_id = isset( $_REQUEST['post_id'] )
+        ? absint( wp_unslash( $_REQUEST['post_id'] ) )
+        : 0;
 
-        $args['path'] = str_replace( $args['subdir'], $newdir, $args['path'] );
-        $args['url'] = str_replace( $args['subdir'], $newdir, $args['url'] );
+    if ( $post_id && 'wa_page_flipper' === get_post_type( $post_id ) ) {
+        $newdir = '/wa-page-flipper';
+
+        $args['path']   = str_replace( $args['subdir'], $newdir, $args['path'] );
+        $args['url']    = str_replace( $args['subdir'], $newdir, $args['url'] );
         $args['subdir'] = $newdir;
     }
-	
+
     return $args;
 }
 
