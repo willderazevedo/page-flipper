@@ -4,7 +4,7 @@
 ![GitHub release](https://img.shields.io/github/v/release/willderazevedo/page-flipper)
 ![License](https://img.shields.io/github/license/willderazevedo/page-flipper)
 
-<img alt="Builder" src="assets/banner.png">
+<img alt="Builder" src=".wordpress-org/banner-1544x500.png">
 
 ## Description
 The **Page Flipper** is a **free** WordPress plugin that enables the creation of interactive digital books. It adds a new post type for digital books, offering a set of features to manage books and add interactivity with hotspots.
@@ -55,12 +55,12 @@ The **Page Flipper** is a **free** WordPress plugin that enables the creation of
 Here are some screenshots showcasing the **Page Flipper** plugin in action:
 
 <p float="left">
-  <img alt="Builder" src="assets/screenshot-1.png" width="49%">
-  <img alt="Builder Hotspots" src="assets/screenshot-2.png" width="49%">
-  <img alt="Builder Hotspots" src="assets/screenshot-3.png" width="49%">
-  <img alt="Builder" src="assets/screenshot-4.png" width="49%">
-  <img alt="Builder" src="assets/screenshot-5.png" width="49%">
-  <img alt="Builder Hotspots" src="assets/screenshot-6.png" width="49%">
+  <img alt="Builder" src=".wordpress-org/screenshot-1.png" width="49%">
+  <img alt="Builder Hotspots" src=".wordpress-org/screenshot-2.png" width="49%">
+  <img alt="Builder Hotspots" src=".wordpress-org/screenshot-3.png" width="49%">
+  <img alt="Builder" src=".wordpress-org/screenshot-4.png" width="49%">
+  <img alt="Builder" src=".wordpress-org/screenshot-5.png" width="49%">
+  <img alt="Builder Hotspots" src=".wordpress-org/screenshot-6.png" width="49%">
 </p>
 
 ## Language Support
